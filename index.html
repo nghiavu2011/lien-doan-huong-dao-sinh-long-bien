@@ -255,6 +255,38 @@
     .story-fb-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#1877f2;text-decoration:none;margin-left:auto;padding:5px 12px;background:rgba(24,119,242,.08);border-radius:6px;transition:all .2s ease}
     .story-fb-link:hover{background:#1877f2;color:#ffffff}
 
+    
+    /* Gallery Featured Hero Slider */
+    .gal-slider-box{position:relative;width:100%;height:440px;border-radius:16px;overflow:hidden;margin-bottom:24px;box-shadow:0 15px 40px rgba(17,50,55,.12);border:1px solid var(--line);background:#0a191c;cursor:pointer}
+    .gal-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease-in-out;display:flex;align-items:center;justify-content:center}
+    .gal-slide.active{opacity:1;z-index:2}
+    .gal-slide img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+    .gal-slide.active img{transform:scale(1.04)}
+    .gal-slide-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,18,20,.85) 0%,rgba(4,18,20,.2) 50%,transparent 100%)}
+    .gal-slide-caption{position:absolute;left:24px;bottom:24px;right:80px;color:#ffffff;z-index:3;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+    .gal-slide-badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--fire);color:#ffffff;padding:4px 10px;border-radius:20px;margin-bottom:8px}
+    .gal-slide-title{font-family:"Roboto Slab",serif;font-size:22px;font-weight:700;margin-bottom:4px;color:#ffffff}
+    .gal-slide-meta{font-size:13px;color:rgba(255,255,255,.8)}
+
+    .slider-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2);color:#ffffff;border:0;font-size:22px;display:grid;place-items:center;cursor:pointer;z-index:10;backdrop-filter:blur(6px);transition:all .2s ease}
+    .slider-nav-btn:hover{background:var(--fire);transform:translateY(-50%) scale(1.1)}
+    .slider-prev{left:16px}
+    .slider-next{right:16px}
+    .slider-dots{position:absolute;bottom:16px;right:20px;display:flex;gap:6px;z-index:10}
+    .slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .2s ease}
+    .slider-dot.active{background:var(--fire);width:22px;border-radius:10px}
+
+    /* Load More Button */
+    .load-more-wrap{text-align:center;margin-top:28px}
+    .btn-load-more{background:var(--paper);border:1.5px solid var(--line);color:var(--forest);font-weight:700;font-size:14px;padding:12px 28px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .22s ease}
+    .btn-load-more:hover{background:var(--forest);color:#ffffff;border-color:var(--forest);transform:translateY(-2px);box-shadow:0 8px 20px rgba(17,50,55,.15)}
+
+    @media(max-width:768px){
+      .gal-slider-box{height:280px}
+      .gal-slide-title{font-size:17px}
+      .gal-slide-caption{left:16px;bottom:16px;right:60px}
+    }
+
     /* gallery */
     .gallery-sec{background:var(--ivory)}
     .gal-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
@@ -510,8 +542,7 @@
             <a class="dropdown-item" href="#hoat-dong" data-vi="Chương Trình Sinh Hoạt" data-en="Weekly Activities">Chương Trình Sinh Hoạt</a>
             <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Ấu (Sói con)" data-en="Cub Scout Pack">Ngành Ấu (Sói con)</a>
             <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Thiếu (Thiếu sinh)" data-en="Scout Troop">Ngành Thiếu (Thiếu sinh)</a>
-            <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Kha" data-en="Venture Scout">Ngành Kha</a>
-            <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Tráng (Tráng sinh)" data-en="Rover Crew">Ngành Tráng (Tráng sinh)</a>
+                        <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Tráng (Tráng sinh)" data-en="Rover Crew">Ngành Tráng (Tráng sinh)</a>
           </div>
         </div>
 
@@ -614,7 +645,15 @@
           <p class="lead" data-vi="Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên." data-en="No staged poses—just hands getting familiar with the earth, eager eyes lighting their first campfire, and cheerful laughter along the Red River. Each photo captures a rustic memory of Sunday mornings lived fully in the open air.">Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên.</p>
         </div>
         <div class="gal-warn" id="galWarn" hidden><strong data-vi="Chưa tải được ảnh" data-en="Unable to load photos">Chưa tải được ảnh</strong><p data-vi="Trang đang không tìm thấy thư mục assets/gallery/. Hãy mở index.html cùng với cả thư mục assets." data-en="Cannot locate gallery folder. Please open index.html alongside its folders.">Trang đang không tìm thấy thư mục <code>assets/gallery/</code>.</p></div>
-                <div class="gal-bar reveal" id="galBar" role="group" aria-label="Lọc theo album"></div>
+                        <!-- Featured Hero Showcase Slider -->
+        <div class="gal-slider-box reveal" id="gallerySlider" onclick="handleSliderClick()">
+          <div id="sliderSlides"></div>
+          <button class="slider-nav-btn slider-prev" type="button" onclick="event.stopPropagation();stepSlider(-1)" aria-label="Slide trước">‹</button>
+          <button class="slider-nav-btn slider-next" type="button" onclick="event.stopPropagation();stepSlider(1)" aria-label="Slide sau">›</button>
+          <div class="slider-dots" id="sliderDots"></div>
+        </div>
+
+        <div class="gal-bar reveal" id="galBar" role="group" aria-label="Lọc theo album"></div>
         <!-- Album Story & Topic Sharing Box -->
         <div class="album-story-card reveal" id="albumStory" style="display:none;" aria-live="polite">
           <div class="story-header">
@@ -624,7 +663,12 @@
           <p class="story-desc" id="storyDesc">Liên đoàn Long Biên - Long Biên Scout vừa có một kỳ trại Tất Niên - Tết Ấm Bên Nhau trong hai ngày 11 và 12/1/2025! Kỳ trại đã diễn ra thật đầm ấm trong không khí vui tươi, quây quần bên nhau những ngày cuối năm Giáp Thìn! Chúng ta cùng nhìn lại một số hình ảnh trong kỳ trại Tết Ấm Bên Nhau nhé!</p>
           <div class="story-tags" id="storyTags"></div>
         </div>
-        <div class="gal-grid reveal" id="galGrid"></div>
+                <div class="gal-grid reveal" id="galGrid"></div>
+        <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+          <button class="btn-load-more" id="btnLoadMore" type="button" onclick="handleLoadMore()">
+            <span data-vi="Xem thêm khoảnh khắc khác ▾" data-en="Load More Moments ▾">Xem thêm khoảnh khắc khác ▾</span>
+          </button>
+        </div>
         <p class="gal-caption" data-vi="Bấm vào ảnh để xem cỡ lớn. Dùng ← → để chuyển ảnh, Esc để đóng." data-en="Click photo to view full size. Use ← → arrows to navigate, Esc to close.">Bấm vào ảnh để xem cỡ lớn. Dùng ← → để chuyển ảnh, Esc để đóng.</p>
       </div>
     </section>
@@ -765,6 +809,80 @@
         </div>
       </div>
     </section>
+
+    <!-- =============== KỸ NĂNG HƯỚNG ĐẠO (INTERACTIVE SKILL HUB) =============== -->
+    <section class="section" id="ky-nang" style="background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <div class="eyebrow" data-vi="KỸ NĂNG HƯỚNG ĐẠO" data-en="SCOUT SKILLS">KỸ NĂNG HƯỚNG ĐẠO</div>
+          <h2 data-vi="Học bằng việc làm · Kỹ năng thực tế trọn đời." data-en="Learning by Doing · Practical Skills for Life.">Học bằng việc làm · Kỹ năng thực tế trọn đời.</h2>
+          <p class="lead" data-vi="Các em được trực tiếp thực hành nút dây, nhóm lửa, sơ cấp cứu, đọc bản đồ và sinh tồn dã ngoại dưới sự kèm cặp tận tình của các Huynh trưởng." data-en="Hands-on mastery of knots, firecraft, first aid, navigation, and outdoor survival under leader guidance.">Các em được trực tiếp thực hành nút dây, nhóm lửa, sơ cấp cứu, đọc bản đồ và sinh tồn dã ngoại dưới sự kèm cặp tận tình của các Huynh trưởng.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- 1. Lều Trại -->
+          <div class="skill-card" onclick="openSkillModal('leu-trai')">
+            <div>
+              <div class="skill-icon">🏕️</div>
+              <h3 data-vi="Lều Trại &amp; Sinh Tồn" data-en="Campcraft &amp; Survival">Lều Trại &amp; Sinh Tồn</h3>
+              <p data-vi="Dựng lều chữ A, chọn vị trí an toàn tránh gió lũ, lọc nước dã chiến và 7 nguyên tắc Leave No Trace." data-en="A-frame tent setup, safe campsite selection, wilderness water filtration, and Leave No Trace principles.">Dựng lều chữ A, chọn vị trí an toàn tránh gió lũ, lọc nước dã chiến và 7 nguyên tắc Leave No Trace.</p>
+            </div>
+            <span class="skill-btn" data-vi="Xem hướng dẫn &amp; Video ↗" data-en="View Guide &amp; Video ↗">Xem hướng dẫn &amp; Video ↗</span>
+          </div>
+
+          <!-- 2. Nút Dây -->
+          <div class="skill-card" onclick="openSkillModal('nut-day')">
+            <div>
+              <div class="skill-icon">🪢</div>
+              <h3 data-vi="Nút Dây &amp; Tiên Phong" data-en="Knots &amp; Pioneering">Nút Dây &amp; Tiên Phong</h3>
+              <p data-vi="Nút dẹt, nút thuyền chài, nút thòng lọng, nút ghế đơn và kỹ thuật nối gỗ làm cầu tháp tiên phong." data-en="Square knot, clove hitch, bowline, sheet bend, and wood lashing techniques for pioneering.">Nút dẹt, nút thuyền chài, nút thòng lọng, nút ghế đơn và kỹ thuật nối gỗ làm cầu tháp tiên phong.</p>
+            </div>
+            <span class="skill-btn" data-vi="Xem hướng dẫn &amp; Video ↗" data-en="View Guide &amp; Video ↗">Xem hướng dẫn &amp; Video ↗</span>
+          </div>
+
+          <!-- 3. Tạo Lửa -->
+          <div class="skill-card" onclick="openSkillModal('tao-lua')">
+            <div>
+              <div class="skill-icon">🔥</div>
+              <h3 data-vi="Tạo Lửa &amp; Bếp Trại" data-en="Fire Craft &amp; Camp Cooking">Tạo Lửa &amp; Bếp Trại</h3>
+              <p data-vi="Nhóm lửa bằng đá lửa tinder, phân loại củi khô, làm bếp Hoàng Cầm và tự nấu ăn dã chiến trong rừng." data-en="Fire lighting with flint, firewood selection, field trenches, and outdoor campfire cooking.">Nhóm lửa bằng đá lửa tinder, phân loại củi khô, làm bếp Hoàng Cầm và tự nấu ăn dã chiến trong rừng.</p>
+            </div>
+            <span class="skill-btn" data-vi="Xem hướng dẫn &amp; Video ↗" data-en="View Guide &amp; Video ↗">Xem hướng dẫn &amp; Video ↗</span>
+          </div>
+
+          <!-- 4. Sơ Cấp Cứu -->
+          <div class="skill-card" onclick="openSkillModal('so-cuu')">
+            <div>
+              <div class="skill-icon">🩹</div>
+              <h3 data-vi="Sơ Cấp Cứu" data-en="First Aid &amp; Safety">Sơ Cấp Cứu</h3>
+              <p data-vi="Băng bó vết thương, nẹp cố định chấn thương, xử lý say nắng, đuối nước, côn trùng cắn và cáng cứu thương." data-en="Wound dressing, splinting, heat stroke treatment, insect bites, and emergency stretcher carrying.">Băng bó vết thương, nẹp cố định chấn thương, xử lý say nắng, đuối nước, côn trùng cắn và cáng cứu thương.</p>
+            </div>
+            <span class="skill-btn" data-vi="Xem hướng dẫn &amp; Video ↗" data-en="View Guide &amp; Video ↗">Xem hướng dẫn &amp; Video ↗</span>
+          </div>
+
+          <!-- 5. Ước Đạc & Bản Đồ -->
+          <div class="skill-card" onclick="openSkillModal('uoc-dac')">
+            <div>
+              <div class="skill-icon">🧭</div>
+              <h3 data-vi="Ước Đạc &amp; Bản Đồ" data-en="Estimation &amp; Map">Ước Đạc &amp; Bản Đồ</h3>
+              <p data-vi="Đọc bản đồ địa hình, sử dụng la bàn từ tính, ước lượng chiều cao cây, độ rộng sông và định hướng thiên nhiên." data-en="Topographic map reading, magnetic compass, height and distance estimation, and natural orientation.">Đọc bản đồ địa hình, sử dụng la bàn từ tính, ước lượng chiều cao cây, độ rộng sông và định hướng thiên nhiên.</p>
+            </div>
+            <span class="skill-btn" data-vi="Xem hướng dẫn &amp; Video ↗" data-en="View Guide &amp; Video ↗">Xem hướng dẫn &amp; Video ↗</span>
+          </div>
+
+          <!-- 6. Thám Du & Dấu Đường -->
+          <div class="skill-card" onclick="openSkillModal('tham-du')">
+            <div>
+              <div class="skill-icon">🌲</div>
+              <h3 data-vi="Thám Du &amp; Mật Thư" data-en="Expeditions &amp; Ciphers">Thám Du &amp; Mật Thư</h3>
+              <p data-vi="Giải mã tín hiệu Morse, cờ Semaphore, nhận biết dấu vết đi đường trên cành cây, sỏi đá và đi rừng an toàn." data-en="Morse code, Semaphore flags, woodland trail sign tracking, and cross-country expedition discipline.">Giải mã tín hiệu Morse, cờ Semaphore, nhận biết dấu vết đi đường trên cành cây, sỏi đá và đi rừng an toàn.</p>
+            </div>
+            <span class="skill-btn" data-vi="Xem hướng dẫn &amp; Video ↗" data-en="View Guide &amp; Video ↗">Xem hướng dẫn &amp; Video ↗</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- =============== ABOUT =============== -->
     <section class="section about" id="ve-lien-doan">
@@ -1202,6 +1320,7 @@
 
     if (typeof renderBar === 'function') renderBar();
     if (typeof renderGrid === 'function') renderGrid();
+    if (typeof initSlider === 'function') initSlider();
     if (typeof renderAlbumStory === 'function') renderAlbumStory(filter);
   };
 
@@ -2091,25 +2210,140 @@
       }
     });
   };
-  const renderGrid=()=>{
-    view=PHOTOS.filter(p=>filter==='all'||p.album.key===filter);
+  
+  /* ---------- Featured Hero Slider & Paginated Grid ---------- */
+  let sliderIdx = 0;
+  let sliderTimer = null;
+  let currentDisplayLimit = 12;
+  const FEATURED_SLIDES = [
+    {
+      img: 'image/Year-End Camp – A Warm Tet Together/hero sector.jpg',
+      badge_vi: 'Kỳ Trại Nổi Bật', badge_en: 'Featured Camp',
+      title_vi: 'Trại Tất Niên – Tết Ấm Bên Nhau 2025', title_en: 'Year-End Camp – A Warm Tet Together',
+      meta_vi: 'Khoảnh khắc ấm áp và quây quần của gia đình Hướng đạo Long Biên', meta_en: 'Warm memories and brotherhood around the campfire'
+    },
+    {
+      img: 'image/Celebrating the 7th birthday/487853617_645715404875331_55015001433599676_n.jpg',
+      badge_vi: 'Kỷ Niệm 7 Năm', badge_en: '7th Anniversary',
+      title_vi: 'Hành Trình 7 Năm Trưởng Thành Dưới Bóng Cờ', title_en: '7 Years of Scouting Adventures',
+      meta_vi: 'Đồng hành cùng phụ huynh và các em đoàn sinh từ năm 2018', meta_en: 'Accompanying parents and scouts since 2018'
+    },
+    {
+      img: 'image/A journey to explore the history of Hanoi/484989674_634159516030920_7688009211326410385_n.jpg',
+      badge_vi: 'Thám Du Lịch Sử', badge_en: 'Heritage Expedition',
+      title_vi: 'Khám Phá 36 Phố Phường Thăng Long', title_en: 'Exploring 36 Historic Streets',
+      meta_vi: 'Giải mật thư, tìm dấu vết và tìm hiểu văn hóa Hà Nội nghìn năm', meta_en: 'Decoding ciphers and exploring Hanoi history'
+    },
+    {
+      img: 'image/Spreading Love from the Long Bien Scouts Inter-group Units/484938634_634164802697058_680209268313463878_n.jpg',
+      badge_vi: 'Lan Tỏa Yêu Thương', badge_en: 'Community Service',
+      title_vi: 'Chiến Dịch Thiện Nguyện &amp; Sẻ Chia', title_en: 'Community Outreach Campaign',
+      meta_vi: 'Tự tay chuẩn bị sách vở và quà tặng gửi các bạn nhỏ vùng cao', meta_en: 'Sharing warm gifts and books with children in need'
+    }
+  ];
+
+  const initSlider = () => {
+    const slidesBox = document.getElementById('sliderSlides');
+    const dotsBox = document.getElementById('sliderDots');
+    if (!slidesBox || !dotsBox) return;
+
+    slidesBox.replaceChildren();
+    dotsBox.replaceChildren();
+
+    FEATURED_SLIDES.forEach((s, idx) => {
+      const slideDiv = document.createElement('div');
+      slideDiv.className = 'gal-slide' + (idx === 0 ? ' active' : '');
+      const badge = currentLang === 'en' ? s.badge_en : s.badge_vi;
+      const title = currentLang === 'en' ? s.title_en : s.title_vi;
+      const meta = currentLang === 'en' ? s.meta_en : s.meta_vi;
+
+      slideDiv.innerHTML = `
+        <img src="${s.img}" alt="${title}" loading="lazy" />
+        <div class="gal-slide-overlay"></div>
+        <div class="gal-slide-caption">
+          <span class="gal-slide-badge">${badge}</span>
+          <div class="gal-slide-title">${title}</div>
+          <div class="gal-slide-meta">${meta}</div>
+        </div>
+      `;
+      slidesBox.append(slideDiv);
+
+      const dot = document.createElement('span');
+      dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
+      dot.addEventListener('click', (e) => { e.stopPropagation(); goSlide(idx); });
+      dotsBox.append(dot);
+    });
+
+    startSliderAutoPlay();
+  };
+
+  const goSlide = (idx) => {
+    sliderIdx = (idx + FEATURED_SLIDES.length) % FEATURED_SLIDES.length;
+    const slides = document.querySelectorAll('.gal-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    slides.forEach((s, i) => s.classList.toggle('active', i === sliderIdx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === sliderIdx));
+    startSliderAutoPlay();
+  };
+
+  const stepSlider = (d) => {
+    goSlide(sliderIdx + d);
+  };
+
+  const startSliderAutoPlay = () => {
+    if (sliderTimer) clearInterval(sliderTimer);
+    sliderTimer = setInterval(() => {
+      goSlide(sliderIdx + 1);
+    }, 4500);
+  };
+
+  window.handleSliderClick = () => {
+    const s = FEATURED_SLIDES[sliderIdx];
+    if (s && window.openLb) {
+      const photoIdx = PHOTOS.findIndex(p => p.id === s.img || s.img.includes(p.id));
+      openLb(photoIdx >= 0 ? photoIdx : 0);
+    }
+  };
+
+  const renderGrid = () => {
+    view = PHOTOS.filter(p => filter === 'all' || p.album.key === filter);
     galGrid.replaceChildren();
-    view.forEach((p,i)=>{
-      const albumTitle = currentLang === 'en' ? (p.album.title_en||p.album.title) : p.album.title;
-      const b=document.createElement('button');
-      b.className='gal-item'; b.type='button';
-      b.setAttribute('aria-label',`Xem ảnh: ${albumTitle}`);
-      const img=document.createElement('img');
-      img.src=getThumbSrc(p.id);
-      img.loading='lazy'; img.decoding='async';
-      img.alt=p.cap||`Hoạt động của Liên đoàn Hướng đạo Long Biên – ${albumTitle}`;
-      img.addEventListener('error',()=>{document.getElementById('galWarn').hidden=false},{once:true});
+
+    // When on "all", limit display to currentDisplayLimit so page isn't endless
+    const isAll = (filter === 'all');
+    const displayPhotos = isAll ? view.slice(0, currentDisplayLimit) : view;
+
+    displayPhotos.forEach((p, i) => {
+      const albumTitle = currentLang === 'en' ? (p.album.title_en || p.album.title) : p.album.title;
+      const b = document.createElement('button');
+      b.className = 'gal-item'; b.type = 'button';
+      b.setAttribute('aria-label', `Xem ảnh: ${albumTitle}`);
+      const img = document.createElement('img');
+      img.src = getThumbSrc(p.id);
+      img.loading = 'lazy'; img.decoding = 'async';
+      img.alt = p.cap || `Hoạt động của Liên đoàn Hướng đạo Long Biên – ${albumTitle}`;
+      img.addEventListener('error', () => { const w = document.getElementById('galWarn'); if(w) w.hidden = false; }, { once: true });
       b.append(img);
-      b.addEventListener('click',()=>openLb(i));
-      b.addEventListener('dblclick',()=>openLb(i));
+      b.addEventListener('click', () => openLb(i));
+      b.addEventListener('dblclick', () => openLb(i));
       galGrid.append(b);
     });
+
+    const loadMoreWrap = document.getElementById('loadMoreWrap');
+    if (loadMoreWrap) {
+      if (isAll && currentDisplayLimit < view.length) {
+        loadMoreWrap.style.display = 'block';
+      } else {
+        loadMoreWrap.style.display = 'none';
+      }
+    }
   };
+
+  window.handleLoadMore = () => {
+    currentDisplayLimit += 16;
+    renderGrid();
+  };
+
 
   /* ---------- lightbox ---------- */
   const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),

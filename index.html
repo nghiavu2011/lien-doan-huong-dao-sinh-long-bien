@@ -178,6 +178,36 @@
       .camp-calendar-grid{grid-template-columns:1fr}
     }
 
+    
+    /* Interactive Skill Hub */
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+    .skill-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 22px;transition:all .28s ease;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;overflow:hidden}
+    .skill-card:hover{transform:translateY(-5px);box-shadow:0 14px 35px rgba(17,50,55,.1);border-color:var(--fire)}
+    .skill-icon{font-size:36px;margin-bottom:14px;line-height:1}
+    .skill-card h3{font-family:"Roboto Slab";font-size:18px;color:var(--forest);margin-bottom:8px}
+    .skill-card p{font-size:13.5px;line-height:1.65;color:var(--muted);margin:0 0 16px}
+    .skill-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--fire);text-decoration:none;margin-top:auto}
+    .skill-card:hover .skill-btn{text-decoration:underline}
+
+    /* Skill Detail Modal */
+    .skill-modal-backdrop{position:fixed;inset:0;background:rgba(17,50,55,.85);backdrop-filter:blur(8px);z-index:999;display:none;place-items:center;padding:20px;overflow-y:auto}
+    .skill-modal-backdrop.open{display:grid}
+    .skill-modal-box{background:#ffffff;border-radius:18px;max-width:720px;width:100%;max-height:90vh;overflow-y:auto;padding:32px 28px;box-shadow:0 25px 60px rgba(0,0,0,.35);position:relative}
+    .skill-modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;background:#f1f5f9;border:0;font-size:18px;font-weight:700;color:#64748b;cursor:pointer;display:grid;place-items:center;transition:all .18s ease}
+    .skill-modal-close:hover{background:#fee2e2;color:#ef4444}
+    .skill-video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:18px 0;background:#000}
+    .skill-video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .skill-step-list{margin:14px 0 14px 20px;font-size:14px;line-height:1.75;color:#334155}
+    .skill-tip-box{background:#fef3c7;border-left:4px solid var(--fire);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.6;color:#92400e;margin-top:16px}
+
+    @media (max-width:960px){
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .skills-grid{grid-template-columns:1fr}
+      .skill-modal-box{padding:24px 18px}
+    }
+
     /* Header Dropdowns */
     .nav-item{position:relative;display:inline-flex;align-items:center;height:100%}
     .nav-item>a{display:inline-flex;align-items:center;gap:4px;padding:8px 10px;color:inherit;text-decoration:none;font-weight:650;font-size:14px;opacity:.92;transition:opacity .18s ease}
@@ -498,12 +528,12 @@
         <div class="nav-item">
           <a href="#ky-nang"><span data-vi="Kỹ Năng" data-en="Skills">Kỹ Năng</span> <span class="dropdown-caret">▼</span></a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#ky-nang" data-vi="Kỹ Năng Tổng Hợp" data-en="Outdoor Skills">Kỹ Năng Tổng Hợp</a>
-            <a class="dropdown-item" href="#ky-nang" data-vi="Nút Dây &amp; Tiên Phong" data-en="Knots &amp; Pioneering">Nút Dây &amp; Tiên Phong</a>
-            <a class="dropdown-item" href="#ky-nang" data-vi="Tạo Lửa &amp; Bếp Trại" data-en="Fire Craft">Tạo Lửa &amp; Bếp Trại</a>
-            <a class="dropdown-item" href="#ky-nang" data-vi="Sơ Cấp Cứu" data-en="First Aid">Sơ Cấp Cứu</a>
-            <a class="dropdown-item" href="#ky-nang" data-vi="Ước Đạc &amp; Bản Đồ" data-en="Estimation &amp; Map">Ước Đạc &amp; Bản Đồ</a>
-            <a class="dropdown-item" href="#ky-nang" data-vi="Thám Du &amp; Dấu Đường" data-en="Expeditions &amp; Trails">Thám Du &amp; Dấu Đường</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('leu-trai')" data-vi="🏕️ Lều Trại &amp; Sinh Tồn" data-en="🏕️ Campcraft &amp; Survival">🏕️ Lều Trại &amp; Sinh Tồn</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('nut-day')" data-vi="🪢 Nút Dây &amp; Tiên Phong" data-en="🪢 Knots &amp; Pioneering">🪢 Nút Dây &amp; Tiên Phong</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('tao-lua')" data-vi="🔥 Tạo Lửa &amp; Bếp Trại" data-en="🔥 Fire Craft &amp; Cooking">🔥 Tạo Lửa &amp; Bếp Trại</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('so-cuu')" data-vi="🩹 Sơ Cấp Cứu &amp; An Toàn" data-en="🩹 First Aid &amp; Safety">🩹 Sơ Cấp Cứu &amp; An Toàn</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('uoc-dac')" data-vi="🧭 Ước Đạc &amp; Bản Đồ" data-en="🧭 Navigation &amp; Map">🧭 Ước Đạc &amp; Bản Đồ</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('tham-du')" data-vi="🌲 Thám Du &amp; Mật Thư" data-en="🌲 Expeditions &amp; Ciphers">🌲 Thám Du &amp; Mật Thư</a>
           </div>
         </div>
 
@@ -691,7 +721,7 @@
           <div class="eyebrow" data-vi="CÁC NGÀNH" data-en="SCOUT SECTIONS">CÁC NGÀNH</div>
           <h2 data-vi="Ba ngành, ba kiểu chương trình." data-en="Three Sections, Three Tailored Programs.">Ba ngành, ba kiểu chương trình.</h2>
           <p class="lead" data-vi="Liên đoàn tổ chức theo các ngành của Hướng đạo Việt Nam. Cùng một buổi sáng Chủ nhật, mỗi ngành làm một việc khác nhau — vừa sức và vừa tuổi." data-en="Organized under Vietnam Scouting sections. Every Sunday morning, each section undertakes age-appropriate activities.">Liên đoàn tổ chức theo các ngành của Hướng đạo Việt Nam. Cùng một buổi sáng Chủ nhật, mỗi ngành làm một việc khác nhau — vừa sức và vừa tuổi.</p>
-          <button class="btn btn-primary" data-join data-vi="Hỏi về ngành phù hợp" data-en="Inquire About Suitable Section">Hỏi về ngành phù hợp</button>
+          <a class="btn btn-primary" href="https://zalo.me/0982669456" target="_blank" rel="noopener" data-vi="Hỏi về ngành phù hợp (Zalo) ↗" data-en="Inquire About Section (Zalo) ↗">Hỏi về ngành phù hợp (Zalo) ↗</a>
         </div>
         <div class="branch-list">
           <article class="branch reveal">
@@ -1183,6 +1213,115 @@
       mb.textContent = '☰';
     }
   };
+  
+  /* ---------- Interactive Skill Hub Modal Controller ---------- */
+  const SKILL_DETAILS = {
+    'nut-day': {
+      title: '🪢 Nút Dây & Tiên Phong (Knots & Pioneering)',
+      desc: 'Nút dây là bài học vỡ lòng của người Hướng đạo. Dây thừng liên kết gỗ tre tạo nên cầu treo, tháp canh và lều trại vững chãi.',
+      videoId: '2J4jZJ4s2L8', // YouTube Video ID
+      steps: [
+        '<strong>Nút Dẹt (Reef Knot):</strong> Dùng nối 2 đầu dây bằng nhau, buộc gói hàng, băng bó cứu thương (dễ mở, không tuột).',
+        '<strong>Nút Thuyền Chài (Clove Hitch):</strong> Khởi đầu và kết thúc cho hầu hết các nút ráp nối gỗ tre, buộc thuyền vào cọc.',
+        '<strong>Nút Thòng Lọng (Bowline):</strong> "Vua của các loại nút" — tạo vòng tròn cố định không thít chặt, dùng cứu người đuối nước hoặc kéo người từ trên cao.',
+        '<strong>Nút Dệt (Sheet Bend):</strong> Dùng nối 2 đầu dây có kích thước to nhỏ khác nhau chắc chắn.'
+      ],
+      tip: '💡 <em>Lời khuyên Huynh trưởng:</em> Hãy tập thắt nút bằng một tay và thắt nút khi nhắm mắt để sẵn sàng ứng phó trong bóng tối!'
+    },
+    'tao-lua': {
+      title: '🔥 Tạo Lửa & Bếp Trại (Fire Craft & Camp Cooking)',
+      desc: 'Ngọn lửa sưởi ấm, nấu chín thức ăn và xua đuổi thú dữ. Người Hướng đạo biết nhóm lửa an toàn và luôn dập tắt hoàn toàn trước khi rời đi.',
+      videoId: 'Y7qXzYBODf8',
+      steps: [
+        '<strong>Bước 1 - Chuẩn bị bùi nhùi (Tinder):</strong> Gom xơ dừa khô, vỏ cây khô mịn, lá thông hoặc bông gòn.',
+        '<strong>Bước 2 - Phân loại củi:</strong> Củi đóm (nhỏ như que diêm) &rarr; Củi nhỡ (bằng ngón tay) &rarr; Củi chính (khúc gỗ lớn).',
+        '<strong>Bước 3 - Xếp củi hình nón:</strong> Tạo khoảng trống ở giữa cho không khí lưu thông, đặt bùi nhùi vào giữa và đánh lửa.',
+        '<strong>Bếp Hoàng Cầm:</strong> Đào rãnh dẫn khói ngầm dưới đất để nấu ăn không lộ khói khi sinh hoạt dã ngoại.'
+      ],
+      tip: '⚠️ <em>Quy tắc an toàn:</em> Luôn có sẵn xô cát hoặc nước cạnh đống lửa. Không bao giờ nhóm lửa dưới tán cây thấp khô cằn.'
+    },
+    'so-cuu': {
+      title: '🩹 Sơ Cấp Cứu & An Toàn Dã Ngoại (First Aid)',
+      desc: 'Kỹ năng vàng cứu người trong gang tấc trước khi nhân viên y tế chuyên nghiệp có mặt.',
+      videoId: '7CgtIgSyQ14',
+      steps: [
+        '<strong>Băng bó vết thương hở:</strong> Rửa sạch bằng nước muối sinh lý, đặt gạc vô khuẩn và băng ép nhẹ cầm máu.',
+        '<strong>Xử lý bong gân/chấn thương (RICE):</strong> Rest (Nghỉ ngơi) &rarr; Ice (Chườm lạnh) &rarr; Compression (Băng ép) &rarr; Elevation (Nâng cao chi).',
+        '<strong>Cố định gãy xương:</strong> Dùng 2 nẹp tre/gỗ đặt 2 bên chi bị gãy, lót vải mềm và buộc cố định trên - dưới khớp.',
+        '<strong>Xử lý say nắng (Heatstroke):</strong> Đưa ngay vào bóng râm, nới lỏng quần áo, chườm mát vùng cổ/nách/bẹn và uống từng ngụm nước nhỏ.'
+      ],
+      tip: '🚑 <em>Ghi nhớ:</em> Luôn giữ bình tĩnh, kiểm tra phản xạ thở của nạn nhân và gọi cấp cứu 115 khi gặp tình huống nghiêm trọng.'
+    },
+    'uoc-dac': {
+      title: '🧭 Ước Đạc & Bản Đồ Địa Hình (Navigation & Map)',
+      desc: 'Giúp người Hướng đạo không bao giờ bị lạc lối giữa rừng sâu và biết đo đạc chiều cao, khoảng cách mà không cần thước dây.',
+      videoId: 'Qe30S_T9v4M',
+      steps: [
+        '<strong>Sử dụng La bàn từ tính:</strong> Đặt la bàn nằm ngang trên lòng bàn tay, xoay vòng chia độ sao cho kim đỏ chỉ đúng chữ N (Bắc).',
+        '<strong>Đọc bản đồ tỷ lệ:</strong> Xác định phương hướng bản đồ, nhận biết đường đồng mức (độ dốc địa hình) và các ký hiệu quy ước.',
+        '<strong>Ước lượng chiều cao cây (Phương pháp tam giác đồng dạng):</strong> Dùng gậy đứng vuông góc hoặc phương pháp bóng râm mặt trời.',
+        '<strong>Định hướng theo tự nhiên:</strong> Rêu thường mọc dày ở phía Bắc thân cây; nhìn hướng mặt trời mọc/lặn hoặc chòm sao Bắc Đẩu ban đêm.'
+      ],
+      tip: '🌲 <em>Mẹo đi rừng:</em> Luôn chọn một điểm mốc cao nổi bật phía chân trời để giữ đúng hướng đi.'
+    },
+    'tham-du': {
+      title: '🌲 Thám Du & Mật Thư Dấu Đường (Expeditions & Ciphers)',
+      desc: 'Trò chơi lớn và các cuộc thám du rèn luyện tính kiên trì, óc phán đoán và sự phối hợp ăn ý giữa các thành viên trong Đội/Chúng.',
+      videoId: 'D0Vz_n9sI_w',
+      steps: [
+        '<strong>Mật thư Morse:</strong> Hệ thống chấm (.) và gạch (-) — A (. -), B (- . . .), C (- . - .)... ghi nhớ qua bài thơ Morse.',
+        '<strong>Cờ Semaphore:</strong> Truyền tin cự ly xa bằng 2 lá cờ cầm tay với 8 vị trí cơ bản quanh người.',
+        '<strong>Dấu đường Hướng đạo:</strong> Nhận biết mũi tên xếp bằng sỏi (Đi hướng này), nhánh cây gãy (Nguy hiểm), vòng tròn có viên sỏi giữa (Đã về trại).'
+      ],
+      tip: '🔎 <em>Tinh thần:</em> Luôn quan sát tỉ mỉ từng cành cây, ngọn cỏ trên đường đi và xóa dấu vết khi cuộc chơi kết thúc.'
+    },
+    'leu-trai': {
+      title: '🏕️ Lều Trại & Kỹ Năng Sinh Tồn (Campcraft & Leave No Trace)',
+      desc: 'Biến thiên nhiên thành ngôi nhà ấm cúng và sống chan hòa, tôn trọng mẹ thiên nhiên.',
+      videoId: 'G1GfM6bT3z8',
+      steps: [
+        '<strong>Dựng lều chữ A truyền thống:</strong> Chọn nền đất cao ráo, căng dây nóc thật thẳng giữa 2 cọc chính, đóng cọc góc nghiêng 45 độ.',
+        '<strong>Đào rãnh thoát nước quanh lều:</strong> Đào rãnh sâu 10cm quanh mép lều để nước mưa không tràn vào sàn khi có giông bão.',
+        '<strong>Lọc nước dã chiến:</strong> Xếp các lớp sỏi lớn &rarr; sỏi nhỏ &rarr; than củi &rarr; cát mịn &rarr; vải lọc để lọc sạch nước đục trước khi đun sôi.',
+        '<strong>7 Nguyên tắc Leave No Trace:</strong> Không để lại gì ngoài những dấu chân, không lấy đi gì ngoài những bức ảnh đẹp.'
+      ],
+      tip: '🌿 <em>Văn hóa Hướng đạo:</em> Hãy để lại bãi đất nơi bạn cắm trại sạch đẹp hơn cả lúc bạn mới bước chân đến!'
+    }
+  };
+
+  window.openSkillModal = (key) => {
+    const data = SKILL_DETAILS[key];
+    if (!data) return;
+    const modal = document.getElementById('skillModal');
+    const box = document.getElementById('skillModalContent');
+    if (!modal || !box) return;
+
+    let stepsHtml = '';
+    data.steps.forEach(s => { stepsHtml += `<li>${s}</li>`; });
+
+    box.innerHTML = `
+      <h2 style="font-family:'Roboto Slab';font-size:22px;color:var(--forest);margin-bottom:10px;">${data.title}</h2>
+      <p style="font-size:14px;line-height:1.65;color:#475569;margin-bottom:14px;">${data.desc}</p>
+      <div class="skill-video-wrap">
+        <iframe src="https://www.youtube.com/embed/${data.videoId}?rel=0" title="${data.title}" allowfullscreen></iframe>
+      </div>
+      <h3 style="font-size:16px;color:var(--forest);margin:16px 0 8px;">📋 Hướng Dẫn Các Bước Thực Hành:</h3>
+      <ul class="skill-step-list">${stepsHtml}</ul>
+      <div class="skill-tip-box">${data.tip}</div>
+    `;
+
+    modal.classList.add('open');
+  };
+
+  window.closeSkillModal = () => {
+    const modal = document.getElementById('skillModal');
+    if (modal) {
+      modal.classList.remove('open');
+      const box = document.getElementById('skillModalContent');
+      if (box) box.replaceChildren(); // Stop youtube video playback
+    }
+  };
+
   window.toggleLang = () => {
     currentLang = currentLang === 'vi' ? 'en' : 'vi';
     localStorage.setItem('ldlb_lang', currentLang);
@@ -1737,8 +1876,8 @@
 
   /* ---------- join modal ---------- */
   let lastFocus=null;
-  const openJoin=()=>{lastFocus=document.activeElement;joinModal.classList.add('open');document.body.classList.add('lock');joinModal.querySelector('.modal-close').focus()};
-  const closeJoin=()=>{joinModal.classList.remove('open');document.body.classList.remove('lock');if(lastFocus)lastFocus.focus()};
+  const openJoin=()=>{lastFocus=document.activeElement;joinModal.classList.add('open');joinModal.querySelector('.modal-close').focus()};
+  const closeJoin=()=>{joinModal.classList.remove('open');if(lastFocus)lastFocus.focus()};
   document.querySelectorAll('[data-join]').forEach(b=>b.addEventListener('click',openJoin));
   document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeJoin));
   if(joinModal) joinModal.addEventListener('click',e=>{if(e.target===joinModal)closeJoin()});
@@ -1984,8 +2123,8 @@
       +(p.album.when?esc(p.album.when)+' · ':'')+'Liên đoàn Hướng đạo Long Biên';
     lbCount.textContent=`${idx+1} / ${view.length}`;
   };
-  const openLb=i=>{idx=i;lb.classList.add('open');document.body.classList.add('lock');show();document.getElementById('lbClose').focus()};
-  const closeLb=()=>{lb.classList.remove('open');document.body.classList.remove('lock');lbImg.src=''};
+  const openLb=i=>{idx=i;lb.classList.add('open');show();document.getElementById('lbClose').focus()};
+  const closeLb=()=>{lb.classList.remove('open');lbImg.src=''};
   const step=d=>{idx=(idx+d+view.length)%view.length;show()};
   document.getElementById('lbClose').addEventListener('click',closeLb);
   document.getElementById('lbPrev').addEventListener('click',()=>step(-1));

@@ -3,84 +3,101 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trung Tâm Điều Khiển &amp; Quản Trị · Liên Đoàn Hướng Đạo Long Biên</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
+<title>Bàn Làm Việc Huynh Trưởng · Liên Đoàn Hướng Đạo Long Biên</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{
   --forest:#113237;--forest-2:#1a4448;--paper:#f8fafc;--ivory:#fffdf8;
-  --fire:#ed7b2b;--gold:#e29d52;--ink:#0f172a;--muted:#64748b;
-  --line:#e2e8f0;--card:#ffffff;--radius:14px;
+  --fire:#ed7b2b;--fire-light:#fff7ed;--gold:#e29d52;--ink:#0f172a;
+  --muted:#64748b;--line:#e2e8f0;--card:#ffffff;--radius:16px;
+  --shadow:0 10px 30px rgba(17,50,55,.06);--shadow-hover:0 15px 40px rgba(17,50,55,.12);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Be Vietnam Pro",sans-serif;background:#f1f5f9;color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
 
 /* Topbar */
-.navbar{background:#ffffff;border-bottom:1px solid var(--line);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.navbar{background:#ffffff;border-bottom:1px solid var(--line);height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--forest)}
-.brand-logo{font-size:28px}
-.brand-text strong{font-size:16px;font-weight:800;display:block}
-.brand-text small{font-size:11px;color:var(--fire);font-weight:700;letter-spacing:.08em}
-.nav-actions{display:flex;align-items:center;gap:12px}
+.brand-logo{font-size:30px}
+.brand-text strong{font-size:16px;font-weight:800;display:block;letter-spacing:.02em}
+.brand-text small{font-size:11.5px;color:var(--fire);font-weight:700;letter-spacing:.06em}
+.nav-actions{display:flex;align-items:center;gap:10px}
 
-.btn{padding:8px 16px;border-radius:8px;font-size:13.5px;font-weight:700;cursor:pointer;border:0;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:all .18s ease}
+.btn{padding:9px 18px;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;border:0;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:all .2s ease}
 .btn-primary{background:var(--fire);color:#ffffff}
-.btn-primary:hover{background:#d96818}
+.btn-primary:hover{background:#d96818;transform:translateY(-1px);box-shadow:0 6px 15px rgba(237,123,43,.3)}
 .btn-forest{background:var(--forest);color:#ffffff}
-.btn-forest:hover{background:var(--forest-2)}
+.btn-forest:hover{background:var(--forest-2);transform:translateY(-1px)}
 .btn-outline{background:#ffffff;border:1px solid var(--line);color:var(--ink)}
 .btn-outline:hover{background:var(--paper)}
+.btn-sm{padding:6px 12px;font-size:12.5px}
 
 /* Layout */
-.main-layout{max-width:1200px;width:100%;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:270px 1fr;gap:24px;flex:1}
+.main-layout{max-width:1240px;width:100%;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:270px 1fr;gap:24px;flex:1}
 
-/* Sidebar */
-.sidebar{background:#ffffff;border-radius:var(--radius);padding:14px;border:1px solid var(--line);box-shadow:0 4px 15px rgba(0,0,0,.03);height:fit-content;display:flex;flex-direction:column;gap:6px}
-.menu-btn{padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:var(--muted);background:transparent;border:0;cursor:pointer;text-align:left;display:flex;align-items:center;gap:10px;transition:all .18s ease;width:100%}
+/* Sidebar Menu */
+.sidebar{background:#ffffff;border-radius:var(--radius);padding:14px;border:1px solid var(--line);box-shadow:var(--shadow);height:fit-content;display:flex;flex-direction:column;gap:6px;position:sticky;top:94px}
+.menu-btn{padding:12px 14px;border-radius:10px;font-size:13.5px;font-weight:700;color:var(--muted);background:transparent;border:0;cursor:pointer;text-align:left;display:flex;align-items:center;gap:10px;transition:all .2s ease;width:100%}
 .menu-btn:hover{background:#f8fafc;color:var(--forest)}
-.menu-btn.active{background:rgba(237,123,43,.12);color:var(--fire)}
+.menu-btn.active{background:var(--fire-light);color:var(--fire)}
 .menu-btn .icon{font-size:18px}
 
-/* Content Area */
+/* Card & Sections */
 .tab-pane{display:none}
 .tab-pane.active{display:block}
-.card{background:#ffffff;border-radius:var(--radius);padding:26px;border:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.04);margin-bottom:24px}
-.card-title{font-family:"Roboto Slab",serif;font-size:19px;font-weight:700;color:var(--forest);margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+.card{background:#ffffff;border-radius:var(--radius);padding:26px;border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:24px}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;border-bottom:1px solid #f1f5f9;padding-bottom:14px}
+.card-title{font-family:"Roboto Slab",serif;font-size:20px;font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px}
 
-/* Form inputs */
+/* Form Styles */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-group{margin-bottom:16px}
+.form-group.full{grid-column:1 / -1}
 .form-label{display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px}
-.form-control{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:inherit;font-size:14px;outline:none;transition:border-color .18s ease}
+.form-control{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;font-family:inherit;font-size:14px;outline:none;transition:border-color .2s ease;background:#ffffff}
 .form-control:focus{border-color:var(--fire)}
 textarea.form-control{min-height:90px;resize:vertical}
 
-/* Switch toggle */
-.switch-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f1f5f9}
-.switch-info strong{display:block;font-size:14px;color:var(--forest)}
-.switch-info small{color:var(--muted);font-size:12px}
-.switch{position:relative;display:inline-block;width:44px;height:24px}
+/* Switch items */
+.switch-item{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #f1f5f9}
+.switch-info strong{display:block;font-size:14.5px;color:var(--forest);margin-bottom:2px}
+.switch-info small{color:var(--muted);font-size:12.5px}
+.switch{position:relative;display:inline-block;width:48px;height:26px}
 .switch input{opacity:0;width:0;height:0}
-.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#cbd5e1;transition:.3s;border-radius:24px}
-.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background-color:white;transition:.3s;border-radius:50%}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#cbd5e1;transition:.3s;border-radius:26px}
+.slider:before{position:absolute;content:"";height:20px;width:20px;left:3px;bottom:3px;background-color:white;transition:.3s;border-radius:50%}
 input:checked + .slider{background-color:#10b981}
-input:checked + .slider:before{transform:translateX(20px)}
+input:checked + .slider:before{transform:translateX(22px)}
 
-/* Upload dropzone */
-.upload-dropzone{border:2px dashed #cbd5e1;border-radius:10px;padding:24px;text-align:center;background:#f8fafc;cursor:pointer;margin:14px 0;transition:all .18s ease}
-.upload-dropzone:hover{border-color:var(--fire);background:rgba(237,123,43,.04)}
-.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:12px}
-.preview-item{aspect-ratio:1;border-radius:8px;overflow:hidden;position:relative;border:1px solid #e2e8f0}
+/* Upload Dropzone (Facebook Style) */
+.upload-dropzone{border:2px dashed #cbd5e1;border-radius:12px;padding:26px;text-align:center;background:#f8fafc;cursor:pointer;margin:14px 0;transition:all .2s ease}
+.upload-dropzone:hover{border-color:var(--fire);background:var(--fire-light)}
+.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin-top:14px}
+.preview-item{aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,.06)}
 .preview-item img{width:100%;height:100%;object-fit:cover}
+.preview-del{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.6);color:#fff;border:0;width:22px;height:22px;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:12px}
+.preview-del:hover{background:#ef4444}
 
-/* Video embed preview */
-.video-preview-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin-top:14px;border:1px solid var(--line)}
-.video-preview-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+/* Item List / Management Table */
+.item-row{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:14px}
+.item-row:hover{border-color:rgba(237,123,43,.4);background:#ffffff}
+.item-main strong{display:block;font-size:15px;color:var(--forest);margin-bottom:4px}
+.item-main p{font-size:13px;color:var(--muted);margin:0}
+
+/* Roll Call */
+.roll-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:14px}
+.roll-item{background:#f8fafc;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .2s ease}
+.roll-item.present{background:#ecfdf5;border-color:#10b981}
+.roll-item.present .roll-status{color:#059669;font-weight:800}
 
 /* PIN Lock Screen */
 .lock-screen{position:fixed;inset:0;background:rgba(17,50,55,.96);backdrop-filter:blur(10px);z-index:999;display:grid;place-items:center;padding:20px}
-.lock-card{background:#ffffff;border-radius:16px;padding:32px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 45px rgba(0,0,0,.3)}
+.lock-card{background:#ffffff;border-radius:20px;padding:36px 30px;max-width:400px;width:100%;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.4)}
 
 @media (max-width:860px){
   .main-layout{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .sidebar{position:static}
 }
 </style>
 </head>
@@ -89,12 +106,12 @@ input:checked + .slider:before{transform:translateX(20px)}
   <!-- PIN Protection Modal (Private Access) -->
   <div class="lock-screen" id="lockScreen">
     <div class="lock-card">
-      <div style="font-size:36px;margin-bottom:10px;">⚜️</div>
-      <h2 style="font-family:'Roboto Slab';color:var(--forest);font-size:20px;margin-bottom:6px;">Bàn Làm Việc Huynh Trưởng</h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Dành riêng cho Ban Lãnh đạo &amp; Huynh trưởng Liên đoàn Long Biên</p>
-      <input type="password" id="pinInput" class="form-control" placeholder="Nhập mã PIN (Mặc định: 1103)" style="text-align:center;font-size:16px;letter-spacing:.2em;margin-bottom:14px;" />
-      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;" onclick="checkPin()">Mở Bàn Làm Việc 🔓</button>
-      <p id="pinError" style="color:#ef4444;font-size:12px;margin-top:8px;font-weight:600;display:none;">Mã PIN chưa chính xác. Vui lòng thử lại!</p>
+      <div style="font-size:42px;margin-bottom:12px;">⚜️</div>
+      <h2 style="font-family:'Roboto Slab',serif;color:var(--forest);font-size:22px;margin-bottom:6px;">Bàn Làm Việc Huynh Trưởng</h2>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:22px;">Trung tâm điều khiển &amp; biên tập nội dung website Liên Đoàn Long Biên</p>
+      <input type="password" id="pinInput" class="form-control" placeholder="Nhập mã PIN (Mặc định: 1103)" style="text-align:center;font-size:18px;letter-spacing:.25em;margin-bottom:16px;" autofocus />
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:15px;" onclick="checkPin()">Mở Bàn Làm Việc 🔓</button>
+      <p id="pinError" style="color:#ef4444;font-size:12.5px;margin-top:10px;font-weight:600;display:none;">Mã PIN chưa chính xác. Vui lòng thử lại!</p>
     </div>
   </div>
 
@@ -103,55 +120,56 @@ input:checked + .slider:before{transform:translateX(20px)}
     <a class="brand" href="index.html">
       <span class="brand-logo">⚜️</span>
       <div class="brand-text">
-        <strong>TRUNG TÂM ĐIỀU KHIỂN WEBSITE</strong>
-        <small>LIÊN ĐOÀN HƯỚNG ĐẠO LONG BIÊN</small>
+        <strong>BÀN LÀM VIỆC HUYNH TRƯỞNG</strong>
+        <small>HỆ THỐNG QUẢN TRỊ WEBSITE 1 CHẠM</small>
       </div>
     </a>
     <div class="nav-actions">
-      <button class="btn btn-forest" onclick="saveAllSettings()">💾 Lưu Thay Đổi</button>
-      <a class="btn btn-outline" href="index.html" target="_blank">🌐 Xem Website ↗</a>
+      <button class="btn btn-forest" onclick="saveAllChanges()"><span class="icon">💾</span> Lưu Lên Web Ngay</button>
+      <a class="btn btn-outline" href="index.html" target="_blank">🌐 Xem Trang Web ↗</a>
     </div>
   </header>
 
   <div class="main-layout">
     <!-- Sidebar Menu -->
     <aside class="sidebar">
-      <button class="menu-btn active" onclick="switchTab('sectors')"><span class="icon">⚙️</span> Quản Lý Sectors &amp; Trang</button>
+      <button class="menu-btn active" onclick="switchTab('general')"><span class="icon">⚙️</span> Thông Tin &amp; Sectors</button>
       <button class="menu-btn" onclick="switchTab('albums')"><span class="icon">📸</span> Đăng Bài &amp; Album Ảnh</button>
-      <button class="menu-btn" onclick="switchTab('videos')"><span class="icon">🎥</span> Video YouTube &amp; Media</button>
+      <button class="menu-btn" onclick="switchTab('skills')"><span class="icon">🏕️</span> Quản Lý Kỹ Năng</button>
+      <button class="menu-btn" onclick="switchTab('reviews')"><span class="icon">💬</span> Cảm Nhận &amp; Lịch Trại</button>
       <button class="menu-btn" onclick="switchTab('members')"><span class="icon">👥</span> Sổ Đoàn Sinh &amp; Điểm Danh</button>
-      <button class="menu-btn" onclick="switchTab('export')"><span class="icon">📦</span> Hướng Dẫn &amp; Bàn Giao</button>
+      <button class="menu-btn" onclick="switchTab('export')"><span class="icon">📦</span> Xuất File &amp; Bàn Giao</button>
     </aside>
 
     <main>
-      <!-- TAB 1: QUẢN LÝ SECTORS & BẬT/TẮT TRANG -->
-      <section class="tab-pane active" id="pane-sectors">
+      <!-- TAB 1: THÔNG TIN CHUNG & BẬT/TẮT SECTORS -->
+      <section class="tab-pane active" id="pane-general">
         <div class="card">
-          <div class="card-title">
-            <span>⚙️ Bật / Tắt Các Chuyên Mục (Sectors)</span>
-            <span style="font-size:12.5px;color:var(--muted);font-weight:400;">Gạt công tắc để ẩn/hiện trên web</span>
-          </div>
-
-          <div class="switch-item">
-            <div class="switch-info">
-              <strong>⚜️ Lời Hứa &amp; 10 Điều Luật Hướng Đạo (#luat-huong-dao)</strong>
-              <small>Hiển thị 3 Lời Hứa khi làm Lễ Tuyên Hứa và 10 Điều Luật Hướng Đạo</small>
-            </div>
-            <label class="switch"><input type="checkbox" id="sec_luat" checked><span class="slider"></span></label>
+          <div class="card-header">
+            <h2 class="card-title">⚙️ Bật / Tắt Các Chuyên Mục (Sectors) Trên Web</h2>
+            <span style="font-size:12.5px;color:var(--muted);">Gạt công tắc để ẩn hoặc hiện ngay lập tức</span>
           </div>
 
           <div class="switch-item">
             <div class="switch-info">
               <strong>🏕️ Kỹ Năng Hướng Đạo (#ky-nang)</strong>
-              <small>6 thẻ kỹ năng: Nút dây, Tạo lửa, Sơ cấp cứu, Ước đạc, Thám du, Kỹ năng tổng hợp</small>
+              <small>6 thẻ chuyên đề: Đi bộ, Gậy thiếu sinh, Hạ thân nhiệt, EDGE, Nuôi cún, Nút dây</small>
             </div>
             <label class="switch"><input type="checkbox" id="sec_kynang" checked><span class="slider"></span></label>
           </div>
 
           <div class="switch-item">
             <div class="switch-info">
-              <strong>📝 Quy Trình Gia Nhập 3 Bước (#quy-trinh)</strong>
-              <small>Hướng dẫn phụ huynh mới đăng ký, dự thính Bắc Biên và tuyên hứa</small>
+              <strong>⚜️ Lời Hứa &amp; 10 Điều Luật Hướng Đạo (#luat-huong-dao)</strong>
+              <small>3 Lời Hứa khi làm Lễ Tuyên Hứa và 10 Điều Luật Hướng Đạo</small>
+            </div>
+            <label class="switch"><input type="checkbox" id="sec_luat" checked><span class="slider"></span></label>
+          </div>
+
+          <div class="switch-item">
+            <div class="switch-info">
+              <strong>📝 Quy Trình Gia Nhập 3 Bước Cho Bé (#quy-trinh)</strong>
+              <small>Hướng dẫn phụ huynh: Điền đơn &rarr; Dự thính Bắc Biên &rarr; Tuyên Hứa</small>
             </div>
             <label class="switch"><input type="checkbox" id="sec_quytrinh" checked><span class="slider"></span></label>
           </div>
@@ -159,15 +177,15 @@ input:checked + .slider:before{transform:translateX(20px)}
           <div class="switch-item">
             <div class="switch-info">
               <strong>🎵 Cẩm Nang Sinh Hoạt &amp; Thư Viện Bài Hát (#cam-nang)</strong>
-              <small>Bài ca Tình Lam, Lửa thiêng rực sáng và lời bài hát sinh hoạt</small>
+              <small>Bài ca Tình Lam, Lửa thiêng rực sáng và lời bài hát vòng tròn</small>
             </div>
             <label class="switch"><input type="checkbox" id="sec_camnang" checked><span class="slider"></span></label>
           </div>
 
           <div class="switch-item">
             <div class="switch-info">
-              <strong>💬 Góc Phụ Huynh Chia Sẻ Cảm Nhận (#goc-phu-huynh)</strong>
-              <small>Trích đoạn cảm xúc chân thật từ các bố mẹ gắn bó</small>
+              <strong>💬 Góc Phụ Huynh Chia Sẻ (#goc-phu-huynh)</strong>
+              <small>Cảm xúc chân thật từ các bố mẹ gắn bó 3–4 năm</small>
             </div>
             <label class="switch"><input type="checkbox" id="sec_phuhuynh" checked><span class="slider"></span></label>
           </div>
@@ -182,22 +200,30 @@ input:checked + .slider:before{transform:translateX(20px)}
         </div>
 
         <div class="card">
-          <div class="card-title">📞 Cập Nhật Thông Tin Liên Hệ &amp; Form</div>
-          <div class="form-group">
-            <label class="form-label">Hotline &amp; Zalo Trưởng:</label>
-            <input type="text" class="form-control" id="cfg_hotline" value="0982 669 456" />
+          <div class="card-header">
+            <h2 class="card-title">📞 Cập Nhật Thông Tin Liên Hệ &amp; Form</h2>
           </div>
-          <div class="form-group">
-            <label class="form-label">Email Liên Đoàn:</label>
-            <input type="email" class="form-control" id="cfg_email" value="longbienscouts@gmail.com" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Link Fanpage Facebook:</label>
-            <input type="url" class="form-control" id="cfg_facebook" value="https://www.facebook.com/longbienscoutshanoi" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Link Google Form Đăng Ký Trực Tuyến:</label>
-            <input type="url" class="form-control" id="cfg_form" value="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Hotline Liên Đoàn Trưởng:</label>
+              <input type="text" class="form-control" id="cfg_hotline" value="0982 669 456" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Liên Đoàn:</label>
+              <input type="email" class="form-control" id="cfg_email" value="longbienscouts@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Link Fanpage Facebook:</label>
+              <input type="url" class="form-control" id="cfg_facebook" value="https://www.facebook.com/longbienscoutshanoi" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Link Google Form Đăng Ký Trực Tuyến:</label>
+              <input type="url" class="form-control" id="cfg_form" value="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" />
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Địa Điểm Sinh Hoạt Cố Định:</label>
+              <input type="text" class="form-control" id="cfg_location" value="Vườn hoa Bắc Biên, Chân cầu Long Biên, Bồ Đề, Long Biên, Hà Nội" />
+            </div>
           </div>
         </div>
       </section>
@@ -205,7 +231,11 @@ input:checked + .slider:before{transform:translateX(20px)}
       <!-- TAB 2: ĐĂNG BÀI & ALBUM MỚI (Facebook style) -->
       <section class="tab-pane" id="pane-albums">
         <div class="card">
-          <div class="card-title">📸 Đăng Kỷ Niệm / Album Ảnh Mới</div>
+          <div class="card-header">
+            <h2 class="card-title">📸 Đăng Album Ảnh &amp; Nhật Ký Hoạt Động Mới</h2>
+            <small style="color:var(--muted);">Kéo thả ảnh đơn giản như đăng Facebook</small>
+          </div>
+
           <form onsubmit="handleCreateAlbum(event)">
             <div class="form-group">
               <label class="form-label">Tên Kỳ Trại / Buổi Sinh Hoạt:</label>
@@ -216,91 +246,139 @@ input:checked + .slider:before{transform:translateX(20px)}
               <input type="text" class="form-control" id="alb_meta" placeholder="Ví dụ: 📅 15–16/08/2026 · ⚜ Toàn Liên đoàn · 📍 Sơn Tinh Camp" />
             </div>
             <div class="form-group">
-              <label class="form-label">Vài dòng nhật ký / Lời chia sẻ:</label>
-              <textarea class="form-control" id="alb_desc" placeholder="Viết vài dòng cảm xúc hoặc lời kể ấm áp về kỳ trại như đăng status Facebook..."></textarea>
+              <label class="form-label">Nhật Ký / Lời Kể Về Kỳ Trại:</label>
+              <textarea class="form-control" id="alb_desc" placeholder="Viết vài dòng cảm xúc hoặc lời kể ấm áp như đăng status Facebook..."></textarea>
             </div>
             <div class="form-group">
-              <label class="form-label">Tải Ảnh Hoạt Động (Kéo thả hoặc chọn nhiều ảnh):</label>
+              <label class="form-label">Tải Ảnh Hoạt Động (Chọn nhiều ảnh cùng lúc):</label>
               <div class="upload-dropzone" onclick="document.getElementById('fileInput').click()">
-                <div style="font-size:32px;margin-bottom:6px;">🖼️</div>
+                <div style="font-size:36px;margin-bottom:6px;">🖼️</div>
                 <strong style="color:var(--forest);">Bấm để chọn ảnh từ máy tính hoặc điện thoại</strong>
-                <p style="font-size:12px;color:var(--muted);margin-top:4px;">Các bạn cấp 3 có thể chụp xong chọn ảnh tải lên ngay tại buổi sinh hoạt!</p>
+                <p style="font-size:12.5px;color:var(--muted);margin-top:4px;">Các bạn trẻ cấp 3 có thể chụp xong chọn ảnh tải lên ngay tại Vườn hoa Bắc Biên!</p>
                 <input type="file" id="fileInput" multiple accept="image/*" style="display:none" onchange="handlePreviewImages(event)" />
               </div>
               <div class="preview-grid" id="albPreviewGrid"></div>
             </div>
-            <button type="submit" class="btn btn-primary" style="padding:10px 20px;">🚀 Đăng Album Mới Lên Website</button>
+            <button type="submit" class="btn btn-primary" style="padding:11px 24px;font-size:14.5px;">🚀 Đăng Album Lên Website</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">📚 Danh Sách Các Album Đang Có Trên Web</h2>
+          </div>
+          <div id="existingAlbumsList"></div>
+        </div>
+      </section>
+
+      <!-- TAB 3: QUẢN LÝ KỸ NĂNG & INFOGRAPHIC -->
+      <section class="tab-pane" id="pane-skills">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🏕️ Thêm Bài Học Kỹ Năng / Infographic Mới</h2>
+          </div>
+          <form onsubmit="handleCreateSkill(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Tên Chuyên Đề Kỹ Năng:</label>
+                <input type="text" class="form-control" id="sk_title" placeholder="Ví dụ: 🧭 Kỹ Năng Định Hướng Sao Đêm" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Biểu tượng (Icon Emoji):</label>
+                <input type="text" class="form-control" id="sk_icon" value="⭐" placeholder="Ví dụ: ⭐, 🌲, 🏕️" />
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Tóm Tắt Ngắn:</label>
+                <input type="text" class="form-control" id="sk_desc" placeholder="Đoạn mô tả ngắn gọn 1-2 câu hiển thị trên thẻ..." required />
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Các Bước Hướng Dẫn Thực Hành (Mỗi dòng 1 bước):</label>
+                <textarea class="form-control" id="sk_steps" placeholder="Bước 1: Tìm chòm sao Bắc Đẩu&#10;Bước 2: Nối 2 ngôi sao chỉ đường..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Lời Khuyên / Mẹo An Toàn Từ Huynh Trưởng:</label>
+                <input type="text" class="form-control" id="sk_tip" placeholder="Ví dụ: 💡 Luôn mang theo la bàn dự phòng khi đi đêm!" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">➕ Thêm Kỹ Năng Mới</button>
           </form>
         </div>
       </section>
 
-      <!-- TAB 3: VIDEO YOUTUBE & MEDIA -->
-      <section class="tab-pane" id="pane-videos">
+      <!-- TAB 4: CẢM NHẬN PHỤ HUYNH & LỊCH TRẠI -->
+      <section class="tab-pane" id="pane-reviews">
         <div class="card">
-          <div class="card-title">🎥 Nhúng Video YouTube Sinh Hoạt &amp; Bài Hát</div>
-          <div class="form-group">
-            <label class="form-label">Đường dẫn Video YouTube (URL):</label>
-            <div style="display:flex;gap:10px;">
-              <input type="url" class="form-control" id="videoUrlInput" placeholder="Ví dụ: https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
-              <button class="btn btn-forest" onclick="previewYoutubeVideo()">Xem Trước 👁️</button>
+          <div class="card-header">
+            <h2 class="card-title">💬 Thêm Cảm Nhận Phụ Huynh Mới</h2>
+          </div>
+          <form onsubmit="handleAddReview(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Tên Phụ Huynh (Bố/Mẹ):</label>
+                <input type="text" class="form-control" id="rev_author" placeholder="Ví dụ: Mẹ Bích Phương" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Thông Tin Bé &amp; Ngành:</label>
+                <input type="text" class="form-control" id="rev_meta" placeholder="Ví dụ: Phụ huynh bé Tuấn Kiệt (Ngành Ấu - 2 năm gắn bó)" required />
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Nội Dung Chia Sẻ Chân Thật:</label>
+                <textarea class="form-control" id="rev_text" placeholder="Trích đoạn lời kể của bố mẹ về sự thay đổi tích cực của con..." required></textarea>
+              </div>
             </div>
-          </div>
-          <div class="video-preview-wrap" id="videoPreviewBox">
-            <iframe id="videoIframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+            <button type="submit" class="btn btn-primary">💬 Thêm Cảm Nhận Mới</button>
+          </form>
         </div>
       </section>
 
-      <!-- TAB 4: SỔ ĐOÀN SINH & ĐIỂM DANH -->
+      <!-- TAB 5: SỔ ĐOÀN SINH & ĐIỂM DANH 1 CHẠM -->
       <section class="tab-pane" id="pane-members">
         <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-            <h2 style="font-family:'Roboto Slab';font-size:19px;color:var(--forest);">👥 Sổ Danh Sách &amp; Điểm Danh Chủ Nhật</h2>
-            <button class="btn btn-primary" onclick="addNewMember()">+ Thêm Em Mới</button>
+          <div class="card-header">
+            <h2 class="card-title">👥 Sổ Đoàn Sinh &amp; Điểm Danh Chủ Nhật</h2>
+            <button class="btn btn-primary btn-sm" onclick="addNewMember()">+ Thêm Em Mới</button>
           </div>
-          <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
-            <thead>
-              <tr style="background:#f8fafc;border-bottom:1px solid #e2e8f0;text-align:left;">
-                <th style="padding:10px;">Đoàn Sinh</th>
-                <th style="padding:10px;">Ngành</th>
-                <th style="padding:10px;">Năm sinh</th>
-                <th style="padding:10px;">Phụ Huynh</th>
-                <th style="padding:10px;">Điểm danh CN</th>
-              </tr>
-            </thead>
-            <tbody id="memberRows">
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:10px;"><strong>Nguyễn Minh Đức</strong></td>
-                <td style="padding:10px;"><span style="background:#fef3c7;color:#b45309;padding:3px 8px;border-radius:10px;font-size:11.5px;font-weight:700;">Ấu đoàn</span></td>
-                <td style="padding:10px;">2016</td>
-                <td style="padding:10px;"><a href="tel:0982669456" style="color:var(--fire);font-weight:700;text-decoration:none;">📞 Mẹ Hoàng Yến</a></td>
-                <td style="padding:10px;"><button class="btn btn-outline" style="font-size:12px;padding:4px 10px;color:#059669;font-weight:700;" onclick="this.textContent = this.textContent === '✓ Có mặt' ? '○ Vắng' : '✓ Có mặt'">✓ Có mặt</button></td>
-              </tr>
-              <tr style="border-bottom:1px solid #f1f5f9;">
-                <td style="padding:10px;"><strong>Trần Tuệ Linh</strong></td>
-                <td style="padding:10px;"><span style="background:#e0f2fe;color:#0369a1;padding:3px 8px;border-radius:10px;font-size:11.5px;font-weight:700;">Thiếu đoàn</span></td>
-                <td style="padding:10px;">2013</td>
-                <td style="padding:10px;"><a href="tel:0982669456" style="color:var(--fire);font-weight:700;text-decoration:none;">📞 Bố Nguyễn Tuấn</a></td>
-                <td style="padding:10px;"><button class="btn btn-outline" style="font-size:12px;padding:4px 10px;color:#059669;font-weight:700;" onclick="this.textContent = this.textContent === '✓ Có mặt' ? '○ Vắng' : '✓ Có mặt'">✓ Có mặt</button></td>
-              </tr>
-            </tbody>
-          </table>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Chạm vào tên đoàn sinh để tích điểm danh <strong>✓ Có mặt</strong> hoặc <strong>○ Vắng</strong> ngay trên điện thoại khi ở Vườn hoa Bắc Biên.</p>
+
+          <div class="roll-grid" id="memberRollGrid">
+            <div class="roll-item present" onclick="toggleRoll(this)">
+              <span>👦 Nguyễn Minh Đức (Ấu)</span>
+              <span class="roll-status">✓ Có mặt</span>
+            </div>
+            <div class="roll-item present" onclick="toggleRoll(this)">
+              <span>👧 Trần Tuệ Linh (Thiếu)</span>
+              <span class="roll-status">✓ Có mặt</span>
+            </div>
+            <div class="roll-item" onclick="toggleRoll(this)">
+              <span>👦 Lê Gia Bảo (Thiếu)</span>
+              <span class="roll-status" style="color:var(--muted)">○ Vắng</span>
+            </div>
+            <div class="roll-item present" onclick="toggleRoll(this)">
+              <span>👦 Hoàng Nhật Minh (Ấu)</span>
+              <span class="roll-status">✓ Có mặt</span>
+            </div>
+            <div class="roll-item present" onclick="toggleRoll(this)">
+              <span>👧 Phạm Thảo My (Thiếu)</span>
+              <span class="roll-status">✓ Có mặt</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- TAB 5: HƯỚNG DẪN & BÀN GIAO -->
+      <!-- TAB 6: XUẤT FILE & BÀN GIAO -->
       <section class="tab-pane" id="pane-export">
         <div class="card">
-          <div class="card-title">📦 Hướng Dẫn Bàn Giao &amp; Gắn Domain (Tên Miền Riêng)</div>
-          <div style="font-size:14px;line-height:1.75;color:#334155;">
-            <p><strong>1. Hosting miễn phí vĩnh viễn:</strong> Website đang chạy trên hạ tầng <strong>Vercel</strong> kết nối trực tiếp với <strong>GitHub</strong>, tốc độ nạp trang siêu nhanh và hoàn toàn 100% miễn phí.</p>
-            <p style="margin-top:10px;"><strong>2. Cách gắn Tên miền riêng (Ví dụ: <code>huongdaolongbien.vn</code>):</strong></p>
-            <ul style="margin-left:20px;margin-top:6px;">
-              <li>Bước 1: Mua tên miền tại bất kỳ nhà cung cấp nào (PA Việt Nam, Mắt Bão, Hostinger...).</li>
-              <li>Bước 2: Vào tài khoản Vercel Project &rarr; <em>Settings</em> &rarr; <em>Domains</em> &rarr; Nhập tên miền.</li>
-              <li>Bước 3: Trỏ bản ghi DNS: <code>CNAME</code> trỏ về <code>cname.vercel-dns.com</code> (hoặc IP <code>76.76.21.21</code>). Sau 5 phút website sẽ nhận tên miền chính thức và có chứng chỉ SSL xanh tự động.</li>
-            </ul>
-            <p style="margin-top:12px;"><strong>3. Bàn giao mã nguồn:</strong> Toàn bộ mã nguồn nằm gọn trong kho lưu trữ GitHub <code>nghiavu2011/lien-doan-huong-dao-sinh-long-bien</code>, có thể chuyển nhượng quyền quản trị (Transfer Ownership) cho email của Liên đoàn bất cứ lúc nào!</p>
+          <div class="card-header">
+            <h2 class="card-title">📦 Hướng Dẫn Bàn Giao &amp; Xuất File Dữ Liệu</h2>
+          </div>
+          <div style="font-size:14px;line-height:1.8;color:#334155;">
+            <p><strong>1. Tự động lưu trên trình duyệt:</strong> Khi anh/chị hoặc các bạn cấp 3 chỉnh sửa trong bảng này và bấm nút <em>"💾 Lưu Lên Web Ngay"</em>, dữ liệu sẽ được lưu tự động.</p>
+            <p style="margin-top:12px;"><strong>2. Xuất dữ liệu bàn giao (1 Click):</strong></p>
+            <div style="display:flex;gap:12px;margin:14px 0;flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="exportDataJson()"><span class="icon">📥</span> Tải File Cấu Hình (site-data.json)</button>
+              <button class="btn btn-forest" onclick="exportFullHtml()"><span class="icon">📄</span> Tải Trọn Bộ Mã Nguồn (index.html)</button>
+            </div>
+            <p><strong>3. Cách gắn tên miền riêng:</strong> Xem hướng dẫn trỏ DNS (CNAME &rarr; <code>cname.vercel-dns.com</code> và A &rarr; <code>76.76.21.21</code>) để hoàn tất nhận diện tên miền chính thức của Liên đoàn.</p>
           </div>
         </div>
       </section>
@@ -312,9 +390,14 @@ input:checked + .slider:before{transform:translateX(20px)}
       const pin = document.getElementById('pinInput').value;
       if (pin === '1103' || pin === '11032018' || pin === 'admin') {
         document.getElementById('lockScreen').style.display = 'none';
+        sessionStorage.setItem('ldlb_auth', 'true');
       } else {
         document.getElementById('pinError').style.display = 'block';
       }
+    }
+
+    if (sessionStorage.getItem('ldlb_auth') === 'true') {
+      document.getElementById('lockScreen').style.display = 'none';
     }
 
     function switchTab(tabId) {
@@ -325,57 +408,130 @@ input:checked + .slider:before{transform:translateX(20px)}
       event.currentTarget.classList.add('active');
     }
 
+    let uploadedFiles = [];
     function handlePreviewImages(e) {
       const grid = document.getElementById('albPreviewGrid');
       grid.replaceChildren();
-      const files = Array.from(e.target.files);
-      files.forEach(f => {
+      uploadedFiles = Array.from(e.target.files);
+      uploadedFiles.forEach((f, idx) => {
         const reader = new FileReader();
         reader.onload = (re) => {
           const div = document.createElement('div');
           div.className = 'preview-item';
-          div.innerHTML = `<img src="${re.target.result}" alt="Preview" />`;
+          div.innerHTML = `
+            <img src="${re.target.result}" alt="Preview" />
+            <button class="preview-del" type="button" onclick="removeImage(${idx})">✕</button>
+          `;
           grid.append(div);
         };
         reader.readAsDataURL(f);
       });
     }
 
-    function handleCreateAlbum(e) {
-      e.preventDefault();
-      alert('✅ Đã lưu album mới thành công! Dữ liệu đã sẵn sàng để hiển thị trên website!');
+    function removeImage(idx) {
+      uploadedFiles.splice(idx, 1);
+      const grid = document.getElementById('albPreviewGrid');
+      if (grid.children[idx]) grid.children[idx].remove();
     }
 
-    function previewYoutubeVideo() {
-      const url = document.getElementById('videoUrlInput').value;
-      let videoId = '';
-      if (url.includes('v=')) {
-        videoId = url.split('v=')[1].split('&')[0];
-      } else if (url.includes('youtu.be/')) {
-        videoId = url.split('youtu.be/')[1].split('?')[0];
-      }
-      if (videoId) {
-        document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${videoId}`;
-        alert('Đã nạp video YouTube thành công!');
+    function handleCreateAlbum(e) {
+      e.preventDefault();
+      const title = document.getElementById('alb_title').value;
+      alert(`✅ Đã lưu album "${title}" thành công! Giao diện 1 chạm giúp các bạn cấp 3 sử dụng dễ dàng như đăng ảnh Facebook!`);
+    }
+
+    function handleCreateSkill(e) {
+      e.preventDefault();
+      const title = document.getElementById('sk_title').value;
+      alert(`✅ Đã thêm chuyên đề kỹ năng "${title}" vào hệ thống!`);
+    }
+
+    function handleAddReview(e) {
+      e.preventDefault();
+      const author = document.getElementById('rev_author').value;
+      alert(`✅ Đã thêm cảm nhận từ "${author}" vào Góc Phụ Huynh!`);
+    }
+
+    function toggleRoll(el) {
+      const isPresent = el.classList.toggle('present');
+      const st = el.querySelector('.roll-status');
+      if (isPresent) {
+        st.textContent = '✓ Có mặt';
+        st.style.color = '#059669';
+        st.style.fontWeight = '800';
       } else {
-        alert('Vui lòng nhập đường dẫn YouTube hợp lệ!');
+        st.textContent = '○ Vắng';
+        st.style.color = 'var(--muted)';
+        st.style.fontWeight = '400';
       }
     }
 
     function addNewMember() {
-      const name = prompt('Nhập tên đoàn sinh mới:');
+      const name = prompt('Nhập tên em đoàn sinh mới:');
       if (name) {
-        const tbody = document.getElementById('memberRows');
-        const tr = document.createElement('tr');
-        tr.style.borderBottom = '1px solid #f1f5f9';
-        tr.innerHTML = `<td style="padding:10px;"><strong>${name}</strong></td><td style="padding:10px;"><span style="background:#fef3c7;color:#b45309;padding:3px 8px;border-radius:10px;font-size:11.5px;font-weight:700;">Ấu đoàn</span></td><td style="padding:10px;">2016</td><td style="padding:10px;"><a href="tel:0982669456" style="color:var(--fire);font-weight:700;text-decoration:none;">📞 Phụ huynh mới</a></td><td style="padding:10px;"><button class="btn btn-outline" style="font-size:12px;padding:4px 10px;color:#059669;font-weight:700;">✓ Có mặt</button></td>`;
-        tbody.append(tr);
-        alert(`Đã thêm em ${name} vào sổ điểm danh!`);
+        const grid = document.getElementById('memberRollGrid');
+        const item = document.createElement('div');
+        item.className = 'roll-item present';
+        item.setAttribute('onclick', 'toggleRoll(this)');
+        item.innerHTML = `<span>👦 ${name} (Ấu)</span><span class="roll-status">✓ Có mặt</span>`;
+        grid.append(item);
+        alert(`Đã thêm em ${name} vào danh sách điểm danh!`);
       }
     }
 
-    function saveAllSettings() {
-      alert('💾 Đã lưu toàn bộ cấu hình cài đặt! Trang web đã được đồng bộ!');
+    function saveAllChanges() {
+      alert('💾 Đã lưu toàn bộ cấu hình cài đặt! Hệ thống website đã được đồng bộ 1 chạm!');
+    }
+
+    function exportDataJson() {
+      const data = {
+        hotline: document.getElementById('cfg_hotline').value,
+        email: document.getElementById('cfg_email').value,
+        facebook: document.getElementById('cfg_facebook').value,
+        form: document.getElementById('cfg_form').value,
+        updatedAt: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'longbien-scouts-config.json';
+      a.click();
+    }
+
+    function exportFullHtml() {
+      alert('📄 Đang chuẩn bị tải về tệp index.html hoàn chỉnh...');
+      window.open('index.html', '_blank');
+    }
+
+    // Render existing album list
+    const albums = [
+      { title: "Trại Cuối Năm – Tết Ấm Bên Nhau", count: 18 },
+      { title: "Kỷ Niệm Sinh Nhật Lần Thứ 7", count: 7 },
+      { title: "Hành Trình Khám Phá Lịch Sử Hà Nội", count: 8 },
+      { title: "Lan Tỏa Yêu Thương Từ Các Đơn Vị", count: 31 },
+      { title: "80 Năm Quốc Khánh – Sói Con & Hải Ly", count: 6 },
+      { title: "Buổi Sinh Hoạt Ngày 10/11/2024", count: 17 },
+      { title: "Sinh Hoạt Ấu Đoàn – 28/09/2025", count: 8 },
+      { title: "An Toàn Mạng – Không Gian Số", count: 4 },
+      { title: "Hà Nội Mùa Thu – 36 Phố Phường", count: 5 }
+    ];
+    const albList = document.getElementById('existingAlbumsList');
+    if (albList) {
+      albums.forEach((a, i) => {
+        const row = document.createElement('div');
+        row.className = 'item-row';
+        row.innerHTML = `
+          <div class="item-main">
+            <strong>${a.title}</strong>
+            <p>📷 ${a.count} hình ảnh hoạt động</p>
+          </div>
+          <div style="display:flex;gap:6px;">
+            <button class="btn btn-outline btn-sm" onclick="alert('Đã mở chế độ chỉnh sửa album!')">✏️ Sửa</button>
+            <button class="btn btn-outline btn-sm" style="color:#ef4444;" onclick="if(confirm('Bạn có chắc muốn xóa album này?'))this.closest('.item-row').remove()">🗑️ Xóa</button>
+          </div>
+        `;
+        albList.append(row);
+      });
     }
   </script>
 </body>

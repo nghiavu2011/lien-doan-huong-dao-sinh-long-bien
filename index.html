@@ -78,6 +78,15 @@
 
     /* header */
     header{position:fixed;z-index:60;inset:0 0 auto;color:white;transition:background .25s ease,color .25s ease,box-shadow .25s ease,backdrop-filter .25s ease}
+    
+    /* Header scrolled contrast */
+    header.scrolled .brand-copy strong,
+    header.scrolled .brand-copy small,
+    header.scrolled .nav-links a,
+    header.scrolled .nav-item>a{color:var(--forest) !important;opacity:1}
+    header.scrolled .lang-btn{background:rgba(17,50,55,.08) !important;border-color:rgba(17,50,55,.22) !important;color:var(--forest) !important}
+    header.scrolled .lang-btn:hover{background:rgba(17,50,55,.16) !important}
+
     header.scrolled{background:rgba(255,253,248,.95);color:var(--forest);box-shadow:0 9px 30px rgba(17,50,55,.08);backdrop-filter:blur(14px)}
     .nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
     .brand{display:flex;align-items:center;gap:12px;min-width:210px}
@@ -653,21 +662,47 @@
     </section>
   </main>
 
-  <footer>
+  <footer id="lien-he">
     <div class="container footer-grid">
       <div>
         <div class="footer-brand"><span class="logo-mark" role="img" aria-label="Logo Liên đoàn Hướng đạo Long Biên"></span><div><strong data-vi="LIÊN ĐOÀN LONG BIÊN" data-en="LONG BIEN SCOUTS">LIÊN ĐOÀN LONG BIÊN</strong><span data-vi="Trải nghiệm để trưởng thành." data-en="Experience to Grow.">Trải nghiệm để trưởng thành.</span></div></div>
         <p class="source-line" data-vi="Hình ảnh thực tế từ các kỳ trại và sinh hoạt của Liên đoàn Hướng đạo Long Biên." data-en="Authentic activity and camp photos from Long Bien Scout Inter-group.">Hình ảnh thực tế từ các kỳ trại và sinh hoạt của Liên đoàn Hướng đạo Long Biên.</p>
+        <p style="margin-top:14px;"><a class="btn btn-primary" data-form target="_blank" rel="noopener" href="#" data-vi="Đăng ký cho con ↗" data-en="Child Registration ↗">Đăng ký cho con ↗</a></p>
       </div>
-      <div><h3 data-vi="Sinh hoạt" data-en="Meetings">Sinh hoạt</h3><p data-vi="Sáng Chủ nhật hằng tuần" data-en="Every Sunday Morning">Sáng Chủ nhật hằng tuần</p><p>9h–11h (9:00 - 11:00 AM)</p><p data-vi="Vườn hoa Bắc Biên · Quận Long Biên · Hà Nội" data-en="Bac Bien Garden · Long Bien · Hanoi">Vườn hoa Bắc Biên · Quận Long Biên · Hà Nội</p><p data-vi="Ấu đoàn · Thiếu đoàn · Tráng đoàn" data-en="Cub · Scout · Rover Sections">Ấu đoàn · Thiếu đoàn · Tráng đoàn</p></div>
-      <div><h3 data-vi="Liên hệ &amp; đăng ký" data-en="Contact &amp; Join">Liên hệ &amp; đăng ký</h3>
+
+      <div>
+        <h3 data-vi="Sinh hoạt" data-en="Meetings">Sinh hoạt</h3>
+        <p data-vi="Sáng Chủ nhật hằng tuần" data-en="Every Sunday Morning">Sáng Chủ nhật hằng tuần</p>
+        <p><strong>9h–11h</strong> (9:00 - 11:00 AM)</p>
+        <p data-vi="Ấu đoàn · Thiếu đoàn · Tráng đoàn" data-en="Cub · Scout · Rover Sections">Ấu đoàn · Thiếu đoàn · Tráng đoàn</p>
+      </div>
+
+      <div>
+        <h3 data-vi="Liên hệ &amp; Kênh tin" data-en="Contact &amp; Channels">Liên hệ &amp; Kênh tin</h3>
         <p><strong>Hotline:</strong> <a href="tel:0982669456">0982 669 456</a> · <a href="https://zalo.me/0982669456" target="_blank" rel="noopener">Zalo ↗</a></p>
         <p><strong>Email:</strong> <a href="mailto:longbienscouts@gmail.com">longbienscouts@gmail.com</a></p>
         <p data-channel="facebook"><a data-fb target="_blank" rel="noopener" href="https://www.facebook.com/longbienscoutshanoi" data-vi="Fanpage Facebook ↗" data-en="Facebook Fanpage ↗">Fanpage Facebook ↗</a></p>
         <p data-channel="messenger"><a data-msg target="_blank" rel="noopener" href="https://m.me/longbienscoutshanoi" data-vi="Nhắn tin Messenger ↗" data-en="Message on Facebook ↗">Nhắn tin Messenger ↗</a></p>
         <p data-channel="youtube"><a data-yt target="_blank" rel="noopener" href="https://www.youtube.com/@longbienscouts">YouTube ↗</a></p>
-        <p><a data-form target="_blank" rel="noopener" href="#" data-vi="Biểu mẫu đăng ký cho con ↗" data-en="Child Registration Form ↗">Biểu mẫu đăng ký cho con ↗</a></p>
-        <p><a href="#hoi-dap" data-vi="Hỏi đáp cho phụ huynh" data-en="Parent FAQ">Hỏi đáp cho phụ huynh</a></p>
+      </div>
+
+      <div class="footer-map-col">
+        <h3 data-vi="Địa điểm sinh hoạt" data-en="Meeting Location">Địa điểm sinh hoạt</h3>
+        <p style="font-size:13px;line-height:1.4;"><strong data-vi="Vườn hoa Bắc Biên · Quận Long Biên · Hà Nội" data-en="Bac Bien Garden · Long Bien · Hanoi">Vườn hoa Bắc Biên · Quận Long Biên · Hà Nội</strong><br><span style="color:rgba(255,255,255,.65)">Yên Tân, Bồ Đề, Long Biên, Hà Nội</span></p>
+        <div class="footer-map-wrap">
+          <iframe 
+            src="https://maps.google.com/maps?q=V%C6%B0%E1%BB%9Dn+Hoa+B%E1%BA%AFc+Bi%C3%AAn+Long+Bi%C3%AAn+H%C3%A0+N%E1%BB%99i&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="140" 
+            style="border:0; display:block;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            title="Bản đồ vị trí Vườn hoa Bắc Biên">
+          </iframe>
+        </div>
+        <p style="margin-top:8px;">
+          <a style="font-size:12.5px;color:var(--gold);text-decoration:underline;" href="https://www.google.com/maps/search/?api=1&query=V%C6%B0%E1%BB%9Dn+Hoa+B%E1%BA%AFc+Bi%C3%AAn+Long+Bi%C3%AAn+H%C3%A0+N%E1%BB%99i" target="_blank" rel="noopener" data-vi="📍 Mở chỉ đường Google Maps ↗" data-en="📍 Open in Google Maps ↗">📍 Mở chỉ đường Google Maps ↗</a>
+        </p>
       </div>
     </div>
     <div class="container copyright" data-vi="© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout" data-en="© Long Bien Scout Inter-group · Founded March 11, 2018 · Non-profit · #LongBienScout">© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout</div>
@@ -679,7 +714,7 @@
     <a class="bubble bubble-zalo" href="https://zalo.me/0982669456" target="_blank" rel="noopener" aria-label="Chat qua Zalo">
       <span class="bubble-tooltip" data-vi="Chat Zalo" data-en="Chat on Zalo">Chat Zalo</span>
       <div class="bubble-icon">
-        <img class="custom-bubble-img" id="customZaloIcon" src="icon/zalo.png" alt="Zalo" onerror="this.onerror=null; this.src='icon/zalo.svg'; this.onerror=function(){this.style.display='none'; document.getElementById('svgZalo').style.display='block';}" />
+        <img class="custom-bubble-img" src="icon/icons8-zalo.svg" alt="Zalo" onerror="this.style.display='none'; document.getElementById('svgZalo').style.display='block';" />
         <svg id="svgZalo" style="display:none" width="28" height="28" viewBox="0 0 48 48" fill="none">
           <path d="M12 24.5C12 17.596 17.373 12 24 12C30.627 12 36 17.596 36 24.5C36 31.404 30.627 37 24 37C21.91 37 19.938 36.439 18.232 35.454L13.2 36.8C12.636 36.951 12.096 36.441 12.228 35.875L13.116 32.062C12.41 30.82 12 29.404 12 24.5Z" fill="white"/>
           <path d="M17 21H23.5L18.2 28.5H24V31H16V28.5L21.3 21H17V21Z" fill="#0068FF"/>
@@ -693,31 +728,13 @@
     <a class="bubble bubble-msgr" href="https://m.me/longbienscoutshanoi" target="_blank" rel="noopener" aria-label="Nhắn qua Messenger">
       <span class="bubble-tooltip" data-vi="Nhắn Messenger" data-en="Messenger">Nhắn Messenger</span>
       <div class="bubble-icon">
-        <img class="custom-bubble-img" id="customMsgrIcon" src="icon/messenger.png" alt="Messenger" onerror="this.onerror=null; this.src='icon/messenger.svg'; this.onerror=function(){this.style.display='none'; document.getElementById('svgMsgr').style.display='block';}" />
+        <img class="custom-bubble-img" src="icon/icons8-messenger-480.svg" alt="Messenger" onerror="this.style.display='none'; document.getElementById('svgMsgr').style.display='block';" />
         <svg id="svgMsgr" style="display:none" width="28" height="28" viewBox="0 0 28 28" fill="none">
           <path d="M14 3.5C8.2 3.5 3.5 7.85 3.5 13.23c0 3.07 1.5 5.8 3.85 7.58.2.15.33.39.34.65l.11 2.02c.04.81.88 1.33 1.61.97l2.25-1.08c.21-.1.44-.11.66-.06.75.21 1.54.32 2.38.32 5.8 0 10.5-4.35 10.5-9.73C25.2 7.85 20.5 3.5 14 3.5zm5.4 7.74l-2.87 4.57a1.41 1.41 0 01-1.99.39l-2.25-1.69a.47.47 0 00-.56 0l-3.04 2.31c-.41.31-.94-.15-.72-.61l2.87-4.57a1.41 1.41 0 011.99-.39l2.25 1.69c.17.13.4.13.56 0l3.04-2.31c.41-.31.94.15.72.61z" fill="white"/>
         </svg>
       </div>
     </a>
   </div>
-
-  <!-- join modal -->
-  <div class="modal" id="joinModal" role="dialog" aria-modal="true" aria-labelledby="joinTitle">
-    <div class="modal-card">
-      <button class="modal-close" data-close aria-label="Đóng">×</button>
-      <div class="eyebrow">ĐĂNG KÝ CHO CON</div>
-      <h2 id="joinTitle">Hẹn gặp ở Bắc Biên, sáng Chủ nhật.</h2>
-      <p>Liên đoàn nhận đăng ký qua biểu mẫu trực tuyến. Ban Huynh trưởng xem xét, thống nhất rồi phản hồi lại cho phụ huynh.</p>
-      <div class="modal-details">
-        <strong>Ấu đoàn:</strong> Sói con · tuổi tiểu học<strong>Thiếu đoàn:</strong> thiếu sinh · tuổi trung học cơ sở<strong>Tráng đoàn:</strong> ngành lớn nhất<strong>Sinh hoạt:</strong> sáng Chủ nhật hằng tuần · 9h–11h · vườn hoa Bắc Biên
-      </div>
-      <p style="font-size:13px">Liên đoàn mong phụ huynh ở lại giúp trong buổi sinh hoạt và đi cùng con đường dài.</p>
-      <div class="modal-actions">
-        <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="#">Điền biểu mẫu ↗</a>
-        <a class="btn btn-forest" data-channel="facebook" data-fb target="_blank" rel="noopener" href="#">Fanpage ↗</a>
-        <a class="btn btn-paper" data-channel="youtube" data-yt target="_blank" rel="noopener" href="#">YouTube ↗</a>
-      </div>
-    </div>
   </div>
 
   <script>

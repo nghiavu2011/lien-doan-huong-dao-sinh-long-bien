@@ -167,6 +167,20 @@
       .skills-grid{grid-template-columns:1fr}
     }
 
+    
+    /* Album Story & Hashtags Card */
+    .album-story-card{background:linear-gradient(135deg,rgba(255,255,255,.95) 0%,rgba(247,243,235,.9) 100%);border:1.5px solid rgba(237,123,43,.25);border-radius:14px;padding:22px 26px;margin:22px 0 26px;box-shadow:0 10px 30px rgba(17,50,55,.06);transition:all .3s ease;position:relative;overflow:hidden}
+    .album-story-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--fire);border-radius:14px 0 0 14px}
+    .story-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+    .story-title{font-family:"Roboto Slab",serif;font-size:20px;font-weight:700;color:var(--forest);margin:0;display:flex;align-items:center;gap:8px}
+    .story-meta{font-size:12.5px;font-weight:600;color:var(--muted);background:rgba(17,50,55,.06);padding:4px 10px;border-radius:20px}
+    .story-desc{font-size:14.5px;line-height:1.75;color:#2c3e50;margin:0 0 14px;font-style:normal}
+    .story-tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .story-tag{font-size:12px;font-weight:700;color:var(--fire);background:rgba(237,123,43,.1);padding:4px 10px;border-radius:6px;text-decoration:none;transition:all .18s ease;cursor:pointer;border:1px solid rgba(237,123,43,.2)}
+    .story-tag:hover{background:var(--fire);color:#ffffff}
+    .story-fb-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#1877f2;text-decoration:none;margin-left:auto;padding:5px 12px;background:rgba(24,119,242,.08);border-radius:6px;transition:all .2s ease}
+    .story-fb-link:hover{background:#1877f2;color:#ffffff}
+
     /* gallery */
     .gallery-sec{background:var(--ivory)}
     .gal-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
@@ -524,7 +538,16 @@
           <p class="lead" data-vi="Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên." data-en="No staged poses—just hands getting familiar with the earth, eager eyes lighting their first campfire, and cheerful laughter along the Red River. Each photo captures a rustic memory of Sunday mornings lived fully in the open air.">Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên.</p>
         </div>
         <div class="gal-warn" id="galWarn" hidden><strong data-vi="Chưa tải được ảnh" data-en="Unable to load photos">Chưa tải được ảnh</strong><p data-vi="Trang đang không tìm thấy thư mục assets/gallery/. Hãy mở index.html cùng với cả thư mục assets." data-en="Cannot locate gallery folder. Please open index.html alongside its folders.">Trang đang không tìm thấy thư mục <code>assets/gallery/</code>.</p></div>
-        <div class="gal-bar reveal" id="galBar" role="group" aria-label="Lọc theo album"></div>
+                <div class="gal-bar reveal" id="galBar" role="group" aria-label="Lọc theo album"></div>
+        <!-- Album Story & Topic Sharing Box -->
+        <div class="album-story-card reveal" id="albumStory" style="display:none;" aria-live="polite">
+          <div class="story-header">
+            <h3 class="story-title" id="storyTitle">📖 Trại Cuối Năm – Tết Ấm Áp</h3>
+            <span class="story-meta" id="storyMeta">📅 11–12/01/2025 · ⚜ Toàn Liên đoàn</span>
+          </div>
+          <p class="story-desc" id="storyDesc">Liên đoàn Long Biên - Long Biên Scout vừa có một kỳ trại Tất Niên - Tết Ấm Bên Nhau trong hai ngày 11 và 12/1/2025! Kỳ trại đã diễn ra thật đầm ấm trong không khí vui tươi, quây quần bên nhau những ngày cuối năm Giáp Thìn! Chúng ta cùng nhìn lại một số hình ảnh trong kỳ trại Tết Ấm Bên Nhau nhé!</p>
+          <div class="story-tags" id="storyTags"></div>
+        </div>
         <div class="gal-grid reveal" id="galGrid"></div>
         <p class="gal-caption" data-vi="Bấm vào ảnh để xem cỡ lớn. Dùng ← → để chuyển ảnh, Esc để đóng." data-en="Click photo to view full size. Use ← → arrows to navigate, Esc to close.">Bấm vào ảnh để xem cỡ lớn. Dùng ← → để chuyển ảnh, Esc để đóng.</p>
       </div>
@@ -911,6 +934,7 @@
 
     if (typeof renderBar === 'function') renderBar();
     if (typeof renderGrid === 'function') renderGrid();
+    if (typeof renderAlbumStory === 'function') renderAlbumStory(filter);
   };
 
   
@@ -1506,10 +1530,179 @@
     b.className='gal-chip'; b.type='button'; b.dataset.val=val;
     b.setAttribute('aria-pressed',String(val===filter));
     b.innerHTML=`${label}<small>${count}</small>`;
-    b.addEventListener('click',()=>{filter=val;renderBar();renderGrid()});
+    b.addEventListener('click',()=>{filter=val;renderBar();renderGrid();renderAlbumStory(val);});
     return b;
   };
   const countOf=a=>Array.isArray(a.photos)?a.photos.length:(a.n||0);
+  
+  /* ---------- Render Album Story Box ---------- */
+  const ALBUM_STORIES = {
+  "tet": {
+    "desc_vi": "Liên đoàn Long Biên - Long Biên Scout vừa có một kỳ trại Tất Niên - Tết Ấm Bên Nhau trong hai ngày 11 và 12/1/2025! Kỳ trại đã diễn ra thật đầm ấm trong không khí vui tươi, quây quần bên nhau những ngày cuối năm Giáp Thìn! Chúng ta cùng nhìn lại một số hình ảnh trong kỳ trại Tết Ấm Bên Nhau nhé!",
+    "desc_en": "Long Bien Scout Inter-group organized a warm Year-End Camp 'A Warm Tet Together' on Jan 11-12, 2025! A joyful gathering of young scouts and leaders celebrating the end of the Lunar Year together.",
+    "meta_vi": "📅 11–12/01/2025 · ⚜ Toàn Liên đoàn · 📍 Dã ngoại",
+    "meta_en": "📅 Jan 11–12, 2025 · ⚜ All Sections · 📍 Outdoor Camp",
+    "tags": [
+      "#TraiTatNien",
+      "#TetAmBenNhau",
+      "#LongBienScout",
+      "#GiaDinhHuongDao",
+      "#KyNangTrai"
+    ]
+  },
+  "80y": {
+    "desc_vi": "Buổi sinh hoạt đặc biệt của các Sói con và Hải ly nhân dịp kỷ niệm 80 năm Quốc Khánh. Các em cùng tìm hiểu lịch sử hào hùng của dân tộc, rèn luyện kỹ năng quan sát, phản xạ nhanh và vun đắp lòng yêu quê hương đất nước qua các trò chơi vận động sôi nổi.",
+    "desc_en": "A special scouting session for Wolf Cubs and Beavers celebrating the 80th National Day. Engaging history learning, agility games, and teamwork fostering patriotic spirit.",
+    "meta_vi": "📅 Dịp Quốc Khánh · ⚜ Ấu đoàn & Hải ly · 📍 Vườn hoa Bắc Biên",
+    "meta_en": "📅 National Day · ⚜ Cub Scouts · 📍 Bac Bien Garden",
+    "tags": [
+      "#80NamQuocKhanh",
+      "#SoiConHaiLy",
+      "#TroChoiLon",
+      "#LichSuVietNam",
+      "#TuHaoLongBien"
+    ]
+  },
+  "hanoi": {
+    "desc_vi": "Chuyến thám du kỳ thú qua các con phố lịch sử của Thủ đô. Các em tự tay đọc bản đồ tỷ lệ, giải mật thư định hướng, vượt qua các thử thách tại từng trạm di tích để khám phá chiều sâu văn hóa Thăng Long nghìn năm văn hiến.",
+    "desc_en": "An exciting historic expedition across Hanoi's heritage streets. Scouts decode directional ciphers, read maps, and conquer checkpoint challenges exploring Hanoi's rich culture.",
+    "meta_vi": "📅 Mùa Thu Hà Nội · ⚜ Thiếu đoàn & Tráng đoàn · 📍 Phố cổ Hà Nội",
+    "meta_en": "📅 Autumn in Hanoi · ⚜ Scout Troop · 📍 Hanoi Old Quarter",
+    "tags": [
+      "#KhamPhaHaNoi",
+      "#ThamDuPhoCo",
+      "#GiaiMatThu",
+      "#BanDoLaBan",
+      "#HaNoiNghinNam"
+    ]
+  },
+  "act1110": {
+    "desc_vi": "Sáng Chủ nhật rực rỡ nắng vàng tại Vườn hoa Bắc Biên. Các em tập trung thực hành kỹ năng nút dây tiên phong, dựng giá trại bằng tre gỗ, thực hành sơ cứu chấn thương và phối hợp ăn ý trong các trò chơi đội nhóm.",
+    "desc_en": "A bright Sunday morning at Bac Bien Garden. Scouts practiced pioneering knots, bamboo structure building, first-aid techniques, and team coordination challenges.",
+    "meta_vi": "📅 10/11/2024 · ⚜ Ấu đoàn & Thiếu đoàn · 📍 Vườn hoa Bắc Biên",
+    "meta_en": "📅 Nov 10, 2024 · ⚜ Cub & Scout Sections · 📍 Bac Bien Garden",
+    "tags": [
+      "#SinhHoatChuNhat",
+      "#NutDayTienPhong",
+      "#SoCapCuu",
+      "#HocBangViecLam",
+      "#BacBienGround"
+    ]
+  },
+  "bday7": {
+    "desc_vi": "Dấu mốc kỷ niệm 7 năm thành lập Liên đoàn Hướng đạo Long Biên (11/03/2018 – 11/03/2025). Bảy năm bền bỉ, gắn kết phụ huynh và các thế hệ đoàn sinh cùng trưởng thành dưới bóng cờ Hướng đạo.",
+    "desc_en": "Celebrating the 7th Anniversary of Long Bien Scout Inter-group (March 11, 2018 – 2025). Seven years of continuous growth, dedicated parents, and inspiring scouting adventures.",
+    "meta_vi": "📅 Tháng 3/2025 · ⚜ Toàn Liên đoàn & Phụ huynh · 📍 Sóc Sơn",
+    "meta_en": "📅 March 2025 · ⚜ All Troop & Parents · 📍 Soc Son Camp",
+    "tags": [
+      "#SinhNhat7Tuoi",
+      "#7NamKhongNghi",
+      "#LongBienScout7Yrs",
+      "#DongHanhCungCon",
+      "#TraiNghiemTruongThanh"
+    ]
+  },
+  "cub0928": {
+    "desc_vi": "Buổi sinh hoạt chuyên đề rèn luyện kỹ năng tự lập và khéo tay cho ngành Ấu. Các chú Sói con học cách tự gấp lều cá nhân, buộc gút trang trí và cùng nhau vượt qua các trò chơi vận động rèn luyện phản xạ.",
+    "desc_en": "A dedicated session building self-reliance and practical craft skills for Cub Scouts. Learning tent care, decorative knots, and reflex-building active games.",
+    "meta_vi": "📅 28/09/2025 · ⚜ Ấu đoàn (Sói con) · 📍 Vườn hoa Bắc Biên",
+    "meta_en": "📅 Sep 28, 2025 · ⚜ Cub Scout Pack · 📍 Bac Bien Garden",
+    "tags": [
+      "#AuDoanLongBien",
+      "#SoiConKhoeManh",
+      "#ReLuyenTuLap",
+      "#LamViecGiupIch",
+      "#NgoaiTroi"
+    ]
+  },
+  "cyber": {
+    "desc_vi": "Chuyên đề kỹ năng số thời đại 4.0: 'An Toàn Mạng – Vững Vàng Trên Không Gian Số'. Hướng đạo sinh không chỉ giỏi kỹ năng sinh tồn thiên nhiên mà còn hiểu biết về bảo mật dữ liệu, văn hóa ứng xử văn minh và nhận diện nguy cơ trên Internet.",
+    "desc_en": "A 4.0 digital literacy workshop: 'Cybersecurity – Standing Firm in Digital Space'. Empowering scouts with data privacy awareness, cyber safety, and responsible digital citizenship.",
+    "meta_vi": "📅 Chuyên đề kỹ năng · ⚜ Thiếu đoàn & Tráng đoàn · 📍 Hội trường",
+    "meta_en": "📅 Digital Workshop · ⚜ Scouts & Rovers · 📍 Seminar Room",
+    "tags": [
+      "#AnToanMang",
+      "#KyNangSo",
+      "#CongDanSo",
+      "#BaoMatCaNhan",
+      "#HuongDaoThoiDaiSo"
+    ]
+  },
+  "autumn36": {
+    "desc_vi": "Một ngày thu Hà Nội nắng trong veo bên bờ sông Hồng. Các em cùng dạo bước qua 36 phố phường, ghi chép nhật ký hành trình, chụp ảnh và cảm nhận nét đẹp bình dị, lắng đọng của Thủ đô yêu dấu.",
+    "desc_en": "A crisp autumn day by the Red River. Exploring the 36 old streets, recording trail journals, taking photos, and appreciating Hanoi's timeless historic beauty.",
+    "meta_vi": "📅 Mùa Thu · ⚜ Toàn Liên đoàn · 📍 36 Phố Phường Hà Nội",
+    "meta_en": "📅 Autumn · ⚜ All Sections · 📍 36 Historic Streets",
+    "tags": [
+      "#HaNoiMuaThu",
+      "#36PhoPhuong",
+      "#NhatKyHanhTrinh",
+      "#SongHong",
+      "#TuoiThoTuyetVoi"
+    ]
+  },
+  "love": {
+    "desc_vi": "Chiến dịch thiện nguyện thường niên 'Lan Tỏa Yêu Thương'. Các em tự tay phân loại sách cũ, đóng gói đồ dùng học tập và chuẩn bị những phần quà ý nghĩa gửi tặng các bạn học sinh vùng cao và hoàn cảnh khó khăn.",
+    "desc_en": "The annual community outreach 'Spreading Love'. Scouts personally organize book drives, pack learning supplies, and share warm support with underprivileged children.",
+    "meta_vi": "📅 Hoạt động thiện nguyện · ⚜ Toàn Liên đoàn · 📍 Đắk Lắk & Hà Nội",
+    "meta_en": "📅 Community Service · ⚜ All Troop · 📍 Dak Lak & Hanoi",
+    "tags": [
+      "#LanToaYeuThuong",
+      "#HuongDaoThienNguyen",
+      "#SachCuVungCao",
+      "#SongDeChoDi",
+      "#TuTeMoiNgay"
+    ]
+  }
+};
+
+  const renderAlbumStory = (key) => {
+    const storyBox = document.getElementById('albumStory');
+    if (!storyBox) return;
+
+    if (key === 'all') {
+      storyBox.style.display = 'none';
+      return;
+    }
+
+    const info = ALBUM_STORIES[key];
+    const album = ALBUMS.find(a => a.key === key);
+    if (!info || !album) {
+      storyBox.style.display = 'none';
+      return;
+    }
+
+    const title = currentLang === 'en' ? (album.title_en || album.title) : album.title;
+    const desc = currentLang === 'en' ? (info.desc_en || info.desc_vi) : info.desc_vi;
+    const meta = currentLang === 'en' ? (info.meta_en || info.meta_vi) : info.meta_vi;
+
+    document.getElementById('storyTitle').innerHTML = `📖 ${title}`;
+    document.getElementById('storyMeta').innerHTML = meta;
+    document.getElementById('storyDesc').innerHTML = desc;
+
+    const tagsContainer = document.getElementById('storyTags');
+    if (tagsContainer) {
+      tagsContainer.replaceChildren();
+      info.tags.forEach(t => {
+        const tagEl = document.createElement('span');
+        tagEl.className = 'story-tag';
+        tagEl.textContent = t;
+        tagsContainer.append(tagEl);
+      });
+
+      // Facebook Fanpage direct link button
+      const fbLink = document.createElement('a');
+      fbLink.className = 'story-fb-link';
+      fbLink.href = 'https://www.facebook.com/longbienscoutshanoi';
+      fbLink.target = '_blank';
+      fbLink.rel = 'noopener';
+      fbLink.innerHTML = '💙 Xem bài viết Fanpage ↗';
+      tagsContainer.append(fbLink);
+    }
+
+    storyBox.style.display = 'block';
+  };
+
   const renderBar=()=>{
     galBar.replaceChildren();
     const allText = currentLang === 'en' ? 'All' : 'Tất cả';

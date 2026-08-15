@@ -16,7 +16,7 @@ assets/logo-*, bridge-*  logo trong suốt và đồ họa cầu Long Biên bả
 
 ## ⚠️ Việc cần làm trước tiên — fanpage đã mất quyền quản lý
 
-Ngày 13/08/2026, `facebook.com/liendoanlongbien` đang là:
+Ngày 13/08/2026, `facebook.com/longbienscoutshanoi` đang là:
 
 | Trước | Hiện tại |
 |---|---|
@@ -99,7 +99,7 @@ Không có thông tin nào tôi tự suy diễn. Toàn bộ chữ biên tập l�
 - **Bài "Giới thiệu sơ lược"** → mục "Về Liên đoàn", "Các ngành", dòng thời gian: thành lập 11/3/2018, phi lợi nhuận, nền tảng Hướng đạo Việt Nam, Ban Huynh trưởng (Liên đoàn trưởng, Thiếu trưởng, Thiếu phó, Akela, Bagheera, Baloo, Kaa + phụ tá), cơ cấu Tráng/Thiếu/Ấu, Hải ly lên Sói từ 24/01/2021, sinh hoạt sáng Chủ nhật ở vườn hoa Bắc Biên, duy trì online thời dịch, kỳ trại đầu tiên Sơn Tinh Camp 2018.
 - **Bài `#ketnapthanhvienmoi`** → mục "Kết nạp thành viên": Ấu đoàn 10 em sinh 2016–2017, Thiếu đoàn 10 em sinh 2012–2013, 4 tiêu chí, link Google Form.
 - **Bảy bài có ngày cụ thể** → mục "Liên đoàn đã làm gì": trại 825 Sói Con Tự Lập (23–24/8/2025, Thiên Phú Lâm – Sóc Sơn), thám du "Chuyến tàu ngược dòng thời gian" (25/8/2025, cùng Thiếu đoàn Hai Bà Trưng), An toàn mạng (17/8/2025), sinh hoạt Ấu đoàn gói bánh Trung thu (28/9/2025), "Không một mình" (15/10/2025), trại Hà Nội Mùa Thu – 36 Phố Phường (6–7/12/2025), thư cảm ơn gom sách gửi Trường Tiểu học Hoàng Hoa Thám (Krông Búk, Đắk Lắk).
-- **Ban Huynh trưởng**: Liên đoàn trưởng **Vũ Thu Thủy**. Các chức danh còn lại vẫn để dạng chức danh và tên rừng vì chưa có tên thật.
+- **Ban Huynh trưởng**: Liên đoàn trưởng **Nguyễn Phương Thảo**. Các chức danh còn lại vẫn để dạng chức danh và tên rừng vì chưa có tên thật.
 
 **Còn thiếu:** số điện thoại / Zalo / email liên hệ, và tên thật của Thiếu trưởng, Thiếu phó, các trưởng ngành Ấu. Gửi là tôi ghép vào.
 

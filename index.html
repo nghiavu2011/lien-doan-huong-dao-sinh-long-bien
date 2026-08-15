@@ -133,6 +133,40 @@
     .quick-item+.quick-item{border-left:1px solid var(--line)}
     .quick-no{font-family:"Roboto Slab";font-size:27px;color:var(--fire);line-height:1}.quick-item strong{display:block;color:var(--forest);font-size:14px}.quick-item span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
 
+    
+    /* Header Dropdowns */
+    .nav-item{position:relative;display:inline-flex;align-items:center;height:100%}
+    .nav-item>a{display:inline-flex;align-items:center;gap:4px;padding:8px 10px;color:inherit;text-decoration:none;font-weight:650;font-size:14px;opacity:.92;transition:opacity .18s ease}
+    .nav-item:hover>a{opacity:1}
+    .dropdown-caret{font-size:9px;opacity:.75;transition:transform .2s ease;display:inline-block}
+    .nav-item:hover .dropdown-caret{transform:rotate(180deg)}
+    .dropdown-menu{position:absolute;top:calc(100% - 4px);left:0;min-width:225px;background:#ffffff;color:var(--forest);border:1px solid rgba(17,50,55,.12);border-radius:12px;padding:8px 0;box-shadow:0 20px 45px rgba(17,50,55,.18);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;z-index:90}
+    .dropdown-menu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+    .nav-item:hover .dropdown-menu,.nav-item:focus-within .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .dropdown-item{display:block;padding:9px 18px;font-size:13.5px;font-weight:550;color:#1e293b;text-decoration:none;transition:background .15s ease,color .15s ease,padding-left .15s ease}
+    .dropdown-item:hover{background:rgba(17,50,55,.06);color:var(--fire);padding-left:22px}
+
+    /* Skills Grid */
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+    .skill-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:26px 22px;transition:all .25s ease;display:flex;flex-direction:column}
+    .skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(17,50,55,.08);border-color:rgba(237,123,43,.4)}
+    .skill-icon{font-size:32px;margin-bottom:14px;line-height:1}
+    .skill-card h3{font-family:"Roboto Slab";font-size:18px;color:var(--forest);margin-bottom:10px}
+    .skill-card p{font-size:13.5px;line-height:1.6;color:var(--muted);margin:0}
+
+    /* Mobile Dropdown Groups */
+    .mob-group{display:flex;flex-direction:column;gap:4px;margin-bottom:6px}
+    .mob-title{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--fire);text-transform:uppercase;margin-top:6px}
+    .mob-item{padding:6px 0 6px 12px;font-size:13.5px;color:var(--forest);text-decoration:none;border-left:2px solid var(--line);font-weight:600}
+    .mob-item:hover{border-left-color:var(--fire);color:var(--fire)}
+
+    @media (max-width:960px){
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .skills-grid{grid-template-columns:1fr}
+    }
+
     /* gallery */
     .gallery-sec{background:var(--ivory)}
     .gal-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
@@ -377,26 +411,77 @@
         <span class="brand-copy"><small data-vi="LIÊN ĐOÀN HƯỚNG ĐẠO" data-en="LONG BIEN SCOUTS">LIÊN ĐOÀN HƯỚNG ĐẠO</small><strong>LONG BIÊN</strong></span>
       </a>
       <nav class="nav-links" aria-label="Điều hướng chính">
-        <a href="#hinh-anh" data-vi="Hình ảnh" data-en="Photos">Hình ảnh</a>
-        <a href="#hoat-dong" data-vi="Hoạt động" data-en="Activities">Hoạt động</a>
-        <a href="#cac-nganh" data-vi="Các ngành" data-en="Sections">Các ngành</a>
-        <a href="#ve-lien-doan" data-vi="Về Liên đoàn" data-en="About Us">Về Liên đoàn</a>
-        <a href="#hoi-dap" data-vi="Hỏi đáp" data-en="FAQ">Hỏi đáp</a>
-        <button class="btn btn-primary" data-join data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</button>
+        <!-- GIỚI THIỆU Dropdown -->
+        <div class="nav-item">
+          <a href="#ve-lien-doan"><span data-vi="Giới Thiệu" data-en="About Us">Giới Thiệu</span> <span class="dropdown-caret">▼</span></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#ve-lien-doan" data-vi="Phong Trào Hướng Đạo" data-en="Scout Movement">Phong Trào Hướng Đạo</a>
+            <a class="dropdown-item" href="#ve-lien-doan" data-vi="Liên Đoàn Long Biên" data-en="Long Bien Scout Group">Liên Đoàn Long Biên</a>
+            <a class="dropdown-item" href="#hoat-dong" data-vi="Chương Trình Sinh Hoạt" data-en="Weekly Activities">Chương Trình Sinh Hoạt</a>
+            <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Ấu (Sói con)" data-en="Cub Scout Pack">Ngành Ấu (Sói con)</a>
+            <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Thiếu (Thiếu sinh)" data-en="Scout Troop">Ngành Thiếu (Thiếu sinh)</a>
+            <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Kha" data-en="Venture Scout">Ngành Kha</a>
+            <a class="dropdown-item" href="#cac-nganh" data-vi="Ngành Tráng (Tráng sinh)" data-en="Rover Crew">Ngành Tráng (Tráng sinh)</a>
+          </div>
+        </div>
+
+        <!-- THÔNG TIN Dropdown -->
+        <div class="nav-item">
+          <a href="#hoat-dong"><span data-vi="Thông Tin" data-en="Information">Thông Tin</span> <span class="dropdown-caret">▼</span></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#hoat-dong" data-vi="Thông Báo &amp; Sự Kiện" data-en="Announcements &amp; Events">Thông Báo &amp; Sự Kiện</a>
+            <a class="dropdown-item" href="#hinh-anh" data-vi="Cảm Nhận &amp; Chia Sẻ" data-en="Moments &amp; Reflections">Cảm Nhận &amp; Chia Sẻ</a>
+            <a class="dropdown-item" href="#dong-thoi-gian" data-vi="Dòng Thời Gian" data-en="Milestones">Dòng Thời Gian</a>
+            <a class="dropdown-item" href="#hoi-dap" data-vi="Hỏi Đáp Cho Phụ Huynh" data-en="Parent FAQ">Hỏi Đáp Cho Phụ Huynh</a>
+          </div>
+        </div>
+
+        <!-- KỸ NĂNG Dropdown -->
+        <div class="nav-item">
+          <a href="#ky-nang"><span data-vi="Kỹ Năng" data-en="Skills">Kỹ Năng</span> <span class="dropdown-caret">▼</span></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#ky-nang" data-vi="Kỹ Năng Tổng Hợp" data-en="Outdoor Skills">Kỹ Năng Tổng Hợp</a>
+            <a class="dropdown-item" href="#ky-nang" data-vi="Nút Dây &amp; Tiên Phong" data-en="Knots &amp; Pioneering">Nút Dây &amp; Tiên Phong</a>
+            <a class="dropdown-item" href="#ky-nang" data-vi="Tạo Lửa &amp; Bếp Trại" data-en="Fire Craft">Tạo Lửa &amp; Bếp Trại</a>
+            <a class="dropdown-item" href="#ky-nang" data-vi="Sơ Cấp Cứu" data-en="First Aid">Sơ Cấp Cứu</a>
+            <a class="dropdown-item" href="#ky-nang" data-vi="Ước Đạc &amp; Bản Đồ" data-en="Estimation &amp; Map">Ước Đạc &amp; Bản Đồ</a>
+            <a class="dropdown-item" href="#ky-nang" data-vi="Thám Du &amp; Dấu Đường" data-en="Expeditions &amp; Trails">Thám Du &amp; Dấu Đường</a>
+          </div>
+        </div>
+
+        <!-- LIÊN HỆ -->
+        <div class="nav-item">
+          <a href="#lien-he"><span data-vi="Liên Hệ" data-en="Contact">Liên Hệ</span></a>
+        </div>
+
+        <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</a>
         <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()" aria-label="Switch Language"><b>VN</b> | EN</button>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>
     </div>
   </header>
-  <nav class="mobile-nav" id="mobileNav" aria-label="Điều hướng di động">
-    <a href="#hinh-anh" data-vi="Hình ảnh" data-en="Photos">Hình ảnh</a>
-    <a href="#hoat-dong" data-vi="Hoạt động" data-en="Activities">Hoạt động</a>
-    <a href="#cac-nganh" data-vi="Các ngành" data-en="Sections">Các ngành</a>
-    <a href="#ve-lien-doan" data-vi="Về Liên đoàn" data-en="About Us">Về Liên đoàn</a>
-    <a href="#dong-thoi-gian" data-vi="Dòng thời gian" data-en="Timeline">Dòng thời gian</a>
-    <a href="#hoi-dap" data-vi="Hỏi đáp" data-en="FAQ">Hỏi đáp</a>
-    <a href="#ket-nap" data-vi="Kết nạp thành viên" data-en="Recruitment">Kết nạp thành viên</a>
-    <button class="btn btn-primary" data-join data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</button>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Điều hướng di động">
+    <div class="mob-group">
+      <span class="mob-title" data-vi="GIỚI THIỆU" data-en="ABOUT US">GIỚI THIỆU</span>
+      <a class="mob-item" href="#ve-lien-doan" onclick="closeMobileNav()" data-vi="Phong Trào Hướng Đạo &amp; Liên Đoàn" data-en="About Movement &amp; Group">Phong Trào Hướng Đạo &amp; Liên Đoàn</a>
+      <a class="mob-item" href="#hoat-dong" onclick="closeMobileNav()" data-vi="Chương Trình Sinh Hoạt" data-en="Weekly Activities">Chương Trình Sinh Hoạt</a>
+      <a class="mob-item" href="#cac-nganh" onclick="closeMobileNav()" data-vi="Các Ngành (Ấu · Thiếu · Tráng)" data-en="Scout Sections">Các Ngành (Ấu · Thiếu · Tráng)</a>
+    </div>
+    <div class="mob-group">
+      <span class="mob-title" data-vi="THÔNG TIN" data-en="INFORMATION">THÔNG TIN</span>
+      <a class="mob-item" href="#hoat-dong" onclick="closeMobileNav()" data-vi="Thông Báo &amp; Sự Kiện" data-en="Announcements &amp; Events">Thông Báo &amp; Sự Kiện</a>
+      <a class="mob-item" href="#hinh-anh" onclick="closeMobileNav()" data-vi="Cảm Nhận &amp; Ảnh Hoạt Động" data-en="Moments &amp; Photos">Cảm Nhận &amp; Ảnh Hoạt Động</a>
+      <a class="mob-item" href="#dong-thoi-gian" onclick="closeMobileNav()" data-vi="Dòng Thời Gian" data-en="Timeline">Dòng Thời Gian</a>
+      <a class="mob-item" href="#hoi-dap" onclick="closeMobileNav()" data-vi="Hỏi Đáp Cho Phụ Huynh" data-en="Parent FAQ">Hỏi Đáp Cho Phụ Huynh</a>
+    </div>
+    <div class="mob-group">
+      <span class="mob-title" data-vi="KỸ NĂNG HƯỚNG ĐẠO" data-en="SCOUT SKILLS">KỸ NĂNG HƯỚNG ĐẠO</span>
+      <a class="mob-item" href="#ky-nang" onclick="closeMobileNav()" data-vi="Nút Dây · Tạo Lửa · Sơ Cứu · Ước Đạc" data-en="Knots · Fire · First Aid · Navigation">Nút Dây · Tạo Lửa · Sơ Cứu · Ước Đạc</a>
+    </div>
+    <div class="mob-group">
+      <a href="#lien-he" onclick="closeMobileNav()" style="font-weight:700;padding:8px 0;color:var(--forest);text-decoration:none;" data-vi="📍 LIÊN HỆ &amp; CHỈ ĐƯỜNG BẢN ĐỒ" data-en="📍 CONTACT &amp; MAP DIRECTIONS">📍 LIÊN HỆ &amp; CHỈ ĐƯỜNG BẢN ĐỒ</a>
+    </div>
+    <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" onclick="closeMobileNav()" data-vi="Đăng ký cho con" data-en="Register Child" style="text-align:center;">Đăng ký cho con</a>
     <button class="lang-btn" id="mobileLangBtn" type="button" onclick="toggleLang()" aria-label="Switch Language"><b>VN</b> | EN</button>
   </nav>
 
@@ -828,6 +913,16 @@
     if (typeof renderGrid === 'function') renderGrid();
   };
 
+  
+  window.closeMobileNav = () => {
+    const mn = document.getElementById('mobileNav');
+    const mb = document.getElementById('menuBtn');
+    if(mn) mn.classList.remove('open');
+    if(mb) {
+      mb.setAttribute('aria-expanded', 'false');
+      mb.textContent = '☰';
+    }
+  };
   window.toggleLang = () => {
     currentLang = currentLang === 'vi' ? 'en' : 'vi';
     localStorage.setItem('ldlb_lang', currentLang);

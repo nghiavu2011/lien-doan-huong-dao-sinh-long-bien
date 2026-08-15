@@ -274,16 +274,18 @@
     .gal-caption{margin-top:18px;font-size:12px;color:var(--muted);border-left:3px solid var(--fire);padding-left:13px;max-width:760px}
 
     /* lightbox */
-    .lb{display:none;position:fixed;inset:0;z-index:120;background:rgba(4,18,20,.94);place-items:center}
-    .lb.open{display:grid}
-    .lb-img{max-width:min(1280px,94vw);max-height:82vh;width:auto;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.5)}
-    .lb-cap{position:absolute;left:0;right:0;bottom:20px;text-align:center;color:rgba(255,255,255,.82);font-size:13px;padding:0 70px}
-    .lb-cap strong{display:block;color:white;font-family:"Roboto Slab";font-size:16px;margin-bottom:3px}
-    .lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:white;font-size:24px;backdrop-filter:blur(6px)}
-    .lb-btn:hover{background:rgba(255,255,255,.22)}
-    .lb-prev{left:16px}.lb-next{right:16px}
-    .lb-close{position:absolute;top:16px;right:16px;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:white;font-size:24px;backdrop-filter:blur(6px)}
-    .lb-count{position:absolute;top:26px;left:24px;color:rgba(255,255,255,.6);font-size:13px;font-weight:700}
+    .lb{display:none !important;position:fixed !important;inset:0 !important;z-index:99999 !important;background:rgba(10,25,28,.95) !important;backdrop-filter:blur(10px) !important;place-items:center !important}
+.lb.open{display:grid !important}
+.lb-img{max-width:min(1200px,92vw);max-height:80vh;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 25px 70px rgba(0,0,0,.6);transition:transform .2s ease}
+.lb-cap{position:absolute;left:0;right:0;bottom:20px;text-align:center;color:rgba(255,255,255,.9);font-size:13.5px;padding:0 70px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.lb-cap strong{display:block;color:white;font-family:"Roboto Slab",serif;font-size:17px;margin-bottom:4px}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:white;font-size:28px;cursor:pointer;display:grid;place-items:center;transition:all .2s ease}
+.lb-btn:hover{background:var(--fire);transform:translateY(-50%) scale(1.1)}
+.lb-prev{left:20px}
+.lb-next{right:20px}
+.lb-close{position:absolute;top:20px;right:20px;width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:white;font-size:22px;cursor:pointer;display:grid;place-items:center;transition:all .2s ease}
+.lb-close:hover{background:#ef4444;transform:scale(1.1)}
+.lb-count{position:absolute;top:24px;left:24px;color:rgba(255,255,255,.8);font-size:14px;font-weight:700;background:rgba(0,0,0,.4);padding:4px 12px;border-radius:20px}
 
     /* highlights timeline */
     .hl-list{display:grid;gap:14px}
@@ -1131,7 +1133,7 @@
   <button id="toTop" class="to-top" aria-label="Lên đầu trang">↑</button>
 
   <!-- Lightbox -->
-  <div class="lb" id="lb" role="dialog" aria-label="Xem ảnh" hidden>
+  <div class="lb" id="lb" role="dialog" aria-label="Xem ảnh">
     <button class="lb-close" id="lbClose" aria-label="Đóng">✕</button>
     <button class="lb-btn lb-prev" id="lbPrev" aria-label="Ảnh trước">‹</button>
     <button class="lb-btn lb-next" id="lbNext" aria-label="Ảnh sau">›</button>
@@ -2104,6 +2106,7 @@
       img.addEventListener('error',()=>{document.getElementById('galWarn').hidden=false},{once:true});
       b.append(img);
       b.addEventListener('click',()=>openLb(i));
+      b.addEventListener('dblclick',()=>openLb(i));
       galGrid.append(b);
     });
   };

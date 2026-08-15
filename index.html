@@ -838,7 +838,7 @@
           <!-- 1. Đi bộ đường dài -->
           <div class="skill-card" onclick="openSkillModal('di-bo')">
             <div>
-              <div class="skill-icon">🥾</div>
+              <div class="skill-icon">🗺️</div>
               <h3 data-vi="5 Khu Vực Đi Bộ Đường Dài" data-en="5 Hiking Zones">5 Khu Vực Đi Bộ Đường Dài</h3>
               <p data-vi="Nhận biết và vượt qua an toàn tại 5 địa hình trọng yếu: lối mòn, sườn dốc trơn, suối đá, sương mù và bãi hạ trại." data-en="Safety protocols across 5 trail zones: forest paths, slippery slopes, river crossings, fog, and campsites.">Nhận biết và vượt qua an toàn tại 5 địa hình trọng yếu: lối mòn, sườn dốc trơn, suối đá, sương mù và bãi hạ trại.</p>
             </div>
@@ -848,7 +848,7 @@
           <!-- 2. Gậy thiếu sinh -->
           <div class="skill-card" onclick="openSkillModal('gay-thieu-sinh')">
             <div>
-              <div class="skill-icon">🦯</div>
+              <div class="skill-icon">🌲</div>
               <h3 data-vi="Gậy Thiếu Sinh &amp; Ý Nghĩa" data-en="Scout Staff Significance">Gậy Thiếu Sinh &amp; Ý Nghĩa</h3>
               <p data-vi="Người bạn đường trung thành dài 1m50: trợ lực leo dốc, đo đạc khoảng cách, làm cáng cứu thương và tháp tiên phong." data-en="The multipurpose 1.5m staff: walking aid, estimation tool, emergency stretcher, and pioneering mast.">Người bạn đường trung thành dài 1m50: trợ lực leo dốc, đo đạc khoảng cách, làm cáng cứu thương và tháp tiên phong.</p>
             </div>
@@ -878,7 +878,7 @@
           <!-- 5. Chuyên hiệu chăn nuôi -->
           <div class="skill-card" onclick="openSkillModal('chuyen-hieu-pet')">
             <div>
-              <div class="skill-icon">🐕</div>
+              <div class="skill-icon">🐾</div>
               <h3 data-vi="Chuyên Hiệu Nuôi Cún &amp; Chó" data-en="Pet Care Badge">Chuyên Hiệu Nuôi Cún &amp; Chó</h3>
               <p data-vi="Rèn luyện tình yêu thương loài vật, lịch dinh dưỡng, vệ sinh, huấn luyện thói quen tốt và chăm sóc thú cưng chu đáo." data-en="Fostering kindness to animals, feeding schedules, basic dog training, and pet wellness care.">Rèn luyện tình yêu thương loài vật, lịch dinh dưỡng, vệ sinh, huấn luyện thói quen tốt và chăm sóc thú cưng chu đáo.</p>
             </div>
@@ -888,7 +888,7 @@
           <!-- 6. Nút dây & Tiên phong -->
           <div class="skill-card" onclick="openSkillModal('nut-day')">
             <div>
-              <div class="skill-icon">🪢</div>
+              <div class="skill-icon">🏕️</div>
               <h3 data-vi="Nút Dây &amp; Bếp Hoàng Cầm" data-en="Knots &amp; Camp Kitchen">Nút Dây &amp; Bếp Hoàng Cầm</h3>
               <p data-vi="Nút dẹt, nút thuyền chài, nút thòng lọng, kỹ thuật nối gỗ làm cầu tháp và đào rãnh bếp dã chiến không khói." data-en="Square knots, clove hitches, bowlines, timber lashings, and smokeless trench cooking.">Nút dẹt, nút thuyền chài, nút thòng lọng, kỹ thuật nối gỗ làm cầu tháp và đào rãnh bếp dã chiến không khói.</p>
             </div>
@@ -2562,5 +2562,14 @@
     document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
   }
   </script>
+
+  <!-- Skill Detail Modal (Xem Infographic & Video Kỹ Năng) -->
+  <div class="skill-modal-backdrop" id="skillModal" onclick="if(event.target===this)closeSkillModal()" role="dialog" aria-label="Chi tiết kỹ năng">
+    <div class="skill-modal-box">
+      <button class="skill-modal-close" onclick="closeSkillModal()" aria-label="Đóng">✕</button>
+      <div id="skillModalContent"></div>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -134,6 +134,50 @@
     .quick-no{font-family:"Roboto Slab";font-size:27px;color:var(--fire);line-height:1}.quick-item strong{display:block;color:var(--forest);font-size:14px}.quick-item span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
 
     
+    
+    /* DEMO badge & new showcase components */
+    .demo-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#d97706;background:#fef3c7;border:1px solid #fde68a;padding:3px 8px;border-radius:20px;margin-bottom:8px}
+    .law-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+    .law-box{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+    .law-box h3{font-family:"Roboto Slab";font-size:19px;color:var(--forest);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .law-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+    .law-list li{font-size:13.5px;line-height:1.6;color:#2c3e50;position:relative;padding-left:26px}
+    .law-list li::before{content:"⚜";position:absolute;left:0;color:var(--fire);font-size:14px;line-height:1.4}
+    
+    .process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+    .step-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .step-no{font-family:"Roboto Slab";font-size:42px;font-weight:800;color:rgba(17,50,55,.12);line-height:1;margin-bottom:10px}
+    .step-card h3{font-size:17px;color:var(--forest);margin-bottom:8px}
+    .step-card p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
+
+    .song-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
+    .song-card{background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 15px rgba(0,0,0,.04)}
+    .song-title{font-size:16px;font-weight:700;color:var(--forest);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+    .song-lyrics{font-size:13px;line-height:1.65;color:#4b5563;font-style:italic;background:var(--paper);padding:12px 14px;border-radius:8px;margin:10px 0}
+
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+    .review-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:24px 20px;display:flex;flex-direction:column;justify-content:space-between}
+    .review-text{font-size:13.5px;line-height:1.65;color:#2c3e50;font-style:italic;margin-bottom:16px;position:relative}
+    .review-author{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+    .author-avatar{width:38px;height:38px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+    .author-info strong{display:block;font-size:13.5px;color:var(--forest)}
+    .author-info small{color:var(--muted);font-size:11.5px}
+
+    .camp-calendar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+    .camp-cal-card{background:#ffffff;border:1px solid var(--line);border-radius:10px;padding:18px 16px;text-align:center}
+    .cal-season{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fire);margin-bottom:4px}
+    .cal-name{font-family:"Roboto Slab";font-size:16px;color:var(--forest);margin-bottom:6px}
+    .cal-time{font-size:12px;color:var(--muted);background:var(--paper);padding:4px 8px;border-radius:6px;display:inline-block}
+
+    @media (max-width:960px){
+      .law-grid, .song-grid, .review-grid{grid-template-columns:1fr}
+      .process-steps{grid-template-columns:1fr}
+      .camp-calendar-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .camp-calendar-grid{grid-template-columns:1fr}
+    }
+
     /* Header Dropdowns */
     .nav-item{position:relative;display:inline-flex;align-items:center;height:100%}
     .nav-item>a{display:inline-flex;align-items:center;gap:4px;padding:8px 10px;color:inherit;text-decoration:none;font-weight:650;font-size:14px;opacity:.92;transition:opacity .18s ease}
@@ -777,6 +821,197 @@
     </section>
   </main>
 
+
+    <!-- =============== 1. LỜI HỨA & LUẬT HƯỚNG ĐẠO (DEMO) =============== -->
+    <section class="section" id="luat-huong-dao" style="background:#ffffff;border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="demo-badge">DEMO · DỰ THẢO NỘI DUNG</span>
+          <div class="eyebrow" data-vi="TÔN CHỈ & ĐẠO LÝ" data-en="SCOUT PROMISE & LAW">TÔN CHỈ &amp; ĐẠO LÝ</div>
+          <h2 data-vi="Lời Hứa và Mười Điều Luật Hướng Đạo." data-en="The Scout Promise & 10 Scout Laws.">Lời Hứa và Mười Điều Luật Hướng Đạo.</h2>
+          <p class="lead" data-vi="Kim chỉ nam rèn luyện nhân cách, danh dự và lối sống cống hiến cho cộng đồng của người Hướng đạo sinh từ năm 1907." data-en="The guiding principles of honor, duty, and community service since 1907.">Kim chỉ nam rèn luyện nhân cách, danh dự và lối sống cống hiến cho cộng đồng của người Hướng đạo sinh từ năm 1907.</p>
+        </div>
+
+        <div class="law-grid">
+          <!-- 3 Lời Hứa -->
+          <div class="law-box">
+            <h3 data-vi="⚜ Ba Lời Hứa Hướng Đạo" data-en="⚜ Three Scout Promises">⚜ Ba Lời Hứa Hướng Đạo</h3>
+            <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin-bottom:14px;" data-vi="Khi làm Lễ Tuyên Hứa, mỗi đoàn sinh đặt ba ngón tay phải lên chào và hứa:" data-en="During the Investiture Ceremony, every scout raises three fingers and promises:">Khi làm Lễ Tuyên Hứa, mỗi đoàn sinh đặt ba ngón tay phải lên chào và hứa:</p>
+            <ul class="law-list">
+              <li data-vi="<strong>1. Bổn phận đối với Tâm linh &amp; Quốc gia:</strong> Tôn trọng đức tin, trung thành với Tổ quốc và yêu thương đồng bào." data-en="<strong>1. Duty to God & Country:</strong> Respect spirituality and stay loyal to the nation."><strong>1. Bổn phận đối với Tâm linh &amp; Quốc gia:</strong> Tôn trọng đức tin, trung thành với Tổ quốc và yêu thương đồng bào.</li>
+              <li data-vi="<strong>2. Giúp đỡ mọi người trong mọi hoàn cảnh:</strong> Sẵn sàng làm việc thiện mỗi ngày mà không mong chờ đền đáp." data-en="<strong>2. Duty to Others:</strong> Help other people at all times and do a good turn daily."><strong>2. Giúp đỡ mọi người trong mọi hoàn cảnh:</strong> Sẵn sàng làm việc thiện mỗi ngày mà không mong chờ đền đáp.</li>
+              <li data-vi="<strong>3. Tuân theo Luật Hướng Đạo:</strong> Giữ gìn danh dự cá nhân và rèn luyện bản thân mỗi ngày." data-en="<strong>3. Duty to Self:</strong> Obey the Scout Law and strive for self-improvement."><strong>3. Tuân theo Luật Hướng Đạo:</strong> Giữ gìn danh dự cá nhân và rèn luyện bản thân mỗi ngày.</li>
+            </ul>
+          </div>
+
+          <!-- 10 Điều Luật tóm lược -->
+          <div class="law-box">
+            <h3 data-vi="📜 Mười Điều Luật Hướng Đạo" data-en="📜 Ten Scout Laws">📜 Mười Điều Luật Hướng Đạo</h3>
+            <ul class="law-list">
+              <li data-vi="1. Trọng danh dự, đáng tin cậy." data-en="1. A Scout's honor is to be trusted.">1. Trọng danh dự, đáng tin cậy.</li>
+              <li data-vi="2. Trung thành với Tổ quốc và gia đình." data-en="2. A Scout is loyal to country and family.">2. Trung thành với Tổ quốc và gia đình.</li>
+              <li data-vi="3. Giúp ích mọi người, làm việc thiện mỗi ngày." data-en="3. A Scout is helpful and does a good turn daily.">3. Giúp ích mọi người, làm việc thiện mỗi ngày.</li>
+              <li data-vi="4. Là bạn của mọi người, anh em của mọi Hướng đạo sinh." data-en="4. A Scout is a friend to all and a brother to every other Scout.">4. Là bạn của mọi người, anh em của mọi Hướng đạo sinh.</li>
+              <li data-vi="5. Lịch sự, nhã nhặn và tôn trọng người khác." data-en="5. A Scout is courteous and polite.">5. Lịch sự, nhã nhặn và tôn trọng người khác.</li>
+              <li data-vi="6. Yêu thương loài vật và bảo vệ thiên nhiên." data-en="6. A Scout is kind to animals and protects nature.">6. Yêu thương loài vật và bảo vệ thiên nhiên.</li>
+              <li data-vi="7. Vâng lời cha mẹ, huynh trưởng mà không cằn nhằn." data-en="7. A Scout obeys parents and leaders cheerfully.">7. Vâng lời cha mẹ, huynh trưởng mà không cằn nhằn.</li>
+              <li data-vi="8. Vui tươi, dũng cảm trước mọi gian khó." data-en="8. A Scout is cheerful and courageous under all difficulties.">8. Vui tươi, dũng cảm trước mọi gian khó.</li>
+              <li data-vi="9. Cần kiệm, không lãng phí của công và của riêng." data-en="9. A Scout is thrifty and cares for possessions.">9. Cần kiệm, không lãng phí của công và của riêng.</li>
+              <li data-vi="10. Trong sạch từ tư tưởng, lời nói đến việc làm." data-en="10. A Scout is clean in thought, word, and deed.">10. Trong sạch từ tư tưởng, lời nói đến việc làm.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== 2. QUY TRÌNH GIA NHẬP 3 BƯỚC (DEMO) =============== -->
+    <section class="section" id="quy-trinh" style="background:var(--paper);border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="demo-badge">DEMO · HƯỚNG DẪN PHỤ HUYNH</span>
+          <div class="eyebrow" data-vi="QUY TRÌNH GIA NHẬP" data-en="JOINING PROCESS">QUY TRÌNH GIA NHẬP</div>
+          <h2 data-vi="Ba bước để con trở thành Hướng đạo sinh Long Biên." data-en="Three simple steps for your child to join us.">Ba bước để con trở thành Hướng đạo sinh Long Biên.</h2>
+          <p class="lead" data-vi="Quy trình đơn giản, minh bạch và tạo điều kiện tối đa để bé trải nghiệm thực tế trước khi chính thức nhập đoàn." data-en="Simple and friendly onboarding letting your child experience scouting firsthand.">Quy trình đơn giản, minh bạch và tạo điều kiện tối đa để bé trải nghiệm thực tế trước khi chính thức nhập đoàn.</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="step-card">
+            <span class="step-no">01</span>
+            <h3 data-vi="Điền Form Đăng Ký Trực Tuyến" data-en="Online Registration">Điền Form Đăng Ký Trực Tuyến</h3>
+            <p data-vi="Phụ huynh điền thông tin cơ bản của bé (họ tên, năm sinh, ngành tham gia) qua Google Form chính thức để Ban Huynh Trưởng tiếp nhận hồ sơ." data-en="Parents submit child details via our official Google Form for leader review.">Phụ huynh điền thông tin cơ bản của bé (họ tên, năm sinh, ngành tham gia) qua Google Form chính thức để Ban Huynh Trưởng tiếp nhận hồ sơ.</p>
+            <p style="margin-top:14px;"><a class="btn btn-outline" data-form target="_blank" rel="noopener" href="#" style="font-size:12.5px;padding:6px 14px;" data-vi="Điền đơn ngay ↗" data-en="Register Now ↗">Điền đơn ngay ↗</a></p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-no">02</span>
+            <h3 data-vi="Dự Thính 2 Buổi Tại Bắc Biên" data-en="2-Session Trial">Dự Thính 2 Buổi Tại Bắc Biên</h3>
+            <p data-vi="Đưa bé đến tham gia sinh hoạt cùng Đội/Chúng vào sáng Chủ nhật (9h–11h). Bé được làm quen các anh chị, chơi trò chơi vận động và cảm nhận không khí." data-en="Bring your child to join 2 trial Sunday morning sessions (9–11 AM) to make friends and explore activities.">Đưa bé đến tham gia sinh hoạt cùng Đội/Chúng vào sáng Chủ nhật (9h–11h). Bé được làm quen các anh chị, chơi trò chơi vận động và cảm nhận không khí.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-no">03</span>
+            <h3 data-vi="Trao Khăn Quàng &amp; Tuyên Hứa" data-en="Investiture & Scarf">Trao Khăn Quàng &amp; Tuyên Hứa</h3>
+            <p data-vi="Sau khi bé yêu thích và sẵn sàng, Liên đoàn hướng dẫn phụ huynh chuẩn bị đồng phục. Bé chính thức làm Lễ Tuyên Hứa và nhận chiếc khăn quàng Long Biên." data-en="Once ready, your child performs the Investiture Ceremony and receives the official Long Bien scout neckerchief.">Sau khi bé yêu thích và sẵn sàng, Liên đoàn hướng dẫn phụ huynh chuẩn bị đồng phục. Bé chính thức làm Lễ Tuyên Hứa và nhận chiếc khăn quàng Long Biên.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== 3. CẨM NANG & THƯ VIỆN BÀI HÁT (DEMO) =============== -->
+    <section class="section" id="cam-nang" style="background:#ffffff;border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="demo-badge">DEMO · TÀI NGUYÊN SINH HOẠT</span>
+          <div class="eyebrow" data-vi="CẨM NANG SINH HOẠT" data-en="SCOUT SONGS & HANDBOOK">CẨM NANG SINH HOẠT</div>
+          <h2 data-vi="Giai điệu Hướng đạo &amp; Bài học vòng tròn." data-en="Scout Songs & Circle Rhythms.">Giai điệu Hướng đạo &amp; Bài học vòng tròn.</h2>
+          <p class="lead" data-vi="Những bài hát truyền thống nuôi dưỡng tâm hồn vui tươi, gắn kết tình thân ái giữa các thế hệ Hướng đạo sinh." data-en="Traditional scout melodies fostering joy, unity, and brotherhood around the campfire.">Những bài hát truyền thống nuôi dưỡng tâm hồn vui tươi, gắn kết tình thân ái giữa các thế hệ Hướng đạo sinh.</p>
+        </div>
+
+        <div class="song-grid">
+          <div class="song-card">
+            <div>
+              <div class="song-title"><span>🎵 Bài Ca Tình Lam</span><small style="color:var(--fire);font-weight:700;">Hành khúc</small></div>
+              <div class="song-lyrics">"Anh em ta về cùng nhau ta sum họp này/ 1 2 3 4 5/ Anh em ta về cùng nhau ta quây quần này/ Nụ cười nở trên môi..."</div>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted);margin:0;" data-vi="Bài hát quen thuộc mở đầu và kết thúc mỗi buổi sinh hoạt vòng tròn." data-en="Theme song opening and closing every Sunday circle gathering.">Bài hát quen thuộc mở đầu và kết thúc mỗi buổi sinh hoạt vòng tròn.</p>
+          </div>
+
+          <div class="song-card">
+            <div>
+              <div class="song-title"><span>🔥 Lửa Thiêng Rực Sáng</span><small style="color:var(--fire);font-weight:700;">Lửa trại</small></div>
+              <div class="song-lyrics">"Màn đêm buông xuống ánh lửa bập bùng/ Hát vang lên nào hỡi anh em/ Nguyện một lòng cùng nhau đi tới/ Cho ngày mai sáng tươi..."</div>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted);margin:0;" data-vi="Bài hát truyền thống thiêng liêng bên ngọn lửa trại dã ngoại." data-en="Sacred traditional anthem sung around the outdoor campfire.">Bài hát truyền thống thiêng liêng bên ngọn lửa trại dã ngoại.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== 4. GÓC PHỤ HUYNH CHIA SẺ (DEMO) =============== -->
+    <section class="section" id="goc-phu-huynh" style="background:var(--paper);border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="demo-badge">DEMO · CẢM NHẬN THỰC TẾ</span>
+          <div class="eyebrow" data-vi="TIẾNG NÓI PHỤ HUYNH" data-en="PARENT TESTIMONIALS">TIẾNG NÓI PHỤ HUYNH</div>
+          <h2 data-vi="Hành trình con lớn lên cùng Liên đoàn." data-en="Growing up with Long Bien Scouts.">Hành trình con lớn lên cùng Liên đoàn.</h2>
+          <p class="lead" data-vi="Những chia sẻ chân thật nhất từ các bố mẹ đã cùng con gắn bó qua từng mùa trại và sáng Chủ nhật tại Bắc Biên." data-en="Authentic reflections from parents who have accompanied their children through weekly sessions and camps.">Những chia sẻ chân thật nhất từ các bố mẹ đã cùng con gắn bó qua từng mùa trại và sáng Chủ nhật tại Bắc Biên.</p>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="review-text" data-vi="“Trước đây con rất ngại giao tiếp và hay dán mắt vào Ipad cuối tuần. Từ ngày tham gia Ấu đoàn, Chủ nhật nào con cũng dậy sớm háo hức mặc đồng phục ra bãi sông. Con tự giác gấp chăn màn và biết quan tâm đến em nhỏ.”" data-en="“My son was shy and glued to screens on weekends. Since joining Cub Scouts, he wakes up early every Sunday excited for outdoor activities. He has become remarkably self-reliant.”">“Trước đây con rất ngại giao tiếp và hay dán mắt vào Ipad cuối tuần. Từ ngày tham gia Ấu đoàn, Chủ nhật nào con cũng dậy sớm háo hức mặc đồng phục ra bãi sông. Con tự giác gấp chăn màn và biết quan tâm đến em nhỏ.”</div>
+            <div class="review-author">
+              <div class="author-avatar">M</div>
+              <div class="author-info">
+                <strong data-vi="Mẹ Hoàng Yến" data-en="Parent Hoang Yen">Mẹ Hoàng Yến</strong>
+                <small data-vi="Phụ huynh bé Minh Đức (Ngành Ấu - 3 năm gắn bó)" data-en="Parent of Minh Duc (Cub Scout - 3 years)">Phụ huynh bé Minh Đức (Ngành Ấu - 3 năm gắn bó)</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-text" data-vi="“Điều tôi quý nhất ở Liên đoàn Long Biên là tính chất gia đình ấm cúng. Các Trưởng dạy các con bằng tình thương và sự kiên nhẫn. Sau kỳ trại Sóc Sơn, con biết tự nấu cơm dã chiến và biết cách sơ cứu vết xước nhỏ cho bạn.”" data-en="“What I value most is the warm family atmosphere. Leaders teach with genuine care. After the summer camp, my daughter learned outdoor cooking and basic first aid.”">“Điều tôi quý nhất ở Liên đoàn Long Biên là tính chất gia đình ấm cúng. Các Trưởng dạy các con bằng tình thương và sự kiên nhẫn. Sau kỳ trại Sóc Sơn, con biết tự nấu cơm dã chiến và biết cách sơ cứu vết xước nhỏ cho bạn.”</div>
+            <div class="review-author">
+              <div class="author-avatar">B</div>
+              <div class="author-info">
+                <strong data-vi="Bố Nguyễn Tuấn" data-en="Parent Nguyen Tuan">Bố Nguyễn Tuấn</strong>
+                <small data-vi="Phụ huynh bé Tuệ Linh (Ngành Thiếu - 4 năm gắn bó)" data-en="Parent of Tue Linh (Scout Troop - 4 years)">Phụ huynh bé Tuệ Linh (Ngành Thiếu - 4 năm gắn bó)</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-text" data-vi="“Môi trường Hướng đạo giúp con rèn được tính kỷ luật và sự kiên trì mà trường lớp khó dạy hết được. Con tự tin, khỏe mạnh và có những người bạn cùng chung chí hướng tuyệt vời.”" data-en="“Scouting instills discipline and resilience that classroom environments cannot fully provide. My son is confident, active, and surrounded by wonderful peers.”">“Môi trường Hướng đạo giúp con rèn được tính kỷ luật và sự kiên trì mà trường lớp khó dạy hết được. Con tự tin, khỏe mạnh và có những người bạn cùng chung chí hướng tuyệt vời.”</div>
+            <div class="review-author">
+              <div class="author-avatar">M</div>
+              <div class="author-info">
+                <strong data-vi="Mẹ Thu Trang" data-en="Parent Thu Trang">Mẹ Thu Trang</strong>
+                <small data-vi="Phụ huynh bé Gia Bảo (Ngành Thiếu)" data-en="Parent of Gia Bao (Scout Troop)">Phụ huynh bé Gia Bảo (Ngành Thiếu)</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== 5. LỊCH KỲ TRẠI DỰ KIẾN (DEMO) =============== -->
+    <section class="section" id="lich-trai" style="background:#ffffff;border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="demo-badge">DEMO · KẾ HOẠCH NĂM</span>
+          <div class="eyebrow" data-vi="KẾ HOẠCH DỰ KIẾN" data-en="ANNUAL CAMP SCHEDULE">KẾ HOẠCH DỰ KIẾN</div>
+          <h2 data-vi="Bốn mùa trải nghiệm cùng Hướng đạo Long Biên." data-en="Four Seasons of Scouting Adventures.">Bốn mùa trải nghiệm cùng Hướng đạo Long Biên.</h2>
+          <p class="lead" data-vi="Khung kế hoạch các kỳ trại chuyên đề trong năm để phụ huynh và các em cùng chủ động sắp xếp thời gian." data-en="Tentative annual camp schedule for family planning and preparation.">Khung kế hoạch các kỳ trại chuyên đề trong năm để phụ huynh và các em cùng chủ động sắp xếp thời gian.</p>
+        </div>
+
+        <div class="camp-calendar-grid">
+          <div class="camp-cal-card">
+            <div class="cal-season">🌸 Mùa Xuân</div>
+            <div class="cal-name" data-vi="Trại Xuất Hành &amp; Sinh Nhật" data-en="Spring Expedition">Trại Xuất Hành &amp; Sinh Nhật</div>
+            <span class="cal-time" data-vi="Tháng 3 · 2 Ngày 1 Đêm" data-en="March · 2D1N">Tháng 3 · 2 Ngày 1 Đêm</span>
+          </div>
+
+          <div class="camp-cal-card">
+            <div class="cal-season">☀️ Mùa Hè</div>
+            <div class="cal-name" data-vi="Đại Trại Hè Sinh Tồn" data-en="Summer Survival Camp">Đại Trại Hè Sinh Tồn</div>
+            <span class="cal-time" data-vi="Tháng 6–7 · 3 Ngày 2 Đêm" data-en="June–July · 3D2N">Tháng 6–7 · 3 Ngày 2 Đêm</span>
+          </div>
+
+          <div class="camp-cal-card">
+            <div class="cal-season">🍂 Mùa Thu</div>
+            <div class="cal-name" data-vi="Trại Rèn Luyện Kỹ Năng" data-en="Autumn Skills Camp">Trại Rèn Luyện Kỹ Năng</div>
+            <span class="cal-time" data-vi="Tháng 10 · 2 Ngày 1 Đêm" data-en="October · 2D1N">Tháng 10 · 2 Ngày 1 Đêm</span>
+          </div>
+
+          <div class="camp-cal-card">
+            <div class="cal-season">❄️ Mùa Đông</div>
+            <div class="cal-name" data-vi="Trại Tất Niên – Tết Ấm Áp" data-en="Warm Tet Camp">Trại Tất Niên – Tết Ấm Áp</div>
+            <span class="cal-time" data-vi="Tháng 1 · 2 Ngày 1 Đêm" data-en="January · 2D1N">Tháng 1 · 2 Ngày 1 Đêm</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <footer id="lien-he">
     <div class="container footer-grid">
       <!-- Cột 1: Thông tin liên hệ & Thương hiệu -->
@@ -796,6 +1031,7 @@
         </div>
         <p style="margin-top:14px;">
           <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="#" data-vi="Đăng ký cho con ↗" data-en="Child Registration ↗">Đăng ký cho con ↗</a>
+          <a href="admin.html" style="display:inline-block;margin-left:8px;font-size:12.5px;color:rgba(255,255,255,.7);text-decoration:underline;" title="Dành cho Huynh trưởng & Trưởng ban">⚙️ Bàn làm việc Trưởng ↗</a>
         </p>
       </div>
 

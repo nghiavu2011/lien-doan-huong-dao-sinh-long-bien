@@ -280,9 +280,15 @@
     .floating-bubbles{position:fixed;right:20px;bottom:80px;z-index:59;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
     .bubble{position:relative;display:flex;align-items:center;text-decoration:none;border-radius:50%;transition:transform .22s cubic-bezier(.34,1.56,.64,1)}
     .bubble:hover{transform:scale(1.1)}
+    
+    .custom-bubble-img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
     .bubble-icon{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22);position:relative;overflow:hidden}
-    .bubble-zalo .bubble-icon{background:#0068ff;animation:bubblePulse 2.8s infinite}
-    .bubble-msgr .bubble-icon{background:linear-gradient(135deg,#00c6ff 0%,#0078ff 50%,#a033ff 100%);animation:msgrPulse 2.8s infinite 1.4s}
+    .bubble-zalo 
+    .custom-bubble-img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+    .bubble-icon{background:#0068ff;animation:bubblePulse 2.8s infinite}
+    .bubble-msgr 
+    .custom-bubble-img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+    .bubble-icon{background:linear-gradient(135deg,#00c6ff 0%,#0078ff 50%,#a033ff 100%);animation:msgrPulse 2.8s infinite 1.4s}
     .bubble-tooltip{position:absolute;right:58px;top:50%;transform:translateY(-50%) translateX(6px);background:rgba(17,50,55,.94);color:#fff;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:all .2s ease;box-shadow:0 4px 14px rgba(0,0,0,.18)}
     .bubble-tooltip::after{content:"";position:absolute;right:-5px;top:50%;transform:translateY(-50%);border-left:5px solid rgba(17,50,55,.94);border-top:5px solid transparent;border-bottom:5px solid transparent}
     .bubble:hover .bubble-tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
@@ -290,7 +296,9 @@
     @keyframes msgrPulse{0%{box-shadow:0 0 0 0 rgba(160,51,255,.5)}70%{box-shadow:0 0 0 12px rgba(160,51,255,0)}100%{box-shadow:0 0 0 0 rgba(160,51,255,0)}}
     @media (max-width:600px){
       .floating-bubbles{right:14px;bottom:74px;gap:10px}
-      .bubble-icon{width:44px;height:44px}
+      
+    .custom-bubble-img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+    .bubble-icon{width:44px;height:44px}
       .bubble-tooltip{display:none}
       .to-top{right:14px;bottom:16px;width:44px;height:44px}
     }
@@ -671,7 +679,8 @@
     <a class="bubble bubble-zalo" href="https://zalo.me/0982669456" target="_blank" rel="noopener" aria-label="Chat qua Zalo">
       <span class="bubble-tooltip" data-vi="Chat Zalo" data-en="Chat on Zalo">Chat Zalo</span>
       <div class="bubble-icon">
-        <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+        <img class="custom-bubble-img" id="customZaloIcon" src="icon/zalo.png" alt="Zalo" onerror="this.onerror=null; this.src='icon/zalo.svg'; this.onerror=function(){this.style.display='none'; document.getElementById('svgZalo').style.display='block';}" />
+        <svg id="svgZalo" style="display:none" width="28" height="28" viewBox="0 0 48 48" fill="none">
           <path d="M12 24.5C12 17.596 17.373 12 24 12C30.627 12 36 17.596 36 24.5C36 31.404 30.627 37 24 37C21.91 37 19.938 36.439 18.232 35.454L13.2 36.8C12.636 36.951 12.096 36.441 12.228 35.875L13.116 32.062C12.41 30.82 12 29.404 12 24.5Z" fill="white"/>
           <path d="M17 21H23.5L18.2 28.5H24V31H16V28.5L21.3 21H17V21Z" fill="#0068FF"/>
           <path d="M26 31V21H28.5V31H26Z" fill="#0068FF"/>
@@ -684,23 +693,12 @@
     <a class="bubble bubble-msgr" href="https://m.me/longbienscoutshanoi" target="_blank" rel="noopener" aria-label="Nhắn qua Messenger">
       <span class="bubble-tooltip" data-vi="Nhắn Messenger" data-en="Messenger">Nhắn Messenger</span>
       <div class="bubble-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <img class="custom-bubble-img" id="customMsgrIcon" src="icon/messenger.png" alt="Messenger" onerror="this.onerror=null; this.src='icon/messenger.svg'; this.onerror=function(){this.style.display='none'; document.getElementById('svgMsgr').style.display='block';}" />
+        <svg id="svgMsgr" style="display:none" width="28" height="28" viewBox="0 0 28 28" fill="none">
           <path d="M14 3.5C8.2 3.5 3.5 7.85 3.5 13.23c0 3.07 1.5 5.8 3.85 7.58.2.15.33.39.34.65l.11 2.02c.04.81.88 1.33 1.61.97l2.25-1.08c.21-.1.44-.11.66-.06.75.21 1.54.32 2.38.32 5.8 0 10.5-4.35 10.5-9.73C25.2 7.85 20.5 3.5 14 3.5zm5.4 7.74l-2.87 4.57a1.41 1.41 0 01-1.99.39l-2.25-1.69a.47.47 0 00-.56 0l-3.04 2.31c-.41.31-.94-.15-.72-.61l2.87-4.57a1.41 1.41 0 011.99-.39l2.25 1.69c.17.13.4.13.56 0l3.04-2.31c.41-.31.94.15.72.61z" fill="white"/>
         </svg>
       </div>
     </a>
-  </div>
-
-  <button class="to-top" id="toTop" aria-label="Về đầu trang">↑</button>
-
-  <!-- lightbox -->
-  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh cỡ lớn">
-    <span class="lb-count" id="lbCount"></span>
-    <button class="lb-close" id="lbClose" aria-label="Đóng">×</button>
-    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Ảnh trước">‹</button>
-    <img class="lb-img" id="lbImg" alt="" />
-    <button class="lb-btn lb-next" id="lbNext" aria-label="Ảnh sau">›</button>
-    <div class="lb-cap" id="lbCap"></div>
   </div>
 
   <!-- join modal -->

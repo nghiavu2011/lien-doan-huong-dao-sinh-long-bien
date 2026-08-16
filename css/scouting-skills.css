@@ -1,68 +1,75 @@
 /* =========================================================
-   SCOUTING SKILLS KNOWLEDGE SYSTEM V1 - SCOPED CSS
-   Isolated module for Lien Doan Huong Dao Long Bien
+   SCOUTING SKILLS KNOWLEDGE SYSTEM V1 - SCOPED CSS (PHASE 2)
+   Lien Doan Huong Dao Long Bien
    Strict namespace prefix: .sk-
    ========================================================= */
 
-/* Main Container within #ky-nang */
-.sk-app-container{width:100%;margin-top:20px}
+.sk-app-container{width:100%;margin-top:20px;font-family:"Be Vietnam Pro",sans-serif}
+
+/* Universal Emoji & Icon rendering fix for all OS */
+.sk-cat-icon, .sk-secondary-icon, .sk-level-pill, .sk-badge-lvl, .sk-detail-eyebrow, .sk-level-tab {
+  font-family:"Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+}
 
 /* Top Action & Filter Bar */
 .sk-controls-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;padding:12px 18px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
 .sk-level-filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sk-level-title{font-size:12.5px;font-weight:800;color:var(--forest);letter-spacing:.04em;text-transform:uppercase}
-.sk-level-pill{font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#ffffff;color:var(--forest);cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;gap:5px}
-.sk-level-pill:hover{border-color:var(--fire);color:var(--fire)}
+.sk-level-pill{font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#ffffff;color:var(--forest);cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;gap:5px;user-select:none}
+.sk-level-pill:hover{border-color:var(--fire);color:var(--fire);transform:translateY(-1px)}
 .sk-level-pill.active{background:var(--forest);color:#ffffff;border-color:var(--forest);box-shadow:0 4px 12px rgba(17,50,55,.15)}
 
-.sk-search-box{position:relative;flex:1;max-width:320px;min-width:200px}
-.sk-search-input{width:100%;border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 34px;font-family:"Be Vietnam Pro",sans-serif;font-size:13px;outline:none;background:#ffffff;color:var(--ink);transition:all .2s ease}
+.sk-search-box{position:relative;flex:1;max-width:320px;min-width:220px}
+.sk-search-input{width:100%;border:1px solid var(--line);border-radius:999px;padding:8px 36px 8px 36px;font-family:"Be Vietnam Pro",sans-serif;font-size:13px;outline:none;background:#ffffff;color:var(--ink);transition:all .2s ease}
 .sk-search-input:focus{border-color:var(--fire);box-shadow:0 0 0 3px rgba(217,83,30,.12)}
-.sk-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted);pointer-events:none}
+.sk-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted);pointer-events:none}
+.sk-search-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;display:none;padding:2px 6px;border-radius:50%}
+.sk-search-clear:hover{color:var(--fire);background:#f1f5f9}
+.sk-search-clear.visible{display:block}
 
 /* 8 Primary Categories Grid */
 .sk-categories-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:32px}
-.sk-cat-card{background:#ffffff;border:1.5px solid var(--line);border-radius:14px;padding:20px 18px;cursor:pointer;transition:all .25s ease;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.sk-cat-card:hover{transform:translateY(-3px);border-color:var(--fire);box-shadow:0 12px 28px rgba(17,50,55,.08)}
-.sk-cat-card.active{border-color:var(--forest);background:var(--ivory);box-shadow:0 8px 24px rgba(17,50,55,.1)}
-.sk-cat-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.sk-cat-icon{font-size:28px;line-height:1}
-.sk-cat-no{font-family:"Roboto Slab",serif;font-size:16px;font-weight:700;color:var(--muted)}
-.sk-cat-title{font-family:"Roboto Slab",serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:6px;line-height:1.3}
-.sk-cat-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px}
-.sk-cat-count{font-size:11.5px;font-weight:700;color:var(--fire);display:flex;align-items:center;gap:4px}
+.sk-cat-card{background:#ffffff;border:1.5px solid var(--line);border-radius:14px;padding:22px 20px;cursor:pointer;transition:all .25s ease;display:flex;flex-direction:column;justify-content:space-between;position:relative;user-select:none}
+.sk-cat-card:hover{transform:translateY(-4px);border-color:var(--fire);box-shadow:0 14px 30px rgba(17,50,55,.09)}
+.sk-cat-card:active{transform:translateY(-1px)}
+.sk-cat-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sk-cat-icon{font-size:32px;line-height:1}
+.sk-cat-no{font-family:"Roboto Slab",serif;font-size:16px;font-weight:800;color:var(--muted)}
+.sk-cat-title{font-family:"Roboto Slab",serif;font-size:16.5px;font-weight:700;color:var(--forest);margin-bottom:8px;line-height:1.35}
+.sk-cat-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.sk-cat-count{font-size:11.5px;font-weight:700;color:var(--fire);display:flex;align-items:center;gap:5px}
 
 /* Secondary Areas (Chuyên hiệu & Huynh trưởng) */
-.sk-secondary-wrap{margin-top:20px;padding-top:24px;border-top:1px dashed var(--line)}
+.sk-secondary-wrap{margin-top:24px;padding-top:24px;border-top:1px dashed var(--line)}
 .sk-secondary-title{font-family:"Roboto Slab",serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:14px;display:flex;align-items:center;gap:6px}
 .sk-secondary-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.sk-secondary-card{background:linear-gradient(135deg,#ffffff 0%,var(--paper) 100%);border:1.5px solid var(--line);border-radius:14px;padding:20px;cursor:pointer;transition:all .25s ease;display:flex;gap:16px;align-items:center}
-.sk-secondary-card:hover{border-color:var(--forest);transform:translateY(-2px);box-shadow:0 10px 24px rgba(17,50,55,.07)}
+.sk-secondary-card{background:linear-gradient(135deg,#ffffff 0%,var(--paper) 100%);border:1.5px solid var(--line);border-radius:14px;padding:22px;cursor:pointer;transition:all .25s ease;display:flex;gap:16px;align-items:center;user-select:none}
+.sk-secondary-card:hover{border-color:var(--forest);transform:translateY(-3px);box-shadow:0 12px 26px rgba(17,50,55,.08)}
 .sk-secondary-icon{font-size:36px;width:56px;height:56px;border-radius:12px;background:#ffffff;border:1px solid var(--line);display:grid;place-items:center;flex-shrink:0}
 
 /* Active Category View & Subcategories / Skills List */
-.sk-active-view{margin-top:10px;background:#ffffff;border:1.5px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(17,50,55,.05);animation:skFadeIn .3s ease}
-.sk-active-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:14px;flex-wrap:wrap;gap:10px}
+.sk-active-view{margin-top:10px;background:#ffffff;border:1.5px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 10px 30px rgba(17,50,55,.05);animation:skFadeIn .3s ease}
+.sk-active-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:16px;flex-wrap:wrap;gap:12px}
 .sk-breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
 .sk-breadcrumb-btn{background:none;border:none;color:var(--fire);font-weight:700;font-size:13px;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px}
 .sk-breadcrumb-btn:hover{text-decoration:underline}
-.sk-active-title{font-family:"Roboto Slab",serif;font-size:20px;font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px}
+.sk-active-title{font-family:"Roboto Slab",serif;font-size:21px;font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;margin-top:4px}
 
-.sk-subcat-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:18px}
-.sk-subcat-pill{font-size:12px;font-weight:700;color:var(--forest);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap;transition:all .2s ease}
+.sk-subcat-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px;-webkit-overflow-scrolling:touch}
+.sk-subcat-pill{font-size:12px;font-weight:700;color:var(--forest);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 16px;cursor:pointer;white-space:nowrap;transition:all .2s ease}
 .sk-subcat-pill:hover{background:#e2e8f0;color:var(--fire)}
-.sk-subcat-pill.active{background:var(--fire);color:#ffffff;border-color:var(--fire)}
+.sk-subcat-pill.active{background:var(--forest);color:#ffffff;border-color:var(--forest);box-shadow:0 4px 12px rgba(17,50,55,.15)}
 
 /* Skill Cards inside Category */
-.sk-skills-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.sk-skill-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;cursor:pointer;transition:all .2s ease;display:flex;flex-direction:column;justify-content:space-between}
-.sk-skill-item:hover{background:#ffffff;border-color:var(--fire);transform:translateY(-2px);box-shadow:0 8px 20px rgba(17,50,55,.08)}
-.sk-skill-item-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.sk-skill-tag{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--fire-light);color:var(--fire)}
-.sk-skill-title{font-family:"Roboto Slab",serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:6px;line-height:1.35}
-.sk-skill-desc{font-size:12.5px;color:#475569;line-height:1.55;margin-bottom:12px}
-.sk-skill-level-badges{display:flex;gap:6px;margin-bottom:12px}
-.sk-badge-lvl{font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;background:#e2e8f0;color:#334155}
+.sk-skills-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.sk-skill-item{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;cursor:pointer;transition:all .25s ease;display:flex;flex-direction:column;justify-content:space-between}
+.sk-skill-item:hover{background:#ffffff;border-color:var(--fire);transform:translateY(-3px);box-shadow:0 10px 24px rgba(17,50,55,.09)}
+.sk-skill-item-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sk-skill-tag{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:#fee2e2;color:#b91c1c;border:1px solid #fca5a5}
+.sk-skill-title{font-family:"Roboto Slab",serif;font-size:15.5px;font-weight:700;color:var(--forest);margin-bottom:6px;line-height:1.4}
+.sk-skill-desc{font-size:12.5px;color:#475569;line-height:1.6;margin-bottom:14px}
+.sk-skill-level-badges{display:flex;gap:6px;margin-bottom:14px}
+.sk-badge-lvl{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:#e2e8f0;color:#475569}
 .sk-badge-lvl.active-lvl{background:#dcfce7;color:#15803d;border:1px solid #86efac}
 .sk-skill-cta{font-size:12px;font-weight:700;color:var(--fire);display:inline-flex;align-items:center;gap:4px;margin-top:auto}
 
@@ -71,51 +78,51 @@
    ========================================================= */
 .sk-modal-backdrop{position:fixed;inset:0;background:rgba(17,50,55,.85);backdrop-filter:blur(8px);z-index:99999;display:none;place-items:center;padding:20px;overflow-y:auto}
 .sk-modal-backdrop.sk-open{display:grid}
-.sk-modal-card{background:#ffffff;border-radius:18px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;padding:28px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,.35);border:1px solid var(--line);animation:skModalPop .25s ease}
-.sk-modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:var(--paper);border:1px solid var(--line);color:var(--forest);font-size:16px;cursor:pointer;display:grid;place-items:center;transition:all .2s ease;z-index:10}
+.sk-modal-card{background:#ffffff;border-radius:20px;max-width:780px;width:100%;max-height:90vh;overflow-y:auto;padding:30px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,.35);border:1px solid var(--line);animation:skModalPop .25s ease}
+.sk-modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;background:var(--paper);border:1px solid var(--line);color:var(--forest);font-size:16px;cursor:pointer;display:grid;place-items:center;transition:all .2s ease;z-index:10}
 .sk-modal-close:hover{background:var(--fire);color:#ffffff;border-color:var(--fire)}
 
-.sk-detail-header{margin-bottom:18px;padding-right:40px}
-.sk-detail-eyebrow{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--fire);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
-.sk-detail-title{font-family:"Roboto Slab",serif;font-size:22px;font-weight:700;color:var(--forest);margin-bottom:8px;line-height:1.3}
+.sk-detail-header{margin-bottom:18px;padding-right:44px}
+.sk-detail-eyebrow{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:var(--fire);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.sk-detail-title{font-family:"Roboto Slab",serif;font-size:23px;font-weight:700;color:var(--forest);margin-bottom:8px;line-height:1.35}
 .sk-detail-desc{font-size:14px;color:#475569;line-height:1.65}
 
 /* Level Selector Tabs inside Detail */
-.sk-level-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0;background:var(--paper);padding:6px;border-radius:12px;border:1px solid var(--line)}
-.sk-level-tab{padding:8px 10px;border-radius:8px;border:0;background:transparent;text-align:center;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif;transition:all .2s ease}
-.sk-level-tab strong{display:block;font-size:13px;color:var(--forest)}
+.sk-level-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0;background:var(--paper);padding:6px;border-radius:14px;border:1px solid var(--line)}
+.sk-level-tab{padding:10px;border-radius:10px;border:0;background:transparent;text-align:center;cursor:pointer;transition:all .2s ease}
+.sk-level-tab strong{display:block;font-size:13.5px;color:var(--forest)}
 .sk-level-tab small{font-size:11px;color:var(--muted)}
-.sk-level-tab.active{background:#ffffff;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.sk-level-tab.active{background:#ffffff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
 .sk-level-tab.active strong{color:var(--fire)}
 
-.sk-level-target-box{background:#f0fdf4;border:1.5px solid #86efac;border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;gap:12px;align-items:start}
-.sk-level-target-box .icon{font-size:20px;color:#16a34a;line-height:1}
-.sk-level-target-box strong{font-size:13px;color:#15803d;display:block;margin-bottom:2px}
-.sk-level-target-box p{font-size:13px;color:#166534;margin:0;line-height:1.55}
+.sk-level-target-box{background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;align-items:start}
+.sk-level-target-box .icon{font-size:22px;color:#16a34a;line-height:1;flex-shrink:0}
+.sk-level-target-box strong{font-size:13.5px;color:#15803d;display:block;margin-bottom:3px}
+.sk-level-target-box p{font-size:13px;color:#166534;margin:0;line-height:1.6}
 
 /* Expandable Accordions for Step-by-step, Equipment, Safety, Common Mistakes */
-.sk-accordion{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:12px;background:#ffffff}
-.sk-accordion-header{width:100%;padding:14px 18px;background:var(--paper);border:0;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:"Roboto Slab",serif;font-size:14.5px;font-weight:700;color:var(--forest);transition:background .2s ease}
+.sk-accordion{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px;background:#ffffff}
+.sk-accordion-header{width:100%;padding:15px 20px;background:var(--paper);border:0;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:"Roboto Slab",serif;font-size:15px;font-weight:700;color:var(--forest);transition:background .2s ease}
 .sk-accordion-header:hover{background:#e2e8f0}
-.sk-accordion-icon{font-size:14px;transition:transform .25s ease}
-.sk-accordion.open .sk-accordion-icon{transform:rotate(180deg)}
-.sk-accordion-body{padding:16px 18px;display:none;font-size:13.5px;line-height:1.75;color:#334155;border-top:1px solid var(--line);background:#ffffff}
+.sk-accordion-icon{font-size:13px;transition:transform .25s ease;color:var(--muted)}
+.sk-accordion.open .sk-accordion-icon{transform:rotate(180deg);color:var(--fire)}
+.sk-accordion-body{padding:18px 20px;display:none;font-size:13.5px;line-height:1.75;color:#334155;border-top:1px solid var(--line);background:#ffffff}
 .sk-accordion.open .sk-accordion-body{display:block}
 
-.sk-steps-list{padding-left:20px;margin:0}
-.sk-steps-list li{margin-bottom:10px}
-.sk-equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;list-style:none;padding:0;margin:0}
-.sk-equip-grid li{background:var(--paper);padding:8px 12px;border-radius:8px;font-size:12.5px;color:var(--forest);font-weight:600;display:flex;align-items:center;gap:6px}
+.sk-steps-list{padding-left:22px;margin:0}
+.sk-steps-list li{margin-bottom:12px}
+.sk-equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;list-style:none;padding:0;margin:0}
+.sk-equip-grid li{background:var(--paper);padding:9px 14px;border-radius:999px;font-size:12.5px;color:var(--forest);font-weight:600;display:flex;align-items:center;gap:6px;border:1px solid var(--line)}
 
 /* Assessment & Checklist */
-.sk-assessment-box{background:#fffbeb;border:1.5px solid #fde68a;border-radius:12px;padding:16px 18px;margin-top:16px}
-.sk-assessment-box strong{color:#b45309;font-size:13.5px;display:block;margin-bottom:4px}
-.sk-assessment-box p{color:#92400e;font-size:13px;margin:0;line-height:1.6}
+.sk-assessment-box{background:#fffbeb;border:1.5px solid #fde68a;border-radius:14px;padding:18px 20px;margin-top:18px}
+.sk-assessment-box strong{color:#b45309;font-size:14px;display:block;margin-bottom:5px}
+.sk-assessment-box p{color:#92400e;font-size:13.5px;margin:0;line-height:1.65}
 
 /* Infographic Image in Modal */
-.sk-media-box{margin:16px 0;text-align:center;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#f8fafc}
+.sk-media-box{margin:18px 0;text-align:center;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#f8fafc}
 .sk-media-box img{max-width:100%;height:auto;display:block;margin:0 auto;cursor:zoom-in}
-.sk-media-hint{font-size:11.5px;color:var(--muted);padding:6px 12px;background:#f1f5f9;border-top:1px solid var(--line)}
+.sk-media-hint{font-size:12px;color:var(--muted);padding:8px 14px;background:#f1f5f9;border-top:1px solid var(--line)}
 
 @keyframes skFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes skModalPop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
@@ -128,6 +135,6 @@
   .sk-categories-grid{grid-template-columns:1fr}
   .sk-controls-bar{flex-direction:column;align-items:stretch}
   .sk-search-box{max-width:100%}
-  .sk-modal-card{padding:20px 16px}
+  .sk-modal-card{padding:22px 16px}
   .sk-level-selector{grid-template-columns:1fr}
 }

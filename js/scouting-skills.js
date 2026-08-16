@@ -1,5 +1,5 @@
 /**
- * Scouting Skills Knowledge System V1 - UI Controller
+ * Scouting Skills Knowledge System V1 - UI Controller (Phase 2 Enhanced)
  * Lien Doan Huong Dao Long Bien
  */
 
@@ -23,30 +23,64 @@
     'tao-lua': 'tao-lua',
     'so-cuu': 'ha-than-nhiet',
     'uoc-dac': 'uoc-dac',
-    'tham-du': 'tham-du'
+    'tham-du': 'tham-du',
+    'an-toan-so': 'an-toan-so',
+    'thien-nhien': 'thien-nhien'
   };
 
+  const getAllSkills = () => window.SCOUT_SKILLS_DATA || [];
+  const getAllCategories = () => window.SCOUT_SKILL_CATEGORIES || [];
+  const getAllSecondaryAreas = () => window.SCOUT_SECONDARY_AREAS || [];
+
   const getSkillsForCategory = (catId) => {
-    const allSkills = window.SCOUT_SKILLS_DATA || [];
-    return allSkills.filter(s => s.category === catId);
+    return getAllSkills().filter(s => s.category === catId);
   };
 
   const filterSkills = (skills) => {
     return skills.filter(s => {
-      // Subcategory filter
+      // Subcategory filter (only applicable when in a category)
       if (activeSubcategory !== 'all' && s.subcategory !== activeSubcategory) return false;
       // Level filter
       if (currentLevelFilter !== 'all' && (!s.levels || !s.levels[currentLevelFilter])) return false;
       // Search query
-      if (searchQuery) {
-        const q = searchQuery.toLowerCase();
-        const matchTitle = s.title.toLowerCase().includes(q);
+      if (searchQuery.trim()) {
+        const q = searchQuery.trim().toLowerCase();
+        const matchTitle = (s.title || '').toLowerCase().includes(q);
         const matchDesc = (s.shortDescription || '').toLowerCase().includes(q);
+        const matchPurpose = (s.purpose || '').toLowerCase().includes(q);
+        const matchSub = (s.subcategory || '').toLowerCase().includes(q);
+        const matchCat = (s.category || '').toLowerCase().includes(q);
         const matchTag = (s.tags || []).some(t => t.toLowerCase().includes(q));
-        if (!matchTitle && !matchDesc && !matchTag) return false;
+        if (!matchTitle && !matchDesc && !matchPurpose && !matchSub && !matchCat && !matchTag) return false;
       }
       return true;
     });
+  };
+
+  // Helper to render a list of skill card elements
+  const renderSkillCardHtml = (s) => {
+    const isAu = s.levels && s.levels.au;
+    const isThieu = s.levels && s.levels.thieu;
+    const isTrang = s.levels && s.levels.trang;
+
+    return `
+      <div class="sk-skill-item" onclick="window.openSkillModal('${s.slug}')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')window.openSkillModal('${s.slug}')">
+        <div>
+          <div class="sk-skill-item-head">
+            <span class="sk-skill-tag">${s.subcategory || 'Kỹ năng'}</span>
+            <span style="font-size:12px;color:var(--muted);">${s.environment === 'outdoor' ? '🌲 Dã ngoại' : s.environment === 'indoor' ? '🏠 Trong nhà' : '⛺ Đa năng'}</span>
+          </div>
+          <h4 class="sk-skill-title">${s.title}</h4>
+          <p class="sk-skill-desc">${s.shortDescription}</p>
+          <div class="sk-skill-level-badges">
+            <span class="sk-badge-lvl ${currentLevelFilter === 'au' || currentLevelFilter === 'all' ? (isAu ? 'active-lvl' : '') : ''}">Ấu: Biết</span>
+            <span class="sk-badge-lvl ${currentLevelFilter === 'thieu' || currentLevelFilter === 'all' ? (isThieu ? 'active-lvl' : '') : ''}">Thiếu: Làm</span>
+            <span class="sk-badge-lvl ${currentLevelFilter === 'trang' || currentLevelFilter === 'all' ? (isTrang ? 'active-lvl' : '') : ''}">Tráng: Dẫn</span>
+          </div>
+        </div>
+        <span class="sk-skill-cta">Xem chi tiết &amp; Thực hành ↗</span>
+      </div>
+    `;
   };
 
   // Main Render Function
@@ -54,11 +88,68 @@
     const mountEl = document.getElementById('scoutSkillsApp');
     if (!mountEl) return;
 
-    const categories = window.SCOUT_SKILL_CATEGORIES || [];
-    const secondaryAreas = window.SCOUT_SECONDARY_AREAS || [];
-    const allSkills = window.SCOUT_SKILLS_DATA || [];
+    const categories = getAllCategories();
+    const secondaryAreas = getAllSecondaryAreas();
+    const allSkills = getAllSkills();
 
-    // If a category is active, render the drill-down view
+    // 1. LIVE SEARCH MODE: If user typed in search query on Overview, show matching results immediately
+    if (!activeCategoryId && searchQuery.trim().length > 0) {
+      const searchResults = filterSkills(allSkills);
+      let searchCardsHtml = '';
+
+      if (searchResults.length === 0) {
+        searchCardsHtml = `
+          <div style="grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--muted);background:var(--paper);border-radius:14px;border:1px solid var(--line);">
+            <div style="font-size:36px;margin-bottom:10px;">🔍</div>
+            <strong style="font-size:16px;color:var(--forest);display:block;margin-bottom:6px;">Không tìm thấy kỹ năng phù hợp với từ khóa "${searchQuery}"</strong>
+            <p style="font-size:13px;margin:0;">Thử tìm kiếm với từ khóa khác như "nút dây", "lều", "đá lửa", "la bàn", "sơ cứu"...</p>
+            <button class="sk-level-pill" style="margin-top:14px;" onclick="window.ScoutSkills.clearSearch()">Xóa tìm kiếm</button>
+          </div>
+        `;
+      } else {
+        searchResults.forEach(s => {
+          searchCardsHtml += renderSkillCardHtml(s);
+        });
+      }
+
+      mountEl.innerHTML = `
+        <div class="sk-app-container">
+          <div class="sk-controls-bar">
+            <div class="sk-level-filters">
+              <span class="sk-level-title">Cấp Độ:</span>
+              <button class="sk-level-pill ${currentLevelFilter === 'all' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('all')">Tất Cả</button>
+              <button class="sk-level-pill ${currentLevelFilter === 'au' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('au')">🐺 Ấu (Biết)</button>
+              <button class="sk-level-pill ${currentLevelFilter === 'thieu' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('thieu')">⚜️ Thiếu (Làm được)</button>
+              <button class="sk-level-pill ${currentLevelFilter === 'trang' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('trang')">🧭 Tráng (Dẫn được)</button>
+            </div>
+            <div class="sk-search-box">
+              <span class="sk-search-icon">🔍</span>
+              <input type="text" class="sk-search-input" id="skSearchInput" placeholder="Tìm kỹ năng (nút dây, hạ thân nhiệt...)" value="${searchQuery}" oninput="window.ScoutSkills.setSearch(this.value)" />
+              <button class="sk-search-clear visible" onclick="window.ScoutSkills.clearSearch()" title="Xóa">✕</button>
+            </div>
+          </div>
+
+          <div class="sk-active-view">
+            <div class="sk-active-header">
+              <div>
+                <div class="sk-breadcrumb">
+                  <button class="sk-breadcrumb-btn" onclick="window.ScoutSkills.clearSearch()">← 8 Nhóm Kỹ Năng</button>
+                  <span>/</span>
+                  <span>Kết quả tìm kiếm</span>
+                </div>
+                <h3 class="sk-active-title">🔍 Tìm thấy ${searchResults.length} kỹ năng cho "${searchQuery}"</h3>
+              </div>
+            </div>
+            <div class="sk-skills-list">
+              ${searchCardsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // 2. DRILL-DOWN CATEGORY VIEW: When a Category is active
     if (activeCategoryId) {
       const activeCat = [...categories, ...secondaryAreas].find(c => c.id === activeCategoryId);
       if (!activeCat) {
@@ -69,8 +160,6 @@
 
       const catSkills = getSkillsForCategory(activeCategoryId);
       const filteredSkills = filterSkills(catSkills);
-
-      // Extract unique subcategories
       const subcats = activeCat.subcategories || [];
 
       let subcatTabsHtml = `
@@ -86,32 +175,16 @@
       let skillCardsHtml = '';
       if (filteredSkills.length === 0) {
         skillCardsHtml = `
-          <div style="grid-column:1/-1;text-align:center;padding:36px;color:var(--muted);background:var(--paper);border-radius:12px;">
+          <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--muted);background:var(--paper);border-radius:14px;">
             <div style="font-size:32px;margin-bottom:8px;">🔍</div>
-            <strong>Chưa tìm thấy kỹ năng phù hợp</strong>
-            <p style="font-size:13px;margin-top:4px;">Vui lòng chọn bộ lọc khác hoặc nhập từ khóa tìm kiếm.</p>
+            <strong style="font-size:15px;color:var(--forest);">Chưa tìm thấy kỹ năng phù hợp</strong>
+            <p style="font-size:13px;margin:4px 0 12px;">Vui lòng chọn phân loại khác hoặc xóa bộ lọc tìm kiếm.</p>
+            <button class="sk-level-pill" onclick="window.ScoutSkills.setLevelFilter('all'); window.ScoutSkills.setSubcategory('all');">Xem tất cả kỹ năng trong nhóm</button>
           </div>
         `;
       } else {
         filteredSkills.forEach(s => {
-          skillCardsHtml += `
-            <div class="sk-skill-item" onclick="window.openSkillModal('${s.slug}')">
-              <div>
-                <div class="sk-skill-item-head">
-                  <span class="sk-skill-tag">${s.subcategory}</span>
-                  <span style="font-size:12px;color:var(--muted);">${s.environment === 'outdoor' ? '🌲 Dã ngoại' : s.environment === 'indoor' ? '🏠 Trong nhà' : '⛺ Đa năng'}</span>
-                </div>
-                <h4 class="sk-skill-title">${s.title}</h4>
-                <p class="sk-skill-desc">${s.shortDescription}</p>
-                <div class="sk-skill-level-badges">
-                  <span class="sk-badge-lvl ${currentLevelFilter === 'au' || currentLevelFilter === 'all' ? 'active-lvl' : ''}">Ấu: Biết</span>
-                  <span class="sk-badge-lvl ${currentLevelFilter === 'thieu' || currentLevelFilter === 'all' ? 'active-lvl' : ''}">Thiếu: Làm</span>
-                  <span class="sk-badge-lvl ${currentLevelFilter === 'trang' || currentLevelFilter === 'all' ? 'active-lvl' : ''}">Tráng: Dẫn</span>
-                </div>
-              </div>
-              <span class="sk-skill-cta">Xem chi tiết &amp; Thực hành ↗</span>
-            </div>
-          `;
+          skillCardsHtml += renderSkillCardHtml(s);
         });
       }
 
@@ -130,7 +203,17 @@
               <div class="sk-search-box">
                 <span class="sk-search-icon">🔍</span>
                 <input type="text" class="sk-search-input" placeholder="Tìm trong chuyên mục này..." value="${searchQuery}" oninput="window.ScoutSkills.setSearch(this.value)" />
+                ${searchQuery ? `<button class="sk-search-clear visible" onclick="window.ScoutSkills.clearSearch()" title="Xóa">✕</button>` : ''}
               </div>
+            </div>
+
+            <!-- Level filter pills in category view -->
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+              <span class="sk-level-title">Cấp Độ:</span>
+              <button class="sk-level-pill ${currentLevelFilter === 'all' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('all')">Tất Cả</button>
+              <button class="sk-level-pill ${currentLevelFilter === 'au' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('au')">🐺 Ấu (Biết)</button>
+              <button class="sk-level-pill ${currentLevelFilter === 'thieu' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('thieu')">⚜️ Thiếu (Làm được)</button>
+              <button class="sk-level-pill ${currentLevelFilter === 'trang' ? 'active' : ''}" onclick="window.ScoutSkills.setLevelFilter('trang')">🧭 Tráng (Dẫn được)</button>
             </div>
 
             ${subcats.length > 0 ? `<div class="sk-subcat-tabs">${subcatTabsHtml}</div>` : ''}
@@ -144,12 +227,12 @@
       return;
     }
 
-    // Default Overview Screen (8 Primary Categories + Level Filter + Search + 2 Secondary Areas)
+    // 3. DEFAULT OVERVIEW SCREEN (8 Primary Categories Grid + 2 Secondary Areas)
     let catCardsHtml = '';
     categories.forEach(cat => {
       const skillsInCat = getSkillsForCategory(cat.id);
       catCardsHtml += `
-        <div class="sk-cat-card" onclick="window.ScoutSkills.selectCategory('${cat.id}')">
+        <div class="sk-cat-card" onclick="window.ScoutSkills.selectCategory('${cat.id}')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')window.ScoutSkills.selectCategory('${cat.id}')">
           <div>
             <div class="sk-cat-head">
               <span class="sk-cat-icon">${cat.icon}</span>
@@ -159,7 +242,7 @@
             <p class="sk-cat-desc">${cat.desc}</p>
           </div>
           <div class="sk-cat-count">
-            <span>${skillsInCat.length > 0 ? `${skillsInCat.length} Kỹ năng cơ bản` : `${cat.subcategories ? cat.subcategories.length : 0} Chuyên đề`}</span>
+            <span>${skillsInCat.length > 0 ? `${skillsInCat.length} Kỹ năng thực hành` : `${cat.subcategories ? cat.subcategories.length : 0} Chuyên đề`}</span>
             <span>↗</span>
           </div>
         </div>
@@ -170,14 +253,14 @@
     secondaryAreas.forEach(area => {
       const skillsInArea = getSkillsForCategory(area.id);
       secondaryCardsHtml += `
-        <div class="sk-secondary-card" onclick="window.ScoutSkills.selectCategory('${area.id}')">
+        <div class="sk-secondary-card" onclick="window.ScoutSkills.selectCategory('${area.id}')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')window.ScoutSkills.selectCategory('${area.id}')">
           <div class="sk-secondary-icon">${area.icon}</div>
           <div style="flex:1;">
             <div style="font-size:11px;font-weight:800;color:var(--fire);text-transform:uppercase;letter-spacing:.05em;">CHUYÊN ĐỀ ${area.number}</div>
-            <h4 style="font-family:'Roboto Slab',serif;font-size:16px;color:var(--forest);margin:2px 0 4px;">${area.name}</h4>
-            <p style="font-size:12.5px;color:var(--muted);line-height:1.5;margin:0;">${area.desc}</p>
+            <h4 style="font-family:'Roboto Slab',serif;font-size:16.5px;color:var(--forest);margin:2px 0 4px;">${area.name}</h4>
+            <p style="font-size:12.5px;color:var(--muted);line-height:1.55;margin:0;">${area.desc}</p>
           </div>
-          <span style="font-size:12px;font-weight:700;color:var(--fire);">Xem ↗</span>
+          <span style="font-size:12px;font-weight:700;color:var(--fire);white-space:nowrap;">Xem ${skillsInArea.length} bài ↗</span>
         </div>
       `;
     });
@@ -195,7 +278,7 @@
           </div>
           <div class="sk-search-box">
             <span class="sk-search-icon">🔍</span>
-            <input type="text" class="sk-search-input" placeholder="Tìm kỹ năng (nút dây, hạ thân nhiệt...)" value="${searchQuery}" oninput="window.ScoutSkills.setSearch(this.value)" />
+            <input type="text" class="sk-search-input" id="skSearchInput" placeholder="Tìm kỹ năng (nút dây, lều, la bàn...)" value="${searchQuery}" oninput="window.ScoutSkills.setSearch(this.value)" />
           </div>
         </div>
 
@@ -269,12 +352,16 @@
       `;
     }
 
+    // Category name lookup
+    const catObj = [...getAllCategories(), ...getAllSecondaryAreas()].find(c => c.id === skill.category);
+    const catName = catObj ? catObj.name : skill.category;
+
     contentEl.innerHTML = `
       <div class="sk-detail-header">
         <div class="sk-detail-eyebrow">
-          <span>${skill.category.toUpperCase()}</span>
+          <span>${catName}</span>
           <span>·</span>
-          <span>${skill.subcategory}</span>
+          <span>${skill.subcategory || 'Chuyên đề'}</span>
         </div>
         <h2 class="sk-detail-title">${skill.title}</h2>
         <p class="sk-detail-desc">${skill.purpose || skill.shortDescription}</p>
@@ -380,6 +467,10 @@
       activeCategoryId = catId;
       activeSubcategory = 'all';
       renderApp();
+      const sec = document.getElementById('ky-nang');
+      if (sec) {
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     },
     backToCategories: () => {
       activeCategoryId = null;
@@ -396,6 +487,16 @@
     },
     setSearch: (q) => {
       searchQuery = q;
+      renderApp();
+      // Keep focus in search input if it exists
+      const input = document.getElementById('skSearchInput');
+      if (input) {
+        input.focus();
+        input.selectionStart = input.selectionEnd = input.value.length;
+      }
+    },
+    clearSearch: () => {
+      searchQuery = '';
       renderApp();
     },
     setModalLevel: (lvl) => {
@@ -417,7 +518,7 @@
   // Universal openSkillModal for backward compatibility
   window.openSkillModal = (slugOrKey) => {
     const targetSlug = SLUG_MAPPING[slugOrKey] || slugOrKey;
-    const allSkills = window.SCOUT_SKILLS_DATA || [];
+    const allSkills = getAllSkills();
     const foundSkill = allSkills.find(s => s.slug === targetSlug || s.id === targetSlug);
 
     if (foundSkill) {
@@ -431,7 +532,7 @@
     window.ScoutSkills.closeModal();
   };
 
-  // Listeners
+  // Keyboard Listeners
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       window.ScoutSkills.closeModal();

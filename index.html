@@ -572,6 +572,7 @@
     .stories-more-wrap{text-align:center;margin-top:28px}
 
   </style>
+  <link rel="stylesheet" href="css/scouting-skills.css" />
 </head>
 <body>
   <!-- Do hoa vector mot doan cau Long Bien (tu file SVG chinh thuc, da bo nen trang) -->
@@ -864,75 +865,17 @@
     </section>
 
     <!-- =============== KỸ NĂNG HƯỚNG ĐẠO (INTERACTIVE SKILL HUB) =============== -->
+        <!-- =============== KỸ NĂNG HƯỚNG ĐẠO (ISOLATED KNOWLEDGE SYSTEM V1) =============== -->
     <section class="section" id="ky-nang" style="background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
       <div class="container">
         <div class="sec-head">
-          <div class="eyebrow" data-vi="KỸ NĂNG HƯỚNG ĐẠO" data-en="SCOUT SKILLS">KỸ NĂNG HƯỚNG ĐẠO</div>
-          <h2 data-vi="Học bằng việc làm · Kỹ năng thực tế trọn đời." data-en="Learning by Doing · Practical Skills for Life.">Học bằng việc làm · Kỹ năng thực tế trọn đời.</h2>
-          <p class="lead" data-vi="Các em được trực tiếp thực hành nút dây, nhóm lửa, sơ cấp cứu, đọc bản đồ và sinh tồn dã ngoại dưới sự kèm cặp tận tình của các Huynh trưởng." data-en="Hands-on mastery of knots, firecraft, first aid, navigation, and outdoor survival under leader guidance.">Các em được trực tiếp thực hành nút dây, nhóm lửa, sơ cấp cứu, đọc bản đồ và sinh tồn dã ngoại dưới sự kèm cặp tận tình của các Huynh trưởng.</p>
+          <div class="eyebrow" data-vi="KHO TÀNG KỸ NĂNG HƯỚNG ĐẠO" data-en="SCOUT SKILLS KNOWLEDGE SYSTEM">KHO TÀNG KỸ NĂNG HƯỚNG ĐẠO</div>
+          <h2 data-vi="Học bằng thực hành · Kỹ năng thực tế trọn đời." data-en="Learning by Doing · Practical Skills for Life.">Học bằng thực hành · Kỹ năng thực tế trọn đời.</h2>
+          <p class="lead" data-vi="8 nhóm kỹ năng trọng tâm, hệ thống chuyên hiệu và cẩm nang Huynh trưởng được chuẩn hóa qua 3 cấp độ: Ấu (Biết) &rarr; Thiếu (Làm được) &rarr; Tráng (Dẫn được)." data-en="8 core scout skill categories across 3 learning stages: Cub (Know) &rarr; Scout (Do) &rarr; Rover (Lead).">8 nhóm kỹ năng trọng tâm, hệ thống chuyên hiệu và cẩm nang Huynh trưởng được chuẩn hóa qua 3 cấp độ: Ấu (Biết) &rarr; Thiếu (Làm được) &rarr; Tráng (Dẫn được).</p>
         </div>
 
-                <div class="skills-grid">
-          <!-- 1. Đi bộ đường dài -->
-          <div class="skill-card" onclick="openSkillModal('di-bo')">
-            <div>
-              <div class="skill-icon">🗺️</div>
-              <h3 data-vi="5 Khu Vực Đi Bộ Đường Dài" data-en="5 Hiking Zones">5 Khu Vực Đi Bộ Đường Dài</h3>
-              <p data-vi="Nhận biết và vượt qua an toàn tại 5 địa hình trọng yếu: lối mòn, sườn dốc trơn, suối đá, sương mù và bãi hạ trại." data-en="Safety protocols across 5 trail zones: forest paths, slippery slopes, river crossings, fog, and campsites.">Nhận biết và vượt qua an toàn tại 5 địa hình trọng yếu: lối mòn, sườn dốc trơn, suối đá, sương mù và bãi hạ trại.</p>
-            </div>
-            <span class="skill-btn" data-vi="Xem Infographic &amp; Hướng dẫn ↗" data-en="View Infographic &amp; Guide ↗">Xem Infographic &amp; Hướng dẫn ↗</span>
-          </div>
-
-          <!-- 2. Gậy thiếu sinh -->
-          <div class="skill-card" onclick="openSkillModal('gay-thieu-sinh')">
-            <div>
-              <div class="skill-icon">🌲</div>
-              <h3 data-vi="Gậy Thiếu Sinh &amp; Ý Nghĩa" data-en="Scout Staff Significance">Gậy Thiếu Sinh &amp; Ý Nghĩa</h3>
-              <p data-vi="Người bạn đường trung thành dài 1m50: trợ lực leo dốc, đo đạc khoảng cách, làm cáng cứu thương và tháp tiên phong." data-en="The multipurpose 1.5m staff: walking aid, estimation tool, emergency stretcher, and pioneering mast.">Người bạn đường trung thành dài 1m50: trợ lực leo dốc, đo đạc khoảng cách, làm cáng cứu thương và tháp tiên phong.</p>
-            </div>
-            <span class="skill-btn" data-vi="Xem Infographic &amp; Hướng dẫn ↗" data-en="View Infographic &amp; Guide ↗">Xem Infographic &amp; Hướng dẫn ↗</span>
-          </div>
-
-          <!-- 3. Hạ thân nhiệt -->
-          <div class="skill-card" onclick="openSkillModal('ha-than-nhiet')">
-            <div>
-              <div class="skill-icon">❄️</div>
-              <h3 data-vi="Hạ Thân Nhiệt &amp; Sơ Cứu" data-en="Hypothermia Care">Hạ Thân Nhiệt &amp; Sơ Cứu</h3>
-              <p data-vi="Nhận diện triệu chứng rét buốt, cách ly gió lạnh, thay đồ khô, làm ấm đúng cách và phòng ngừa khi đi trại mùa đông." data-en="Recognizing symptoms, wind isolation, thermal warming protocols, and winter camp precautions.">Nhận diện triệu chứng rét buốt, cách ly gió lạnh, thay đồ khô, làm ấm đúng cách và phòng ngừa khi đi trại mùa đông.</p>
-            </div>
-            <span class="skill-btn" data-vi="Xem Infographic &amp; Hướng dẫn ↗" data-en="View Infographic &amp; Guide ↗">Xem Infographic &amp; Hướng dẫn ↗</span>
-          </div>
-
-          <!-- 4. Phương pháp EDGE -->
-          <div class="skill-card" onclick="openSkillModal('phuong-phap-edge')">
-            <div>
-              <div class="skill-icon">🎓</div>
-              <h3 data-vi="Phương Pháp EDGE Huynh Trưởng" data-en="EDGE Teaching Method">Phương Pháp EDGE Huynh Trưởng</h3>
-              <p data-vi="Quy trình sư phạm 4 bước kinh điển: Giải thích (Explain) &rarr; Làm mẫu (Demonstrate) &rarr; Kèm cặp (Guide) &rarr; Trao quyền (Enable)." data-en="The 4-step scout teaching method: Explain &rarr; Demonstrate &rarr; Guide &rarr; Enable.">Quy trình sư phạm 4 bước kinh điển: Giải thích (Explain) &rarr; Làm mẫu (Demonstrate) &rarr; Kèm cặp (Guide) &rarr; Trao quyền (Enable).</p>
-            </div>
-            <span class="skill-btn" data-vi="Xem Infographic &amp; Hướng dẫn ↗" data-en="View Infographic &amp; Guide ↗">Xem Infographic &amp; Hướng dẫn ↗</span>
-          </div>
-
-          <!-- 5. Chuyên hiệu chăn nuôi -->
-          <div class="skill-card" onclick="openSkillModal('chuyen-hieu-pet')">
-            <div>
-              <div class="skill-icon">🐾</div>
-              <h3 data-vi="Chuyên Hiệu Nuôi Cún &amp; Chó" data-en="Pet Care Badge">Chuyên Hiệu Nuôi Cún &amp; Chó</h3>
-              <p data-vi="Rèn luyện tình yêu thương loài vật, lịch dinh dưỡng, vệ sinh, huấn luyện thói quen tốt và chăm sóc thú cưng chu đáo." data-en="Fostering kindness to animals, feeding schedules, basic dog training, and pet wellness care.">Rèn luyện tình yêu thương loài vật, lịch dinh dưỡng, vệ sinh, huấn luyện thói quen tốt và chăm sóc thú cưng chu đáo.</p>
-            </div>
-            <span class="skill-btn" data-vi="Xem Infographic &amp; Hướng dẫn ↗" data-en="View Infographic &amp; Guide ↗">Xem Infographic &amp; Hướng dẫn ↗</span>
-          </div>
-
-          <!-- 6. Nút dây & Tiên phong -->
-          <div class="skill-card" onclick="openSkillModal('nut-day')">
-            <div>
-              <div class="skill-icon">🏕️</div>
-              <h3 data-vi="Nút Dây &amp; Bếp Hoàng Cầm" data-en="Knots &amp; Camp Kitchen">Nút Dây &amp; Bếp Hoàng Cầm</h3>
-              <p data-vi="Nút dẹt, nút thuyền chài, nút thòng lọng, kỹ thuật nối gỗ làm cầu tháp và đào rãnh bếp dã chiến không khói." data-en="Square knots, clove hitches, bowlines, timber lashings, and smokeless trench cooking.">Nút dẹt, nút thuyền chài, nút thòng lọng, kỹ thuật nối gỗ làm cầu tháp và đào rãnh bếp dã chiến không khói.</p>
-            </div>
-            <span class="skill-btn" data-vi="Xem Video &amp; Hướng dẫn ↗" data-en="View Video &amp; Guide ↗">Xem Video &amp; Hướng dẫn ↗</span>
-          </div>
-        </div>
+        <!-- Data-Driven Mount Point -->
+        <div id="scoutSkillsApp"></div>
       </div>
     </section>
 
@@ -2904,6 +2847,19 @@
       <div id="storyModalContent"></div>
     </div>
   </div>
+
+
+  <!-- Skill Detail Modal Template V1 (Data-Driven Progressive Disclosure) -->
+  <div class="sk-modal-backdrop" id="skillDetailModalV1" onclick="if(event.target===this)window.ScoutSkills.closeModal()" role="dialog" aria-label="Chi tiết kỹ năng">
+    <div class="sk-modal-card">
+      <button class="sk-modal-close" onclick="window.ScoutSkills.closeModal()" aria-label="Đóng">✕</button>
+      <div id="skillDetailModalContentV1"></div>
+    </div>
+  </div>
+
+  <!-- Isolated Scouting Skills Module Scripts -->
+  <script src="data/skills-knowledge-data.js"></script>
+  <script src="js/scouting-skills.js"></script>
 
 </body>
 </html>

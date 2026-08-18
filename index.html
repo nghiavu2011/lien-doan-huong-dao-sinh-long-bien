@@ -6,6 +6,10 @@
   <meta name="theme-color" content="#113237" />
     <title>Liên đoàn Hướng đạo Long Biên · Long Bien Scouts</title>
   <meta name="description" content="Liên đoàn Hướng đạo Long Biên – Trải nghiệm để trưởng thành. Sinh hoạt ngoài trời sáng Chủ nhật tại Vườn hoa Bắc Biên, Quận Long Biên, Hà Nội." />
+    <!-- Google Fonts for crisp Vietnamese typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://lien-doan-huong-dao-long-bien.vercel.app/" />
 
   <!-- Open Graph / Facebook -->
@@ -1074,9 +1078,9 @@
             </div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="btn btn-primary" onclick="window.ScoutTools.openToolsModal('morse')" style="font-size:13px;padding:9px 18px;border-radius:999px;">📻 Máy Phát Morse</button>
-            <button class="btn btn-outline" onclick="window.ScoutTools.openToolsModal('whistle')" style="font-size:13px;padding:9px 18px;border-radius:999px;background:#fff;">🎺 Tín Hiệu Còi</button>
-            <button class="btn btn-outline" onclick="window.ScoutTools.openToolsModal('cipher')" style="font-size:13px;padding:9px 18px;border-radius:999px;background:#fff;">📜 Mật Thư Studio</button>
+            <button class="tool-launch-primary" onclick="window.ScoutTools.openToolsModal('morse')">📻 Máy Phát Morse</button>
+            <button class="tool-launch-secondary" onclick="window.ScoutTools.openToolsModal('whistle')">🎺 Tín Hiệu Còi</button>
+            <button class="tool-launch-secondary" onclick="window.ScoutTools.openToolsModal('cipher')">📜 Mật Thư Studio</button>
           </div>
         </div>
 
@@ -2946,10 +2950,10 @@
               <button class="tool-action-btn" onclick="window.ScoutTools.playCurrentMorse(this)">
                 ▶️ Phát Âm Thanh Morse
               </button>
-              <button class="btn btn-outline" style="font-size:12.5px;padding:8px 16px;border-radius:999px;" onclick="document.getElementById('morseTextInput').value='SOS';window.ScoutTools.translateToMorse();">
+              <button class="tool-sub-btn" onclick="document.getElementById('morseTextInput').value='SOS';window.ScoutTools.translateToMorse();">
                 🚨 Thử Mã SOS
               </button>
-              <button class="btn btn-outline" style="font-size:12.5px;padding:8px 16px;border-radius:999px;" onclick="document.getElementById('morseTextInput').value='SAN SANG';window.ScoutTools.translateToMorse();">
+              <button class="tool-sub-btn" onclick="document.getElementById('morseTextInput').value='SAN SANG';window.ScoutTools.translateToMorse();">
                 ⚜️ Thử Khẩu Hiệu SẴN SÀNG
               </button>
             </div>
@@ -3022,7 +3026,7 @@
                 <option value="5">A = F (+5)</option>
                 <option value="13">ROT13 (+13)</option>
               </select>
-              <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;border-radius:8px;" onclick="window.ScoutTools.encodePolybius()">🔢 Chuyển Sang Mã Tọa Độ</button>
+              <button class="tool-sub-btn" style="font-size:12px;padding:6px 14px;" onclick="window.ScoutTools.encodePolybius()">🔢 Chuyển Sang Mã Tọa Độ</button>
             </div>
 
             <label style="font-size:13px;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">Bản mã kết quả:</label>

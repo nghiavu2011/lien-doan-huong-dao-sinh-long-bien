@@ -3,6 +3,72 @@
  * Liên đoàn Hướng đạo Long Biên
  */
 
+/* Tool Launch Buttons in Banner (High contrast & synchronized) */
+.tool-launch-primary {
+  background: var(--forest) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--forest) !important;
+  padding: 9px 20px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: 0 2px 8px rgba(17, 50, 55, 0.15) !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.tool-launch-primary:hover {
+  background: var(--forest-2) !important;
+  box-shadow: 0 4px 14px rgba(17, 50, 55, 0.25) !important;
+}
+
+.tool-launch-secondary {
+  background: #ffffff !important;
+  color: var(--forest) !important;
+  border: 1.5px solid var(--forest) !important;
+  padding: 8px 18px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.tool-launch-secondary:hover {
+  background: var(--forest) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(17, 50, 55, 0.2) !important;
+}
+
+.tool-sub-btn {
+  background: #ffffff !important;
+  color: var(--forest) !important;
+  border: 1.5px solid var(--forest) !important;
+  padding: 7px 16px !important;
+  border-radius: 999px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.tool-sub-btn:hover {
+  background: var(--forest) !important;
+  color: #ffffff !important;
+}
+
 /* Interactive Tools Modal */
 .tools-modal-overlay {
   position: fixed;
@@ -169,9 +235,9 @@
 
 .whistle-btn {
   background: var(--paper);
-  border: 1px solid var(--forest);
+  border: 1.5px solid var(--forest);
   color: var(--forest);
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
   font-size: 12.5px;
   font-weight: 700;

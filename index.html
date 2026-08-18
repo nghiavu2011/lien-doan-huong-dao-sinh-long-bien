@@ -573,6 +573,8 @@
 
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
+  <link rel="stylesheet" href="css/scout-songs.css" />
+  <link rel="stylesheet" href="css/scout-tools.css" />
 </head>
 <body>
   <!-- Do hoa vector mot doan cau Long Bien (tu file SVG chinh thuc, da bo nen trang) -->
@@ -608,6 +610,7 @@
             <a class="dropdown-item" href="#hinh-anh" data-vi="Cảm Nhận &amp; Chia Sẻ" data-en="Moments &amp; Reflections">Cảm Nhận &amp; Chia Sẻ</a>
             <a class="dropdown-item" href="#dong-thoi-gian" data-vi="Dòng Thời Gian" data-en="Milestones">Dòng Thời Gian</a>
             <a class="dropdown-item" href="#hoi-dap" data-vi="Hỏi Đáp Cho Phụ Huynh" data-en="Parent FAQ">Hỏi Đáp Cho Phụ Huynh</a>
+            <a class="dropdown-item" href="#cam-nang" data-vi="🎵 Bài Hát &amp; Cẩm Nang Trại" data-en="🎵 Scout Songs &amp; Handbook">🎵 Bài Hát &amp; Cẩm Nang Trại</a>
           </div>
         </div>
 
@@ -648,6 +651,7 @@
       <a class="mob-item" href="#hinh-anh" onclick="closeMobileNav()" data-vi="Cảm Nhận &amp; Ảnh Hoạt Động" data-en="Moments &amp; Photos">Cảm Nhận &amp; Ảnh Hoạt Động</a>
       <a class="mob-item" href="#dong-thoi-gian" onclick="closeMobileNav()" data-vi="Dòng Thời Gian" data-en="Timeline">Dòng Thời Gian</a>
       <a class="mob-item" href="#hoi-dap" onclick="closeMobileNav()" data-vi="Hỏi Đáp Cho Phụ Huynh" data-en="Parent FAQ">Hỏi Đáp Cho Phụ Huynh</a>
+      <a class="mob-item" href="#cam-nang" onclick="closeMobileNav()" data-vi="🎵 Kho Bài Hát &amp; Công Cụ Trại" data-en="🎵 Songs &amp; Camp Tools">🎵 Kho Bài Hát &amp; Công Cụ Trại</a>
     </div>
     <div class="mob-group">
       <span class="mob-title" data-vi="KỸ NĂNG HƯỚNG ĐẠO" data-en="SCOUT SKILLS">KỸ NĂNG HƯỚNG ĐẠO</span>
@@ -1050,33 +1054,49 @@
       </div>
     </section>
 
-    <!-- =============== 3. CẨM NANG & THƯ VIỆN BÀI HÁT (DEMO) =============== -->
+    <!-- =============== 3. CẨM NANG, BÀI HÁT & CÔNG CỤ HƯỚNG ĐẠO =============== -->
     <section class="section" id="cam-nang" style="background:#ffffff;border-bottom:1px solid var(--line);">
       <div class="container">
         <div class="sec-head">
-          <span class="demo-badge">DEMO · TÀI NGUYÊN SINH HOẠT</span>
-          <div class="eyebrow" data-vi="CẨM NANG SINH HOẠT" data-en="SCOUT SONGS & HANDBOOK">CẨM NANG SINH HOẠT</div>
-          <h2 data-vi="Giai điệu Hướng đạo &amp; Bài học vòng tròn." data-en="Scout Songs & Circle Rhythms.">Giai điệu Hướng đạo &amp; Bài học vòng tròn.</h2>
-          <p class="lead" data-vi="Những bài hát truyền thống nuôi dưỡng tâm hồn vui tươi, gắn kết tình thân ái giữa các thế hệ Hướng đạo sinh." data-en="Traditional scout melodies fostering joy, unity, and brotherhood around the campfire.">Những bài hát truyền thống nuôi dưỡng tâm hồn vui tươi, gắn kết tình thân ái giữa các thế hệ Hướng đạo sinh.</p>
+          <span class="demo-badge">TÀI NGUYÊN SINH HOẠT &amp; CÔNG CỤ SỐ</span>
+          <div class="eyebrow" data-vi="KHO TÀNG BÀI HÁT &amp; CÔNG CỤ ĐẤT TRẠI" data-en="SCOUT SONGS & DIGITAL FIELD TOOLS">KHO TÀNG BÀI HÁT &amp; CÔNG CỤ ĐẤT TRẠI</div>
+          <h2 data-vi="Giai điệu Hướng đạo &amp; Tài nguyên Đất Trại." data-en="Scout Songs & Digital Camp Tools.">Giai điệu Hướng đạo &amp; Tài nguyên Đất Trại.</h2>
+          <p class="lead" data-vi="Những khúc ca truyền thống nuôi dưỡng tâm hồn vui tươi, gắn kết tình thân ái cùng bộ công cụ thực hành số hóa tương tác (Mã Morse · Tín hiệu Còi · Mật thư Studio) cho Hướng đạo sinh." data-en="Traditional scouting melodies fostering brotherhood alongside interactive digital field tools (Morse Synthesizer, Whistle Signals, Cipher Studio).">Những khúc ca truyền thống nuôi dưỡng tâm hồn vui tươi, gắn kết tình thân ái cùng bộ công cụ thực hành số hóa tương tác (Mã Morse · Tín hiệu Còi · Mật thư Studio) cho Hướng đạo sinh.</p>
         </div>
 
-        <div class="song-grid">
-          <div class="song-card">
+        <!-- Banner Bộ Công Cụ Tương Tác -->
+        <div style="background:linear-gradient(135deg, rgba(17,50,55,0.06), rgba(46,125,50,0.12));border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-size:36px;background:#ffffff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.06);border:1px solid var(--line);">📻</div>
             <div>
-              <div class="song-title"><span>🎵 Bài Ca Tình Lam</span><small style="color:var(--fire);font-weight:700;">Hành khúc</small></div>
-              <div class="song-lyrics">"Anh em ta về cùng nhau ta sum họp này/ 1 2 3 4 5/ Anh em ta về cùng nhau ta quây quần này/ Nụ cười nở trên môi..."</div>
+              <h3 style="margin:0 0 4px 0;font-size:17px;color:var(--forest);font-weight:800;">Bộ Công Cụ Hướng Đạo Tương Tác (Live Sound &amp; Studio)</h3>
+              <p style="margin:0;font-size:13.5px;color:var(--muted);">Thực hành phát âm thanh Mã Morse, nghe chuẩn các Tín hiệu Còi chỉ huy &amp; Trình giải mã Mật thư (Chuồng bò, Caesar, Tọa độ).</p>
             </div>
-            <p style="font-size:12.5px;color:var(--muted);margin:0;" data-vi="Bài hát quen thuộc mở đầu và kết thúc mỗi buổi sinh hoạt vòng tròn." data-en="Theme song opening and closing every Sunday circle gathering.">Bài hát quen thuộc mở đầu và kết thúc mỗi buổi sinh hoạt vòng tròn.</p>
           </div>
-
-          <div class="song-card">
-            <div>
-              <div class="song-title"><span>🔥 Lửa Thiêng Rực Sáng</span><small style="color:var(--fire);font-weight:700;">Lửa trại</small></div>
-              <div class="song-lyrics">"Màn đêm buông xuống ánh lửa bập bùng/ Hát vang lên nào hỡi anh em/ Nguyện một lòng cùng nhau đi tới/ Cho ngày mai sáng tươi..."</div>
-            </div>
-            <p style="font-size:12.5px;color:var(--muted);margin:0;" data-vi="Bài hát truyền thống thiêng liêng bên ngọn lửa trại dã ngoại." data-en="Sacred traditional anthem sung around the outdoor campfire.">Bài hát truyền thống thiêng liêng bên ngọn lửa trại dã ngoại.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="window.ScoutTools.openToolsModal('morse')" style="font-size:13px;padding:9px 18px;border-radius:999px;">📻 Máy Phát Morse</button>
+            <button class="btn btn-outline" onclick="window.ScoutTools.openToolsModal('whistle')" style="font-size:13px;padding:9px 18px;border-radius:999px;background:#fff;">🎺 Tín Hiệu Còi</button>
+            <button class="btn btn-outline" onclick="window.ScoutTools.openToolsModal('cipher')" style="font-size:13px;padding:9px 18px;border-radius:999px;background:#fff;">📜 Mật Thư Studio</button>
           </div>
         </div>
+
+        <!-- Filter tabs for songs -->
+        <div style="text-align:center;">
+          <div class="song-filter-bar" id="songFilterBar">
+            <button class="song-filter-btn active" onclick="window.ScoutSongs.filter('all', this)">⚜️ Tất Cả Bài Hát</button>
+            <button class="song-filter-btn" onclick="window.ScoutSongs.filter('lua-trai', this)">🔥 Lửa Trại &amp; Đêm Tàn</button>
+            <button class="song-filter-btn" onclick="window.ScoutSongs.filter('hanh-khuc', this)">🏕️ Hành Khúc &amp; Lên Đường</button>
+            <button class="song-filter-btn" onclick="window.ScoutSongs.filter('vong-tron', this)">⭕ Sinh Hoạt Vòng Tròn</button>
+            <button class="song-filter-btn" onclick="window.ScoutSongs.filter('nganh-au', this)">🐺 Sói Con (Ngành Ấu)</button>
+            <button class="song-filter-btn" onclick="window.ScoutSongs.filter('has-sheet', this)">🎼 Có Bản Ký Âm (Sheet)</button>
+          </div>
+        </div>
+
+        <!-- Song Cards Grid (Default 3 cards / 1 row) -->
+        <div class="song-grid-v2" id="scoutSongsGrid"></div>
+
+        <!-- Expand / Collapse Bar -->
+        <div class="song-expand-bar" id="scoutSongsExpandBar"></div>
       </div>
     </section>
 
@@ -2857,7 +2877,174 @@
     </div>
   </div>
 
-  <!-- Isolated Scouting Skills Module Scripts -->
+  <!-- Song Detail Modal (Lời, Bản Ký Âm, Web Audio Synth & Cử Điệu) -->
+  <div class="song-modal-overlay" id="scoutSongDetailModal" onclick="if(event.target===this)window.ScoutSongs.closeModal()" role="dialog" aria-label="Chi tiết bài hát">
+    <div class="song-modal-card">
+      <div class="song-modal-header">
+        <div>
+          <span class="song-category-pill" id="songModalCategory" style="background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.3);margin-bottom:6px;display:inline-block;">⭕ Sinh Hoạt Vòng Tròn</span>
+          <h3 id="songModalTitle" style="margin:0 0 4px 0;font-size:20px;font-weight:800;color:#fff;">Bài Ca Tình Lam</h3>
+          <small id="songModalAuthor" style="opacity:0.85;font-size:12.5px;">Tác giả: Hoàng Kim Triều · Điệu thức: Vui tươi (2/4)</small>
+        </div>
+        <button class="song-modal-close-btn" onclick="window.ScoutSongs.closeModal()" aria-label="Đóng">✕</button>
+      </div>
+
+      <div class="song-modal-tabs">
+        <button class="song-modal-tab-btn active" data-tab="lyrics" onclick="window.ScoutSongs.switchTab('lyrics')">📜 Lời Bài Hát</button>
+        <button class="song-modal-tab-btn" data-tab="sheet" onclick="window.ScoutSongs.switchTab('sheet')">🎼 Bản Nhạc &amp; Ký Âm</button>
+        <button class="song-modal-tab-btn" data-tab="guide" onclick="window.ScoutSongs.switchTab('guide')">💡 Cử Điệu &amp; Ý Nghĩa</button>
+      </div>
+
+      <div class="song-modal-body">
+        <div class="song-modal-tab-content" data-content="lyrics" id="songModalLyrics"></div>
+        <div class="song-modal-tab-content" data-content="sheet" id="songModalSheet" style="display:none;"></div>
+        <div class="song-modal-tab-content" data-content="guide" id="songModalGuide" style="display:none;"></div>
+      </div>
+
+      <!-- Player Controls Bar -->
+      <div class="song-player-bar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="song-melody-btn" id="songMelodyPlayBtn" onclick="window.ScoutSongs.playActiveMelody()">
+            ▶️ Phát Giai Điệu
+          </button>
+          <div class="audio-wave" id="songAudioWave">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <small style="color:var(--muted);font-size:12px;">* Âm thanh chuẩn Web Audio Synthesizer</small>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scout Tools Modal (Morse Synthesizer, Whistle Signals, Cipher Studio) -->
+  <div class="tools-modal-overlay" id="scoutToolsModal" onclick="if(event.target===this)window.ScoutTools.closeToolsModal()" role="dialog" aria-label="Bộ công cụ Hướng đạo">
+    <div class="tools-modal-card">
+      <div class="tools-modal-header">
+        <h3>📻 Bộ Công Cụ Hướng Đạo Tương Tác</h3>
+        <button class="song-modal-close-btn" onclick="window.ScoutTools.closeToolsModal()" aria-label="Đóng">✕</button>
+      </div>
+
+      <div class="tools-modal-tabs">
+        <button class="tool-modal-tab-btn active" data-tool-tab="morse" onclick="window.ScoutTools.switchTab('morse')">📻 Phát &amp; Dịch Morse</button>
+        <button class="tool-modal-tab-btn" data-tool-tab="whistle" onclick="window.ScoutTools.switchTab('whistle')">🎺 Tín Hiệu Còi Chỉ Huy</button>
+        <button class="tool-modal-tab-btn" data-tool-tab="cipher" onclick="window.ScoutTools.switchTab('cipher')">📜 Mật Thư Studio</button>
+      </div>
+
+      <div class="tools-modal-body">
+        <!-- 1. Morse Panel -->
+        <div class="tool-modal-panel" data-tool-panel="morse">
+          <div class="tool-box">
+            <h4>📻 Trình Phát &amp; Dịch Mã Morse Tự Động</h4>
+            <label style="font-size:13px;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">Nhập văn bản (Tiếng Việt hoặc Tiếng Anh):</label>
+            <input type="text" id="morseTextInput" class="tool-input-area" placeholder="Ví dụ: LONG BIEN SAP SAN" value="LONG BIEN SAP SAN" oninput="window.ScoutTools.translateToMorse()" />
+            
+            <label style="font-size:13px;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">Mã Morse tương ứng:</label>
+            <div class="tool-output-area" id="morseCodeOutput">.-.. --- -. --. / -... .. . -. / ... .- .--. / ... .- -.</div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+              <button class="tool-action-btn" onclick="window.ScoutTools.playCurrentMorse(this)">
+                ▶️ Phát Âm Thanh Morse
+              </button>
+              <button class="btn btn-outline" style="font-size:12.5px;padding:8px 16px;border-radius:999px;" onclick="document.getElementById('morseTextInput').value='SOS';window.ScoutTools.translateToMorse();">
+                🚨 Thử Mã SOS
+              </button>
+              <button class="btn btn-outline" style="font-size:12.5px;padding:8px 16px;border-radius:999px;" onclick="document.getElementById('morseTextInput').value='SAN SANG';window.ScoutTools.translateToMorse();">
+                ⚜️ Thử Khẩu Hiệu SẴN SÀNG
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Whistle Panel -->
+        <div class="tool-modal-panel" data-tool-panel="whistle" style="display:none;">
+          <div class="tool-box">
+            <h4>🎺 Bảng Tín Hiệu Còi Hướng Đạo Chuẩn Xác (Thực Hành Âm Thanh)</h4>
+            <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;">Bấm nút để nghe tiếng còi dã chiến thực tế (2800 Hz âm thanh đanh thép) và học thuộc ý nghĩa hiệu lệnh của Huynh trưởng.</p>
+            
+            <div class="whistle-grid">
+              <div class="whistle-card">
+                <div>
+                  <strong>🚨 Tín hiệu Cấp Cứu (SOS)</strong>
+                  <p>Mã: ··· ——— ··· (3 ngắn, 3 dài, 3 ngắn). Dùng khẩn cấp khi gặp tai nạn, nguy hiểm.</p>
+                </div>
+                <button class="whistle-btn" onclick="window.ScoutTools.playWhistle('sos', this)">🔊 Thổi Còi SOS</button>
+              </div>
+
+              <div class="whistle-card">
+                <div>
+                  <strong>⚠️ Lệnh Chú Ý / Im Lặng</strong>
+                  <p>Mã: — (1 tiếng dài dứt khoát). Toàn trại dừng tay, im lặng, hướng về Trưởng.</p>
+                </div>
+                <button class="whistle-btn" onclick="window.ScoutTools.playWhistle('attention', this)">🔊 Thổi Còi Chú Ý</button>
+              </div>
+
+              <div class="whistle-card">
+                <div>
+                  <strong>🏃 Lệnh Tập Hợp Khẩn Cấp</strong>
+                  <p>Mã: ··· (3 tiếng ngắn liên hồi). Mọi đoàn sinh chạy nhanh về vị trí chỉ định.</p>
+                </div>
+                <button class="whistle-btn" onclick="window.ScoutTools.playWhistle('gather_fast', this)">🔊 Thổi Tập Hợp Khẩn</button>
+              </div>
+
+              <div class="whistle-card">
+                <div>
+                  <strong>⭕ Tập Hợp Vòng Tròn / Chữ U</strong>
+                  <p>Mã: ·· — (2 ngắn 1 dài). Đội hình tập hợp xếp thành vòng tròn quanh cờ.</p>
+                </div>
+                <button class="whistle-btn" onclick="window.ScoutTools.playWhistle('circle', this)">🔊 Thổi Vòng Tròn</button>
+              </div>
+
+              <div class="whistle-card">
+                <div>
+                  <strong>📏 Tập Hợp Hàng Dọc</strong>
+                  <p>Mã: — · (1 dài 1 ngắn). Tập hợp các Đội thành hàng dọc trật tự.</p>
+                </div>
+                <button class="whistle-btn" onclick="window.ScoutTools.playWhistle('column', this)">🔊 Thổi Hàng Dọc</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Cipher Panel -->
+        <div class="tool-modal-panel" data-tool-panel="cipher" style="display:none;">
+          <div class="tool-box">
+            <h4>📜 Mật Thư Studio (Caesar Shift &amp; Bảng Tọa Độ Polybius)</h4>
+            <label style="font-size:13px;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">Nhập nội dung mật thư:</label>
+            <input type="text" id="cipherTextInput" class="tool-input-area" placeholder="Ví dụ: TAP HOP TAI CAY DA" value="TAP HOP TAI CAY DA" oninput="window.ScoutTools.encodeCaesar()" />
+
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <label style="font-size:13px;font-weight:700;color:var(--forest);">Độ dời chữ Caesar (+N):</label>
+              <select id="caesarShiftVal" style="padding:6px 12px;border-radius:8px;border:1px solid #cbd5e1;font-weight:700;" onchange="window.ScoutTools.encodeCaesar()">
+                <option value="1">A = B (+1)</option>
+                <option value="2">A = C (+2)</option>
+                <option value="3" selected>A = D (+3 / Chuẩn Caesar)</option>
+                <option value="5">A = F (+5)</option>
+                <option value="13">ROT13 (+13)</option>
+              </select>
+              <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;border-radius:8px;" onclick="window.ScoutTools.encodePolybius()">🔢 Chuyển Sang Mã Tọa Độ</button>
+            </div>
+
+            <label style="font-size:13px;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">Bản mã kết quả:</label>
+            <div class="tool-output-area" id="cipherResultOutput">WDS KRs WDL FDB GD</div>
+
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-top:14px;">
+              <strong style="color:var(--forest);font-size:13.5px;display:block;margin-bottom:6px;">🐮 Mẹo giải mật thư Chuồng Bò (Pigpen):</strong>
+              <p style="font-size:13px;color:var(--muted);margin:0;">Vẽ 2 đường ngang cắt 2 đường dọc tạo lưới 9 ô (#) điền các chữ A &rarr; I, lưới có chấm điền J &rarr; R, và 2 dấu X cho các chữ còn lại S &rarr; Z.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Isolated Scouting Skills & Songs Module Scripts -->
+  <script src="data/skills-knowledge-data.js"></script>
+  <script src="js/scouting-skills.js"></script>
+  <script src="data/scout-songs-data.js"></script>
+  <script src="js/scout-songs.js"></script>
+  <script src="js/scout-tools.js"></script>
   <script src="data/skills-knowledge-data.js"></script>
   <script src="js/scouting-skills.js"></script>
 

@@ -1,0 +1,245 @@
+/**
+ * INTERACTIVE SCOUT TOOLS STYLES
+ * Liên đoàn Hướng đạo Long Biên
+ */
+
+/* Interactive Tools Modal */
+.tools-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  padding: 16px;
+}
+
+.tools-modal-overlay.open {
+  display: flex;
+}
+
+.tools-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  animation: modalScaleIn 0.25s ease-out;
+}
+
+.tools-modal-header {
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tools-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tools-modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  padding: 0 16px;
+  overflow-x: auto;
+}
+
+.tool-modal-tab-btn {
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tool-modal-tab-btn:hover {
+  color: var(--forest);
+}
+
+.tool-modal-tab-btn.active {
+  color: var(--forest);
+  border-bottom-color: var(--forest);
+}
+
+.tools-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Tool Sections */
+.tool-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.tool-box h4 {
+  margin: 0 0 10px 0;
+  color: var(--forest);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-input-area {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.tool-output-area {
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: monospace;
+  font-size: 17px;
+  padding: 16px;
+  border-radius: 10px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+
+/* Whistle Signal Cards */
+.whistle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .whistle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.whistle-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.whistle-card strong {
+  color: var(--forest);
+  font-size: 14px;
+}
+
+.whistle-card p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.whistle-btn {
+  background: var(--paper);
+  border: 1px solid var(--forest);
+  color: var(--forest);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.whistle-btn:hover {
+  background: var(--forest);
+  color: #ffffff;
+}
+
+.whistle-btn.playing-whistle {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+  animation: pulseBtn 0.4s infinite alternate;
+}
+
+@keyframes pulseBtn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.tool-action-btn {
+  background: var(--forest);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.tool-action-btn:hover {
+  background: #1b4332;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+}
+
+.tool-action-btn.playing-morse {
+  background: #dc2626;
+}
+
+/* Pigpen Visualizer */
+.pigpen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 240px;
+  margin: 12px auto;
+  text-align: center;
+}
+
+.pigpen-cell {
+  background: #ffffff;
+  border: 2px solid var(--forest);
+  padding: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--forest);
+  border-radius: 6px;
+}

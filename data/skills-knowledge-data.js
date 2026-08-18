@@ -2839,6 +2839,264 @@ const SCOUT_SKILLS_DATA = [
     relatedSkills: ["nhat-ky-thien-nhien", "an-toan-so", "lam-viec-theo-doi"]
   },
 
+  {
+    id: "sk-chuyen-hieu-nau-an",
+    slug: "chuyen-hieu-nau-an",
+    title: "Chuyên Hiệu Nấu Ăn Dã Chiến (Camp Cook)",
+    title_en: "Camp Cook Proficiency Badge",
+    category: "chuyen-hieu",
+    subcategory: "Dã ngoại & Kỹ thuật",
+    shortDescription: "Tự tay lên thực đơn cân bằng dinh dưỡng, quản lý ngân sách, chuẩn bị nguyên liệu và nấu bữa ăn ngon miệng cho cả Đội ngoài trời.",
+    environment: "outdoor",
+    difficulty: "medium",
+    tags: ["Chuyên hiệu", "Nấu ăn", "Dã ngoại", "Hàng đội"],
+    media: { poster: "", videoId: "7CgtIgSyQ14" },
+    purpose: "Rèn luyện khả năng tự lập, chăm sóc sức khỏe đồng đội và kỹ năng ẩm thực dã chiến trong điều kiện thiếu thốn.",
+    equipment: ["Bộ nồi dã ngoại", "Bếp củi / bếp gas", "Dao thớt sạch", "Thùng giữ nhiệt thực phẩm"],
+    levels: {
+      au: {
+        tag: "BIẾT",
+        target: "Biết phụ giúp nhặt rau, rửa củ quả, lau dọn bàn ăn và rửa bát đĩa sạch sẽ bằng xà phòng an toàn."
+      },
+      thieu: {
+        target: "Tự tay nấu cơm chín dẻo không khê trên bếp củi, chế biến 1 món mặn + 1 món canh + 1 món xào phục vụ đủ 6–8 bạn trong Đội."
+      },
+      trang: {
+        target: "Quản lý bếp trại cho toàn liên đoàn (30+ người), tính toán định lượng calo, bảo quản thực phẩm 3 ngày 2 đêm an toàn tuyệt đối."
+      }
+    },
+    steps: [
+      "<strong>1. Lập thực đơn:</strong> Cân đối đủ 4 nhóm chất (đạm, đường bột, béo, vitamin/khoáng chất), tính chi phí phù hợp ngân sách.",
+      "<strong>2. Sơ chế hợp vệ sinh:</strong> Rửa sạch thực phẩm bằng nước hợp vệ sinh, phân chia dao thớt sống/chín riêng biệt.",
+      "<strong>3. Nấu nướng dã chiến:</strong> Canh lửa đều, sử dụng các phương pháp luộc, xào, nướng vỉ, hầm canh.",
+      "<strong>4. An toàn vệ sinh:</strong> Dọn sạch khu bếp, thu gom rác hữu cơ, đổ nước thải qua lưới lọc xa nguồn nước sinh hoạt."
+    ],
+    commonMistakes: [
+      "Để đồ ăn sống chung với đồ chín gây nhiễm khuẩn chéo.",
+      "Đun lửa quá to làm cháy khê cơm dã chiến."
+    ],
+    safety: "Luôn có găng tay bắc nồi chống bỏng, bình nước dập lửa cạnh bếp, không để trẻ nhỏ chạy nhảy trong khu vực bếp đang đỏ lửa.",
+    practice: "Nấu thử 1 bữa ăn dã chiến hoàn chỉnh cho gia đình hoặc Đội vào buổi sinh hoạt cuối tuần.",
+    challenge: "Nấu 1 bữa ăn gồm 3 món chỉ dùng duy nhất 1 chiếc nồi dã ngoại và bếp than củi trong 60 phút.",
+    assessment: "Bạn đạt chuyên hiệu khi: Bữa ăn chín đều, ngon miệng, đúng giờ và khu bếp được thu dọn sạch bóng.",
+    relatedSkills: ["nau-com-ngoai-troi", "lap-thuc-don-trai", "tam-giac-tao-lua"]
+  },
+
+  {
+    id: "sk-chuyen-hieu-thien-van",
+    slug: "chuyen-hieu-thien-van",
+    title: "Chuyên Hiệu Thiên Văn Học (Astronomer)",
+    title_en: "Astronomy & Stargazing Proficiency Badge",
+    category: "chuyen-hieu",
+    subcategory: "Khám phá & Khoa học",
+    shortDescription: "Quan sát bầu trời đêm, nhận diện các chòm sao chính, tìm sao Bắc Cực định hướng và hiểu quy luật chuyển động của vũ trụ.",
+    environment: "outdoor",
+    difficulty: "medium",
+    tags: ["Chuyên hiệu", "Thiên văn", "Sao Bắc Cực", "Định hướng"],
+    media: { poster: "", videoId: "" },
+    purpose: "Mở rộng tầm mắt ra vũ trụ bao la, biết dùng bầu trời sao để định hướng ban đêm khi không có la bàn.",
+    equipment: ["Bản đồ sao xoay", "Đèn pin ánh sáng đỏ (bảo vệ thị giác đêm)", "Ống nhòm thiên văn (tùy chọn)"],
+    levels: {
+      au: {
+        tag: "BIẾT",
+        target: "Nhận biết Mặt Trăng thay đổi hình dạng (Tròn, Khuyết), chỉ ra chòm sao Đại Hùng Tinh (Bắc Đẩu)."
+      },
+      thieu: {
+        target: "Tìm chính xác sao Bắc Cực (Polaris) từ chòm Đại Hùng hoặc Thiên Hậu (Cassiopeia), nhận biết 5 chòm sao lớn và 3 hành tinh sáng."
+      },
+      trang: {
+        target: "Tổ chức đêm quan sát thiên văn cho liên đoàn, hướng dẫn đàn em sử dụng bản đồ sao và kính thiên văn khúc xạ."
+      }
+    },
+    steps: [
+      "<strong>1. Thích nghi bóng tối:</strong> Để mắt làm quen với bóng đêm trong 15–20 phút, chỉ dùng đèn pin đỏ.",
+      "<strong>2. Tìm chòm sao dẫn đường:</strong> Tìm hình 'Chiếc Gàu Sòng' (Đại Hùng), kéo dài 2 ngôi sao ở miệng gàu gấp 5 lần sẽ chạm sao Bắc Cực.",
+      "<strong>3. Đọc bản đồ sao:</strong> Xoay bản đồ sao trùng với ngày giờ quan sát thực tế để đối chiếu vị trí các tinh tú.",
+      "<strong>4. Ghi chép nhật ký:</strong> Vẽ lại vị trí Mặt Trăng và các chòm sao quan sát được qua các đêm trại."
+    ],
+    commonMistakes: [
+      "Bật đèn pin trắng chiếu vào mắt làm mất khả năng nhìn đêm của cả đội.",
+      "Nhầm sao Kim/sao Mộc (sáng tĩnh) với các vì sao nhấp nháy."
+    ],
+    safety: "Quan sát nơi bằng phẳng, không leo trèo lên mép đá cao trong đêm tối nguy hiểm.",
+    practice: "Quan sát và vẽ lại hình dạng chòm sao Đại Hùng Tinh trong 3 đêm khác nhau.",
+    challenge: "Xác định chính xác phương hướng Bắc chỉ bằng cách ngắm sao trong 2 phút giữa rừng đêm.",
+    assessment: "Bạn đạt chuyên hiệu khi: Chỉ đúng sao Bắc Cực và kể tên được ít nhất 4 chòm sao trên bầu trời thực tế.",
+    relatedSkills: ["xac-dinh-phuong-huong", "su-dung-la-ban", "nhat-ky-thien-nhien"]
+  },
+
+  {
+    id: "sk-chuyen-hieu-cuu-thuong",
+    slug: "chuyen-hieu-cuu-thuong",
+    title: "Chuyên Hiệu Cứu Thương & Sơ Cấp Cứu (First Aider)",
+    title_en: "First Aider & Lifesaver Proficiency Badge",
+    category: "chuyen-hieu",
+    subcategory: "Sơ cứu & An toàn",
+    shortDescription: "Nắm vững kỹ thuật băng bó, cố định gãy xương, sơ cứu đuối nước/sốc nhiệt và phác đồ hồi sinh tim phổi (CPR) cơ bản.",
+    environment: "both",
+    difficulty: "hard",
+    tags: ["Chuyên hiệu", "Sơ cứu", "Cứu thương", "CPR", "An toàn"],
+    media: { poster: "", videoId: "" },
+    purpose: "Trang bị kỹ năng vàng cứu người trong gang tấc, bảo vệ an toàn tính mạng cho gia đình và cộng đồng.",
+    equipment: ["Băng tam giác Hướng đạo", "Băng cuộn y tế", "Nẹp gỗ/nẹp cành cây", "Túi sơ cứu chuẩn"],
+    levels: {
+      au: {
+        tag: "BIẾT",
+        target: "Biết số điện thoại cấp cứu 115, biết rửa vết thương nhỏ và an ủi bạn khi gặp tai nạn."
+      },
+      thieu: {
+        target: "Thực hiện thành thạo 5 kiểu băng bó bằng khăn quàng Hướng đạo (băng đầu, băng tay, băng chéo), nẹp cố định cẳng tay gãy và làm cáng tải thương bằng 2 gậy."
+      },
+      trang: {
+        target: "Đạt chứng chỉ Sơ cấp cứu Hội Chữ Thập Đỏ, huấn luyện CPR và quản lý trạm y tế trong các kỳ trại lớn."
+      }
+    },
+    steps: [
+      "<strong>1. Đánh giá hiện trường (DRSABC):</strong> Đảm bảo an toàn cho bản thân trước khi tiếp cận nạn nhân.",
+      "<strong>2. Cầm máu & Băng bó:</strong> Ép trực tiếp cầm máu, dùng khăn tam giác hoặc băng thun quấn chắc không quá chặt.",
+      "<strong>3. Cố định chấn thương:</strong> Cố định khớp trên và khớp dưới ổ gãy bằng nẹp đệm lót êm ái.",
+      "<strong>4. Vận chuyển nạn nhân:</strong> Làm cáng dã chiến từ 2 gậy Thiếu sinh và áo khoác/áo mưa, khiêng đi nhịp nhàng."
+    ],
+    commonMistakes: [
+      "Nắn bóp hoặc kéo thẳng chi bị gãy làm đứt mạch máu/dây thần kinh.",
+      "Băng quá chặt làm ngón tay tím tái mất tuần hoàn."
+    ],
+    safety: "Luôn đeo găng tay y tế để phòng lây nhiễm qua đường máu. Gọi cấp cứu 115 ngay khi nạn nhân bất tỉnh.",
+    practice: "Thực hành băng vết thương đầu và cẳng tay cho bạn cùng đội trong 3 phút.",
+    challenge: "Cùng 1 bạn dựng cáng cứu thương bằng gậy và vận chuyển nạn nhân qua quãng đường 100m an toàn.",
+    assessment: "Bạn đạt chuyên hiệu khi: Vượt qua bài kiểm tra tình huống cấp cứu giả định của Trưởng ban Y tế.",
+    relatedSkills: ["chay-mau", "bong-gan", "ha-than-nhiet", "goi-tro-giup"]
+  },
+
+  {
+    id: "sk-chuyen-hieu-lam-vuon",
+    slug: "chuyen-hieu-lam-vuon",
+    title: "Chuyên Hiệu Làm Vườn & Sinh Thái (Gardener)",
+    title_en: "Gardener & Eco-Horticulture Proficiency Badge",
+    category: "chuyen-hieu",
+    subcategory: "Môi trường & Sinh thái",
+    shortDescription: "Hiểu về đất trồng, tự tay ươm mầm, chăm sóc cây xanh, làm phân hữu cơ compost và phủ xanh môi trường sống.",
+    environment: "outdoor",
+    difficulty: "easy",
+    tags: ["Chuyên hiệu", "Làm vườn", "Cây xanh", "Môi trường"],
+    media: { poster: "", videoId: "" },
+    purpose: "Giáo dục tình yêu lao động, sự gắn kết với đất mẹ và bảo vệ hệ sinh thái bền vững.",
+    equipment: ["Cuốc xẻng nhỏ", "Bình tưới cây", "Hạt giống rau/hoa", "Khay ươm đất mùn"],
+    levels: {
+      au: {
+        tag: "BIẾT",
+        target: "Biết tưới cây hàng ngày, nhận biết 3 loại rau củ và không giẫm đạp lên bồn hoa công cộng."
+      },
+      thieu: {
+        target: "Tự tay ươm và chăm sóc 1 khay rau mầm hoặc 3 chậu cây xanh trong 2 tháng cho đến ngày thu hoạch / ra hoa."
+      },
+      trang: {
+        target: "Tổ chức chiến dịch 'Trồng cây xanh - Gieo tương lai' cho thiếu nhi khu dân cư, hướng dẫn phân loại rác hữu cơ ủ phân bón vi sinh."
+      }
+    },
+    steps: [
+      "<strong>1. Chuẩn bị đất trồng:</strong> Trộn đất thịt với xơ dừa, tro trấu và phân trùn quế tơi xốp thoát nước.",
+      "<strong>2. Gieo hạt & Ươm mầm:</strong> Ngâm hạt giống nước ấm (2 sôi 3 lạnh), gieo hạt độ sâu gấp đôi kích thước hạt.",
+      "<strong>3. Chăm sóc:</strong> Tưới ẩm vào sáng sớm hoặc chiều mát, nhổ cỏ dại và bắt sâu bọ thủ công.",
+      "<strong>4. Thu hoạch & Nhân giống:</strong> Thu hoạch rau sạch và nhân giống cây bằng phương pháp giâm cành."
+    ],
+    commonMistakes: [
+      "Tưới quá nhiều nước làm úng thối rễ cây non.",
+      "Để cây ươm dưới nắng gắt trực tiếp làm cháy lá."
+    ],
+    safety: "Rửa tay sạch bằng xà phòng sau khi tiếp xúc với đất và phân bón. Cẩn thận khi dùng dụng cụ làm vườn sắc bén.",
+    practice: "Trồng và chăm sóc thành công một luống rau sạch tại nhà hoặc tại góc sinh hoạt của Liên đoàn.",
+    challenge: "Ủ thành công một thùng phân hữu cơ từ rác nhà bếp (vỏ trái cây, rau thừa) không mùi hôi.",
+    assessment: "Bạn đạt chuyên hiệu khi: Cây trồng phát triển khỏe mạnh và giải thích được chu kỳ sinh trưởng của cây.",
+    relatedSkills: ["nhan-biet-cay", "leave-no-trace", "nhat-ky-thien-nhien"]
+  },
+
+  {
+    id: "sk-chuyen-hieu-xe-dap",
+    slug: "chuyen-hieu-xe-dap",
+    title: "Chuyên Hiệu Xe Đạp & Thám Du (Cyclist & Explorer)",
+    title_en: "Cyclist & Expedition Explorer Badge",
+    category: "chuyen-hieu",
+    subcategory: "Thể thao & Vận động",
+    shortDescription: "Bảo dưỡng xe đạp an toàn, sửa chữa săm lốp dã chiến, tuân thủ luật giao thông và hoàn thành chuyến thám du xe đạp 20km.",
+    environment: "outdoor",
+    difficulty: "medium",
+    tags: ["Chuyên hiệu", "Xe đạp", "Thám du", "Thể thao"],
+    media: { poster: "", videoId: "" },
+    purpose: "Rèn luyện thể lực bền bỉ, tính cơ động và ý thức chấp hành an toàn giao thông đường bộ.",
+    equipment: ["Xe đạp thể thao/địa hình", "Mũ bảo hiểm đạt chuẩn", "Bộ vá săm + bơm tay mini", "Đèn phản quang"],
+    levels: {
+      au: {
+        tag: "BIẾT",
+        target: "Biết đi xe đạp 2 bánh vững vàng, đội mũ bảo hiểm đúng quy cách và phanh xe an toàn."
+      },
+      thieu: {
+        target: "Tự tay vá săm xe đạp, tăng xích, chỉnh phanh và hoàn thành chuyến thám du dã ngoại bằng xe đạp cự ly 15–20km."
+      },
+      trang: {
+        target: "Lập lộ trình và dẫn dắt đoàn xe đạp 10+ thành viên đi thám du liên tỉnh (50km+) an toàn tuyệt đối."
+      }
+    },
+    steps: [
+      "<strong>1. Kiểm tra ABC:</strong> Air (Áp suất lốp) &rarr; Brakes (Hệ thống phanh trước/sau) &rarr; Chain (Xích líp trơn tru).",
+      "<strong>2. Kỹ thuật vá săm:</strong> Dùng móc cạy lốp, tìm chỗ thủng bằng cách nhúng nước, chà nhám, dán miếng vá và ép chặt.",
+      "<strong>3. Tín hiệu tay khi đi xe:</strong> Rẽ trái giơ tay trái ngang, rẽ phải giơ tay phải, dừng lại đưa tay trái chúc xuống dưới.",
+      "<strong>4. Giữ cự ly:</strong> Đi theo hàng một, giữ khoảng cách 2 thân xe với bạn phía trước, không dàn hàng ngang."
+    ],
+    commonMistakes: [
+      "Không kiểm tra phanh trước khi xuống dốc cầu/dốc đê.",
+      "Đi xe dàn hàng ngang gây cản trở giao thông."
+    ],
+    safety: "Bắt buộc đội mũ bảo hiểm cài quai chắc chắn, mặc áo phản quang khi di chuyển lúc trời sẩm tối.",
+    practice: "Tự tháo bánh xe và vá săm xe đạp hoàn chỉnh trong vòng 10 phút.",
+    challenge: "Hoàn thành hành trình thám du xe đạp khám phá đê Long Biên - Cổ Loa (20km) cùng Hàng đội.",
+    assessment: "Bạn đạt chuyên hiệu khi: Xe đạp luôn trong tình trạng an toàn và vượt qua bài thi thực hành đi đường trường.",
+    relatedSkills: ["di-bo", "lap-hanh-trinh", "an-toan-so"]
+  },
+
+  {
+    id: "sk-chuyen-hieu-boi-loi",
+    slug: "chuyen-hieu-boi-loi",
+    title: "Chuyên Hiệu Bơi Lội & An Toàn Dưới Nước (Swimmer & Lifesaver)",
+    title_en: "Swimmer & Water Safety Proficiency Badge",
+    category: "chuyen-hieu",
+    subcategory: "Thể thao & Cứu nạn",
+    shortDescription: "Bơi thành thạo cự ly 50m, nổi ngửa thả lỏng sinh tồn, nắm vững quy tắc cứu đuối gián tiếp (Ném phao - Đưa sào).",
+    environment: "outdoor",
+    difficulty: "hard",
+    tags: ["Chuyên hiệu", "Bơi lội", "Sinh tồn", "Cứu đuối", "An toàn"],
+    media: { poster: "", videoId: "" },
+    purpose: "Xóa nạn mù bơi, xây dựng bản lĩnh tự tin dưới nước và kỹ năng cứu người đuối nước an toàn.",
+    equipment: ["Kính bơi", "Phao cứu sinh / sào tre cứu nạn", "Áo phao dã ngoại"],
+    levels: {
+      au: {
+        tag: "BIẾT",
+        target: "Biết lặn thở dưới nước 15 giây, mặc áo phao đúng cách và tuân thủ không bao giờ tự ý lại gần ao hồ sông suối một mình."
+      },
+      thieu: {
+        target: "Bơi liên tục 50m (bơi ếch hoặc bơi trườn sấp), nổi ngửa thả lỏng sinh tồn trong 3 phút và biết cách ném phao/đưa sào cứu nạn nhân đuối nước từ trên bờ."
+      },
+      trang: {
+        target: "Đạt chứng nhận Cứu hộ bơi lội, bơi mang vác vật nặng 25m và hướng dẫn phổ cập bơi cho đoàn sinh đàn em."
+      }
+    },
+    steps: [
+      "<strong>1. Khởi động kỹ:</strong> Xoay kỹ các khớp cổ tay, cổ chân, vai, gối 10 phút trước khi xuống nước để tránh chuột rút.",
+      "<strong>2. Bơi sinh tồn:</strong> Khi kiệt sức, lật ngửa người thả lỏng như chiếc thuyền, thở nông ngực căng phồng nổi tự nhiên.",
+      "<strong>3. Nguyên tắc cứu đuối (Talk - Reach - Throw - Row - Go):</strong> Ưu tiên Đưa sào / Ném phao dây từ trên bờ, TUYỆT ĐỐI KHÔNG nhảy xuống nước ôm nạn nhân đang hoảng loạn.",
+      "<strong>4. Sơ cứu ngạt nước:</strong> Đưa nạn nhân lên bờ khô ráo, làm thông thoáng đường thở và thực hiện ép tim CPR ngay lập tức nếu ngừng thở."
+    ],
+    commonMistakes: [
+      "Nhảy xuống cứu người khi bản thân chưa được huấn luyện cứu hộ khiến cả 2 cùng chìm.",
+      "Dốc ngược nạn nhân chạy vòng quanh làm mất thời gian vàng cấp cứu não."
+    ],
+    safety: "Chỉ bơi ở những nơi có cứu hộ và dòng chảy an toàn. Không bơi khi vừa ăn no hoặc khi trời sắp có dông sét.",
+    practice: "Thực hành nổi ngửa sinh tồn trong bể bơi 3 phút liên tục không chạm chân xuống đáy.",
+    challenge: "Ném chính xác phao cứu sinh trúng vị trí mục tiêu cách bờ 10m trong vòng 3 lần ném.",
+    assessment: "Bạn đạt chuyên hiệu khi: Bơi hoàn thành cự ly 50m và thực hành đúng thao tác cứu hộ từ trên bờ.",
+    relatedSkills: ["so-cuu-an-toan", "nguon-nuoc", "goi-tro-giup"]
+  },
+
   // ==========================================
   // 10. GÓC HUYNH TRƯỞNG (SECONDARY AREA)
   // ==========================================

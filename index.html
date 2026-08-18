@@ -575,6 +575,18 @@
 
     .stories-more-wrap{text-align:center;margin-top:28px}
 
+  
+    @media (max-width: 992px) {
+      #fiveStepGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 600px) {
+      #fiveStepGrid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -1226,7 +1238,7 @@
       </div>
     </section>
 
-    <!-- =============== KHỐI GIA NHẬP, TUYỂN SINH & ĐỒNG HÀNH CÙNG PHỤ HUYNH (HỢP KHỐI) =============== -->
+    <!-- =============== KHỐI GIA NHẬP, QUY TRÌNH 5 BƯỚC & ĐỒNG HÀNH CÙNG PHỤ HUYNH =============== -->
     <section class="section" id="quy-trinh" style="background:#ffffff;border-bottom:1px solid var(--line);">
       <!-- Anchor targets for backward compatibility with links -->
       <div id="ket-nap" style="position:relative;top:-80px;"></div>
@@ -1235,35 +1247,82 @@
       <div class="container">
         <!-- Sec Head -->
         <div class="sec-head">
-          <span class="demo-badge">TUYỂN SINH &amp; HƯỚNG DẪN ĐỒNG HÀNH</span>
-          <div class="eyebrow" data-vi="QUY TRÌNH GIA NHẬP &amp; HỎI ĐÁP" data-en="ONBOARDING, RECRUITMENT &amp; FAQ">QUY TRÌNH GIA NHẬP &amp; HỎI ĐÁP</div>
+          <span class="demo-badge">QUY TRÌNH TIẾP NHẬN CHUẨN MỰC</span>
+          <div class="eyebrow" data-vi="QUY TRÌNH 5 BƯỚC GIA NHẬP &amp; HỎI ĐÁP" data-en="5-STEP ONBOARDING &amp; PARENT GUIDE">QUY TRÌNH 5 BƯỚC GIA NHẬP &amp; HỎI ĐÁP</div>
           <h2 data-vi="Đồng hành cùng con trở thành Hướng đạo sinh Long Biên." data-en="Accompanying Your Child on the Scouting Journey.">Đồng hành cùng con trở thành Hướng đạo sinh Long Biên.</h2>
-          <p class="lead" data-vi="Quy trình gia nhập 3 bước minh bạch, thông tin tuyển sinh các Ngành cùng giải đáp chi tiết mọi thắc mắc của phụ huynh trước buổi sinh hoạt đầu tiên." data-en="Transparent 3-step onboarding process, section recruitment details, and answers to common parent questions.">Quy trình gia nhập 3 bước minh bạch, thông tin tuyển sinh các Ngành cùng giải đáp chi tiết mọi thắc mắc của phụ huynh trước buổi sinh hoạt đầu tiên.</p>
+          <p class="lead" data-vi="Quy trình 5 bước tiếp nhận minh bạch, có chọn lọc và gắn kết chặt chẽ giữa Gia đình &mdash; Đoàn sinh &mdash; Ban Huynh trưởng nhằm đảm bảo môi trường giáo dục an toàn và chất lượng cao nhất cho từng đứa trẻ." data-en="A transparent 5-step onboarding process fostering close partnership among Family, Scout, and Leaders to ensure the safest and highest quality scouting environment.">Quy trình 5 bước tiếp nhận minh bạch, có chọn lọc và gắn kết chặt chẽ giữa Gia đình &mdash; Đoàn sinh &mdash; Ban Huynh trưởng nhằm đảm bảo môi trường giáo dục an toàn và chất lượng cao nhất cho từng đứa trẻ.</p>
         </div>
 
-        <!-- 1. QUY TRÌNH 3 BƯỚC -->
-        <div class="process-steps" style="margin-bottom:32px;">
-          <div class="step-card">
-            <span class="step-no">01</span>
-            <h3 data-vi="Điền Form Đăng Ký Trực Tuyến" data-en="Online Registration">Điền Form Đăng Ký Trực Tuyến</h3>
-            <p data-vi="Phụ huynh điền thông tin cơ bản của bé (họ tên, năm sinh, ngành tham gia) qua Google Form chính thức để Ban Huynh Trưởng tiếp nhận hồ sơ." data-en="Parents submit child details via our official Google Form for leader review.">Phụ huynh điền thông tin cơ bản của bé (họ tên, năm sinh, ngành tham gia) qua Google Form chính thức để Ban Huynh Trưởng tiếp nhận hồ sơ.</p>
-            <p style="margin-top:14px;"><a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="font-size:12.5px;padding:7px 18px;border-radius:999px;" data-vi="Điền đơn ngay ↗" data-en="Register Now ↗">Điền đơn ngay ↗</a></p>
+        <!-- 1. QUY TRÌNH 5 BƯỚC THỰC TẾ CỦA LIÊN ĐOÀN LONG BIÊN -->
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:36px;" id="fiveStepGrid">
+          <div class="step-card" style="padding:20px 16px;">
+            <span class="step-no" style="font-size:32px;">01</span>
+            <h3 style="font-size:15px;margin-bottom:8px;" data-vi="Dự Thính 2 Buổi Thực Tế" data-en="2-Session Trial">Dự Thính 2 Buổi Thực Tế</h3>
+            <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0;" data-vi="Mời phụ huynh đưa bé ra địa điểm sinh hoạt tại vườn hoa Bắc Biên sáng Chủ nhật (9h–11h) để xem và cảm nhận không khí thực tế cùng Đội/Bầy." data-en="Parents bring their child to 2 Sunday morning sessions (9–11 AM) at Bac Bien Garden to experience activities firsthand.">Mời phụ huynh đưa bé ra địa điểm sinh hoạt tại vườn hoa Bắc Biên sáng Chủ nhật (9h–11h) để xem và cảm nhận không khí thực tế cùng Đội/Bầy.</p>
           </div>
 
-          <div class="step-card">
-            <span class="step-no">02</span>
-            <h3 data-vi="Dự Thính 2 Buổi Tại Bắc Biên" data-en="2-Session Trial">Dự Thính 2 Buổi Tại Bắc Biên</h3>
-            <p data-vi="Đưa bé đến tham gia sinh hoạt cùng Đội/Chúng vào sáng Chủ nhật (9h–11h). Bé được làm quen các anh chị, chơi trò chơi vận động và cảm nhận không khí." data-en="Bring your child to join 2 trial Sunday morning sessions (9–11 AM) to make friends and explore activities.">Đưa bé đến tham gia sinh hoạt cùng Đội/Chúng vào sáng Chủ nhật (9h–11h). Bé được làm quen các anh chị, chơi trò chơi vận động và cảm nhận không khí.</p>
+          <div class="step-card" style="padding:20px 16px;">
+            <span class="step-no" style="font-size:32px;">02</span>
+            <h3 style="font-size:15px;margin-bottom:8px;" data-vi="Đối Thoại Cùng Liên Đoàn Trưởng" data-en="Group Leader Interview">Đối Thoại Cùng Liên Đoàn Trưởng</h3>
+            <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0;" data-vi="Cuối buổi thứ 2, Liên Đoàn Trưởng trao đổi trực tiếp với gia đình xem xét sự phù hợp &amp; tinh thần đồng hành. Ban Huynh trưởng họp bàn thảo luận." data-en="At the end of session 2, the Group Leader meets parents to align expectations, followed by a leaders' evaluation.">Cuối buổi thứ 2, Liên Đoàn Trưởng trao đổi trực tiếp với gia đình xem xét sự phù hợp &amp; tinh thần đồng hành. Ban Huynh trưởng họp bàn thảo luận.</p>
           </div>
 
-          <div class="step-card">
-            <span class="step-no">03</span>
-            <h3 data-vi="Trao Khăn Quàng &amp; Tuyên Hứa" data-en="Investiture & Scarf">Trao Khăn Quàng &amp; Tuyên Hứa</h3>
-            <p data-vi="Sau khi bé yêu thích và sẵn sàng, Liên đoàn hướng dẫn phụ huynh chuẩn bị đồng phục. Bé chính thức làm Lễ Tuyên Hứa và nhận chiếc khăn quàng Long Biên." data-en="Once ready, your child performs the Investiture Ceremony and receives the official Long Bien scout neckerchief.">Sau khi bé yêu thích và sẵn sàng, Liên đoàn hướng dẫn phụ huynh chuẩn bị đồng phục. Bé chính thức làm Lễ Tuyên Hứa và nhận chiếc khăn quàng Long Biên.</p>
+          <div class="step-card" style="padding:20px 16px;">
+            <span class="step-no" style="font-size:32px;">03</span>
+            <h3 style="font-size:15px;margin-bottom:8px;" data-vi="Quyết Định Tiếp Nhận Theo Ngành" data-en="Section Leader Review">Quyết Định Tiếp Nhận Theo Ngành</h3>
+            <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0;" data-vi="Thiếu trưởng hoặc Akela dựa trên sĩ số và năng lực đáp ứng thực tế của Huynh trưởng để quyết định tiếp nhận (đảm bảo an toàn tuyệt đối)." data-en="Scoutmaster or Cubmaster evaluates current troop capacity and safety ratio to confirm admission capability.">Thiếu trưởng hoặc Akela dựa trên sĩ số và năng lực đáp ứng thực tế của Huynh trưởng để quyết định tiếp nhận (đảm bảo an toàn tuyệt đối).</p>
+          </div>
+
+          <div class="step-card" style="padding:20px 16px;">
+            <span class="step-no" style="font-size:32px;">04</span>
+            <h3 style="font-size:15px;margin-bottom:8px;" data-vi="Đọc Tài Liệu &amp; Bài Tìm Hiểu" data-en="Scout Test & Orientation">Đọc Tài Liệu &amp; Bài Tìm Hiểu</h3>
+            <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0;" data-vi="Trưởng gửi tài liệu HĐS để phụ huynh và con đọc, hoàn thành bài tìm hiểu tôn chỉ Hướng đạo đạt yêu cầu (có thể làm lại nếu chưa đạt)." data-en="Leaders provide orientation handbook and a basic scout test to ensure alignment with core scouting values.">Trưởng gửi tài liệu HĐS để phụ huynh và con đọc, hoàn thành bài tìm hiểu tôn chỉ Hướng đạo đạt yêu cầu (có thể làm lại nếu chưa đạt).</p>
+          </div>
+
+          <div class="step-card" style="padding:20px 16px;background:rgba(46,125,50,0.06);border-color:var(--forest);">
+            <span class="step-no" style="font-size:32px;color:var(--forest);">05</span>
+            <h3 style="font-size:15px;margin-bottom:8px;color:var(--forest);" data-vi="Tuyên Hứa &amp; Trao Khăn Quàng" data-en="Investiture & Scarf">Tuyên Hứa &amp; Trao Khăn Quàng</h3>
+            <p style="font-size:12.5px;line-height:1.55;color:var(--forest);margin:0;" data-vi="Chuẩn bị đồng phục, chính thức làm Lễ Tuyên Hứa, nhận chiếc khăn quàng Long Biên và chính thức trở thành Hướng đạo sinh!" data-en="Prepare official uniform, perform the Investiture Ceremony, receive the Long Bien neckerchief and join the worldwide brotherhood.">Chuẩn bị đồng phục, chính thức làm Lễ Tuyên Hứa, nhận chiếc khăn quàng Long Biên và chính thức trở thành Hướng đạo sinh!</p>
           </div>
         </div>
 
-        <!-- 2. THÔNG TIN TUYỂN SINH & TIÊU CHÍ PHỤ HUYNH -->
+        <!-- 2. CAM KẾT ĐỒNG HÀNH & CHÍNH SÁCH AN TOÀN TRẺ EM (SAFE FROM HARM) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;">
+          <!-- Card 1: Cam kết đồng hành 3 bên -->
+          <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <span style="font-size:24px;">🤝</span>
+              <h4 style="margin:0;font-size:17px;color:var(--forest);font-family:'Roboto Slab',Georgia,serif;" data-vi="Cam Kết Đồng Hành 3 Bên (Gia Đình &mdash; Đoàn Sinh &mdash; Trưởng)" data-en="Three-Way Partnership Commitment">Cam Kết Đồng Hành 3 Bên (Gia Đình &mdash; Đoàn Sinh &mdash; Trưởng)</h4>
+            </div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;">
+              Phong trào Hướng đạo không phải là lớp học thêm có người trông trẻ, mà là một cộng đồng giáo dục mở. Thành công của con đến từ sự hiện diện và đồng hành tích cực của cha mẹ:
+            </p>
+            <ul style="font-size:12.5px;color:var(--ink);line-height:1.6;padding-left:18px;margin:0;">
+              <li><strong>Hiện diện đều đặn:</strong> Đưa con đến sinh hoạt đúng giờ sáng Chủ nhật (9h–11h) và đồng hành lâu dài.</li>
+              <li><strong>Đóng góp sở trường:</strong> Phụ huynh cùng tham gia hỗ trợ hậu cần, y tế, ẩm thực dã ngoại, kỹ thuật hoặc nhiếp ảnh cho các kỳ trại.</li>
+              <li><strong>Cùng con rèn luyện:</strong> Nhắc nhở con thực hiện 10 Điều luật Hướng đạo và <em>"Mỗi ngày làm một việc tốt"</em> ngay trong nếp nhà.</li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Chính sách an toàn trẻ em -->
+          <div style="background:#ffffff;border:1.5px solid #2e7d32;border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(46,125,50,0.06);">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <span style="font-size:24px;">🛡️</span>
+              <h4 style="margin:0;font-size:17px;color:var(--forest);font-family:'Roboto Slab',Georgia,serif;" data-vi="Chính Sách Bảo Vệ An Toàn Trẻ Em (Safe From Harm)" data-en="Child Safeguarding Policy (Safe From Harm)">Chính Sách Bảo Vệ An Toàn Trẻ Em (Safe From Harm)</h4>
+            </div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;">
+              Liên đoàn Long Biên tuân thủ nghiêm ngặt <em>Quy tắc ứng xử Ban Huynh Trưởng</em> và chính sách an toàn trẻ em của Hướng đạo Thế giới (WOSM):
+            </p>
+            <ul style="font-size:12.5px;color:var(--ink);line-height:1.6;padding-left:18px;margin:0;">
+              <li><strong>Không bạo lực:</strong> Tuyệt đối không áp dụng bất kỳ hình thức trừng phạt thân thể hay tinh thần nào.</li>
+              <li><strong>Nguyên tắc 2 người:</strong> Luôn có từ 2 Trưởng/phụ huynh cùng có mặt khi hướng dẫn đoàn sinh.</li>
+              <li><strong>Bảo mật thông tin:</strong> Tôn trọng phẩm giá, bảo mật 100% dữ liệu cá nhân, không chia sẻ vì mục đích thương mại.</li>
+              <li><strong>Kênh phản ánh trực tiếp:</strong> Hộp thư tiếp nhận ý kiến an toàn: <code>longbienscouts@gmail.com</code>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. THÔNG TIN TUYỂN SINH & ĐIỀN ĐƠN TRỰC TUYẾN -->
         <div class="recruit-inner" style="background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:32px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;">
           <div>
             <div class="eyebrow" data-vi="#KETNAPTHANHVIENMOI" data-en="#NEW SCOUT RECRUITMENT">#KETNAPTHANHVIENMOI</div>
@@ -1275,18 +1334,15 @@
             </div>
           </div>
           <div class="criteria" style="background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:24px;">
-            <h4 style="font-size:16px;color:var(--forest);margin:0 0 12px 0;font-family:'Roboto Slab',Georgia,serif;" data-vi="Liên đoàn mong gì ở phụ huynh" data-en="What We Value from Parents">Liên đoàn mong gì ở phụ huynh</h4>
-            <ul style="font-size:13.5px;color:var(--muted);line-height:1.6;padding-left:18px;margin:0 0 18px 0;">
-              <li data-vi="Sắp xếp được sáng Chủ nhật hằng tuần (9h–11h) để đưa con đến sinh hoạt." data-en="Available Sunday mornings (9:00 - 11:00 AM) to bring children to meetings.">Sắp xếp được sáng Chủ nhật hằng tuần (9h–11h) để đưa con đến sinh hoạt.</li>
-              <li data-vi="Ở lại giúp Liên đoàn những việc liên quan đến hoạt động của các con." data-en="Stay and support troop activities and logistics.">Ở lại giúp Liên đoàn những việc liên quan đến hoạt động của các con.</li>
-              <li data-vi="Cam kết đi cùng con đường dài, không phải vài buổi." data-en="Commit to long-term accompaniment in scouting.">Cam kết đi cùng con đường dài, không phải vài buổi.</li>
-              <li data-vi="Cho con đi sinh hoạt đều đặn hằng tuần." data-en="Ensure regular and punctual weekly attendance.">Cho con đi sinh hoạt đều đặn hằng tuần.</li>
-            </ul>
-            <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="border-radius:999px;font-size:13px;padding:9px 22px;display:inline-block;" data-vi="Điền biểu mẫu đăng ký ↗" data-en="Open Registration Form ↗">Điền biểu mẫu đăng ký ↗</a>
+            <h4 style="font-size:16px;color:var(--forest);margin:0 0 12px 0;font-family:'Roboto Slab',Georgia,serif;" data-vi="Bắt đầu hành trình cùng con" data-en="Start the Journey">Bắt đầu hành trình cùng con</h4>
+            <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;">
+              Sau khi điền biểu mẫu trực tuyến, Ban Huynh Trưởng sẽ xem xét độ tuổi, nguyện vọng và gửi thư mời phụ huynh đưa con tham dự 2 buổi dự thính đầu tiên.
+            </p>
+            <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="border-radius:999px;font-size:13.5px;padding:10px 24px;display:inline-flex;align-items:center;gap:6px;" data-vi="Điền biểu mẫu đăng ký trực tuyến ↗" data-en="Open Online Registration Form ↗">📝 Điền biểu mẫu đăng ký trực tuyến ↗</a>
           </div>
         </div>
 
-        <!-- 3. HỎI ĐÁP PHỤ HUYNH (FAQ) -->
+        <!-- 4. HỎI ĐÁP PHỤ HUYNH (FAQ) -->
         <div style="background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:32px;">
           <div style="margin-bottom:20px;">
             <div class="eyebrow" data-vi="PHỤ HUYNH THƯỜNG HỎI" data-en="FREQUENTLY ASKED QUESTIONS">PHỤ HUYNH THƯỜNG HỎI</div>
@@ -1294,11 +1350,11 @@
           </div>
           <div class="faq-list">
             <details class="faq-item"><summary data-vi="Sinh hoạt vào lúc nào, ở đâu?" data-en="When and where do sessions take place?">Sinh hoạt vào lúc nào, ở đâu?</summary><p data-vi="Sáng Chủ nhật hằng tuần, 9h–11h, tại vườn hoa Bắc Biên, quận Long Biên. Trại và thám du sẽ được thông báo trước." data-en="Every Sunday morning, 9:00 - 11:00 AM at Bac Bien Garden, Long Biên. Special camps and trips are notified in advance.">Sáng Chủ nhật hằng tuần, 9h–11h, tại vườn hoa Bắc Biên, quận Long Biên. Trại và thám du sẽ được thông báo trước.</p></details>
-            <details class="faq-item"><summary data-vi="Con tôi vào ngành nào?" data-en="Which section does my child belong to?">Con tôi vào ngành nào?</summary><p data-vi="Tiểu học vào Ấu đoàn (Sói con 7–11t), THCS vào Thiếu đoàn (11–15t), lớn hơn vào Tráng đoàn (18+t)." data-en="Primary schoolers join Cub Scouts (Wolves), junior high join Scouts, older youths join Rovers.">Tiểu học vào Ấu đoàn (Sói con 7–11t), THCS vào Thiếu đoàn (11–15t), lớn hơn vào Tráng đoàn (18+t).</p></details>
-            <details class="faq-item"><summary data-vi="Có phải đóng học phí không?" data-en="Is there a tuition fee?">Có phải đóng học phí không?</summary><p data-vi="Liên đoàn phi lợi nhuận, không thu học phí. Từng kỳ trại có chi phí thực tế (ăn ở, xe, vật tư) sẽ thống nhất trước với phụ huynh." data-en="The troop is non-profit with zero tuition fee. Outings &amp; camp costs (food, transport, gear) are budgeted transparently.">Liên đoàn phi lợi nhuận, không thu học phí. Từng kỳ trại có chi phí thực tế (ăn ở, xe, vật tư) sẽ thống nhất trước với phụ huynh.</p></details>
-            <details class="faq-item"><summary data-vi="Phụ huynh có phải đi cùng không?" data-en="Do parents need to attend?">Phụ huynh có phải đi cùng không?</summary><p data-vi="Có, phụ huynh đưa con đến và ở lại hỗ trợ chuẩn bị, hậu cần, an toàn và đồng hành cùng con lâu dài." data-en="Yes, parents accompany their children, assist with logistics &amp; safety, and commit to long-term growth.">Có, phụ huynh đưa con đến và ở lại hỗ trợ chuẩn bị, hậu cần, an toàn và đồng hành cùng con lâu dài.</p></details>
-            <details class="faq-item"><summary data-vi="Con chưa biết gì về Hướng đạo, có theo được không?" data-en="Can beginners join without scouting background?">Con chưa biết gì về Hướng đạo, có theo được không?</summary><p data-vi="Được. Chương trình thiết kế từ dễ đến nâng cao, có huynh trưởng và các bạn lớn hướng dẫn tận tình." data-en="Absolutely. Programs build progressively from basic skills with dedicated guidance from leaders and senior scouts.">Được. Chương trình thiết kế từ dễ đến nâng cao, có huynh trưởng và các bạn lớn hướng dẫn tận tình.</p></details>
-            <details class="faq-item"><summary data-vi="Đăng ký thế nào?" data-en="How do we register?">Đăng ký thế nào?</summary><p data-vi="Điền biểu mẫu ở mục tuyển sinh bên trên. Ban Huynh trưởng sẽ liên hệ trao đổi trực tiếp với phụ huynh." data-en="Fill out the registration form above. Our scout leaders will follow up directly with you.">Điền biểu mẫu ở mục tuyển sinh bên trên. Ban Huynh trưởng sẽ liên hệ trao đổi trực tiếp với phụ huynh.</p></details>
+            <details class="faq-item"><summary data-vi="Con tôi vào ngành nào?" data-en="Which section does my child belong to?">Con tôi vào ngành nào?</summary><p data-vi="Tiểu học vào Ấu đoàn (Sói con 7–11t, khẩu hiệu GẮNG SỨC), THCS vào Thiếu đoàn (11–15t, khẩu hiệu SẮP SẴN), lớn hơn vào Tráng đoàn (18+t, khẩu hiệu PHỤNG SỰ)." data-en="Primary schoolers join Cub Scouts (7–11yo), junior high join Scouts (11–15yo), older youths join Rovers (18+yo).">Tiểu học vào Ấu đoàn (Sói con 7–11t, khẩu hiệu GẮNG SỨC), THCS vào Thiếu đoàn (11–15t, khẩu hiệu SẮP SẴN), lớn hơn vào Tráng đoàn (18+t, khẩu hiệu PHỤNG SỰ).</p></details>
+            <details class="faq-item"><summary data-vi="Có phải đóng học phí không?" data-en="Is there a tuition fee?">Có phải đóng học phí không?</summary><p data-vi="Liên đoàn hoạt động phi lợi nhuận, hoàn toàn không thu học phí. Từng kỳ trại có chi phí thực tế (ăn ở, xe, vật tư) sẽ được tính toán minh bạch và thống nhất trước với phụ huynh." data-en="The troop is non-profit with zero tuition fee. Outings &amp; camp costs (food, transport, gear) are budgeted transparently.">Liên đoàn hoạt động phi lợi nhuận, hoàn toàn không thu học phí. Từng kỳ trại có chi phí thực tế (ăn ở, xe, vật tư) sẽ được tính toán minh bạch và thống nhất trước với phụ huynh.</p></details>
+            <details class="faq-item"><summary data-vi="Phụ huynh có phải đi cùng không?" data-en="Do parents need to attend?">Phụ huynh có phải đi cùng không?</summary><p data-vi="Có, phụ huynh đưa con đến và ở lại hỗ trợ chuẩn bị, hậu cần, an toàn và đồng hành cùng con lâu dài theo tinh thần Bản Đồng Thuận." data-en="Yes, parents accompany their children, assist with logistics &amp; safety, and commit to long-term growth.">Có, phụ huynh đưa con đến và ở lại hỗ trợ chuẩn bị, hậu cần, an toàn và đồng hành cùng con lâu dài theo tinh thần Bản Đồng Thuận.</p></details>
+            <details class="faq-item"><summary data-vi="Con chưa biết gì về Hướng đạo, có theo được không?" data-en="Can beginners join without scouting background?">Con chưa biết gì về Hướng đạo, có theo được không?</summary><p data-vi="Được. Chương trình thiết kế từ dễ đến nâng cao theo phương pháp Hướng đạo Hạng Nhất, có huynh trưởng và các anh chị Đội trưởng hướng dẫn tận tình từng kỹ năng nhỏ nhất." data-en="Absolutely. Programs build progressively from basic skills with dedicated guidance from leaders and senior scouts.">Được. Chương trình thiết kế từ dễ đến nâng cao theo phương pháp Hướng đạo Hạng Nhất, có huynh trưởng và các anh chị Đội trưởng hướng dẫn tận tình từng kỹ năng nhỏ nhất.</p></details>
+            <details class="faq-item"><summary data-vi="Ý nghĩa của Ba Ngón Tay Chào Hướng Đạo là gì?" data-en="What is the meaning of the 3-finger Scout Salute?">Ý nghĩa của Ba Ngón Tay Chào Hướng Đạo là gì?</summary><p data-vi="Ba ngón vươn thẳng tượng trưng cho 3 Lời Hứa (Trung thành với Tổ quốc, Giúp ích mọi người, Tuân theo Luật Hướng đạo). Ngón cái đè lên ngón út tượng trưng cho: 'Kẻ mạnh che chở kẻ yếu, người lớn nâng đỡ người nhỏ'." data-en="The 3 upright fingers represent the 3 Scout Promises. The thumb over the little finger symbolizes the strong protecting the weak.">Ba ngón vươn thẳng tượng trưng cho 3 Lời Hứa (Trung thành với Tổ quốc, Giúp ích mọi người, Tuân theo Luật Hướng đạo). Ngón cái đè lên ngón út tượng trưng cho: 'Kẻ mạnh che chở kẻ yếu, người lớn nâng đỡ người nhỏ'.</p></details>
           </div>
         </div>
       </div>

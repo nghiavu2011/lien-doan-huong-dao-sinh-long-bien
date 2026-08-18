@@ -588,6 +588,100 @@
       }
     }
 
+  
+    /* Horizontal Timeline Slider */
+    .hz-timeline-container {
+      position: relative;
+      width: 100%;
+      overflow-x: auto;
+      padding: 18px 4px 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--forest) rgba(17,50,55,0.08);
+    }
+    .hz-timeline-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .hz-timeline-container::-webkit-scrollbar-track {
+      background: rgba(17,50,55,0.06);
+      border-radius: 999px;
+    }
+    .hz-timeline-container::-webkit-scrollbar-thumb {
+      background: var(--forest);
+      border-radius: 999px;
+    }
+    .hz-timeline-track {
+      display: flex;
+      gap: 18px;
+      min-width: min-content;
+      position: relative;
+    }
+    .hz-timeline-track::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: rgba(17,50,55,0.14);
+      z-index: 0;
+    }
+    .hz-tl-card {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 280px;
+      width: 280px;
+      background: #ffffff;
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 20px 22px;
+      box-shadow: 0 4px 14px rgba(17,50,55,0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .hz-tl-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(17,50,55,0.09);
+      border-color: var(--forest);
+    }
+    .hz-tl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hz-tl-year {
+      font-family: "Roboto Slab", serif;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--fire);
+      letter-spacing: .02em;
+    }
+    .hz-tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--fire);
+      box-shadow: 0 0 0 4px rgba(237,123,43,0.18);
+    }
+    .hz-tl-card h3 {
+      font-family: "Roboto Slab", Georgia, serif;
+      font-size: 16px;
+      color: var(--forest);
+      margin: 0 0 8px 0;
+      line-height: 1.35;
+    }
+    .hz-tl-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+      flex-grow: 1;
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -906,8 +1000,8 @@
       <div class="container about-layout">
         <div class="about-copy reveal">
           <div class="eyebrow" data-vi="VỀ LIÊN ĐOÀN" data-en="ABOUT US">VỀ LIÊN ĐOÀN</div>
-          <h2 data-vi="Bắt đầu từ mấy phụ huynh cùng khu." data-en="Founded by Local Parents in 2018.">Bắt đầu từ mấy phụ huynh cùng khu.</h2>
-          <p data-vi="Liên đoàn Long Biên thành lập ngày <strong>11/3/2018</strong>, do một nhóm phụ huynh trong khu vực có chung quan điểm đồng hành cùng con lập nên. Mọi hoạt động là phi lợi nhuận, dựa trên nguyên lý, mục đích và phương pháp của Hướng đạo Việt Nam." data-en="Long Bien Scout Inter-group was founded on <strong>March 11, 2018</strong> by local parents dedicated to guiding their children. All activities are non-profit, based on the principles and method of Vietnam Scouting.">Liên đoàn Long Biên thành lập ngày <strong>11/3/2018</strong>, do một nhóm phụ huynh trong khu vực có chung quan điểm đồng hành cùng con lập nên. Mọi hoạt động là phi lợi nhuận, dựa trên nguyên lý, mục đích và phương pháp của Hướng đạo Việt Nam.</p>
+          <h2 data-vi="Bắt đầu từ một lời hẹn giữa những người làm cha mẹ." data-en="Started from a heartfelt promise among local parents.">Bắt đầu từ một lời hẹn giữa những người làm cha mẹ.</h2>
+          <p data-vi="Liên đoàn Long Biên ra đời vào một ngày đầu xuân <strong>11/3/2018</strong>, từ mong ước rất đỗi giản dị của mấy gia đình cùng xóm: tìm cho con một khoảng trời xanh để chạy nhảy, học làm người tử tế thay vì cắm cúi vào màn hình tivi. Mọi hoạt động hoàn toàn phi lợi nhuận, vận hành bằng sự tự nguyện và tình thương yêu của các Huynh trưởng." data-en="Long Bien Scout Inter-group was founded on <strong>March 11, 2018</strong> by local parents dedicated to guiding their children. All activities are non-profit, based on the principles and method of Vietnam Scouting.">Liên đoàn Long Biên thành lập ngày <strong>11/3/2018</strong>, do một nhóm phụ huynh trong khu vực có chung quan điểm đồng hành cùng con lập nên. Mọi hoạt động là phi lợi nhuận, dựa trên nguyên lý, mục đích và phương pháp của Hướng đạo Việt Nam.</p>
           <p data-vi="Liên đoàn sinh hoạt định kỳ mỗi sáng Chủ nhật tại vườn hoa Bắc Biên. Những năm dịch bệnh không ra sân được, các buổi sinh hoạt chuyển sang online chứ không dừng. Ngoài buổi hằng tuần còn có các kỳ trại theo chuyên đề." data-en="Meetings take place every Sunday morning at Bac Bien Garden. During pandemic years, meetings transitioned online without stopping. In addition, regular themed camps are organized throughout the year.">Liên đoàn sinh hoạt định kỳ mỗi sáng Chủ nhật tại vườn hoa Bắc Biên. Những năm dịch bệnh không ra sân được, các buổi sinh hoạt chuyển sang online chứ không dừng. Ngoài buổi hằng tuần còn có các kỳ trại theo chuyên đề.</p>
           <div class="principles">
             <div class="principle"><strong data-vi="Sức khỏe" data-en="Health & Fitness">Sức khỏe</strong><span data-vi="Buổi nào cũng ở ngoài trời; đi bộ và chạy nhảy là chuyện thường." data-en="Outdoor activity every week; hiking and active movement.">Buổi nào cũng ở ngoài trời; đi bộ và chạy nhảy là chuyện thường.</span></div>
@@ -924,20 +1018,79 @@
       </div>
     </section>
 
-    <!-- =============== TIMELINE =============== -->
-    <section class="section tl-sec" id="dong-thoi-gian">
+    <!-- =============== TIMELINE (TRỤC NGANG TINH TẾ & GỌN GÀNG) =============== -->
+    <section class="section tl-sec" id="dong-thoi-gian" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:48px 0;">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow" data-vi="DÒNG THỜI GIAN" data-en="MILESTONES & TIMELINE">DÒNG THỜI GIAN</div>
-          <h2 data-vi="Từ 2018 đến nay." data-en="From 2018 to Present.">Từ 2018 đến nay.</h2>
+        <div class="sec-head" style="margin-bottom:28px;">
+          <span class="demo-badge">DẤU ẤN HÀNH TRÌNH</span>
+          <div class="eyebrow" data-vi="DÒNG THỜI GIAN" data-en="MILESTONES &amp; TIMELINE">DÒNG THỜI GIAN</div>
+          <h2 data-vi="Những chặng đường không thể quên từ 2018." data-en="Unforgettable Milestones Since 2018.">Những chặng đường không thể quên từ 2018.</h2>
+          <p class="lead" data-vi="Những bước chân đầu tiên từ góc vườn nhỏ cho đến một gia đình Hướng đạo gắn kết bền bỉ theo năm tháng." data-en="From our very first footsteps in a small garden to a warm and resilient scouting family.">Những bước chân đầu tiên từ góc vườn nhỏ cho đến một gia đình Hướng đạo gắn kết bền bỉ theo năm tháng.</p>
         </div>
-        <div class="tl reveal">
-          <div class="tl-row"><span>11/03/2018</span><strong data-vi="Liên đoàn thành lập" data-en="Troop Founded">Liên đoàn thành lập</strong><p data-vi="Mấy phụ huynh cùng khu ngồi lại, thống nhất quan điểm đồng hành cùng con và bắt đầu." data-en="Local parents united to establish the troop and accompany their children.">Mấy phụ huynh cùng khu ngồi lại, thống nhất quan điểm đồng hành cùng con và bắt đầu.</p></div>
-          <div class="tl-row"><span>2018</span><strong data-vi="Kỳ trại đầu tiên ở Sơn Tinh Camp" data-en="First Camp at Son Tinh Camp">Kỳ trại đầu tiên ở Sơn Tinh Camp</strong><p data-vi="Từ đó, trại theo chuyên đề thành lệ thường niên của Liên đoàn." data-en="Themed camps became an annual cornerstone tradition.">Từ đó, trại theo chuyên đề thành lệ thường niên của Liên đoàn.</p></div>
-          <div class="tl-row"><span>2020–2021</span><strong data-vi="Sinh hoạt online mùa dịch" data-en="Online Scouting During Pandemic">Sinh hoạt online mùa dịch</strong><p data-vi="Suốt thời gian dịch bệnh, buổi Chủ nhật vẫn giữ đều đặn qua mạng." data-en="Sunday sessions continued consistently in online format.">Suốt thời gian dịch bệnh, buổi Chủ nhật vẫn giữ đều đặn qua mạng.</p></div>
-          <div class="tl-row"><span>24/01/2021</span><strong data-vi="Những Hải ly cuối cùng lên Sói" data-en="Beavers Advanced to Wolves">Những Hải ly cuối cùng lên Sói</strong><p data-vi="Khép lại ngành Hải ly. Liên đoàn duy trì ba ngành Tráng, Thiếu và Ấu." data-en="Beaver section closed; operating Cub, Scout, and Rover sections.">Khép lại ngành Hải ly. Liên đoàn duy trì ba ngành Tráng, Thiếu và Ấu.</p></div>
-          <div class="tl-row"><span>2024–2025</span><strong data-vi="Sách cũ gửi học sinh Đắk Lắk" data-en="Book Donation to Dak Lak">Sách cũ gửi học sinh Đắk Lắk</strong><p data-vi="Sách giáo khoa gom được chuyển tới Trường Tiểu học Hoàng Hoa Thám, Đắk Lắk." data-en="Textbooks donated to Hoang Hoa Tham Primary School, Dak Lak.">Sách giáo khoa gom được chuyển tới Trường Tiểu học Hoàng Hoa Thám, Đắk Lắk.</p></div>
-          <div class="tl-row"><span>2025</span><strong data-vi="Một năm sôi nổi" data-en="An Active Year">Một năm sôi nổi</strong><p data-vi="Trại hè 825, thám du 80 năm Quốc khánh, an toàn mạng, làm bánh Trung thu và trại 36 phố phường." data-en="Summer camp 825, National Day expedition, cybersecurity seminar, mooncake baking, and Old Quarter camp.">Trại hè 825, thám du 80 năm Quốc khánh, an toàn mạng, làm bánh Trung thu và trại 36 phố phường.</p></div>
+
+        <!-- Horizontal Timeline Wrapper with Clean Slider -->
+        <div class="hz-timeline-container">
+          <div class="hz-timeline-track">
+            <!-- Node 1 -->
+            <div class="hz-tl-card">
+              <div class="hz-tl-header">
+                <span class="hz-tl-year">11/03/2018</span>
+                <span class="hz-tl-dot"></span>
+              </div>
+              <h3 data-vi="Bắt đầu từ một lời hẹn" data-en="Founded by Local Parents">Bắt đầu từ một lời hẹn</h3>
+              <p data-vi="Mấy phụ huynh cùng xóm ngồi lại, chung một ước mong giản dị: con có chỗ chạy nhảy, học làm người tử tế vào mỗi sáng cuối tuần." data-en="A few neighborhood parents gathered with a simple wish: a healthy, open-air playground for their children.">Mấy phụ huynh cùng xóm ngồi lại, chung một ước mong giản dị: con có chỗ chạy nhảy, học làm người tử tế vào mỗi sáng cuối tuần.</p>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="hz-tl-card">
+              <div class="hz-tl-header">
+                <span class="hz-tl-year">2018</span>
+                <span class="hz-tl-dot"></span>
+              </div>
+              <h3 data-vi="Đêm lửa trại Sơn Tinh" data-en="First Son Tinh Camp">Đêm lửa trại Sơn Tinh</h3>
+              <p data-vi="Kỳ trại chuyên đề đầu tiên bên bờ hồ. Các con lần đầu tự dựng lều, chia nhau bữa cơm khói bếp và hát vang quanh đống lửa bập bùng." data-en="Our first outdoor camp. Kids pitched tents, cooked over woodsmoke, and sang around their first campfire.">Kỳ trại chuyên đề đầu tiên bên bờ hồ. Các con lần đầu tự dựng lều, chia nhau bữa cơm khói bếp và hát vang quanh đống lửa bập bùng.</p>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="hz-tl-card">
+              <div class="hz-tl-header">
+                <span class="hz-tl-year">2020 – 2021</span>
+                <span class="hz-tl-dot"></span>
+              </div>
+              <h3 data-vi="Mùa dịch không ngắt quãng" data-en="Scouting Through Pandemic">Mùa dịch không ngắt quãng</h3>
+              <p data-vi="Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn. Các bạn nhỏ vẫn thắt khăn quàng ngay ngắn trước màn hình, tập nút dây và hỏi thăm nhau." data-en="Lockdowns kept us at home, but Sunday mornings stayed alive online: wearing neckerchiefs, tying knots, staying connected.">Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn. Các bạn nhỏ vẫn thắt khăn quàng ngay ngắn trước màn hình, tập nút dây và hỏi thăm nhau.</p>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="hz-tl-card">
+              <div class="hz-tl-header">
+                <span class="hz-tl-year">24/01/2021</span>
+                <span class="hz-tl-dot"></span>
+              </div>
+              <h3 data-vi="Những chú Hải ly lên Sói" data-en="Beavers Advanced to Wolves">Những chú Hải ly lên Sói</h3>
+              <p data-vi="Lễ chuyển ngành đầy xúc động. Những em bé út ngày nào nay đã đủ chững chạc để khoác lên vai chiếc khăn quàng Sói con ngành Ấu." data-en="A touching transition ceremony as our youngest Beavers grew into independent Wolf Cubs.">Lễ chuyển ngành đầy xúc động. Những em bé út ngày nào nay đã đủ chững chạc để khoác lên vai chiếc khăn quàng Sói con ngành Ấu.</p>
+            </div>
+
+            <!-- Node 5 -->
+            <div class="hz-tl-card">
+              <div class="hz-tl-header">
+                <span class="hz-tl-year">2024 – 2025</span>
+                <span class="hz-tl-dot"></span>
+              </div>
+              <h3 data-vi="Tủ sách gửi bạn Đắk Lắk" data-en="Book Drive for Dak Lak">Tủ sách gửi bạn Đắk Lắk</h3>
+              <p data-vi="Từng trang sách cũ được các em nâng niu bọc lại, đóng thùng gửi tới học sinh trường Tiểu học Hoàng Hoa Thám &mdash; sống đúng tinh thần 'Giúp ích'." data-en="Scouts gathered and packed textbooks for students in Dak Lak, practicing daily good turns in real life.">Từng trang sách cũ được các em nâng niu bọc lại, đóng thùng gửi tới học sinh trường Tiểu học Hoàng Hoa Thám &mdash; sống đúng tinh thần 'Giúp ích'.</p>
+            </div>
+
+            <!-- Node 6 -->
+            <div class="hz-tl-card" style="border-color:var(--forest);background:#ffffff;">
+              <div class="hz-tl-header">
+                <span class="hz-tl-year" style="color:var(--forest);">Hôm nay &amp; Tương lai</span>
+                <span class="hz-tl-dot" style="background:var(--forest);box-shadow:0 0 0 4px rgba(46,125,50,0.2);"></span>
+              </div>
+              <h3 style="color:var(--forest);" data-vi="Vững vàng một mái nhà chung" data-en="Growing Together Every Day">Vững vàng một mái nhà chung</h3>
+              <p style="color:var(--ink);" data-vi="Vẫn đều đặn 9h sáng Chủ nhật tại vườn hoa Bắc Biên. Nơi mọi đứa trẻ đều được chào đón bằng sự bao dung và tình huynh đệ chân thành." data-en="Still meeting every Sunday morning at Bac Bien Garden, welcoming every child with open arms and true brotherhood.">Vẫn đều đặn 9h sáng Chủ nhật tại vườn hoa Bắc Biên. Nơi mọi đứa trẻ đều được chào đón bằng sự bao dung và tình huynh đệ chân thành.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1350,7 +1503,7 @@
             <div style="font-size:28px;margin-bottom:8px;">📝</div>
             <h4 style="font-size:18px;color:var(--forest);margin:0 0 10px 0;font-family:'Roboto Slab',Georgia,serif;" data-vi="Bắt đầu hành trình cùng con" data-en="Start the Journey">Bắt đầu hành trình cùng con</h4>
             <p style="font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:20px;">
-              Sau khi điền biểu mẫu trực tuyến, Ban Huynh Trưởng sẽ liên hệ trao đổi, gửi cẩm nang Hướng đạo và mời phụ huynh cùng bé tham dự 2 buổi sinh hoạt thực tế tại Vườn hoa Bắc Biên.
+              Biểu mẫu trực tuyến được xây dựng dựa trên <strong>Phiếu tìm hiểu đoàn sinh mới</strong> của Liên đoàn. Điền thông tin giúp các Trưởng hiểu được tính cách, sở thích của bé và sở trường đồng hành của gia đình để chuẩn bị đón tiếp chu đáo nhất trong 2 buổi dự thính đầu tiên.
             </p>
             <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="border-radius:999px;font-size:14px;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(237,123,43,0.3);text-decoration:none;font-weight:700;" data-vi="Điền biểu mẫu đăng ký trực tuyến ↗" data-en="Open Online Registration Form ↗">📝 Điền biểu mẫu đăng ký trực tuyến ↗</a>
           </div>

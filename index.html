@@ -440,11 +440,12 @@
     .recruit-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:start}
     .recruit h2{color:white}.recruit .eyebrow{color:#f2b38b}
     .recruit p{color:rgba(255,255,255,.76);margin-top:16px}
-    .slots{display:grid;gap:12px;margin-top:24px}
-    .slot{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:11px;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
-    .slot b{font-family:"Roboto Slab";font-size:26px;color:#f8c09d;line-height:1}
-    .slot strong{display:block;font-size:15px;color:white}
-    .slot span{display:block;font-size:12.5px;color:rgba(255,255,255,.66)}
+    .slots{display:grid;gap:14px;margin-top:18px}
+    .slot{background:#ffffff;border:1.5px solid var(--line);border-radius:14px;padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;box-shadow:0 3px 10px rgba(17,50,55,0.04);transition:transform .2s ease,border-color .2s ease}
+    .slot:hover{transform:translateX(4px);border-color:var(--forest)}
+    .slot b{font-family:"Roboto Slab",serif;font-size:30px;color:var(--fire);line-height:1;font-weight:800}
+    .slot strong{display:block;font-size:15.5px;color:var(--forest);font-weight:800;margin-bottom:3px}
+    .slot span{display:block;font-size:13px;color:var(--muted);line-height:1.4}
     .criteria{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:26px}
     .criteria h3{color:white;font-size:19px}
     .criteria ul{margin:15px 0 0;padding:0;list-style:none;display:grid;gap:11px;font-size:13.5px;color:rgba(255,255,255,.8)}
@@ -1323,22 +1324,35 @@
         </div>
 
         <!-- 3. THÔNG TIN TUYỂN SINH & ĐIỀN ĐƠN TRỰC TUYẾN -->
-        <div class="recruit-inner" style="background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:32px;margin-bottom:32px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;">
+        <div class="recruit-inner" style="background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:36px;margin-bottom:36px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;box-shadow:0 4px 20px rgba(17,50,55,0.03);">
           <div>
-            <div class="eyebrow" data-vi="#KETNAPTHANHVIENMOI" data-en="#NEW SCOUT RECRUITMENT">#KETNAPTHANHVIENMOI</div>
-            <h3 style="font-size:22px;margin:0 0 10px 0;color:var(--forest);font-family:'Roboto Slab',Georgia,serif;" data-vi="Liên đoàn đang tìm thêm bạn đồng hành." data-en="We are welcoming new scouts to join.">Liên đoàn đang tìm thêm bạn đồng hành.</h3>
-            <p style="font-size:14px;color:var(--muted);line-height:1.6;" data-vi="Đợt này Liên đoàn nhận thêm đoàn sinh cho hai ngành. Nếu thấy phù hợp, mời phụ huynh điền biểu mẫu; Ban Huynh trưởng sẽ xem xét và liên hệ phản hồi." data-en="Recruiting new scouts for Cub and Scout sections. If interested, please fill out the form; our leaders will review and respond promptly.">Đợt này Liên đoàn nhận thêm đoàn sinh cho hai ngành. Nếu thấy phù hợp, mời phụ huynh điền biểu mẫu; Ban Huynh trưởng sẽ xem xét và liên hệ phản hồi.</p>
-            <div class="slots" style="margin-top:18px;">
-              <div class="slot"><b>10</b><div><strong data-vi="Ấu đoàn" data-en="Cub Scouts">Ấu đoàn</strong><span data-vi="Nhận thêm 10 em sinh năm 2016–2017" data-en="10 spots for birth years 2016–2017">Nhận thêm 10 em sinh năm 2016–2017</span></div></div>
-              <div class="slot"><b>10</b><div><strong data-vi="Thiếu đoàn" data-en="Scouts">Thiếu đoàn</strong><span data-vi="Nhận thêm 10 em sinh năm 2012–2013" data-en="10 spots for birth years 2012–2013">Nhận thêm 10 em sinh năm 2012–2013</span></div></div>
+            <div class="eyebrow" data-vi="#KETNAPTHANHVIENMOI" data-en="#NEW SCOUT RECRUITMENT" style="margin-bottom:8px;">#KETNAPTHANHVIENMOI</div>
+            <h3 style="font-size:24px;margin:0 0 12px 0;color:var(--forest);font-family:'Roboto Slab',Georgia,serif;line-height:1.25;" data-vi="Liên đoàn đang tìm thêm bạn đồng hành." data-en="We are welcoming new scouts to join.">Liên đoàn đang tìm thêm bạn đồng hành.</h3>
+            <p style="font-size:14.5px;color:var(--muted);line-height:1.65;margin:0 0 20px 0;" data-vi="Đợt này Liên đoàn mở tiếp nhận đoàn sinh cho hai ngành trọng điểm. Kính mời phụ huynh gửi thông tin cơ bản; Ban Huynh trưởng sẽ liên hệ trực tiếp để trao đổi và gửi thư mời dự thính." data-en="We are currently opening enrollment for two core sections. Parents are warmly invited to register; leaders will contact and invite you to trial sessions.">Đợt này Liên đoàn mở tiếp nhận đoàn sinh cho hai ngành trọng điểm. Kính mời phụ huynh gửi thông tin cơ bản; Ban Huynh trưởng sẽ liên hệ trực tiếp để trao đổi và gửi thư mời dự thính.</p>
+            <div class="slots">
+              <div class="slot">
+                <b>10</b>
+                <div>
+                  <strong data-vi="Ngành Ấu (Sói con 7–11t)" data-en="Cub Scouts (7–11yo)">Ngành Ấu (Sói con 7–11t)</strong>
+                  <span data-vi="Nhận 10 em sinh năm 2016–2017 · Khẩu hiệu GẮNG SỨC" data-en="10 spots for birth years 2016–2017 · Motto: DO YOUR BEST">Nhận 10 em sinh năm 2016–2017 · Khẩu hiệu GẮNG SỨC</span>
+                </div>
+              </div>
+              <div class="slot">
+                <b>10</b>
+                <div>
+                  <strong data-vi="Ngành Thiếu (Thiếu sinh 11–15t)" data-en="Scouts (11–15yo)">Ngành Thiếu (Thiếu sinh 11–15t)</strong>
+                  <span data-vi="Nhận 10 em sinh năm 2012–2013 · Khẩu hiệu SẮP SẴN" data-en="10 spots for birth years 2012–2013 · Motto: BE PREPARED">Nhận 10 em sinh năm 2012–2013 · Khẩu hiệu SẮP SẴN</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="criteria" style="background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:24px;">
-            <h4 style="font-size:16px;color:var(--forest);margin:0 0 12px 0;font-family:'Roboto Slab',Georgia,serif;" data-vi="Bắt đầu hành trình cùng con" data-en="Start the Journey">Bắt đầu hành trình cùng con</h4>
-            <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;">
-              Sau khi điền biểu mẫu trực tuyến, Ban Huynh Trưởng sẽ xem xét độ tuổi, nguyện vọng và gửi thư mời phụ huynh đưa con tham dự 2 buổi dự thính đầu tiên.
+          <div class="criteria" style="background:#ffffff;border:1.5px solid var(--forest);border-radius:18px;padding:30px;box-shadow:0 8px 24px rgba(17,50,55,0.08);">
+            <div style="font-size:28px;margin-bottom:8px;">📝</div>
+            <h4 style="font-size:18px;color:var(--forest);margin:0 0 10px 0;font-family:'Roboto Slab',Georgia,serif;" data-vi="Bắt đầu hành trình cùng con" data-en="Start the Journey">Bắt đầu hành trình cùng con</h4>
+            <p style="font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:20px;">
+              Sau khi điền biểu mẫu trực tuyến, Ban Huynh Trưởng sẽ liên hệ trao đổi, gửi cẩm nang Hướng đạo và mời phụ huynh cùng bé tham dự 2 buổi sinh hoạt thực tế tại Vườn hoa Bắc Biên.
             </p>
-            <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="border-radius:999px;font-size:13.5px;padding:10px 24px;display:inline-flex;align-items:center;gap:6px;" data-vi="Điền biểu mẫu đăng ký trực tuyến ↗" data-en="Open Online Registration Form ↗">📝 Điền biểu mẫu đăng ký trực tuyến ↗</a>
+            <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="border-radius:999px;font-size:14px;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(237,123,43,0.3);text-decoration:none;font-weight:700;" data-vi="Điền biểu mẫu đăng ký trực tuyến ↗" data-en="Open Online Registration Form ↗">📝 Điền biểu mẫu đăng ký trực tuyến ↗</a>
           </div>
         </div>
 

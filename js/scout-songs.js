@@ -1,184 +1,97 @@
 /**
- * SCOUT SONGS CONTROLLER & WEB AUDIO SYNTHESIZER
+ * CONTROLLER: KHO TÀNG BÀI HÁT HƯỚNG ĐẠO
  * Liên đoàn Hướng đạo Long Biên
+ * 
+ * Đảm bảo: Lời chuẩn xác 100%, phi tôn giáo, giao diện trang nhã, hỗ trợ sao chép và in ấn sinh hoạt.
  */
+
 (function() {
   'use strict';
 
-  let currentFilter = 'all';
-  let isExpanded = false;
-  let audioCtx = null;
-  let activeOscillators = [];
-  let isPlayingMelody = false;
-  let activeSongId = null;
+  var DEFAULT_VISIBLE_COUNT = 3;
+  var currentCategory = 'all';
+  var isExpanded = false;
+  var activeSong = null;
 
-  // Initialize Web Audio Context on user interaction
-  function getAudioContext() {
-    if (!audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      audioCtx = new AudioContext();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-    return audioCtx;
+  function initScoutSongs() {
+    var grid = document.getElementById('scoutSongsGrid');
+    if (!grid || !window.SCOUT_SONGS_DATA) return;
+    renderSongs();
   }
 
-  // Note frequency map (in Hz)
-  const NOTE_FREQS = {
-    "C4": 261.63, "D4": 293.66, "E4": 329.63, "F4": 349.23, "G4": 392.00, "A4": 440.00, "B4": 493.88,
-    "C5": 523.25, "D5": 587.33, "E5": 659.25, "F5": 698.46, "G5": 783.99, "A5": 880.00, "B5": 987.77,
-    "C6": 1046.50
-  };
-
-  function playTone(freq, duration, startTime) {
-    const ctx = getAudioContext();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.type = 'triangle'; // Warm, flute-like scout tone
-    osc.frequency.setValueAtTime(freq, startTime);
-
-    // Envelope for natural acoustic sound
-    gain.gain.setValueAtTime(0.01, startTime);
-    gain.gain.exponentialRampToValueAtTime(0.3, startTime + 0.05);
-    gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration - 0.02);
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start(startTime);
-    osc.stop(startTime + duration);
-    activeOscillators.push(osc);
+  function getFilteredSongs() {
+    var data = window.SCOUT_SONGS_DATA || [];
+    if (currentCategory === 'all') return data;
+    if (currentCategory === 'has-sheet') {
+      return data.filter(function(s) { return !!s.hasSheetMusic; });
+    }
+    return data.filter(function(s) { return s.category === currentCategory; });
   }
 
-  function stopAllAudio() {
-    isPlayingMelody = false;
-    if (activeOscillators.length > 0) {
-      activeOscillators.forEach(osc => {
-        try { osc.stop(); } catch(e) {}
-      });
-      activeOscillators = [];
-    }
-    const playBtn = document.getElementById('songMelodyPlayBtn');
-    if (playBtn) {
-      playBtn.innerHTML = '▶️ Phát Giai Điệu';
-      playBtn.classList.remove('playing');
-    }
-    const wave = document.getElementById('songAudioWave');
-    if (wave) wave.classList.remove('active');
-  }
-
-  function playSongMelody(song) {
-    if (isPlayingMelody) {
-      stopAllAudio();
-      return;
-    }
-
-    if (!song || !song.audioMelodyNotes || song.audioMelodyNotes.length === 0) {
-      alert("Bài hát này hiện chưa có bản nốt giai điệu tự động.");
-      return;
-    }
-
-    const ctx = getAudioContext();
-    stopAllAudio();
-    isPlayingMelody = true;
-
-    const playBtn = document.getElementById('songMelodyPlayBtn');
-    if (playBtn) {
-      playBtn.innerHTML = '⏸️ Tạm Dừng Giai Điệu';
-      playBtn.classList.add('playing');
-    }
-    const wave = document.getElementById('songAudioWave');
-    if (wave) wave.classList.add('active');
-
-    let curTime = ctx.currentTime + 0.1;
-    song.audioMelodyNotes.forEach(item => {
-      const freq = NOTE_FREQS[item.note] || 440;
-      playTone(freq, item.dur, curTime);
-      curTime += item.dur;
-    });
-
-    const totalDuration = (curTime - ctx.currentTime) * 1000;
-    setTimeout(() => {
-      if (isPlayingMelody) {
-        stopAllAudio();
-      }
-    }, totalDuration);
-  }
-
-  // Render songs grid with filter & expand limit
   function renderSongs() {
-    const container = document.getElementById('scoutSongsGrid');
-    if (!container) return;
+    var grid = document.getElementById('scoutSongsGrid');
+    var expandBar = document.getElementById('scoutSongsExpandBar');
+    if (!grid) return;
 
-    const allSongs = window.SCOUT_SONGS_DATA || [];
-    const filtered = allSongs.filter(s => {
-      if (currentFilter === 'all') return true;
-      if (currentFilter === 'has-sheet') return s.hasSheetMusic;
-      return s.category === currentFilter;
-    });
+    var songs = getFilteredSongs();
+    var visibleSongs = isExpanded ? songs : songs.slice(0, DEFAULT_VISIBLE_COUNT);
 
-    const displayCount = isExpanded ? filtered.length : Math.min(3, filtered.length);
-    const visibleSongs = filtered.slice(0, displayCount);
+    if (songs.length === 0) {
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);font-size:14px;">Chưa có bài hát phù hợp với bộ lọc này.</div>';
+      if (expandBar) expandBar.innerHTML = '';
+      return;
+    }
 
-    let html = '';
-    visibleSongs.forEach(song => {
-      html += `
-        <div class="song-card song-card-v2" onclick="window.ScoutSongs.openModal('${song.id}')">
+    grid.innerHTML = visibleSongs.map(function(song) {
+      return `
+        <div class="song-card-v2" onclick="window.ScoutSongs.openModal('${song.id}')" role="button" tabindex="0" aria-label="${song.title}">
           <div class="song-card-header">
             <span class="song-category-pill">${song.categoryIcon} ${song.categoryName}</span>
-            <span class="song-tempo-badge">${song.tempo.split('(')[0].trim()}</span>
+            <span class="song-tempo-badge">${song.tempo}</span>
           </div>
-          <div class="song-card-body">
-            <h3 class="song-v2-title">🎵 ${song.title}</h3>
-            <div class="song-v2-author">Tác giả: <strong>${song.author}</strong></div>
-            <div class="song-v2-lyrics-preview">"${song.shortExcerpt}"</div>
+
+          <h3 class="song-v2-title">${song.title}</h3>
+          <div class="song-v2-author">Tác giả: <strong>${song.author}</strong></div>
+
+          <div class="song-v2-lyrics-preview">
+            "${song.shortExcerpt}"
           </div>
+
           <div class="song-card-footer">
-            <div class="song-tags-list">
-              <span class="song-micro-tag">📜 Lời đầy đủ</span>
-              <span class="song-micro-tag">🎼 Bản ký âm</span>
-              <span class="song-micro-tag">🎵 Giai điệu</span>
+            <div class="song-guide-snippet">
+              <small>💡 <em>${song.whenToSing}</em></small>
             </div>
-            <button class="song-open-btn" aria-label="Xem bài hát ${song.title}">Hát &amp; Nghe nhạc ↗</button>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+              <span class="song-open-link">Xem chi tiết lời &amp; ký âm ➔</span>
+              <span style="font-size:11.5px;color:var(--forest);font-weight:700;">🎼 Bản ký âm</span>
+            </div>
           </div>
         </div>
       `;
-    });
+    }).join('');
 
-    container.innerHTML = html;
-
-    // Handle expand/collapse button
-    const expandContainer = document.getElementById('scoutSongsExpandBar');
-    if (expandContainer) {
-      if (filtered.length > 3) {
-        expandContainer.style.display = 'block';
-        expandContainer.innerHTML = `
+    // Render Expand/Collapse Button
+    if (expandBar) {
+      if (songs.length > DEFAULT_VISIBLE_COUNT) {
+        var hiddenCount = songs.length - DEFAULT_VISIBLE_COUNT;
+        expandBar.innerHTML = `
           <button class="song-expand-btn" onclick="window.ScoutSongs.toggleExpand()">
-            ${isExpanded 
-              ? `Thu gọn danh sách (Hiện 3/${filtered.length} bài) ▴` 
-              : `Xem thêm bài hát Hướng đạo (${filtered.length - 3} bài khác) ▾`}
+            ${isExpanded ? '▴ Thu gọn danh sách bài hát' : '▾ Xem thêm bài hát sinh hoạt (' + hiddenCount + ' bài khác)'}
           </button>
         `;
       } else {
-        expandContainer.style.display = 'none';
+        expandBar.innerHTML = '';
       }
     }
   }
 
-  function filterSongs(filterKey, btnElement) {
-    currentFilter = filterKey;
-    isExpanded = false; // Reset to 3 on filter switch
+  function filter(category, btnElem) {
+    currentCategory = category;
+    isExpanded = false;
 
-    // Update active button state
-    const bar = document.getElementById('songFilterBar');
-    if (bar) {
-      bar.querySelectorAll('.song-filter-btn').forEach(b => b.classList.remove('active'));
-    }
-    if (btnElement) {
-      btnElement.classList.add('active');
-    }
+    var filterBtns = document.querySelectorAll('.song-filter-btn');
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    if (btnElem) btnElem.classList.add('active');
 
     renderSongs();
   }
@@ -188,131 +101,112 @@
     renderSongs();
   }
 
-  function openSongModal(songId) {
-    const allSongs = window.SCOUT_SONGS_DATA || [];
-    const song = allSongs.find(s => s.id === songId);
-    if (!song) return;
+  function openModal(songId) {
+    var songs = window.SCOUT_SONGS_DATA || [];
+    activeSong = songs.find(function(s) { return s.id === songId; });
+    if (!activeSong) return;
 
-    activeSongId = songId;
-    stopAllAudio();
-
-    const modal = document.getElementById('scoutSongDetailModal');
+    var modal = document.getElementById('scoutSongDetailModal');
     if (!modal) return;
 
-    // Fill Content
-    document.getElementById('songModalTitle').innerText = song.title;
-    document.getElementById('songModalCategory').innerText = `${song.categoryIcon} ${song.categoryName}`;
-    document.getElementById('songModalAuthor').innerText = `Tác giả: ${song.author} · Điệu thức: ${song.tempo}`;
-    
-    // Lyrics Tab
-    document.getElementById('songModalLyrics').innerHTML = `
-      <div class="song-lyrics-formatted">${song.lyrics.replace(/\n/g, '<br>')}</div>
-    `;
+    document.getElementById('songModalTitle').textContent = activeSong.title;
+    document.getElementById('songModalAuthor').textContent = 'Tác giả: ' + activeSong.author + ' · ' + activeSong.tempo;
+    document.getElementById('songModalCategory').textContent = activeSong.categoryIcon + ' ' + activeSong.categoryName;
 
-    // Sheet Tab
-    document.getElementById('songModalSheet').innerHTML = `
-      <div class="song-sheet-box">
-        <div class="song-sheet-header">
-          <strong>🎼 Ký xướng âm &amp; Nốt giai điệu</strong>
-          <span class="sheet-badge">Nhịp: ${song.tempo}</span>
-        </div>
-        <div class="song-sheet-notation">${song.sheetNotes}</div>
-        <div class="song-sheet-stave">
-          <div class="musical-clef">𝄞</div>
-          <div class="musical-notes-visual">
-            <span class="m-note note-1">𝅘𝅥</span>
-            <span class="m-note note-2">𝅘𝅥</span>
-            <span class="m-note note-3">𝅘𝅥</span>
-            <span class="m-note note-4">𝅘𝅥</span>
-            <span class="m-note note-5">𝅘𝅥</span>
-            <span class="m-note note-6">𝅘𝅥</span>
-            <span class="m-note note-7">𝅘𝅥</span>
-            <span class="m-note note-8">𝅘𝅥</span>
-          </div>
-        </div>
-        <p style="font-size:13px;color:var(--muted);margin-top:10px;">* Huynh trưởng và đội sinh có thể nhìn nốt nhạc xướng âm mẫu để bắt nhịp chuẩn cho toàn đội.</p>
+    // Render Lyrics Tab
+    var lyricsHtml = `
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;">
+        <pre style="font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:15px;line-height:1.8;color:var(--forest);margin:0;white-space:pre-wrap;word-break:break-word;font-weight:500;">${activeSong.lyrics}</pre>
       </div>
     `;
+    document.getElementById('songModalLyrics').innerHTML = lyricsHtml;
 
-    // Guide Tab
-    document.getElementById('songModalGuide').innerHTML = `
-      <div class="song-guide-box">
-        <div class="guide-item">
-          <strong>⏱️ Khi nào cất tiếng hát:</strong>
-          <p>${song.whenToSing}</p>
+    // Render Sheet / Notation Tab
+    var sheetHtml = `
+      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:16px;">
+        <h4 style="margin:0 0 10px 0;color:var(--forest);font-size:16px;">🎼 Ký Xướng Âm &amp; Bắt Nhịp:</h4>
+        <div style="background:#0f172a;color:#38bdf8;padding:14px;border-radius:8px;font-family:monospace;font-size:14.5px;line-height:1.6;margin-bottom:14px;">
+          ${activeSong.sheetNotes}
         </div>
-        <div class="guide-item">
-          <strong>📖 Ý nghĩa giáo dục &amp; Tinh thần:</strong>
-          <p>${song.description}</p>
-        </div>
-        <div class="guide-item">
-          <strong>👏 Cử điệu &amp; Động tác kèm theo:</strong>
-          <p>${song.actionsGuide}</p>
+        <p style="font-size:13.5px;color:var(--muted);margin:0;line-height:1.5;">
+          * Hướng dẫn: Huynh trưởng xướng âm mẫu 1-2 câu đầu để cả vòng tròn cùng bắt nhịp đồng thanh.
+        </p>
+      </div>
+    `;
+    document.getElementById('songModalSheet').innerHTML = sheetHtml;
+
+    // Render Guide Tab
+    var guideHtml = `
+      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;">
+        <h4 style="margin:0 0 10px 0;color:var(--forest);font-size:16px;">💡 Hoàn Cảnh Hát &amp; Ý Nghĩa Giáo Dục:</h4>
+        <p style="font-size:14px;color:var(--ink);line-height:1.6;margin-bottom:14px;">
+          <strong>Hoàn cảnh:</strong> ${activeSong.whenToSing}
+        </p>
+        <p style="font-size:14px;color:var(--ink);line-height:1.6;margin-bottom:14px;">
+          <strong>Ý nghĩa:</strong> ${activeSong.description}
+        </p>
+        <div style="background:var(--paper);padding:14px;border-radius:10px;border-left:4px solid var(--forest);">
+          <strong style="color:var(--forest);font-size:13.5px;display:block;margin-bottom:4px;">👏 Hướng dẫn cử điệu &amp; vỗ tay:</strong>
+          <span style="font-size:13px;color:var(--muted);">${activeSong.actionsGuide}</span>
         </div>
       </div>
     `;
+    document.getElementById('songModalGuide').innerHTML = guideHtml;
 
-    // Set default tab to lyrics
-    switchSongModalTab('lyrics');
-
+    switchTab('lyrics');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeSongModal() {
-    stopAllAudio();
-    const modal = document.getElementById('scoutSongDetailModal');
+  function closeModal() {
+    var modal = document.getElementById('scoutSongDetailModal');
     if (modal) modal.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  function switchSongModalTab(tabName) {
-    const tabs = document.querySelectorAll('.song-modal-tab-btn');
-    const contents = document.querySelectorAll('.song-modal-tab-content');
+  function switchTab(tabName) {
+    var tabBtns = document.querySelectorAll('.song-modal-tab-btn');
+    var tabContents = document.querySelectorAll('.song-modal-tab-content');
 
-    tabs.forEach(t => {
-      if (t.getAttribute('data-tab') === tabName) {
-        t.classList.add('active');
+    tabBtns.forEach(function(btn) {
+      if (btn.getAttribute('data-tab') === tabName) {
+        btn.classList.add('active');
       } else {
-        t.classList.remove('active');
+        btn.classList.remove('active');
       }
     });
 
-    contents.forEach(c => {
-      if (c.getAttribute('data-content') === tabName) {
-        c.style.display = 'block';
+    tabContents.forEach(function(content) {
+      if (content.getAttribute('data-content') === tabName) {
+        content.style.display = 'block';
       } else {
-        c.style.display = 'none';
+        content.style.display = 'none';
       }
     });
   }
 
-  function playActiveSongMelody() {
-    const allSongs = window.SCOUT_SONGS_DATA || [];
-    const song = allSongs.find(s => s.id === activeSongId);
-    if (song) {
-      playSongMelody(song);
-    }
+  function copyLyrics() {
+    if (!activeSong) return;
+    var textToCopy = activeSong.title + '\nTác giả: ' + activeSong.author + '\n\n' + activeSong.lyrics;
+    navigator.clipboard.writeText(textToCopy).then(function() {
+      alert('Đã sao chép lời bài hát "' + activeSong.title + '" vào bộ nhớ tạm!');
+    }).catch(function() {
+      alert('Vui lòng chọn và sao chép thủ công.');
+    });
   }
 
-  // Public API
   window.ScoutSongs = {
-    init: function() {
-      renderSongs();
-    },
-    filter: filterSongs,
+    init: initScoutSongs,
+    filter: filter,
     toggleExpand: toggleExpand,
-    openModal: openSongModal,
-    closeModal: closeSongModal,
-    switchTab: switchSongModalTab,
-    playActiveMelody: playActiveSongMelody,
-    stopAudio: stopAllAudio
+    openModal: openModal,
+    closeModal: closeModal,
+    switchTab: switchTab,
+    copyLyrics: copyLyrics
   };
 
-  // Auto init when DOM is loaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', window.ScoutSongs.init);
-  } else {
-    window.ScoutSongs.init();
+  document.addEventListener('DOMContentLoaded', initScoutSongs);
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initScoutSongs();
   }
 })();

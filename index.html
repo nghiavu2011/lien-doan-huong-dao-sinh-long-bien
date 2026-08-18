@@ -2881,21 +2881,21 @@
     </div>
   </div>
 
-  <!-- Song Detail Modal (Lời, Bản Ký Âm, Web Audio Synth & Cử Điệu) -->
+  <!-- Song Detail Modal (Lời chuẩn xác, Bản Ký Âm & Cử Điệu Sinh Hoạt) -->
   <div class="song-modal-overlay" id="scoutSongDetailModal" onclick="if(event.target===this)window.ScoutSongs.closeModal()" role="dialog" aria-label="Chi tiết bài hát">
     <div class="song-modal-card">
       <div class="song-modal-header">
         <div>
           <span class="song-category-pill" id="songModalCategory" style="background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.3);margin-bottom:6px;display:inline-block;">⭕ Sinh Hoạt Vòng Tròn</span>
-          <h3 id="songModalTitle" style="margin:0 0 4px 0;font-size:20px;font-weight:800;color:#fff;">Bài Ca Tình Lam</h3>
-          <small id="songModalAuthor" style="opacity:0.85;font-size:12.5px;">Tác giả: Hoàng Kim Triều · Điệu thức: Vui tươi (2/4)</small>
+          <h3 id="songModalTitle" style="margin:0 0 4px 0;font-size:20px;font-weight:800;color:#fff;">Anh Em Ta Về</h3>
+          <small id="songModalAuthor" style="opacity:0.85;font-size:12.5px;">Tác giả: Hoàng Kim Triều · Nhịp 2/4</small>
         </div>
         <button class="song-modal-close-btn" onclick="window.ScoutSongs.closeModal()" aria-label="Đóng">✕</button>
       </div>
 
       <div class="song-modal-tabs">
-        <button class="song-modal-tab-btn active" data-tab="lyrics" onclick="window.ScoutSongs.switchTab('lyrics')">📜 Lời Bài Hát</button>
-        <button class="song-modal-tab-btn" data-tab="sheet" onclick="window.ScoutSongs.switchTab('sheet')">🎼 Bản Nhạc &amp; Ký Âm</button>
+        <button class="song-modal-tab-btn active" data-tab="lyrics" onclick="window.ScoutSongs.switchTab('lyrics')">📜 Lời Chuẩn Xác</button>
+        <button class="song-modal-tab-btn" data-tab="sheet" onclick="window.ScoutSongs.switchTab('sheet')">🎼 Bản Ký Âm &amp; Bắt Nhịp</button>
         <button class="song-modal-tab-btn" data-tab="guide" onclick="window.ScoutSongs.switchTab('guide')">💡 Cử Điệu &amp; Ý Nghĩa</button>
       </div>
 
@@ -2905,17 +2905,19 @@
         <div class="song-modal-tab-content" data-content="guide" id="songModalGuide" style="display:none;"></div>
       </div>
 
-      <!-- Player Controls Bar -->
-      <div class="song-player-bar">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <button class="song-melody-btn" id="songMelodyPlayBtn" onclick="window.ScoutSongs.playActiveMelody()">
-            ▶️ Phát Giai Điệu
+      <!-- Actions Footer -->
+      <div class="song-player-bar" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button class="tool-launch-primary" onclick="window.ScoutSongs.copyLyrics()" style="font-size:13px;padding:8px 18px;">
+            📋 Sao Chép Lời Bài Hát
           </button>
-          <div class="audio-wave" id="songAudioWave">
-            <span></span><span></span><span></span><span></span>
-          </div>
+          <button class="tool-sub-btn" onclick="window.print()" style="font-size:13px;padding:7px 16px;">
+            🖨️ In / Lưu PDF
+          </button>
         </div>
-        <small style="color:var(--muted);font-size:12px;">* Âm thanh chuẩn Web Audio Synthesizer</small>
+        <button class="tool-sub-btn" onclick="window.ScoutSongs.closeModal()" style="font-size:13px;padding:7px 16px;">
+          ✕ Đóng
+        </button>
       </div>
     </div>
   </div>

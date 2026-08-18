@@ -682,6 +682,197 @@
       flex-grow: 1;
     }
 
+  
+    /* ========================================================
+       DUAL-TONE SPLIT TIMELINE (MUSEUM EXHIBITION STANDARD)
+       ======================================================== */
+    .dual-timeline-sec {
+      background: #fbf9f6;
+    }
+    .dual-timeline-board {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+    }
+    .dt-half {
+      width: 100%;
+      padding: 32px 0 28px;
+    }
+    .dt-top {
+      background: #fbf9f6;
+    }
+    .dt-bottom {
+      background: #113237;
+      color: #ffffff;
+    }
+    .dt-axis-line {
+      width: 100%;
+      height: 2px;
+      background: #2e7d32;
+      position: relative;
+      z-index: 5;
+    }
+    .dt-axis-dots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+      height: 0;
+    }
+    .dt-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--fire);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 3px rgba(237,123,43,0.3);
+      position: absolute;
+      top: -6px;
+      transform: translateX(-50%);
+    }
+    .dt-axis-dots span:nth-child(1) { left: 16.6%; }
+    .dt-axis-dots span:nth-child(2) { left: 33.3%; }
+    .dt-axis-dots span:nth-child(3) { left: 50.0%; }
+    .dt-axis-dots span:nth-child(4) { left: 66.6%; }
+    .dt-axis-dots span:nth-child(5) { left: 83.3%; }
+    .dt-axis-dots span:nth-child(6) { left: 96.0%; }
+
+    .dt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: flex-end;
+    }
+    .dt-bottom .dt-grid {
+      align-items: flex-start;
+    }
+    .dt-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .dt-top-item {
+      justify-content: flex-end;
+    }
+    .dt-btm-item {
+      justify-content: flex-start;
+    }
+    .dt-content {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .dt-year-vert {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: 'Roboto Slab', Georgia, serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--forest);
+      letter-spacing: .08em;
+      line-height: 1;
+      text-align: right;
+      padding-top: 4px;
+    }
+    .dt-year-vert.light {
+      color: #f8c09d;
+    }
+    .dt-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 14px rgba(17,50,55,0.05);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .dt-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(17,50,55,0.12);
+    }
+    .dt-card.light {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .dt-card.light:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .dt-photo-frame {
+      width: 100%;
+      height: 105px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background: #000;
+    }
+    .dt-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(85%) contrast(1.1);
+      transition: filter .3s ease, transform .3s ease;
+    }
+    .dt-card:hover .dt-img {
+      filter: grayscale(0%) contrast(1.05);
+      transform: scale(1.04);
+    }
+    .dt-card h4 {
+      font-family: 'Roboto Slab', Georgia, serif;
+      font-size: 15px;
+      color: var(--forest);
+      margin: 0 0 6px 0;
+      line-height: 1.3;
+    }
+    .dt-card.light h4 {
+      color: #ffffff;
+    }
+    .dt-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .dt-card.light p {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .dt-node-line {
+      width: 2px;
+      height: 20px;
+      background: rgba(17,50,55,0.2);
+      margin: 10px auto 0;
+    }
+    .dt-node-line.btm {
+      background: rgba(255,255,255,0.3);
+      margin: 0 auto 10px;
+    }
+
+    @media (max-width: 900px) {
+      .dt-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .dt-axis-line {
+        display: none;
+      }
+      .dt-node-line {
+        display: none;
+      }
+      .dt-year-vert {
+        writing-mode: horizontal-tb;
+        transform: none;
+        text-align: left;
+        margin-bottom: 4px;
+        font-size: 20px;
+      }
+      .dt-content {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -743,7 +934,7 @@
           <a href="#lien-he"><span data-vi="Liên Hệ" data-en="Contact">Liên Hệ</span></a>
         </div>
 
-        <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</a>
+        <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="javascript:void(0)" onclick="openSurveyModal()" data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</a>
         <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()" aria-label="Switch Language"><b>VN</b> | EN</button>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>
@@ -771,7 +962,7 @@
     <div class="mob-group">
       <a href="#lien-he" onclick="closeMobileNav()" style="font-weight:700;padding:8px 0;color:var(--forest);text-decoration:none;" data-vi="📍 LIÊN HỆ &amp; CHỈ ĐƯỜNG BẢN ĐỒ" data-en="📍 CONTACT &amp; MAP DIRECTIONS">📍 LIÊN HỆ &amp; CHỈ ĐƯỜNG BẢN ĐỒ</a>
     </div>
-    <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" onclick="closeMobileNav()" data-vi="Đăng ký cho con" data-en="Register Child" style="text-align:center;">Đăng ký cho con</a>
+    <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="javascript:void(0)" onclick="openSurveyModal()" onclick="closeMobileNav()" data-vi="Đăng ký cho con" data-en="Register Child" style="text-align:center;">Đăng ký cho con</a>
     <button class="lang-btn" id="mobileLangBtn" type="button" onclick="toggleLang()" aria-label="Switch Language"><b>VN</b> | EN</button>
   </nav>
 
@@ -1018,77 +1209,130 @@
       </div>
     </section>
 
-    <!-- =============== TIMELINE (TRỤC NGANG TINH TẾ & GỌN GÀNG) =============== -->
-    <section class="section tl-sec" id="dong-thoi-gian" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:48px 0;">
-      <div class="container">
-        <div class="sec-head" style="margin-bottom:28px;">
-          <span class="demo-badge">DẤU ẤN HÀNH TRÌNH</span>
-          <div class="eyebrow" data-vi="DÒNG THỜI GIAN" data-en="MILESTONES &amp; TIMELINE">DÒNG THỜI GIAN</div>
-          <h2 data-vi="Những chặng đường không thể quên từ 2018." data-en="Unforgettable Milestones Since 2018.">Những chặng đường không thể quên từ 2018.</h2>
-          <p class="lead" data-vi="Những bước chân đầu tiên từ góc vườn nhỏ cho đến một gia đình Hướng đạo gắn kết bền bỉ theo năm tháng." data-en="From our very first footsteps in a small garden to a warm and resilient scouting family.">Những bước chân đầu tiên từ góc vườn nhỏ cho đến một gia đình Hướng đạo gắn kết bền bỉ theo năm tháng.</p>
+    <!-- =============== DÒNG THỜI GIAN (DUAL-TONE SPLIT TIMELINE - NGHỆ THUẬT & TINH TẾ) =============== -->
+    <section class="section dual-timeline-sec" id="dong-thoi-gian" style="padding:0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div class="container" style="padding-top:40px;padding-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+          <div>
+            <div class="eyebrow" data-vi="DÒNG THỜI GIAN" data-en="OUR TIMELINE" style="color:var(--fire);font-weight:800;letter-spacing:.12em;">DÒNG THỜI GIAN</div>
+            <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:28px;color:var(--forest);margin:4px 0 0;line-height:1.2;" data-vi="Từ ngày đầu lập đoàn đến nay." data-en="Our Milestones Since 2018.">Từ ngày đầu lập đoàn đến nay.</h2>
+          </div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:26px;color:rgba(17,50,55,0.45);letter-spacing:.02em;">
+            dòng thời gian của chúng tôi
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Tone Master Wrapper -->
+      <div class="dual-timeline-board">
+        <!-- TOP HALF: LIGHT BACKGROUND -->
+        <div class="dt-half dt-top">
+          <div class="container dt-grid">
+            <!-- Top Column 1 (2018) -->
+            <div class="dt-item dt-top-item">
+              <div class="dt-content">
+                <div class="dt-year-vert">2018</div>
+                <div class="dt-card">
+                  <div class="dt-photo-frame">
+                    <img src="image/Celebrating the 7th birthday/491923321_655918490521689_1881210032743427158_n.jpg" alt="11/3/2018 Thành lập" loading="lazy" class="dt-img">
+                  </div>
+                  <h4 data-vi="Thành Lập Liên Đoàn" data-en="Troop Founded">Thành Lập Liên Đoàn</h4>
+                  <p data-vi="11/03/2018 · Phụ huynh cùng xóm ngồi lại, chung ước mong con có chỗ rèn luyện ngoài trời." data-en="March 11, 2018 · Local parents gathered to build an outdoor playground.">11/03/2018 · Phụ huynh cùng xóm ngồi lại, chung ước mong con có chỗ rèn luyện ngoài trời.</p>
+                </div>
+              </div>
+              <div class="dt-node-line"></div>
+            </div>
+
+            <!-- Top Column 2 (2020 - 2021) -->
+            <div class="dt-item dt-top-item">
+              <div class="dt-content">
+                <div class="dt-year-vert">2020</div>
+                <div class="dt-card">
+                  <div class="dt-photo-frame">
+                    <img src="image/Cybersecurity – Standing Firm in the Digital Space/533462715_750725337707670_6320523264987660497_n.jpg" alt="Mùa dịch không ngắt quãng" loading="lazy" class="dt-img">
+                  </div>
+                  <h4 data-vi="Giữ Lửa Mùa Dịch" data-en="Scouting Online">Giữ Lửa Mùa Dịch</h4>
+                  <p data-vi="2020–2021 · Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn qua màn hình nhỏ." data-en="2020–2021 · Sunday mornings stayed connected online during lockdowns.">2020–2021 · Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn qua màn hình nhỏ.</p>
+                </div>
+              </div>
+              <div class="dt-node-line"></div>
+            </div>
+
+            <!-- Top Column 3 (2024 - 2025) -->
+            <div class="dt-item dt-top-item">
+              <div class="dt-content">
+                <div class="dt-year-vert">2024</div>
+                <div class="dt-card">
+                  <div class="dt-photo-frame">
+                    <img src="image/Spreading Love from the Long Bien Scouts Inter-group Units/502478820_690711557042382_3000212414862380124_n.jpg" alt="Sách gửi bạn Đắk Lắk" loading="lazy" class="dt-img">
+                  </div>
+                  <h4 data-vi="Tủ Sách Trao Tay" data-en="Book Drive Dak Lak">Tủ Sách Trao Tay</h4>
+                  <p data-vi="Gửi sách cũ tặng học sinh Đắk Lắk, sống đúng lời hứa 'Mỗi ngày một việc tốt'." data-en="Donating textbooks to students in Dak Lak, practicing daily good turns.">Gửi sách cũ tặng học sinh Đắk Lắk, sống đúng lời hứa 'Mỗi ngày một việc tốt'.</p>
+                </div>
+              </div>
+              <div class="dt-node-line"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Horizontal Timeline Wrapper with Clean Slider -->
-        <div class="hz-timeline-container">
-          <div class="hz-timeline-track">
-            <!-- Node 1 -->
-            <div class="hz-tl-card">
-              <div class="hz-tl-header">
-                <span class="hz-tl-year">11/03/2018</span>
-                <span class="hz-tl-dot"></span>
+        <!-- DIVIDING AXIS LINE -->
+        <div class="dt-axis-line">
+          <div class="container dt-axis-dots">
+            <span class="dt-dot top-dot"></span>
+            <span class="dt-dot btm-dot"></span>
+            <span class="dt-dot top-dot"></span>
+            <span class="dt-dot btm-dot"></span>
+            <span class="dt-dot top-dot"></span>
+            <span class="dt-dot btm-dot"></span>
+          </div>
+        </div>
+
+        <!-- BOTTOM HALF: DARK FOREST BACKGROUND -->
+        <div class="dt-half dt-bottom">
+          <div class="container dt-grid">
+            <!-- Bottom Column 1 (2018 Hạ) -->
+            <div class="dt-item dt-btm-item">
+              <div class="dt-node-line btm"></div>
+              <div class="dt-content btm">
+                <div class="dt-year-vert light">2018</div>
+                <div class="dt-card light">
+                  <div class="dt-photo-frame">
+                    <img src="image/kynang/9-sinh-hoat-trai-bo-tri-khu-trai.jpg" alt="Trại Sơn Tinh Camp" loading="lazy" class="dt-img">
+                  </div>
+                  <h4 data-vi="Đêm Lửa Sơn Tinh" data-en="First Son Tinh Camp">Đêm Lửa Sơn Tinh</h4>
+                  <p data-vi="Hè 2018 · Kỳ trại đầu tiên, các con học dựng lều, nấu cơm khói bếp bên hồ." data-en="Summer 2018 · First camp: pitching tents, cooking over campfire by the lake.">Hè 2018 · Kỳ trại đầu tiên, các con học dựng lều, nấu cơm khói bếp bên hồ.</p>
+                </div>
               </div>
-              <h3 data-vi="Bắt đầu từ một lời hẹn" data-en="Founded by Local Parents">Bắt đầu từ một lời hẹn</h3>
-              <p data-vi="Mấy phụ huynh cùng xóm ngồi lại, chung một ước mong giản dị: con có chỗ chạy nhảy, học làm người tử tế vào mỗi sáng cuối tuần." data-en="A few neighborhood parents gathered with a simple wish: a healthy, open-air playground for their children.">Mấy phụ huynh cùng xóm ngồi lại, chung một ước mong giản dị: con có chỗ chạy nhảy, học làm người tử tế vào mỗi sáng cuối tuần.</p>
             </div>
 
-            <!-- Node 2 -->
-            <div class="hz-tl-card">
-              <div class="hz-tl-header">
-                <span class="hz-tl-year">2018</span>
-                <span class="hz-tl-dot"></span>
+            <!-- Bottom Column 2 (2021) -->
+            <div class="dt-item dt-btm-item">
+              <div class="dt-node-line btm"></div>
+              <div class="dt-content btm">
+                <div class="dt-year-vert light">2021</div>
+                <div class="dt-card light">
+                  <div class="dt-photo-frame">
+                    <img src="image/Cub Scout Pack Meeting – September 28, 2025/557264503_787662724013931_3503980502097036579_n.jpg" alt="Lên Sói Con" loading="lazy" class="dt-img">
+                  </div>
+                  <h4 data-vi="Hải Ly Lên Sói" data-en="Advancing to Wolves">Hải Ly Lên Sói</h4>
+                  <p data-vi="24/01/2021 · Lễ chuyển ngành thiêng liêng, bé út nhận khăn quàng Sói con ngành Ấu." data-en="Jan 24, 2021 · Beavers advanced to Wolf Cubs with proud neckerchief investiture.">24/01/2021 · Lễ chuyển ngành thiêng liêng, bé út nhận khăn quàng Sói con ngành Ấu.</p>
+                </div>
               </div>
-              <h3 data-vi="Đêm lửa trại Sơn Tinh" data-en="First Son Tinh Camp">Đêm lửa trại Sơn Tinh</h3>
-              <p data-vi="Kỳ trại chuyên đề đầu tiên bên bờ hồ. Các con lần đầu tự dựng lều, chia nhau bữa cơm khói bếp và hát vang quanh đống lửa bập bùng." data-en="Our first outdoor camp. Kids pitched tents, cooked over woodsmoke, and sang around their first campfire.">Kỳ trại chuyên đề đầu tiên bên bờ hồ. Các con lần đầu tự dựng lều, chia nhau bữa cơm khói bếp và hát vang quanh đống lửa bập bùng.</p>
             </div>
 
-            <!-- Node 3 -->
-            <div class="hz-tl-card">
-              <div class="hz-tl-header">
-                <span class="hz-tl-year">2020 – 2021</span>
-                <span class="hz-tl-dot"></span>
+            <!-- Bottom Column 3 (2025 & Tương lai) -->
+            <div class="dt-item dt-btm-item">
+              <div class="dt-node-line btm"></div>
+              <div class="dt-content btm">
+                <div class="dt-year-vert light">2025</div>
+                <div class="dt-card light">
+                  <div class="dt-photo-frame">
+                    <img src="image/Hanoi in Autumn – The 36 Streets/595902511_844981744948695_6858917738647420863_n.jpg" alt="36 Phố Phường & Tương lai" loading="lazy" class="dt-img">
+                  </div>
+                  <h4 data-vi="Vững Bước Tương Lai" data-en="Growing Strong">Vững Bước Tương Lai</h4>
+                  <p data-vi="Trại 36 phố phường &amp; Trại Vươn Xa. Vững vàng một mái nhà chung sáng Chủ nhật." data-en="36 Streets Camp &amp; Vuon Xa Camp. A warm home for youth every Sunday morning.">Trại 36 phố phường &amp; Trại Vươn Xa. Vững vàng một mái nhà chung sáng Chủ nhật.</p>
+                </div>
               </div>
-              <h3 data-vi="Mùa dịch không ngắt quãng" data-en="Scouting Through Pandemic">Mùa dịch không ngắt quãng</h3>
-              <p data-vi="Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn. Các bạn nhỏ vẫn thắt khăn quàng ngay ngắn trước màn hình, tập nút dây và hỏi thăm nhau." data-en="Lockdowns kept us at home, but Sunday mornings stayed alive online: wearing neckerchiefs, tying knots, staying connected.">Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn. Các bạn nhỏ vẫn thắt khăn quàng ngay ngắn trước màn hình, tập nút dây và hỏi thăm nhau.</p>
-            </div>
-
-            <!-- Node 4 -->
-            <div class="hz-tl-card">
-              <div class="hz-tl-header">
-                <span class="hz-tl-year">24/01/2021</span>
-                <span class="hz-tl-dot"></span>
-              </div>
-              <h3 data-vi="Những chú Hải ly lên Sói" data-en="Beavers Advanced to Wolves">Những chú Hải ly lên Sói</h3>
-              <p data-vi="Lễ chuyển ngành đầy xúc động. Những em bé út ngày nào nay đã đủ chững chạc để khoác lên vai chiếc khăn quàng Sói con ngành Ấu." data-en="A touching transition ceremony as our youngest Beavers grew into independent Wolf Cubs.">Lễ chuyển ngành đầy xúc động. Những em bé út ngày nào nay đã đủ chững chạc để khoác lên vai chiếc khăn quàng Sói con ngành Ấu.</p>
-            </div>
-
-            <!-- Node 5 -->
-            <div class="hz-tl-card">
-              <div class="hz-tl-header">
-                <span class="hz-tl-year">2024 – 2025</span>
-                <span class="hz-tl-dot"></span>
-              </div>
-              <h3 data-vi="Tủ sách gửi bạn Đắk Lắk" data-en="Book Drive for Dak Lak">Tủ sách gửi bạn Đắk Lắk</h3>
-              <p data-vi="Từng trang sách cũ được các em nâng niu bọc lại, đóng thùng gửi tới học sinh trường Tiểu học Hoàng Hoa Thám &mdash; sống đúng tinh thần 'Giúp ích'." data-en="Scouts gathered and packed textbooks for students in Dak Lak, practicing daily good turns in real life.">Từng trang sách cũ được các em nâng niu bọc lại, đóng thùng gửi tới học sinh trường Tiểu học Hoàng Hoa Thám &mdash; sống đúng tinh thần 'Giúp ích'.</p>
-            </div>
-
-            <!-- Node 6 -->
-            <div class="hz-tl-card" style="border-color:var(--forest);background:#ffffff;">
-              <div class="hz-tl-header">
-                <span class="hz-tl-year" style="color:var(--forest);">Hôm nay &amp; Tương lai</span>
-                <span class="hz-tl-dot" style="background:var(--forest);box-shadow:0 0 0 4px rgba(46,125,50,0.2);"></span>
-              </div>
-              <h3 style="color:var(--forest);" data-vi="Vững vàng một mái nhà chung" data-en="Growing Together Every Day">Vững vàng một mái nhà chung</h3>
-              <p style="color:var(--ink);" data-vi="Vẫn đều đặn 9h sáng Chủ nhật tại vườn hoa Bắc Biên. Nơi mọi đứa trẻ đều được chào đón bằng sự bao dung và tình huynh đệ chân thành." data-en="Still meeting every Sunday morning at Bac Bien Garden, welcoming every child with open arms and true brotherhood.">Vẫn đều đặn 9h sáng Chủ nhật tại vườn hoa Bắc Biên. Nơi mọi đứa trẻ đều được chào đón bằng sự bao dung và tình huynh đệ chân thành.</p>
             </div>
           </div>
         </div>
@@ -1143,6 +1387,71 @@
               <li data-vi="<strong>9. Cần kiệm:</strong> Hướng đạo sinh cần kiệm, không lãng phí của công và của riêng." data-en="<strong>9. Thrifty:</strong> A Scout is thrifty and cares for shared public resources."><strong>9. Cần kiệm:</strong> Hướng đạo sinh cần kiệm, không lãng phí của công và của riêng.</li>
               <li data-vi="<strong>10. Trong sạch:</strong> Hướng đạo sinh trong sạch từ tư tưởng, lời nói đến việc làm." data-en="<strong>10. Clean:</strong> A Scout is clean in thought, word, and deed."><strong>10. Trong sạch:</strong> Hướng đạo sinh trong sạch từ tư tưởng, lời nói đến việc làm.</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== THƯ VIỆN NGHI THỨC & CẨM NANG HƯỚNG ĐẠO CHÍNH THỐNG =============== -->
+    <section class="section" id="thu-vien-tai-lieu" style="background:#ffffff;border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="demo-badge">TÀI LIỆU CHÍNH THỐNG HĐVN</span>
+          <div class="eyebrow" data-vi="CẨM NANG &amp; NGHI THỨC HƯỚNG ĐẠO" data-en="OFFICIAL SCOUT PROTOCOLS &amp; HANDBOOK">CẨM NANG &amp; NGHI THỨC HƯỚNG ĐẠO</div>
+          <h2 data-vi="Kho tàng tri thức &amp; Nghi thức Hướng đạo Việt Nam." data-en="Official Knowledge &amp; Protocols Hub.">Kho tàng tri thức &amp; Nghi thức Hướng đạo Việt Nam.</h2>
+          <p class="lead" data-vi="Trích xuất từ hai bộ cẩm nang kinh điển của phong trào: 'Nghi thức Hướng đạo Việt Nam 2025' và 'Hướng đạo Hạng Nhất' (Trưởng Trương Trọng Trác) &mdash; kim chỉ nam cho Huynh trưởng và Đoàn sinh trong mọi sinh hoạt đất trại." data-en="Synthesized from core authoritative texts: Vietnam Scout Protocols 2025 and First Class Scouting Handbook by Leader Truong Trong Trac.">Trích xuất từ hai bộ cẩm nang kinh điển của phong trào: 'Nghi thức Hướng đạo Việt Nam 2025' và 'Hướng đạo Hạng Nhất' (Trưởng Trương Trọng Trác) &mdash; kim chỉ nam cho Huynh trưởng và Đoàn sinh trong mọi sinh hoạt đất trại.</p>
+        </div>
+
+        <!-- Document Selector Cards -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;">
+          <!-- Doc 1: Nghi thuc 2025 -->
+          <div style="background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 16px rgba(17,50,55,0.04);">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                <span style="background:rgba(46,125,50,0.12);color:var(--forest);font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;">PHIÊN BẢN V3.5 (2025)</span>
+                <span style="font-size:24px;">📜</span>
+              </div>
+              <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:20px;color:var(--forest);margin:0 0 10px 0;">Nghi Thức Hướng Đạo Việt Nam 2025</h3>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;">
+                Văn bản quy chuẩn chính thống về xướng nghi thức, khẩu lệnh tập hợp, lễ tuyên hứa trao khăn, lễ chào cờ và nghi thức Lửa trại truyền thống của phong trào HĐVN.
+              </p>
+              <ul style="font-size:13px;color:var(--ink);line-height:1.6;padding-left:18px;margin:0 0 20px 0;">
+                <li><strong>Khẩu lệnh &amp; Tiếng còi:</strong> 5 đội hình tập hợp chuẩn (Chữ U, Vòng tròn, Móng ngựa, Hàng dọc, Hàng ngang).</li>
+                <li><strong>Lễ Tuyên Hứa:</strong> Nghi thức tiếp nhận đoàn sinh mới thiêng liêng và trao khăn quàng Long Biên.</li>
+                <li><strong>Lửa Trại:</strong> Lễ Gọi Lửa, Lửa Thiêng, Tàn Lửa &amp; Vòng Thân Ái gắn kết.</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-top:14px;border-top:1px solid var(--line);">
+              <a href="tai lieu/v3.5-Nghi-thuc-HDVN-2025-Xuong-Nghi-thuc.pdf" target="_blank" class="btn btn-primary" style="font-size:13px;padding:9px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;">
+                📖 Mở Xem / Tải PDF (13MB) ↗
+              </a>
+              <span style="font-size:12px;color:var(--muted);">Tài liệu chính thức Hội đồng HĐVN</span>
+            </div>
+          </div>
+
+          <!-- Doc 2: Huong dao Hang Nhat -->
+          <div style="background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 16px rgba(17,50,55,0.04);">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                <span style="background:rgba(237,123,43,0.12);color:var(--fire);font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;">SÁCH KINH ĐIỂN</span>
+                <span style="font-size:24px;">🧭</span>
+              </div>
+              <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:20px;color:var(--forest);margin:0 0 10px 0;">Hướng Đạo Hạng Nhất &mdash; Trưởng Trương Trọng Trác</h3>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;">
+                Cuốn cẩm nang gối đầu giường dày dặn của các thế hệ Huynh trưởng và Thiếu sinh, đúc kết toàn diện kỹ năng đất trại, sinh tồn thực địa và phương pháp Hàng đội tự trị.
+              </p>
+              <ul style="font-size:13px;color:var(--ink);line-height:1.6;padding-left:18px;margin:0 0 20px 0;">
+                <li><strong>Phương pháp Hàng Đội:</strong> Cơ chế tự quản, tinh thần đồng đội và trách nhiệm cá nhân.</li>
+                <li><strong>Đất Trại &amp; Bếp Trại:</strong> Kỹ thuật dựng lều, dàn giá gỗ mộc (pioneering), bếp không khói.</li>
+                <li><strong>Ước Đạc &amp; Bản Đồ:</strong> Đo chiều cao cây, độ rộng sông bằng mắt và hình học thực địa.</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-top:14px;border-top:1px solid var(--line);">
+              <a href="tai lieu/Huongdao HangNhat_TruongTrongTrac.pdf" target="_blank" class="btn btn-primary" style="font-size:13px;padding:9px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;">
+                📚 Mở Xem / Tải Sách PDF (18MB) ↗
+              </a>
+              <span style="font-size:12px;color:var(--muted);">Tác giả: Trưởng Trương Trọng Trác</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1505,7 +1814,7 @@
             <p style="font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:20px;">
               Biểu mẫu trực tuyến được xây dựng dựa trên <strong>Phiếu tìm hiểu đoàn sinh mới</strong> của Liên đoàn. Điền thông tin giúp các Trưởng hiểu được tính cách, sở thích của bé và sở trường đồng hành của gia đình để chuẩn bị đón tiếp chu đáo nhất trong 2 buổi dự thính đầu tiên.
             </p>
-            <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform" style="border-radius:999px;font-size:14px;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(237,123,43,0.3);text-decoration:none;font-weight:700;" data-vi="Điền biểu mẫu đăng ký trực tuyến ↗" data-en="Open Online Registration Form ↗">📝 Điền biểu mẫu đăng ký trực tuyến ↗</a>
+            <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="javascript:void(0)" onclick="openSurveyModal()" style="border-radius:999px;font-size:14px;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(237,123,43,0.3);text-decoration:none;font-weight:700;" data-vi="Điền biểu mẫu đăng ký trực tuyến ↗" data-en="Open Online Registration Form ↗">📝 Điền biểu mẫu đăng ký trực tuyến ↗</a>
           </div>
         </div>
 
@@ -3283,6 +3592,185 @@
   <script src="js/scout-tools.js"></script>
   <script src="data/skills-knowledge-data.js"></script>
   <script src="js/scouting-skills.js"></script>
+
+
+  <!-- ========================================================
+       MODAL: PHIẾU TÌM HIỂU ĐOÀN SINH MỚI & GIA ĐÌNH (FILE 5)
+       ======================================================== -->
+  <div id="scoutSurveyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="surveyModalTitle" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(17,50,55,0.7);backdrop-filter:blur(6px);overflow-y:auto;padding:20px;">
+    <div class="modal-content" style="max-width:820px;margin:30px auto;background:#ffffff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;position:relative;border:1px solid var(--line);">
+      <!-- Modal Header -->
+      <div style="background:linear-gradient(135deg,var(--forest),#1a4c43);color:#ffffff;padding:28px 32px;position:relative;">
+        <button type="button" onclick="closeSurveyModal()" style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;color:#ffffff;font-size:24px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;">&times;</button>
+        <span style="display:inline-block;background:var(--fire);color:#ffffff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:999px;margin-bottom:8px;">BIỂU MẪU CHÍNH THỨC SỐ 05</span>
+        <h2 id="surveyModalTitle" style="font-family:'Roboto Slab',Georgia,serif;font-size:24px;margin:0 0 6px 0;color:#ffffff;">PHIẾU TÌM HIỂU GIA ĐÌNH &amp; ĐOÀN SINH MỚI</h2>
+        <p style="font-size:13.5px;color:rgba(255,255,255,0.85);margin:0;line-height:1.5;">Phương pháp Hướng đạo tăng tối đa hiệu quả khi có sự kết hợp, hỗ trợ và cộng tác từ phía gia đình.</p>
+      </div>
+
+      <!-- Modal Body (Interactive Form) -->
+      <form id="scoutSurveyForm" onsubmit="handleSurveySubmit(event)" style="padding:32px;">
+        <!-- Phần 1: Thông tin của bé -->
+        <div style="margin-bottom:28px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+            <span>🧒</span> 1. THÔNG TIN ĐOÀN SINH
+          </h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Họ và tên của bé *</label>
+              <input type="text" required name="childName" placeholder="Nguyễn Văn A" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Ngày sinh của bé *</label>
+              <input type="date" required name="childDob" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Trường &amp; Lớp đang học</label>
+              <input type="text" name="childSchool" placeholder="Lớp 4A - TH Đô Thị Việt Hưng" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Ngành xin tham gia *</label>
+              <select required name="scoutBranch" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;background:#fff;">
+                <option value="Ấu đoàn (Sói con 7–11 tuổi)">Ấu đoàn (Sói con 7–11 tuổi)</option>
+                <option value="Thiếu đoàn (Thiếu sinh 11–15 tuổi)">Thiếu đoàn (Thiếu sinh 11–15 tuổi)</option>
+                <option value="Tráng đoàn (18+ tuổi)">Tráng đoàn (18+ tuổi)</option>
+              </select>
+            </div>
+            <div style="grid-column:1/-1;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Sở thích, năng khiếu hoặc tiền sử dị ứng / bệnh lý của bé (nếu có)</label>
+              <textarea name="childNotes" rows="2" placeholder="Thích vẽ tranh, bóng đá; bị dị ứng phấn hoa / hải sản nhẹ..." style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phần 2: Thông tin cha mẹ -->
+        <div style="margin-bottom:28px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+            <span>👨‍👩‍👧</span> 2. THÔNG TIN PHỤ HUYNH &amp; LIÊN HỆ
+          </h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Họ tên Cha / Mẹ đại diện *</label>
+              <input type="text" required name="parentName" placeholder="Nguyễn Văn B" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Số điện thoại (Zalo) *</label>
+              <input type="tel" required name="parentPhone" placeholder="0982 xxx xxx" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Email liên hệ</label>
+              <input type="email" name="parentEmail" placeholder="phuhuynh@gmail.com" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Địa chỉ cư trú</label>
+              <input type="text" name="parentAddress" placeholder="Quận Long Biên, Hà Nội" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Phần 3: Sở thích & Hoạt động gia đình (Từ file 5) -->
+        <div style="margin-bottom:28px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+            <span>🎨</span> 3. THÚ TIÊU KHIỂN &amp; SỞ THÍCH GIA ĐÌNH
+          </h4>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Đánh dấu vào những lĩnh vực mà gia đình có sở thích hoặc kinh nghiệm:</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;color:var(--ink);">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Quay phim / Chụp ảnh"> 📸 Quay phim, chụp ảnh</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Âm nhạc / Ca hát"> 🎵 Âm nhạc, ca hát</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Hội họa / Mỹ thuật"> 🎨 Hội họa, vẽ tranh</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Thủ công Handmade"> ✂️ Thủ công (Handmade)</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Nấu ăn ngoài trời"> 🍳 Nấu ăn dã ngoại</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Mộc & Sửa chữa"> 🔨 Làm mộc, sửa chữa</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Thể dục thể thao"> ⚽ Thể thao, võ thuật</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Y tế & Sơ cứu"> 🩺 Y tế, sơ cấp cứu</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Công nghệ IT / Truyền thông"> 💻 Công nghệ IT / Mạng</label>
+          </div>
+        </div>
+
+        <!-- Phần 4: Khả năng đồng hành & Hỗ trợ (Từ file 5) -->
+        <div style="margin-bottom:28px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+            <span>🤝</span> 4. KHẢ NĂNG ĐỒNG HÀNH &amp; HỖ TRỢ LIÊN ĐOÀN
+          </h4>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Gia đình sẵn sàng hỗ trợ Liên đoàn trong các lĩnh vực dưới đây:</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;color:var(--ink);">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Giúp chào đón phụ huynh mới"> 👋 Giúp chào đón các phụ huynh mới khác</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Hỗ trợ hậu cần các chuyến đi/trại"> 🎒 Hỗ trợ hậu cần cho các chuyến đi và trại</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Cung cấp/giới thiệu phương tiện đi lại"> 🚗 Cung cấp hoặc giới thiệu phương tiện đi lại</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Có thiết bị cắm trại gia đình"> ⛺ Có thiết bị cắm trại gia đình có thể hỗ trợ</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Tình nguyện chia sẻ kỹ năng chuyên môn"> 💡 Sẵn sàng làm người chia sẻ kỹ năng chuyên môn</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Hỗ trợ chụp ảnh/quay video sự kiện"> 📷 Hỗ trợ chụp ảnh, làm clip cho các con</label>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);">
+          <a href="Bieu Mau Quy DInh/5. FILE TÌM HIỂU ĐOÀN SINH MỚI.docx" download class="btn" style="background:#f0f4f3;color:var(--forest);border:1px solid var(--line);font-size:13px;padding:10px 20px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+            📥 Tải Bản Word Gốc (.docx)
+          </a>
+          <div style="display:flex;gap:12px;">
+            <button type="button" onclick="closeSurveyModal()" class="btn" style="background:#fff;border:1px solid var(--line);padding:10px 20px;border-radius:999px;cursor:pointer;">Đóng</button>
+            <button type="submit" class="btn btn-primary" style="padding:10px 28px;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(237,123,43,0.35);">
+              🚀 Gửi Phiếu Tìm Hiểu Trực Tuyến
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Survey Modal JS Handler -->
+  <script>
+    function openSurveyModal() {
+      const m = document.getElementById('scoutSurveyModal');
+      if (m) {
+        m.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeSurveyModal() {
+      const m = document.getElementById('scoutSurveyModal');
+      if (m) {
+        m.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    function handleSurveySubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const childName = data.get('childName');
+      const parentName = data.get('parentName');
+      const parentPhone = data.get('parentPhone');
+      const branch = data.get('scoutBranch');
+      
+      // Save locally
+      try {
+        const surveys = JSON.parse(localStorage.getItem('scout_surveys') || '[]');
+        surveys.push({
+          childName,
+          dob: data.get('childDob'),
+          school: data.get('childSchool'),
+          branch,
+          notes: data.get('childNotes'),
+          parentName,
+          parentPhone,
+          parentEmail: data.get('parentEmail'),
+          parentAddress: data.get('parentAddress'),
+          hobbies: data.getAll('hobbies'),
+          supports: data.getAll('supports'),
+          submittedAt: new Date().toISOString()
+        });
+        localStorage.setItem('scout_surveys', JSON.stringify(surveys));
+      } catch(err){}
+
+      alert(`Cảm ơn Quý Phụ huynh ${parentName}!
+
+Liên đoàn Hướng đạo Long Biên đã tiếp nhận thành công Phiếu tìm hiểu của bé ${childName} (${branch}).
+Ban Huynh trưởng sẽ liên hệ số ${parentPhone} trong vòng 24-48h để trao đổi và gửi thư mời dự thính!`);
+      form.reset();
+      closeSurveyModal();
+    }
+  </script>
 
 </body>
 </html>

@@ -1480,6 +1480,7 @@
             <button class="tool-launch-primary" onclick="window.ScoutTools.openToolsModal('morse')">📻 Máy Phát Morse</button>
             <button class="tool-launch-secondary" onclick="window.ScoutTools.openToolsModal('whistle')">🎺 Tín Hiệu Còi</button>
             <button class="tool-launch-secondary" onclick="window.ScoutTools.openToolsModal('cipher')">📜 Mật Thư Studio</button>
+            <button class="tool-launch-secondary" onclick="window.ScoutTools.openToolsModal('trailsign')">🌿 Dấu Đường Rừng</button>
           </div>
         </div>
 
@@ -3474,6 +3475,7 @@
         <button class="tool-modal-tab-btn active" data-tool-tab="morse" onclick="window.ScoutTools.switchTab('morse')">📻 Phát &amp; Dịch Morse</button>
         <button class="tool-modal-tab-btn" data-tool-tab="whistle" onclick="window.ScoutTools.switchTab('whistle')">🎺 Tín Hiệu Còi Chỉ Huy</button>
         <button class="tool-modal-tab-btn" data-tool-tab="cipher" onclick="window.ScoutTools.switchTab('cipher')">📜 Mật Thư Studio</button>
+        <button class="tool-modal-tab-btn" data-tool-tab="trailsign" onclick="window.ScoutTools.switchTab('trailsign')">🌿 Dấu Đường Rừng (Trail Signs)</button>
       </div>
 
       <div class="tools-modal-body">
@@ -3576,6 +3578,70 @@
             <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-top:14px;">
               <strong style="color:var(--forest);font-size:13.5px;display:block;margin-bottom:6px;">🐮 Mẹo giải mật thư Chuồng Bò (Pigpen):</strong>
               <p style="font-size:13px;color:var(--muted);margin:0;">Vẽ 2 đường ngang cắt 2 đường dọc tạo lưới 9 ô (#) điền các chữ A &rarr; I, lưới có chấm điền J &rarr; R, và 2 dấu X cho các chữ còn lại S &rarr; Z.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Trail Signs Panel (Dấu Đường Rừng Hướng Đạo Hạng Nhất) -->
+        <div class="tool-modal-panel" data-tool-panel="trailsign" style="display:none;">
+          <div class="tool-box">
+            <h4>🌿 Bảng Dấu Đường &amp; Ngôn Ngữ Rừng (Chương V &mdash; Hướng Đạo Hạng Nhất)</h4>
+            <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px;">Hệ thống ký hiệu thiên nhiên (xếp bằng sỏi đá, cành cây, vạch đất) dùng để dẫn đường, cảnh báo nguy hiểm và liên lạc bí mật trong các cuộc thám du.</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:14px;">
+              <!-- Sign 1 -->
+              <div style="background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+                <div style="font-size:32px;width:44px;text-align:center;">➡️</div>
+                <div>
+                  <strong style="color:var(--forest);font-size:14px;display:block;">Đi lối này</strong>
+                  <span style="font-size:12px;color:var(--muted);">Mũi tên sỏi đá hoặc cành cây bẻ gập hướng về phía trước.</span>
+                </div>
+              </div>
+
+              <!-- Sign 2 -->
+              <div style="background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+                <div style="font-size:32px;width:44px;text-align:center;">🚫</div>
+                <div>
+                  <strong style="color:var(--red);font-size:14px;display:block;">Nguy hiểm &mdash; Cấm đi</strong>
+                  <span style="font-size:12px;color:var(--muted);">Hai cành cây bắt chéo chữ X hoặc 3 hòn đá xếp hình tam giác.</span>
+                </div>
+              </div>
+
+              <!-- Sign 3 -->
+              <div style="background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+                <div style="font-size:32px;width:44px;text-align:center;">✉️</div>
+                <div>
+                  <strong style="color:var(--forest);font-size:14px;display:block;">Có thư mật cách 4 bước</strong>
+                  <span style="font-size:12px;color:var(--muted);">Hình tròn có 4 que nhỏ xếp xung quanh trâm vào đất.</span>
+                </div>
+              </div>
+
+              <!-- Sign 4 -->
+              <div style="background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+                <div style="font-size:32px;width:44px;text-align:center;">💧</div>
+                <div>
+                  <strong style="color:var(--forest);font-size:14px;display:block;">Nguồn nước uống được</strong>
+                  <span style="font-size:12px;color:var(--muted);">Ký hiệu 3 đường gợn sóng lượn ngang bằng que cây.</span>
+                </div>
+              </div>
+
+              <!-- Sign 5 -->
+              <div style="background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+                <div style="font-size:32px;width:44px;text-align:center;">⚠️</div>
+                <div>
+                  <strong style="color:var(--fire);font-size:14px;display:block;">Nước độc / Cấm uống</strong>
+                  <span style="font-size:12px;color:var(--muted);">Đường gợn sóng có que cây gạch chéo ở giữa.</span>
+                </div>
+              </div>
+
+              <!-- Sign 6 -->
+              <div style="background:#ffffff;border:1.5px solid var(--forest);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px rgba(46,125,50,0.06);">
+                <div style="font-size:32px;width:44px;text-align:center;">⭕</div>
+                <div>
+                  <strong style="color:var(--forest);font-size:14px;display:block;">Đã về trại (Hoàn thành)</strong>
+                  <span style="font-size:12px;color:var(--muted);">Vòng tròn có chấm ở giữa &mdash; 'Tôi đã về đến đích an toàn'.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

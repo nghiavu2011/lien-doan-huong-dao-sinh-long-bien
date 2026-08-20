@@ -368,7 +368,16 @@
 
     /* branches */
         .branch-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:56px;align-items:start;position:relative}
-    .branch-intro{position:sticky;top:92px;align-self:start;display:grid;gap:18px;transition:top .2s ease}
+    .branch-intro {
+      position: -webkit-sticky !important;
+      position: sticky !important;
+      top: 90px !important;
+      align-self: start !important;
+      display: grid;
+      gap: 18px;
+      transform: none !important;
+      z-index: 10;
+    }
     .branch-list{display:grid;gap:16px}
     .branch{border:1px solid var(--line);background:var(--ivory);border-radius:12px;padding:28px;display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:start}
     .branch-mark{border-right:1px solid var(--line);padding-right:22px}
@@ -1232,7 +1241,7 @@
        ZERO HORIZONTAL PAGE OVERFLOW & COMPACT GRAPHIC TIMELINE
        ======================================================== */
     html, body {
-      overflow-x: hidden !important;
+      overflow-x: clip !important;
       max-width: 100vw !important;
     }
 
@@ -1715,28 +1724,36 @@
     <!-- =============== BRANCHES =============== -->
     <section class="section" id="cac-nganh">
       <div class="container branch-layout">
-        <div class="branch-intro reveal">
+        <div class="branch-intro">
           <div class="eyebrow" data-vi="CÁC NGÀNH" data-en="SCOUT SECTIONS">CÁC NGÀNH</div>
           <h2 data-vi="Ba ngành, ba kiểu chương trình." data-en="Three Sections, Three Tailored Programs.">Ba ngành, ba kiểu chương trình.</h2>
           <p class="lead" data-vi="Liên đoàn tổ chức theo các ngành của Hướng đạo Việt Nam. Cùng một buổi sáng Chủ nhật, mỗi ngành làm một việc khác nhau — vừa sức và vừa tuổi." data-en="Organized under Vietnam Scouting sections. Every Sunday morning, each section undertakes age-appropriate activities.">Liên đoàn tổ chức theo các ngành của Hướng đạo Việt Nam. Cùng một buổi sáng Chủ nhật, mỗi ngành làm một việc khác nhau — vừa sức và vừa tuổi.</p>
+          
+          <!-- Interactive Branch Quick Jump Pills -->
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 8px;">
+            <a href="#nganh-au" style="font-size:12px;font-weight:700;background:rgba(237,123,43,0.12);color:var(--fire);border:1px solid rgba(237,123,43,0.3);padding:6px 14px;border-radius:999px;text-decoration:none;transition:all .2s;">🐺 Ấu Đoàn (7–11t)</a>
+            <a href="#nganh-thieu" style="font-size:12px;font-weight:700;background:rgba(17,50,55,0.08);color:var(--forest);border:1px solid rgba(17,50,55,0.2);padding:6px 14px;border-radius:999px;text-decoration:none;transition:all .2s;">⚜️ Thiếu Đoàn (11–15t)</a>
+            <a href="#nganh-trang" style="font-size:12px;font-weight:700;background:rgba(17,50,55,0.08);color:var(--forest);border:1px solid rgba(17,50,55,0.2);padding:6px 14px;border-radius:999px;text-decoration:none;transition:all .2s;">🏕️ Tráng Đoàn (18+t)</a>
+          </div>
+
           <a class="btn btn-primary" href="https://zalo.me/0982669456" target="_blank" rel="noopener" data-vi="Hỏi về ngành phù hợp (Zalo) ↗" data-en="Inquire About Section (Zalo) ↗">Hỏi về ngành phù hợp (Zalo) ↗</a>
         </div>
         <div class="branch-list">
-          <article class="branch reveal">
+          <article class="branch reveal" id="nganh-au">
             <div class="branch-mark"><strong data-vi="Ấu đoàn" data-en="Cub Scout Pack">Ấu đoàn</strong><em data-vi="Sói con" data-en="Little Wolves">Sói con</em><span data-vi="TUỔI TIỂU HỌC" data-en="PRIMARY SCHOOL AGE">TUỔI TIỂU HỌC</span></div>
             <div>
               <p data-vi="Tuổi này học qua trò chơi và qua chuyện kể. Mục tiêu không cao xa: biết tự lo cho mình, biết chờ đến lượt, biết làm cùng bạn và tò mò với mọi thứ xung quanh." data-en="Learning through active play and jungle stories. Goals: personal independence, taking turns, teamwork, and curiosity about nature.">Tuổi này học qua trò chơi và qua chuyện kể. Mục tiêu không cao xa: biết tự lo cho mình, biết chờ đến lượt, biết làm cùng bạn và tò mò với mọi thứ xung quanh.</p>
               <ul><li data-vi="Trò chơi vận động và trò chơi quan sát" data-en="Active games & observation challenges">Trò chơi vận động và trò chơi quan sát</li><li data-vi="Tự phục vụ, khéo tay" data-en="Self-care & basic craft skills">Tự phục vụ, khéo tay</li><li data-vi="Sinh hoạt theo đàn (Six)" data-en="Six / Pack meetings">Sinh hoạt theo đàn (Six)</li><li data-vi="Trại hè riêng cho Sói con" data-en="Dedicated Cub Scout summer camp">Trại hè riêng cho Sói con</li></ul>
             </div>
           </article>
-          <article class="branch reveal">
+          <article class="branch reveal" id="nganh-thieu">
             <div class="branch-mark"><strong data-vi="Thiếu đoàn" data-en="Scout Troop">Thiếu đoàn</strong><em data-vi="Thiếu sinh" data-en="Scouts">Thiếu sinh</em><span data-vi="TUỔI TRUNG HỌC CƠ SỞ" data-en="JUNIOR HIGH AGE">TUỔI TRUNG HỌC CƠ SỞ</span></div>
             <div>
               <p data-vi="Tuổi này cần được giao việc. Các em nhận nhiệm vụ theo đội, tự phân công, tự xoay xở, và chịu trách nhiệm nếu việc không xong." data-en="At this age, responsibility is key. Scouts receive patrol missions, assign duties, self-manage, and take ownership of results.">Tuổi này cần được giao việc. Các em nhận nhiệm vụ theo đội, tự phân công, tự xoay xở, và chịu trách nhiệm nếu việc không xong.</p>
               <ul><li data-vi="Kỹ năng trại, mật thư, dấu đường" data-en="Campcraft, ciphers, trail signs">Kỹ năng trại, mật thư, dấu đường</li><li data-vi="Thám du và trò chơi lớn" data-en="Expeditions & wide games">Thám du và trò chơi lớn</li><li data-vi="Chuyên đề an toàn, kỹ năng số" data-en="Safety & digital literacy workshops">Chuyên đề an toàn, kỹ năng số</li><li data-vi="Tự điều hành đội (Patrol)" data-en="Patrol system leadership">Tự điều hành đội (Patrol)</li></ul>
             </div>
           </article>
-          <article class="branch reveal">
+          <article class="branch reveal" id="nganh-trang">
             <div class="branch-mark"><strong data-vi="Tráng đoàn" data-en="Rover Crew">Tráng đoàn</strong><em data-vi="Tráng sinh" data-en="Rover Scouts">Tráng sinh</em><span data-vi="NGÀNH LỚN NHẤT" data-en="SENIOR SECTION">NGÀNH LỚN NHẤT</span></div>
             <div>
               <p data-vi="Đến ngành này, các em chuyển dần từ người được dẫn sang người dẫn: đứng ra tổ chức cho các em nhỏ và nhận những việc phục vụ cộng đồng." data-en="Transitioning from participants to leaders: organizing programs for younger scouts and undertaking community service.">Đến ngành này, các em chuyển dần từ người được dẫn sang người dẫn: đứng ra tổ chức cho các em nhỏ và nhận những việc phục vụ cộng đồng.</p>

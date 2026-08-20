@@ -4833,15 +4833,18 @@ ${s.parentName} - ${s.parentPhone}`
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' || e.keyCode === 27) {
         if (typeof closeSurveyModal === 'function') closeSurveyModal();
+        if (typeof closeSkillModal === 'function') closeSkillModal();
         if (window.ScoutTools && typeof window.ScoutTools.closeToolsModal === 'function') window.ScoutTools.closeToolsModal();
         const songModal = document.getElementById('scoutSongDetailModal');
-        if (songModal && songModal.style.display === 'block') {
+        if (songModal && (songModal.style.display === 'block' || songModal.classList.contains('open'))) {
           songModal.style.display = 'none';
+          songModal.classList.remove('open');
           document.body.style.overflow = '';
         }
-        const skillModal = document.getElementById('skillDetailModal');
-        if (skillModal && skillModal.style.display === 'flex') {
+        const skillModal = document.getElementById('skillModal');
+        if (skillModal && (skillModal.style.display === 'flex' || skillModal.classList.contains('open') || skillModal.style.display === 'block')) {
           skillModal.style.display = 'none';
+          skillModal.classList.remove('open');
           document.body.style.overflow = '';
         }
       }

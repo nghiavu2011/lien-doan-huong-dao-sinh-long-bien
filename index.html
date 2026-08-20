@@ -1474,6 +1474,143 @@
       }
     }
 
+  
+    /* ========================================================
+       LIBRARY & LITERATURE STYLING
+       ======================================================== */
+    .lib-tab-btn {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .lib-tab-btn:hover {
+      border-color: var(--forest);
+      background: #f0f4f3;
+    }
+    .lib-tab-btn.active {
+      background: var(--forest);
+      color: #ffffff;
+      border-color: var(--forest);
+      box-shadow: 0 4px 12px rgba(17, 50, 55, 0.2);
+    }
+
+    .lib-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .lib-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(17, 50, 55, 0.1);
+      border-color: var(--forest);
+    }
+
+    .lib-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .lib-badge.standards {
+      background: rgba(17, 50, 55, 0.1);
+      color: var(--forest);
+    }
+    .lib-badge.leadership {
+      background: rgba(237, 123, 43, 0.12);
+      color: var(--fire);
+    }
+    .lib-badge.parenting {
+      background: rgba(183, 62, 0, 0.1);
+      color: var(--red);
+    }
+
+    .lib-card h3 {
+      font-family: 'Roboto Slab', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--forest);
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+    }
+    .lib-author {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .lib-card p {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.5;
+      margin: 0 0 18px 0;
+    }
+
+    .lib-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .lib-btn-read {
+      flex: 1.2;
+      background: var(--forest);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 9px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      text-align: center;
+      transition: background .2s ease;
+    }
+    .lib-btn-read:hover {
+      background: #194e56;
+    }
+    .lib-btn-dl {
+      flex: 0.8;
+      background: #f0f4f3;
+      color: var(--forest);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      text-align: center;
+      transition: all .2s ease;
+    }
+    .lib-btn-dl:hover {
+      background: #e2ece9;
+    }
+
+    @media (max-width: 768px) {
+      .lib-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #su-kien-hdvn > .container > div {
+        grid-template-columns: 1fr !important;
+        padding: 24px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -1514,6 +1651,8 @@
             <a class="dropdown-item" href="#dong-thoi-gian" data-vi="Dòng Thời Gian" data-en="Milestones">Dòng Thời Gian</a>
             <a class="dropdown-item" href="#hoi-dap" data-vi="Hỏi Đáp Cho Phụ Huynh" data-en="Parent FAQ">Hỏi Đáp Cho Phụ Huynh</a>
             <a class="dropdown-item" href="#cam-nang" data-vi="🎵 Bài Hát &amp; Cẩm Nang Trại" data-en="🎵 Scout Songs &amp; Handbook">🎵 Bài Hát &amp; Cẩm Nang Trại</a>
+            <a class="dropdown-item" href="#thu-vien-tai-lieu" data-vi="📚 Thư Viện Tài Liệu (11 Sách)" data-en="📚 Scouting Literature">📚 Thư Viện Tài Liệu (11 Sách)</a>
+            <a class="dropdown-item" href="#su-kien-hdvn" data-vi="⚜️ Sự Kiện HĐVN (hdvn.info)" data-en="⚜️ National Scout Events">⚜️ Sự Kiện HĐVN (hdvn.info)</a>
           </div>
         </div>
 
@@ -1555,6 +1694,8 @@
       <a class="mob-item" href="#dong-thoi-gian" onclick="closeMobileNav()" data-vi="Dòng Thời Gian" data-en="Timeline">Dòng Thời Gian</a>
       <a class="mob-item" href="#hoi-dap" onclick="closeMobileNav()" data-vi="Hỏi Đáp Cho Phụ Huynh" data-en="Parent FAQ">Hỏi Đáp Cho Phụ Huynh</a>
       <a class="mob-item" href="#cam-nang" onclick="closeMobileNav()" data-vi="🎵 Kho Bài Hát &amp; Công Cụ Trại" data-en="🎵 Songs &amp; Camp Tools">🎵 Kho Bài Hát &amp; Công Cụ Trại</a>
+      <a class="mob-item" href="#thu-vien-tai-lieu" onclick="closeMobileNav()" data-vi="📚 Thư Viện Tài Liệu (11 Sách)" data-en="📚 Scouting Literature">📚 Thư Viện Tài Liệu (11 Sách)</a>
+      <a class="mob-item" href="#su-kien-hdvn" onclick="closeMobileNav()" data-vi="⚜️ Sự Kiện HĐVN (hdvn.info)" data-en="⚜️ National Scout Events">⚜️ Sự Kiện HĐVN (hdvn.info)</a>
     </div>
     <div class="mob-group">
       <span class="mob-title" data-vi="KỸ NĂNG HƯỚNG ĐẠO" data-en="SCOUT SKILLS">KỸ NĂNG HƯỚNG ĐẠO</span>
@@ -2083,65 +2224,182 @@
     </section>
 
     <!-- =============== THƯ VIỆN NGHI THỨC & CẨM NANG HƯỚNG ĐẠO CHÍNH THỐNG =============== -->
-    <section class="section" id="thu-vien-tai-lieu" style="background:#ffffff;border-bottom:1px solid var(--line);">
+        <!-- =============== THƯ VIỆN TÀI LIỆU CHÍNH THỐNG HƯỚNG ĐẠO VIỆT NAM (11 BỘ TÀI LIỆU) =============== -->
+    <section class="section" id="thu-vien-tai-lieu" style="background:#f9fbfb;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0 68px;">
       <div class="container">
-        <div class="sec-head">
-          <span class="demo-badge">TÀI LIỆU CHÍNH THỐNG HĐVN</span>
-          <div class="eyebrow" data-vi="CẨM NANG &amp; NGHI THỨC HƯỚNG ĐẠO" data-en="OFFICIAL SCOUT PROTOCOLS &amp; HANDBOOK">CẨM NANG &amp; NGHI THỨC HƯỚNG ĐẠO</div>
-          <h2 data-vi="Kho tàng tri thức &amp; Nghi thức Hướng đạo Việt Nam." data-en="Official Knowledge &amp; Protocols Hub.">Kho tàng tri thức &amp; Nghi thức Hướng đạo Việt Nam.</h2>
-          <p class="lead" data-vi="Trích xuất từ hai bộ cẩm nang kinh điển của phong trào: 'Nghi thức Hướng đạo Việt Nam 2025' và 'Hướng đạo Hạng Nhất' (Trưởng Trương Trọng Trác) &mdash; kim chỉ nam cho Huynh trưởng và Đoàn sinh trong mọi sinh hoạt đất trại." data-en="Synthesized from core authoritative texts: Vietnam Scout Protocols 2025 and First Class Scouting Handbook by Leader Truong Trong Trac.">Trích xuất từ hai bộ cẩm nang kinh điển của phong trào: 'Nghi thức Hướng đạo Việt Nam 2025' và 'Hướng đạo Hạng Nhất' (Trưởng Trương Trọng Trác) &mdash; kim chỉ nam cho Huynh trưởng và Đoàn sinh trong mọi sinh hoạt đất trại.</p>
+        <div class="sec-head" style="text-align:center;max-width:820px;margin:0 auto 36px;">
+          <div class="eyebrow" data-vi="KHO TÀNG TRI THỨC HƯỚNG ĐẠO" data-en="OFFICIAL SCOUTING LITERATURE" style="color:var(--fire);font-weight:800;letter-spacing:.12em;">KHO TÀNG TRI THỨC HƯỚNG ĐẠO</div>
+          <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:29px;color:var(--forest);margin:6px 0 10px;" data-vi="Thư Viện Tài Liệu Chính Thống HĐVN." data-en="Official Vietnam Scouting Literature Hub.">Thư Viện Tài Liệu Chính Thống HĐVN.</h2>
+          <p class="lead" style="font-size:15px;color:var(--muted);line-height:1.6;" data-vi="Tuyển tập 11 tài liệu gốc, cẩm nang Huynh trưởng, quy chế ngành và sách tâm lý gia đình được công nhận của Phong trào Hướng đạo Việt Nam &amp; Thế giới." data-en="Collection of 11 official handbooks, leader manuals, and parenting psychology books recognized by Vietnam and World Scouting.">Tuyển tập 11 tài liệu gốc, cẩm nang Huynh trưởng, quy chế ngành và sách tâm lý gia đình được công nhận của Phong trào Hướng đạo Việt Nam &amp; Thế giới.</p>
         </div>
 
-        <!-- Document Selector Cards -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;">
-          <!-- Doc 1: Nghi thuc 2025 -->
-          <div style="background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 16px rgba(17,50,55,0.04);">
-            <div>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-                <span style="background:rgba(46,125,50,0.12);color:var(--forest);font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;">PHIÊN BẢN V3.5 (2025)</span>
-                <span style="font-size:24px;">📜</span>
-              </div>
-              <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:20px;color:var(--forest);margin:0 0 10px 0;">Nghi Thức Hướng Đạo Việt Nam 2025</h3>
-              <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;">
-                Văn bản quy chuẩn chính thống về xướng nghi thức, khẩu lệnh tập hợp, lễ tuyên hứa trao khăn, lễ chào cờ và nghi thức Lửa trại truyền thống của phong trào HĐVN.
-              </p>
-              <ul style="font-size:13px;color:var(--ink);line-height:1.6;padding-left:18px;margin:0 0 20px 0;">
-                <li><strong>Khẩu lệnh &amp; Tiếng còi:</strong> 5 đội hình tập hợp chuẩn (Chữ U, Vòng tròn, Móng ngựa, Hàng dọc, Hàng ngang).</li>
-                <li><strong>Lễ Tuyên Hứa:</strong> Nghi thức tiếp nhận đoàn sinh mới thiêng liêng và trao khăn quàng Long Biên.</li>
-                <li><strong>Lửa Trại:</strong> Lễ Gọi Lửa, Lửa Thiêng, Tàn Lửa &amp; Vòng Thân Ái gắn kết.</li>
-              </ul>
-            </div>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-top:14px;border-top:1px solid var(--line);">
-              <a href="tai lieu/v3.5-Nghi-thuc-HDVN-2025-Xuong-Nghi-thuc.pdf" target="_blank" class="btn btn-primary" style="font-size:13px;padding:9px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;">
-                📖 Mở Xem / Tải PDF (13MB) ↗
-              </a>
-              <span style="font-size:12px;color:var(--muted);">Tài liệu chính thức Hội đồng HĐVN</span>
+        <!-- Library Filter Tabs -->
+        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:32px;">
+          <button class="lib-tab-btn active" onclick="filterLibrary('all', this)">📚 Tất Cả (11 Tài Liệu)</button>
+          <button class="lib-tab-btn" onclick="filterLibrary('standards', this)">🏛️ Nghi Thức &amp; Quy Chuẩn (3)</button>
+          <button class="lib-tab-btn" onclick="filterLibrary('leadership', this)">🧭 Huấn Luyện &amp; Thủ Lĩnh (4)</button>
+          <button class="lib-tab-btn" onclick="filterLibrary('parenting', this)">❤️ Tâm Lý &amp; Cha Mẹ (4)</button>
+        </div>
+
+        <!-- Library Cards Grid -->
+        <div class="lib-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:20px;">
+          
+          <!-- DOC 1: Nghi thức 2025 -->
+          <div class="lib-card" data-cat="standards">
+            <div class="lib-badge standards">🏛️ NGHI THỨC · 12.4 MB</div>
+            <h3>Nghi Thức Hướng Đạo Việt Nam 2025</h3>
+            <div class="lib-author">Xưởng Nghi Thức HĐVN · Phiên bản 3.5</div>
+            <p>Văn bản chuẩn mực cao nhất về Lễ Chào Cờ, Lễ Tuyên Hứa, Đội hình tập hợp, Tín hiệu còi chỉ huy và Nghi thức Lửa Trại truyền thống.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/v3.5-Nghi-thuc-HDVN-2025-Xuong-Nghi-thuc.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/v3.5-Nghi-thuc-HDVN-2025-Xuong-Nghi-thuc.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
             </div>
           </div>
 
-          <!-- Doc 2: Huong dao Hang Nhat -->
-          <div style="background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 16px rgba(17,50,55,0.04);">
-            <div>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-                <span style="background:rgba(237,123,43,0.12);color:var(--fire);font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;">SÁCH KINH ĐIỂN</span>
-                <span style="font-size:24px;">🧭</span>
-              </div>
-              <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:20px;color:var(--forest);margin:0 0 10px 0;">Hướng Đạo Hạng Nhất &mdash; Trưởng Trương Trọng Trác</h3>
-              <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;">
-                Cuốn cẩm nang gối đầu giường dày dặn của các thế hệ Huynh trưởng và Thiếu sinh, đúc kết toàn diện kỹ năng đất trại, sinh tồn thực địa và phương pháp Hàng đội tự trị.
-              </p>
-              <ul style="font-size:13px;color:var(--ink);line-height:1.6;padding-left:18px;margin:0 0 20px 0;">
-                <li><strong>Phương pháp Hàng Đội:</strong> Cơ chế tự quản, tinh thần đồng đội và trách nhiệm cá nhân.</li>
-                <li><strong>Đất Trại &amp; Bếp Trại:</strong> Kỹ thuật dựng lều, dàn giá gỗ mộc (pioneering), bếp không khói.</li>
-                <li><strong>Ước Đạc &amp; Bản Đồ:</strong> Đo chiều cao cây, độ rộng sông bằng mắt và hình học thực địa.</li>
-              </ul>
+          <!-- DOC 2: Hướng Đạo Hạng Nhất -->
+          <div class="lib-card" data-cat="standards">
+            <div class="lib-badge standards">🏛️ QUY CHUẨN · 17.2 MB</div>
+            <h3>Hướng Đạo Hạng Nhất (First Class Scout)</h3>
+            <div class="lib-author">Trưởng Trương Trọng Trác · 8 Chương Toàn Tập</div>
+            <p>Bộ cẩm nang gối đầu giường của các thế hệ Huynh trưởng &amp; Thiếu sinh: Đời sống trại, Nút ráp mộc, Ước đạc, Truyền tin và Thám du.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/Huongdao HangNhat_TruongTrongTrac.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/Huongdao HangNhat_TruongTrongTrac.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
             </div>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-top:14px;border-top:1px solid var(--line);">
-              <a href="tai lieu/Huongdao HangNhat_TruongTrongTrac.pdf" target="_blank" class="btn btn-primary" style="font-size:13px;padding:9px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;">
-                📚 Mở Xem / Tải Sách PDF (18MB) ↗
-              </a>
-              <span style="font-size:12px;color:var(--muted);">Tác giả: Trưởng Trương Trọng Trác</span>
+          </div>
+
+          <!-- DOC 3: Quy chế ngành Ấu -->
+          <div class="lib-card" data-cat="standards">
+            <div class="lib-badge standards">🏛️ NGÀNH ẤU · 2.8 MB</div>
+            <h3>Quy Chế Ngành Ấu (Sói Con 7–11 Tuổi)</h3>
+            <div class="lib-author">Ban Nghiên Huấn HĐVN · Tiêu Chuẩn Sao Rừng</div>
+            <p>Quy định chi tiết về tổ chức Bầy, Đàn Sói con, Luật Rừng Mowgli, quy trình kết nạp và hệ thống chuyên hiệu rèn luyện tuổi tiểu học.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/Quy-che-nganh-AU.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/Quy-che-nganh-AU.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
             </div>
+          </div>
+
+          <!-- DOC 4: Kim Chỉ Nam Huynh Trưởng -->
+          <div class="lib-card" data-cat="leadership">
+            <div class="lib-badge leadership">🧭 HUYNH TRƯỞNG · 32.5 MB</div>
+            <h3>Kim Chỉ Nam Huynh Trưởng Hướng Đạo</h3>
+            <div class="lib-author">Tài Liệu Huấn Luyện Huynh Trưởng · Mã 2604</div>
+            <p>Phương pháp sư phạm Hướng đạo thực nghiệm, nghệ thuật dẫn dắt tâm lý thanh thiếu niên và kỹ năng quản trị sinh hoạt đoàn hiệu quả.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/2604-Kim-Chi-Nam-Huynh-Truong-Huong-Dao.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/2604-Kim-Chi-Nam-Huynh-Truong-Huong-Dao.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 5: Huấn Luyện Đội Trưởng -->
+          <div class="lib-card" data-cat="leadership">
+            <div class="lib-badge leadership">🧭 THỦ LĨNH · 4.2 MB</div>
+            <h3>Huấn Luyện Đội Trưởng &amp; Hệ Thống Hàng Đội</h3>
+            <div class="lib-author">Cẩm Nang Đội Trưởng HĐVN · Patrol System</div>
+            <p>Hướng dẫn Đội trưởng kỹ năng điều hành Đội (Patrol), phân công nhiệm vụ, họp Đội Tòa Đàm và tổ chức các cuộc thám du tự quản.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/Ruot_Huan-Luyen-doi-truong.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/Ruot_Huan-Luyen-doi-truong.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 6: Sáng kiến GD WOSM -->
+          <div class="lib-card" data-cat="leadership">
+            <div class="lib-badge leadership">🧭 QUỐC TẾ · 36.9 MB</div>
+            <h3>Các Sáng Kiến Giáo Dục Hướng Đạo Thế Giới</h3>
+            <div class="lib-author">WOSM Official 2025 · Tổ Chức HĐ Thế Giới</div>
+            <p>Tổng quan các sáng kiến giáo dục thế kỷ 21: Phát triển bền vững (SDGs), Bảo vệ môi trường Trái Đất (Earth Tribe) và Bình đẳng giới.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/2025-HD-CAC-SANG-KIEN-GIAO-DUC-HDTG-Official.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/2025-HD-CAC-SANG-KIEN-GIAO-DUC-HDTG-Official.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 7: MOP Sứ Giả Hòa Bình -->
+          <div class="lib-card" data-cat="leadership">
+            <div class="lib-badge leadership">🧭 PHỤNG SỰ · 22.5 MB</div>
+            <h3>Sổ Tay Sứ Giả Hòa Bình (MOP Guidebook 2026)</h3>
+            <div class="lib-author">Messengers of Peace · Hướng Đạo Việt Nam</div>
+            <p>Hướng dẫn xây dựng dự án thiện nguyện cộng đồng, kết nối thanh thiếu niên toàn cầu và lan tỏa tinh thần kiến tạo hòa bình.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/2026-MOP-GUIDEBOOK-HDVN.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/2026-MOP-GUIDEBOOK-HDVN.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 8: Trái Tim Cha Mẹ -->
+          <div class="lib-card" data-cat="parenting">
+            <div class="lib-badge parenting">❤️ PHỤ HUYNH · 12.2 MB</div>
+            <h3>Trái Tim Cha Mẹ &mdash; Thấu Hiểu Con Trẻ</h3>
+            <div class="lib-author">Ebook Giáo Dục Gia Đình · Hướng Đạo Long Biên</div>
+            <p>Cẩm nang nuôi dạy con dựa trên tình yêu thương và tôn trọng. Giúp cha mẹ làm bạn cùng con, gỡ bỏ áp lực và kiến tạo tổ ấm hạnh phúc.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/ebook26-trai-tim-cha-me.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/ebook26-trai-tim-cha-me.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 9: Listening Ears -->
+          <div class="lib-card" data-cat="parenting">
+            <div class="lib-badge parenting">❤️ TÂM LÝ · 2.4 MB</div>
+            <h3>Listening Ears &mdash; Nghệ Thuật Lắng Nghe 2026</h3>
+            <div class="lib-author">Safe from Harm Program · Bản Cập Nhật 1.1</div>
+            <p>Phương pháp lắng nghe chủ động, thấu cảm và không phán xét. Bảo vệ trẻ khỏi tổn thương tinh thần và xây dựng niềm tin vững chắc.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/2026 LISTENING EARS  Versoin 1.1.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/2026 LISTENING EARS  Versoin 1.1.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 10: Trưởng Ơi Em Nên Làm Sao -->
+          <div class="lib-card" data-cat="parenting">
+            <div class="lib-badge parenting">❤️ THIẾU NIÊN · 5.5 MB</div>
+            <h3>"Trưởng Ơi, Em Nên Làm Sao?"</h3>
+            <div class="lib-author">Hỏi Đáp Tâm Lý Tuổi Dậy Thì · Tủ Sách HĐVN</div>
+            <p>Giải đáp những băn khoăn về tình bạn, học đường, áp lực đồng trang lứa và cách vượt qua khủng hoảng tâm lý tuổi dậy thì nhẹ nhàng.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/ebook26-truong-oi-em-nen-lam-sao.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/ebook26-truong-oi-em-nen-lam-sao.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+          <!-- DOC 11: Hoàn Thiện Bản Thân Mỗi Ngày -->
+          <div class="lib-card" data-cat="parenting">
+            <div class="lib-badge parenting">❤️ RÈN LUYỆN · 61.2 MB</div>
+            <h3>Hoàn Thiện Bản Thân Mỗi Ngày</h3>
+            <div class="lib-author">Tủ Sách Rèn Luyện Nhân Cách · HĐVN 2026</div>
+            <p>Bộ sách bồi dưỡng thói quen tốt, tính kỷ luật, lòng tự trọng và tinh thần kiên trì vượt khó dành cho thanh thiếu niên.</p>
+            <div class="lib-actions">
+              <a href="tai lieu/ebook26-hoan-thien-ban-than-moi-ngay.pdf" target="_blank" rel="noopener" class="lib-btn-read">📖 Đọc Trực Tuyến ↗</a>
+              <a href="tai lieu/ebook26-hoan-thien-ban-than-moi-ngay.pdf" download class="lib-btn-dl">📥 Tải PDF</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== CỔNG THÔNG TIN CHÍNH THỨC & SỰ KIỆN HƯỚNG ĐẠO VIỆT NAM (HDVN.INFO) =============== -->
+    <section class="section" id="su-kien-hdvn" style="background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:50px 0;">
+      <div class="container">
+        <div style="background:linear-gradient(135deg, #0e292d 0%, #154249 60%, #1c5b65 100%);border-radius:20px;padding:36px 40px;color:#ffffff;box-shadow:0 12px 36px rgba(17,50,55,0.18);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);padding:4px 14px;border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.1em;margin-bottom:12px;color:#ffd166;">
+              ⚜️ CỔNG THÔNG TIN CHÍNH THỨC · HƯỚNG ĐẠO VIỆT NAM
+            </div>
+            <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:26px;margin:0 0 10px;color:#ffffff;line-height:1.25;">
+              Tin Mới, Sự Kiện &amp; Phong Trào Hướng Đạo Toàn Quốc
+            </h2>
+            <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;max-width:680px;">
+              Theo dõi lịch Trại Họp Bạn toàn quốc, Khóa Huấn luyện Huynh trưởng Bằng Rừng (Wood Badge), Trại Họp Bạn Thế giới (World Scout Jamboree) và các thông báo chính thức từ Tổng hội Hướng đạo Việt Nam tại <strong>hdvn.info</strong>.
+            </p>
+          </div>
+
+          <div>
+            <a href="https://hdvn.info/" target="_blank" rel="noopener" class="btn" style="background:var(--fire);color:#ffffff;font-size:14px;font-weight:800;padding:14px 26px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(237,123,43,0.4);white-space:nowrap;transition:all .2s ease;">
+              🌐 Mở Cổng HDVN.INFO ↗
+            </a>
           </div>
         </div>
       </div>
@@ -2543,6 +2801,10 @@
           <p style="margin-bottom:4px;"><strong>Email:</strong> <a href="mailto:longbienscouts@gmail.com" style="color:#fff;">longbienscouts@gmail.com</a></p>
           <p style="margin-bottom:4px;" data-channel="facebook"><a data-fb target="_blank" rel="noopener" href="https://www.facebook.com/longbienscoutshanoi" style="color:#fff;">Fanpage Facebook ↗</a></p>
           <p style="margin-bottom:4px;" data-channel="messenger"><a data-msg target="_blank" rel="noopener" href="https://m.me/longbienscoutshanoi" style="color:#fff;">Nhắn Messenger ↗</a></p>
+          <p style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.2);">
+            <strong style="color:#ffd166;font-size:12px;letter-spacing:.05em;display:block;margin-bottom:3px;">⚜️ CỔNG THÔNG TIN CHÍNH THỐNG:</strong>
+            <a href="https://hdvn.info/" target="_blank" rel="noopener" style="color:#ffffff;font-weight:700;text-decoration:underline;font-size:13px;">Hướng Đạo Việt Nam (HDVN.INFO) ↗</a>
+          </p>
         </div>
         <p style="margin-top:14px;">
           <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="#" data-vi="Đăng ký cho con ↗" data-en="Child Registration ↗">Đăng ký cho con ↗</a>
@@ -4783,6 +5045,143 @@ ${s.parentName} - ${s.parentPhone}`
       }
     }
 
+  
+    /* ========================================================
+       LIBRARY & LITERATURE STYLING
+       ======================================================== */
+    .lib-tab-btn {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .lib-tab-btn:hover {
+      border-color: var(--forest);
+      background: #f0f4f3;
+    }
+    .lib-tab-btn.active {
+      background: var(--forest);
+      color: #ffffff;
+      border-color: var(--forest);
+      box-shadow: 0 4px 12px rgba(17, 50, 55, 0.2);
+    }
+
+    .lib-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .lib-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(17, 50, 55, 0.1);
+      border-color: var(--forest);
+    }
+
+    .lib-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .lib-badge.standards {
+      background: rgba(17, 50, 55, 0.1);
+      color: var(--forest);
+    }
+    .lib-badge.leadership {
+      background: rgba(237, 123, 43, 0.12);
+      color: var(--fire);
+    }
+    .lib-badge.parenting {
+      background: rgba(183, 62, 0, 0.1);
+      color: var(--red);
+    }
+
+    .lib-card h3 {
+      font-family: 'Roboto Slab', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--forest);
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+    }
+    .lib-author {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .lib-card p {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.5;
+      margin: 0 0 18px 0;
+    }
+
+    .lib-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .lib-btn-read {
+      flex: 1.2;
+      background: var(--forest);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 9px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      text-align: center;
+      transition: background .2s ease;
+    }
+    .lib-btn-read:hover {
+      background: #194e56;
+    }
+    .lib-btn-dl {
+      flex: 0.8;
+      background: #f0f4f3;
+      color: var(--forest);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      text-align: center;
+      transition: all .2s ease;
+    }
+    .lib-btn-dl:hover {
+      background: #e2ece9;
+    }
+
+    @media (max-width: 768px) {
+      .lib-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #su-kien-hdvn > .container > div {
+        grid-template-columns: 1fr !important;
+        padding: 24px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4833,6 +5232,25 @@ ${s.parentName} - ${s.parentPhone}`
   <div class="no-print" style="margin-top:30px;text-align:center;">
     <button onclick="window.print()" style="background:#ed7b2b;color:#fff;border:none;padding:10px 24px;border-radius:999px;font-weight:bold;cursor:pointer;font-size:15px;">🖨️ BẤM ĐỂ IN HOẶC LƯU FILE PDF</button>
   </div>
+
+  <script>
+    function filterLibrary(category, btnElement) {
+      const tabs = document.querySelectorAll('.lib-tab-btn');
+      tabs.forEach(t => t.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.lib-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
       `;
@@ -4909,6 +5327,25 @@ ${s.parentName} - ${s.parentPhone}`
         }
       }
     }, { passive: true });
+  </script>
+
+
+  <script>
+    function filterLibrary(category, btnElement) {
+      const tabs = document.querySelectorAll('.lib-tab-btn');
+      tabs.forEach(t => t.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.lib-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
   </script>
 
 </body>

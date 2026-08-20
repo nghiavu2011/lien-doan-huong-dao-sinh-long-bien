@@ -367,8 +367,8 @@
     .fact strong{display:block;color:white;font-family:"Roboto Slab";font-size:23px}.fact span{font-size:12px;color:rgba(255,255,255,.66)}
 
     /* branches */
-    .branch-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:56px;align-items:start}
-    .branch-intro{position:sticky;top:118px;display:grid;gap:18px}
+        .branch-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:56px;align-items:start;position:relative}
+    .branch-intro{position:sticky;top:92px;align-self:start;display:grid;gap:18px;transition:top .2s ease}
     .branch-list{display:grid;gap:16px}
     .branch{border:1px solid var(--line);background:var(--ivory);border-radius:12px;padding:28px;display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:start}
     .branch-mark{border-right:1px solid var(--line);padding-right:22px}
@@ -1264,13 +1264,52 @@
       grid-template-columns: repeat(10, minmax(0, 1fr));
       gap: 8px;
       width: 100%;
-      background: linear-gradient(90deg, #0e292d 0%, #154249 45%, #1c5b65 80%, #206d7a 100%);
-      padding: 10px 32px 10px 14px;
+      background: linear-gradient(
+        90deg,
+        #0c2528 0%,
+        #143f44 20%,
+        #1c5b65 40%,
+        #29929f 60%,
+        #1c5b65 80%,
+        #0c2528 100%
+      );
+      background-size: 200% 100%;
+      animation: ribbonFlow 5s linear infinite, arrowPulse 3s ease-in-out infinite;
+      padding: 11px 34px 11px 16px;
       border-radius: 8px 0 0 8px;
       clip-path: polygon(0% 0%, calc(100% - 24px) 0%, 100% 50%, calc(100% - 24px) 100%, 0% 100%);
       box-shadow: 0 6px 20px rgba(17, 50, 55, 0.2);
       margin: 8px 0;
       position: relative;
+      overflow: hidden;
+    }
+
+    .gt-arrow-ribbon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255, 209, 102, 0.35) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-25deg);
+      animation: beamForward 3.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes ribbonFlow {
+      0% { background-position: 100% 0%; }
+      100% { background-position: -100% 0%; }
+    }
+
+    @keyframes beamForward {
+      0% { left: -60%; }
+      60%, 100% { left: 140%; }
+    }
+
+    @keyframes arrowPulse {
+      0%, 100% { filter: drop-shadow(0 4px 14px rgba(17, 50, 55, 0.25)); }
+      50% { filter: drop-shadow(4px 4px 18px rgba(41, 146, 159, 0.5)); }
     }
 
     .gt-year-cell {

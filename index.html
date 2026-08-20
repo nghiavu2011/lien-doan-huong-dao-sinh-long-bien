@@ -2289,7 +2289,7 @@
     <div class="lb-count" id="lbCount"></div>
   </div>
 
-  <!-- Join Modal (chuyển hướng Google Form) -->
+  <!-- Join Modal (chuyển hướng Phiếu tìm hiểu trực tuyến) -->
   <div class="modal" id="joinModal" hidden>
     <div class="modal-card">
       <button class="modal-close" data-close aria-label="Đóng">✕</button>
@@ -2309,7 +2309,7 @@
      ========================================================= */
   const CONFIG = {
     // Biểu mẫu đăng ký chính thức của Liên đoàn
-    formUrl: 'https://docs.google.com/forms/d/1JAUL2873IVtMgZ6o8_x2XKow4QFfq3LekBXT7W6wshc/viewform',
+    formUrl: 'javascript:openSurveyModal()',
 
     // Fanpage Facebook chính thức của Liên đoàn
     facebookUrl: 'https://www.facebook.com/longbienscoutshanoi',
@@ -3172,7 +3172,16 @@
   const setImg=(v,u)=>document.documentElement.style.setProperty(v, u?`url("${u}")`:'none');
   setImg('--hero-photo',CONFIG.heroPhoto);
   setImg('--cta-photo',CONFIG.ctaPhoto);
-  document.querySelectorAll('[data-form]').forEach(a=>{a.href=CONFIG.formUrl});
+  document.querySelectorAll('[data-form], [data-join]').forEach(a => {
+    a.removeAttribute('target');
+    a.removeAttribute('rel');
+    a.href = 'javascript:void(0)';
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (typeof closeMobileNav === 'function') closeMobileNav();
+      openSurveyModal();
+    });
+  });
   const applyChannel=(sel,url,key)=>{
     document.querySelectorAll(sel).forEach(a=>{ if(url){a.href=url} });
     if(!url) document.querySelectorAll(`[data-channel="${key}"]`).forEach(el=>{el.hidden=true});
@@ -4017,120 +4026,132 @@
   <!-- ========================================================
        MODAL: PHIẾU TÌM HIỂU ĐOÀN SINH MỚI & GIA ĐÌNH (FILE 5)
        ======================================================== -->
+  <!-- ========================================================
+       MODAL: PHIẾU TÌM HIỂU ĐOÀN SINH MỚI & GIA ĐÌNH (FILE 5)
+       ======================================================== -->
   <div id="scoutSurveyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="surveyModalTitle" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(17,50,55,0.7);backdrop-filter:blur(6px);overflow-y:auto;padding:20px;">
-    <div class="modal-content" style="max-width:820px;margin:30px auto;background:#ffffff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;position:relative;border:1px solid var(--line);">
+    <div class="modal-content" style="max-width:860px;margin:30px auto;background:#ffffff;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;position:relative;border:1px solid var(--line);">
       <!-- Modal Header -->
-      <div style="background:linear-gradient(135deg,var(--forest),#1a4c43);color:#ffffff;padding:22px 28px 24px;position:relative;"><div class="sheet-drag-handle"></div>
-        <button type="button" onclick="closeSurveyModal()" style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;color:#ffffff;font-size:24px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;">&times;</button>
-        <span style="display:inline-block;background:var(--fire);color:#ffffff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:999px;margin-bottom:8px;">BIỂU MẪU CHÍNH THỨC SỐ 05</span>
-        <h2 id="surveyModalTitle" style="font-family:'Roboto Slab',Georgia,serif;font-size:24px;margin:0 0 6px 0;color:#ffffff;">PHIẾU TÌM HIỂU GIA ĐÌNH &amp; ĐOÀN SINH MỚI</h2>
-        <p style="font-size:13.5px;color:rgba(255,255,255,0.85);margin:0;line-height:1.5;">Phương pháp Hướng đạo tăng tối đa hiệu quả khi có sự kết hợp, hỗ trợ và cộng tác từ phía gia đình.</p>
+      <div style="background:linear-gradient(135deg,var(--forest),#1a4c43);color:#ffffff;padding:22px 28px 24px;position:relative;">
+        <div class="sheet-drag-handle"></div>
+        <button type="button" onclick="closeSurveyModal()" style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;color:#ffffff;font-size:24px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;" aria-label="Đóng">&times;</button>
+        <span style="display:inline-block;background:var(--fire);color:#ffffff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:999px;margin-bottom:8px;">BIỂU MẪU CHÍNH THỨC SỐ 05 · LIÊN ĐOÀN LONG BIÊN</span>
+        <h2 id="surveyModalTitle" style="font-family:'Roboto Slab',Georgia,serif;font-size:23px;margin:0 0 6px 0;color:#ffffff;">PHIẾU TÌM HIỂU GIA ĐÌNH &amp; ĐOÀN SINH MỚI</h2>
+        <p style="font-size:13.5px;color:rgba(255,255,255,0.88);margin:0;line-height:1.5;">Hồ sơ gửi trực tiếp đến Ban Huynh Trưởng &amp; Liên đoàn trưởng Phương Thảo để chuẩn bị đón tiếp bé.</p>
       </div>
 
       <!-- Modal Body (Interactive Form) -->
-      <form id="scoutSurveyForm" onsubmit="handleSurveySubmit(event)" style="padding:32px;">
+      <form id="scoutSurveyForm" onsubmit="handleSurveySubmit(event)" style="padding:28px 32px;">
         <!-- Phần 1: Thông tin của bé -->
-        <div style="margin-bottom:28px;">
-          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+        <div style="margin-bottom:26px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:16.5px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
             <span>🧒</span> 1. THÔNG TIN ĐOÀN SINH
           </h4>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Họ và tên của bé *</label>
-              <input type="text" required name="childName" placeholder="Nguyễn Văn A" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Họ và tên của bé *</label>
+              <input type="text" required id="f_childName" name="childName" placeholder="Nguyễn Văn A" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Ngày sinh của bé *</label>
-              <input type="date" required name="childDob" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Ngày sinh của bé *</label>
+              <input type="date" required id="f_childDob" name="childDob" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Trường &amp; Lớp đang học</label>
-              <input type="text" name="childSchool" placeholder="Lớp 4A - TH Đô Thị Việt Hưng" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Trường &amp; Lớp đang học</label>
+              <input type="text" id="f_childSchool" name="childSchool" placeholder="Lớp 4A - TH Đô Thị Việt Hưng" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Ngành xin tham gia *</label>
-              <select required name="scoutBranch" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;background:#fff;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Ngành xin tham gia *</label>
+              <select required id="f_scoutBranch" name="scoutBranch" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;background:#fff;">
                 <option value="Ấu đoàn (Sói con 7–11 tuổi)">Ấu đoàn (Sói con 7–11 tuổi)</option>
                 <option value="Thiếu đoàn (Thiếu sinh 11–15 tuổi)">Thiếu đoàn (Thiếu sinh 11–15 tuổi)</option>
                 <option value="Tráng đoàn (18+ tuổi)">Tráng đoàn (18+ tuổi)</option>
               </select>
             </div>
             <div style="grid-column:1/-1;">
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Sở thích, năng khiếu hoặc tiền sử dị ứng / bệnh lý của bé (nếu có)</label>
-              <textarea name="childNotes" rows="2" placeholder="Thích vẽ tranh, bóng đá; bị dị ứng phấn hoa / hải sản nhẹ..." style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;"></textarea>
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Sở thích, năng khiếu hoặc tiền sử dị ứng / bệnh lý của bé (nếu có)</label>
+              <textarea id="f_childNotes" name="childNotes" rows="2" placeholder="Thích vẽ tranh, bóng đá; bị dị ứng phấn hoa / hải sản nhẹ..." style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;"></textarea>
             </div>
           </div>
         </div>
 
         <!-- Phần 2: Thông tin cha mẹ -->
-        <div style="margin-bottom:28px;">
-          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+        <div style="margin-bottom:26px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:16.5px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
             <span>👨‍👩‍👧</span> 2. THÔNG TIN PHỤ HUYNH &amp; LIÊN HỆ
           </h4>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Họ tên Cha / Mẹ đại diện *</label>
-              <input type="text" required name="parentName" placeholder="Nguyễn Văn B" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Họ tên Cha / Mẹ đại diện *</label>
+              <input type="text" required id="f_parentName" name="parentName" placeholder="Nguyễn Văn B" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Số điện thoại (Zalo) *</label>
-              <input type="tel" required name="parentPhone" placeholder="0982 xxx xxx" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Số điện thoại (Zalo) *</label>
+              <input type="tel" required id="f_parentPhone" name="parentPhone" placeholder="0982 xxx xxx" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Email liên hệ</label>
-              <input type="email" name="parentEmail" placeholder="phuhuynh@gmail.com" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Email liên hệ</label>
+              <input type="email" id="f_parentEmail" name="parentEmail" placeholder="phuhuynh@gmail.com" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px;">Địa chỉ cư trú</label>
-              <input type="text" name="parentAddress" placeholder="Quận Long Biên, Hà Nội" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;box-sizing:border-box;">
+              <label style="display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:5px;">Địa chỉ cư trú</label>
+              <input type="text" id="f_parentAddress" name="parentAddress" placeholder="Quận Long Biên, Hà Nội" style="width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;box-sizing:border-box;">
             </div>
           </div>
         </div>
 
         <!-- Phần 3: Sở thích & Hoạt động gia đình (Từ file 5) -->
-        <div style="margin-bottom:28px;">
-          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+        <div style="margin-bottom:26px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:16.5px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
             <span>🎨</span> 3. THÚ TIÊU KHIỂN &amp; SỞ THÍCH GIA ĐÌNH
           </h4>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Đánh dấu vào những lĩnh vực mà gia đình có sở thích hoặc kinh nghiệm:</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;color:var(--ink);">
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Quay phim / Chụp ảnh"> 📸 Quay phim, chụp ảnh</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Âm nhạc / Ca hát"> 🎵 Âm nhạc, ca hát</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Hội họa / Mỹ thuật"> 🎨 Hội họa, vẽ tranh</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Thủ công Handmade"> ✂️ Thủ công (Handmade)</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Nấu ăn ngoài trời"> 🍳 Nấu ăn dã ngoại</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Mộc & Sửa chữa"> 🔨 Làm mộc, sửa chữa</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Thể dục thể thao"> ⚽ Thể thao, võ thuật</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Y tế & Sơ cứu"> 🩺 Y tế, sơ cấp cứu</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="hobbies" value="Công nghệ IT / Truyền thông"> 💻 Công nghệ IT / Mạng</label>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Đánh dấu vào những lĩnh vực gia đình có sở thích hoặc kinh nghiệm:</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:8px;font-size:13px;color:var(--ink);">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Quay phim / Chụp ảnh"> 📸 Quay phim, chụp ảnh</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Âm nhạc / Ca hát"> 🎵 Âm nhạc, ca hát</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Hội họa / Mỹ thuật"> 🎨 Hội họa, vẽ tranh</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Thủ công Handmade"> ✂️ Thủ công (Handmade)</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Nấu ăn ngoài trời"> 🍳 Nấu ăn dã ngoại</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Mộc & Sửa chữa"> 🔨 Làm mộc, sửa chữa</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Thể dục thể thao"> ⚽ Thể thao, võ thuật</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Y tế & Sơ cứu"> 🩺 Y tế, sơ cấp cứu</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="hobbies" value="Công nghệ IT / Truyền thông"> 💻 Công nghệ IT / Mạng</label>
           </div>
         </div>
 
         <!-- Phần 4: Khả năng đồng hành & Hỗ trợ (Từ file 5) -->
-        <div style="margin-bottom:28px;">
-          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:17px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
+        <div style="margin-bottom:26px;">
+          <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:16.5px;color:var(--forest);margin:0 0 14px 0;padding-bottom:6px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px;">
             <span>🤝</span> 4. KHẢ NĂNG ĐỒNG HÀNH &amp; HỖ TRỢ LIÊN ĐOÀN
           </h4>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Gia đình sẵn sàng hỗ trợ Liên đoàn trong các lĩnh vực dưới đây:</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;color:var(--ink);">
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Giúp chào đón phụ huynh mới"> 👋 Giúp chào đón các phụ huynh mới khác</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Hỗ trợ hậu cần các chuyến đi/trại"> 🎒 Hỗ trợ hậu cần cho các chuyến đi và trại</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Cung cấp/giới thiệu phương tiện đi lại"> 🚗 Cung cấp hoặc giới thiệu phương tiện đi lại</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Có thiết bị cắm trại gia đình"> ⛺ Có thiết bị cắm trại gia đình có thể hỗ trợ</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Tình nguyện chia sẻ kỹ năng chuyên môn"> 💡 Sẵn sàng làm người chia sẻ kỹ năng chuyên môn</label>
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" name="supports" value="Hỗ trợ chụp ảnh/quay video sự kiện"> 📷 Hỗ trợ chụp ảnh, làm clip cho các con</label>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Gia đình sẵn sàng hỗ trợ Liên đoàn trong các lĩnh vực dưới đây:</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:8px;font-size:13px;color:var(--ink);">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="supports" value="Giúp chào đón phụ huynh mới"> 👋 Giúp chào đón các phụ huynh mới khác</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="supports" value="Hỗ trợ hậu cần các chuyến đi/trại"> 🎒 Hỗ trợ hậu cần cho các chuyến đi và trại</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="supports" value="Cung cấp/giới thiệu phương tiện đi lại"> 🚗 Cung cấp hoặc giới thiệu phương tiện</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="supports" value="Có thiết bị cắm trại gia đình"> ⛺ Có thiết bị cắm trại gia đình có thể hỗ trợ</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="supports" value="Tình nguyện chia sẻ kỹ năng chuyên môn"> 💡 Sẵn sàng làm người chia sẻ kỹ năng</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:#f8f9fa;padding:8px 12px;border-radius:8px;border:1px solid var(--line);"><input type="checkbox" name="supports" value="Hỗ trợ chụp ảnh/quay video sự kiện"> 📷 Hỗ trợ chụp ảnh, làm clip cho các con</label>
           </div>
         </div>
 
-        <!-- Actions -->
-        <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);">
-          <a href="Bieu Mau Quy DInh/5. FILE TÌM HIỂU ĐOÀN SINH MỚI.docx" download class="btn" style="background:#f0f4f3;color:var(--forest);border:1px solid var(--line);font-size:13px;padding:10px 20px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
-            📥 Tải Bản Word Gốc (.docx)
-          </a>
-          <div style="display:flex;gap:12px;">
-            <button type="button" onclick="closeSurveyModal()" class="btn" style="background:#fff;border:1px solid var(--line);padding:10px 20px;border-radius:999px;cursor:pointer;">Đóng</button>
-            <button type="submit" class="btn btn-primary" style="padding:10px 28px;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(237,123,43,0.35);">
-              🚀 Gửi Phiếu Tìm Hiểu Trực Tuyến
+        <!-- Action Buttons Bar -->
+        <div style="background:#f9fbfb;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" onclick="exportSurveyPDF()" class="btn" style="background:#ffffff;color:var(--forest);border:1px solid var(--line);font-size:13px;padding:9px 16px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+              📄 In / Xuất PDF Chuẩn
+            </button>
+            <a href="Bieu Mau Quy DInh/5. FILE TÌM HIỂU ĐOÀN SINH MỚI.docx" download class="btn" style="background:#ffffff;color:var(--muted);border:1px solid var(--line);font-size:13px;padding:9px 16px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+              📥 Tải Bản Word (.docx)
+            </a>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" onclick="submitToZalo()" class="btn" style="background:#0068ff;color:#ffffff;border:none;padding:10px 18px;border-radius:999px;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 3px 10px rgba(0,104,255,0.3);">
+              💬 Gửi Qua Zalo Trưởng Thảo
+            </button>
+            <button type="submit" class="btn btn-primary" style="padding:10px 22px;border-radius:999px;font-weight:800;font-size:14px;box-shadow:0 4px 14px rgba(237,123,43,0.35);cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+              📧 Gửi Tới Email Liên Đoàn ↗
             </button>
           </div>
         </div>
@@ -4138,7 +4159,7 @@
     </div>
   </div>
 
-  <!-- Survey Modal JS Handler -->
+  <!-- Survey Modal JS Handler (Full Email, Zalo & PDF Export Engines) -->
   <script>
     function openSurveyModal() {
       const m = document.getElementById('scoutSurveyModal');
@@ -4154,43 +4175,195 @@
         document.body.style.overflow = '';
       }
     }
+
+    function getSurveyData() {
+      const form = document.getElementById('scoutSurveyForm');
+      if (!form) return null;
+      const data = new FormData(form);
+      return {
+        childName: data.get('childName') || '',
+        childDob: data.get('childDob') || '',
+        childSchool: data.get('childSchool') || '',
+        scoutBranch: data.get('scoutBranch') || '',
+        childNotes: data.get('childNotes') || '',
+        parentName: data.get('parentName') || '',
+        parentPhone: data.get('parentPhone') || '',
+        parentEmail: data.get('parentEmail') || '',
+        parentAddress: data.get('parentAddress') || '',
+        hobbies: data.getAll('hobbies'),
+        supports: data.getAll('supports')
+      };
+    }
+
+    // 1. Submit to Email (longbienscouts@gmail.com)
     function handleSurveySubmit(e) {
       e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      const childName = data.get('childName');
-      const parentName = data.get('parentName');
-      const parentPhone = data.get('parentPhone');
-      const branch = data.get('scoutBranch');
-      
+      const s = getSurveyData();
+      if (!s || !s.childName || !s.parentName || !s.parentPhone) {
+        alert('Vui lòng điền đầy đủ các thông tin bắt buộc (*)!');
+        return;
+      }
+
       // Save locally
       try {
         const surveys = JSON.parse(localStorage.getItem('scout_surveys') || '[]');
-        surveys.push({
-          childName,
-          dob: data.get('childDob'),
-          school: data.get('childSchool'),
-          branch,
-          notes: data.get('childNotes'),
-          parentName,
-          parentPhone,
-          parentEmail: data.get('parentEmail'),
-          parentAddress: data.get('parentAddress'),
-          hobbies: data.getAll('hobbies'),
-          supports: data.getAll('supports'),
-          submittedAt: new Date().toISOString()
-        });
+        surveys.push({ ...s, submittedAt: new Date().toISOString() });
         localStorage.setItem('scout_surveys', JSON.stringify(surveys));
       } catch(err){}
 
-      alert(`Cảm ơn Quý Phụ huynh ${parentName}!
+      // Format Email content
+      const subject = encodeURIComponent(`[ĐĂNG KÝ ĐOÀN SINH MỚI] - Bé ${s.childName} (${s.scoutBranch})`);
+      const body = encodeURIComponent(
+`Kính gửi Ban Huynh Trưởng Liên đoàn Hướng đạo Long Biên,
 
-Liên đoàn Hướng đạo Long Biên đã tiếp nhận thành công Phiếu tìm hiểu của bé ${childName} (${branch}).
-Ban Huynh trưởng sẽ liên hệ số ${parentPhone} trong vòng 24-48h để trao đổi và gửi thư mời dự thính!`);
-      form.reset();
-      closeSurveyModal();
+Gia đình tôi xin gửi Phiếu tìm hiểu đoàn sinh mới cho bé như sau:
+
+--- 1. THÔNG TIN ĐOÀN SINH ---
+• Họ và tên bé: ${s.childName}
+• Ngày sinh: ${s.childDob}
+• Trường/Lớp: ${s.childSchool || 'Chưa cập nhật'}
+• Ngành xin tham gia: ${s.scoutBranch}
+• Sở thích / Ghi chú sức khỏe: ${s.childNotes || 'Không có'}
+
+--- 2. THÔNG TIN PHỤ HUYNH ---
+• Họ tên Cha/Mẹ: ${s.parentName}
+• Số điện thoại (Zalo): ${s.parentPhone}
+• Email: ${s.parentEmail || 'Chưa cập nhật'}
+• Địa chỉ: ${s.parentAddress || 'Quận Long Biên, Hà Nội'}
+
+--- 3. SỞ THÍCH & HOẠT ĐỘNG GIA ĐÌNH ---
+${s.hobbies.length ? s.hobbies.map(h => '• ' + h).join('\n') : '• Không có'}
+
+--- 4. KHẢ NĂNG ĐỒNG HÀNH & HỖ TRỢ LIÊN ĐOÀN ---
+${s.supports.length ? s.supports.map(sp => '• ' + sp).join('\n') : '• Luôn sẵn sàng hỗ trợ khi cần'}
+
+Kính mong Ban Huynh Trưởng xem xét và gửi thư mời dự thính cho bé!
+Trân trọng cảm ơn,
+${s.parentName} - ${s.parentPhone}`
+      );
+
+      // Open mailto
+      window.location.href = `mailto:longbienscouts@gmail.com?subject=${subject}&body=${body}`;
+
+      alert(`✅ Cảm ơn Quý Phụ huynh ${s.parentName}!\n\nPhiếu tìm hiểu của bé ${s.childName} đã được soạn sẵn để gửi tới email: longbienscouts@gmail.com.\n\nQuý phụ huynh cũng có thể bấm nút "Gửi Qua Zalo Trưởng Thảo" hoặc "In/Xuất PDF" để lưu hồ sơ ngay lập tức!`);
+    }
+
+    // 2. Submit to Zalo (0982 669 456 - LĐT Phương Thảo)
+    function submitToZalo() {
+      const s = getSurveyData();
+      if (!s || !s.childName || !s.parentName || !s.parentPhone) {
+        alert('Vui lòng điền thông tin của bé và phụ huynh trước khi gửi qua Zalo!');
+        return;
+      }
+
+      const summaryText = 
+`⚜️ [PHIẾU TÌM HIỂU ĐOÀN SINH MỚI - LĐ LONG BIÊN]
+• Bé: ${s.childName} (Sinh: ${s.childDob || 'N/A'}) - Lớp: ${s.childSchool || 'N/A'}
+• Ngành đăng ký: ${s.scoutBranch}
+• Ghi chú/Sức khỏe: ${s.childNotes || 'Bình thường'}
+• Phụ huynh: ${s.parentName} - SĐT: ${s.parentPhone}
+• Email: ${s.parentEmail || 'N/A'} - Địa chỉ: ${s.parentAddress || 'Long Biên'}
+• Sở thích gia đình: ${s.hobbies.join(', ') || 'N/A'}
+• Sẵn sàng hỗ trợ: ${s.supports.join(', ') || 'Đồng hành cùng con'}`;
+
+      // Copy to clipboard
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(summaryText);
+      }
+
+      alert(`📋 Đã tự động sao chép toàn bộ thông tin đăng ký của bé ${s.childName} vào bộ nhớ tạm!\n\nTrang sẽ mở Zalo của Liên đoàn trưởng Phương Thảo (0982 669 456) ngay bây giờ. Quý phụ huynh chỉ cần dán (Paste) tin nhắn và gửi cho Trưởng Thảo!`);
+      window.open('https://zalo.me/0982669456', '_blank');
+    }
+
+    // 3. Export to PDF Print View
+    function exportSurveyPDF() {
+      const s = getSurveyData();
+      const printWin = window.open('', '_blank', 'width=800,height=900');
+      if (!printWin) {
+        alert('Vui lòng cho phép mở cửa sổ popup để in hoặc lưu file PDF!');
+        return;
+      }
+
+      const htmlContent = `
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Phiếu Tìm Hiểu Đoàn Sinh Mới - ${s.childName || 'Long Biên Scouts'}</title>
+  <style>
+    body { font-family: 'Times New Roman', serif; padding: 40px; color: #111; line-height: 1.5; font-size: 14px; }
+    .header { text-align: center; margin-bottom: 24px; border-bottom: 2px solid #113237; padding-bottom: 14px; }
+    .header h3 { margin: 0 0 4px; font-size: 15px; text-transform: uppercase; color: #113237; }
+    .header h2 { margin: 0; font-size: 20px; text-transform: uppercase; color: #b73e00; }
+    .sec-title { font-weight: bold; font-size: 15px; color: #113237; margin: 16px 0 8px; border-bottom: 1px dashed #ccc; padding-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+    table td { padding: 6px 8px; border: 1px solid #ddd; }
+    table td.label { font-weight: bold; background: #f9f9f9; width: 30%; }
+    .signature-grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 40px; text-align: center; }
+    @media print {
+      body { padding: 0; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3>LIÊN ĐOÀN HƯỚNG ĐẠO LONG BIÊN · HÀ NỘI</h3>
+    <h2>PHIẾU TÌM HIỂU GIA ĐÌNH &amp; ĐOÀN SINH MỚI</h2>
+    <p style="margin:4px 0 0;font-size:12px;font-style:italic;">(Biểu mẫu số 05 &mdash; Hồ sơ tiếp nhận đoàn sinh)</p>
+  </div>
+
+  <div class="sec-title">I. THÔNG TIN ĐOÀN SINH</div>
+  <table>
+    <tr><td class="label">Họ và tên của bé:</td><td><strong>${s.childName || '...................................................'}</strong></td></tr>
+    <tr><td class="label">Ngày sinh:</td><td>${s.childDob || '...................................................'}</td></tr>
+    <tr><td class="label">Trường &amp; Lớp:</td><td>${s.childSchool || '...................................................'}</td></tr>
+    <tr><td class="label">Ngành tham gia:</td><td><strong>${s.scoutBranch || 'Ấu đoàn (Sói con)'}</strong></td></tr>
+    <tr><td class="label">Sở thích &amp; Sức khỏe:</td><td>${s.childNotes || 'Bình thường, không dị ứng'}</td></tr>
+  </table>
+
+  <div class="sec-title">II. THÔNG TIN PHỤ HUYNH</div>
+  <table>
+    <tr><td class="label">Họ tên Cha / Mẹ:</td><td><strong>${s.parentName || '...................................................'}</strong></td></tr>
+    <tr><td class="label">Số điện thoại (Zalo):</td><td><strong>${s.parentPhone || '...................................................'}</strong></td></tr>
+    <tr><td class="label">Email:</td><td>${s.parentEmail || '...................................................'}</td></tr>
+    <tr><td class="label">Địa chỉ cư trú:</td><td>${s.parentAddress || 'Quận Long Biên, Hà Nội'}</td></tr>
+  </table>
+
+  <div class="sec-title">III. SỞ THÍCH &amp; HOẠT ĐỘNG GIA ĐÌNH</div>
+  <p>${s.hobbies.length ? s.hobbies.join(', ') : 'Gia đình yêu thích các hoạt động dã ngoại ngoài trời và thể thao.'}</p>
+
+  <div class="sec-title">IV. KHẢ NĂNG ĐỒNG HÀNH &amp; HỖ TRỢ LIÊN ĐOÀN</div>
+  <p>${s.supports.length ? s.supports.join('; ') : 'Cam kết đưa đón con sinh hoạt đều đặn sáng Chủ nhật và hỗ trợ hậu cần khi có yêu cầu.'}</p>
+
+  <div class="signature-grid">
+    <div>
+      <p><em>Hà Nội, ngày......tháng......năm 202...</em></p>
+      <p><strong>XÁC NHẬN BAN HUYNH TRƯỞNG</strong></p>
+      <div style="height:60px;"></div>
+      <p><strong>Nguyễn Phương Thảo</strong><br><small>Liên đoàn trưởng</small></p>
+    </div>
+    <div>
+      <p><em>Hà Nội, ngày......tháng......năm 202...</em></p>
+      <p><strong>NGƯỜI KHAI ĐƠN / PHỤ HUYNH</strong></p>
+      <div style="height:60px;"></div>
+      <p><strong>${s.parentName || 'Chữ ký Phụ huynh'}</strong></p>
+    </div>
+  </div>
+
+  <div class="no-print" style="margin-top:30px;text-align:center;">
+    <button onclick="window.print()" style="background:#ed7b2b;color:#fff;border:none;padding:10px 24px;border-radius:999px;font-weight:bold;cursor:pointer;font-size:15px;">🖨️ BẤM ĐỂ IN HOẶC LƯU FILE PDF</button>
+  </div>
+</body>
+</html>
+      `;
+
+      printWin.document.write(htmlContent);
+      printWin.document.close();
     }
   </script>
+
+
 
 
   <script>

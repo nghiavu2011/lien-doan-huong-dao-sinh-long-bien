@@ -1229,31 +1229,47 @@
 
   
     /* ========================================================
-       PERFECTED GRAPHIC ARROW RIBBON TIMELINE
+       ZERO HORIZONTAL PAGE OVERFLOW & COMPACT GRAPHIC TIMELINE
        ======================================================== */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+
     .graphic-timeline-sec {
       background: #fdfdfd;
       position: relative;
+      overflow: hidden !important;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    .gt-main-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      overflow: hidden;
     }
 
     .gt-grid-row {
       display: grid;
-      grid-template-columns: repeat(10, 160px);
-      gap: 16px;
-      width: max-content;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
     }
 
     .gt-arrow-ribbon {
       display: grid;
-      grid-template-columns: repeat(10, 160px);
-      gap: 16px;
-      width: max-content;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
       background: linear-gradient(90deg, #0e292d 0%, #154249 45%, #1c5b65 80%, #206d7a 100%);
-      padding: 14px 48px 14px 20px;
+      padding: 10px 32px 10px 14px;
       border-radius: 8px 0 0 8px;
-      clip-path: polygon(0% 0%, calc(100% - 36px) 0%, 100% 50%, calc(100% - 36px) 100%, 0% 100%);
-      box-shadow: 0 8px 24px rgba(17, 50, 55, 0.22);
-      margin: 12px 0;
+      clip-path: polygon(0% 0%, calc(100% - 24px) 0%, 100% 50%, calc(100% - 24px) 100%, 0% 100%);
+      box-shadow: 0 6px 20px rgba(17, 50, 55, 0.2);
+      margin: 8px 0;
       position: relative;
     }
 
@@ -1262,13 +1278,13 @@
       align-items: center;
       justify-content: center;
       font-family: 'Roboto Slab', Georgia, serif;
-      font-size: 17.5px;
+      font-size: 13px;
       font-weight: 800;
       color: #ffffff;
       letter-spacing: -.02em;
       white-space: nowrap;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-      width: 160px;
+      text-align: center;
     }
     .gt-year-cell.active {
       color: #ffd166;
@@ -1277,7 +1293,8 @@
     .gt-col-box {
       display: flex;
       flex-direction: column;
-      width: 160px;
+      width: 100%;
+      min-width: 0;
     }
     .gt-col-box.top {
       justify-content: flex-end;
@@ -1293,14 +1310,15 @@
     .gt-card {
       background: #ffffff;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px 14px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      padding: 8px 6px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      min-width: 0;
     }
     .gt-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 22px rgba(17, 50, 55, 0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(17, 50, 55, 0.12);
       border-color: var(--forest);
     }
     .gt-card.highlight {
@@ -1310,15 +1328,16 @@
 
     .gt-tag {
       display: block;
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 800;
       color: var(--forest);
-      letter-spacing: .08em;
-      margin-bottom: 8px;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
       text-transform: uppercase;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-align: center;
     }
     .gt-tag.highlight {
       color: var(--fire);
@@ -1326,10 +1345,10 @@
 
     .gt-thumb {
       width: 100%;
-      height: 84px;
-      border-radius: 8px;
+      height: 56px;
+      border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       background: #f0f0f0;
     }
     .gt-thumb img {
@@ -1339,31 +1358,36 @@
       transition: transform .3s ease;
     }
     .gt-card:hover .gt-thumb img {
-      transform: scale(1.06);
+      transform: scale(1.08);
     }
 
     .gt-card h4 {
       font-family: 'Roboto Slab', Georgia, serif;
-      font-size: 13px;
+      font-size: 10.5px;
       font-weight: 700;
       color: var(--forest);
-      margin: 0 0 5px 0;
-      line-height: 1.3;
+      margin: 0 0 3px 0;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
     }
     .gt-card p {
-      font-size: 11px;
+      font-size: 9px;
       color: var(--muted);
       margin: 0;
-      line-height: 1.4;
+      line-height: 1.3;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      text-align: center;
     }
 
     .gt-pointer {
       width: 2px;
-      height: 14px;
+      height: 10px;
       background: #c8d3d5;
       margin: 0 auto;
     }
@@ -1374,14 +1398,31 @@
       margin-top: 0;
     }
 
-    /* Mobile Responsive for Graphic Timeline */
+    /* Tablet & iPad Responsive (Scroll contained internally, page never overflows) */
+    @media (max-width: 1024px) {
+      .gt-main-container {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 12px;
+      }
+      .gt-grid-row, .gt-arrow-ribbon {
+        width: 1000px !important;
+      }
+    }
+
     @media (max-width: 768px) {
       .gt-header-grid {
         grid-template-columns: 1fr !important;
         gap: 14px !important;
       }
       .graphic-timeline-sec {
-        padding: 32px 0 40px !important;
+        padding: 32px 0 38px !important;
+      }
+      .gt-grid-row, .gt-arrow-ribbon {
+        width: 860px !important;
+      }
+      .gt-thumb {
+        height: 50px !important;
       }
     }
 
@@ -1721,216 +1762,214 @@
       </div>
     </section>
 
-            <!-- =============== DÒNG THỜI GIAN (GRAPHIC CHEVRON ARROW TIMELINE - 8 NĂM HÀNH TRÌNH) =============== -->
-    <section class="section graphic-timeline-sec" id="dong-thoi-gian" style="padding:48px 0 60px;background:#fcfcfc;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;">
-      <div class="container" style="margin-bottom:32px;">
+                <!-- =============== DÒNG THỜI GIAN (GRAPHIC CHEVRON ARROW TIMELINE - 100% ZERO HORIZONTAL OVERFLOW) =============== -->
+    <section class="section graphic-timeline-sec" id="dong-thoi-gian" style="padding:44px 0 54px;background:#fcfcfc;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;width:100%;max-width:100vw;">
+      <div class="container" style="margin-bottom:28px;">
         <div class="gt-header-grid" style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;">
           <!-- Editorial Headline Box -->
           <div style="border-left:4px solid var(--fire);padding-left:18px;">
             <div style="font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--fire);text-transform:uppercase;margin-bottom:4px;">
               HÀNH TRÌNH TỰ HÀO &gt; 2018 &mdash; 2026
             </div>
-            <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:30px;color:var(--forest);margin:0;line-height:1.15;letter-spacing:-.02em;">
+            <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:28px;color:var(--forest);margin:0;line-height:1.15;letter-spacing:-.02em;">
               DÒNG THỜI GIAN <span style="color:var(--fire);">&gt;</span><br>
-              <span style="font-size:24px;font-weight:600;color:var(--ink);">NUÔI DƯỠNG &amp; TRƯỞNG THÀNH</span>
+              <span style="font-size:22px;font-weight:600;color:var(--ink);">NUÔI DƯỠNG &amp; TRƯỞNG THÀNH</span>
             </h2>
           </div>
           <!-- Editorial Intro Paragraph -->
           <div>
-            <p style="font-size:14.5px;color:var(--muted);margin:0;line-height:1.6;max-width:680px;">
+            <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.6;max-width:680px;">
               Khởi nguồn từ mùa xuân 2018 tại <strong>Vườn hoa Bắc Biên</strong>, những phụ huynh cùng chung tâm huyết đã tạo nên một mái nhà dã ngoại ngoài trời cho các con. Trải qua hơn <strong>8 năm kiên trì</strong>, từng thế hệ Hải Ly, Sói Con, Thiếu Sinh đã lớn khôn trong tình huynh đệ và bài học phụng sự cộng đồng.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- HORIZONTAL GRAPHIC SCROLL TRACK -->
-      <div class="gt-scroll-wrapper" style="overflow-x:auto;padding:20px 0 30px;-webkit-overflow-scrolling:touch;">
-        <div class="gt-track-container" style="width:max-content;padding:0 max(24px, calc((100vw - 1200px)/2));">
-          
-          <!-- TOP ROW: ODD MILESTONES (160px per column) -->
-          <div class="gt-grid-row gt-top-row">
-            <!-- 1. 2018 Xuân (Top) -->
-            <div class="gt-col-box top">
-              <div class="gt-card">
-                <span class="gt-tag">11/03/2018 · KHỞI ĐẦU</span>
-                <div class="gt-thumb">
-                  <img src="image/Celebrating the 7th birthday/491923321_655918490521689_1881210032743427158_n.jpg" alt="Thành lập đoàn" loading="lazy">
-                </div>
-                <h4>Thành Lập Liên Đoàn</h4>
-                <p>Phụ huynh cùng xóm ngồi lại, chung ước mong con có chỗ rèn luyện ngoài trời tại Bắc Biên.</p>
+      <!-- DESKTOP 100% CONTAINER FIT & MOBILE TOUCH TRACK (ZERO PAGE OVERFLOW) -->
+      <div class="container gt-main-container">
+        
+        <!-- TOP ROW: ODD MILESTONES -->
+        <div class="gt-grid-row gt-top-row">
+          <!-- 1. 2018 Xuân (Top) -->
+          <div class="gt-col-box top">
+            <div class="gt-card">
+              <span class="gt-tag">11/03/2018</span>
+              <div class="gt-thumb">
+                <img src="image/Celebrating the 7th birthday/491923321_655918490521689_1881210032743427158_n.jpg" alt="Thành lập đoàn" loading="lazy">
               </div>
-              <div class="gt-pointer down"></div>
+              <h4>Thành Lập Đoàn</h4>
+              <p>Khởi dựng sân chơi ngoài trời tại Bắc Biên.</p>
             </div>
-
-            <!-- 2. 2018 Hạ (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 3. 2019 (Top) -->
-            <div class="gt-col-box top">
-              <div class="gt-card">
-                <span class="gt-tag">2019 · HOÀN THIỆN</span>
-                <div class="gt-thumb">
-                  <img src="image/Cub Scout Pack Meeting – September 28, 2025/556101304_787662684013935_8013701245717384500_n.jpg" alt="4 Đoàn chuyên biệt" loading="lazy">
-                </div>
-                <h4>Xây Dựng 4 Ngành</h4>
-                <p>Hoàn thiện đủ các bậc ngành: Hải Ly (5–7t), Ấu đoàn Sói Con (7–11t) và Thiếu đoàn (11–15t).</p>
-              </div>
-              <div class="gt-pointer down"></div>
-            </div>
-
-            <!-- 4. 2020 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 5. 2021 (Top) -->
-            <div class="gt-col-box top">
-              <div class="gt-card">
-                <span class="gt-tag">24/01/2021 · LỄ CHUYỂN NGÀNH</span>
-                <div class="gt-thumb">
-                  <img src="image/Cub Scout Pack Meeting – September 28, 2025/557264503_787662724013931_3503980502097036579_n.jpg" alt="Lễ chuyển ngành" loading="lazy">
-                </div>
-                <h4>Hải Ly Lên Sói</h4>
-                <p>Lễ trao khăn quàng Sói con ngành Ấu thiêng liêng, đánh dấu bước tự lập đầu đời của các bé.</p>
-              </div>
-              <div class="gt-pointer down"></div>
-            </div>
-
-            <!-- 6. 2022 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 7. 2023 (Top) -->
-            <div class="gt-col-box top">
-              <div class="gt-card">
-                <span class="gt-tag">2023 · ĐỒNG HÀNH</span>
-                <div class="gt-thumb">
-                  <img src="image/kynang/6-chon-dat-trai-an-toan.jpg" alt="Trại gia đình" loading="lazy">
-                </div>
-                <h4>Trại Gia Đình</h4>
-                <p>Phụ huynh cùng cắm trại, nấu nướng và tham gia trò chơi lớn thử thách tình phụ tử.</p>
-              </div>
-              <div class="gt-pointer down"></div>
-            </div>
-
-            <!-- 8. 2024 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 9. 2025 (Top) -->
-            <div class="gt-col-box top">
-              <div class="gt-card">
-                <span class="gt-tag">2025 · VĂN HÓA &amp; SỐ</span>
-                <div class="gt-thumb">
-                  <img src="image/Hanoi in Autumn – The 36 Streets/595902511_844981744948695_6858917738647420863_n.jpg" alt="Trại 36 phố phường & An toàn số" loading="lazy">
-                </div>
-                <h4>36 Phố Phường &amp; Kỹ Năng Số</h4>
-                <p>Thám du lịch sử Thăng Long kết hợp huấn luyện An toàn không gian số vững vàng.</p>
-              </div>
-              <div class="gt-pointer down"></div>
-            </div>
-
-            <!-- 10. 2026 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
+            <div class="gt-pointer down"></div>
           </div>
 
+          <!-- 2. 2018 Hạ (Spacer) -->
+          <div class="gt-col-box spacer"></div>
 
-          <!-- ================= CENTRAL CHEVRON ARROW RIBBON STRIP ================= -->
-          <div class="gt-arrow-ribbon">
-            <div class="gt-year-cell"><span>&gt; 2018</span></div>
-            <div class="gt-year-cell"><span>&gt; 2018 Hạ</span></div>
-            <div class="gt-year-cell"><span>&gt; 2019</span></div>
-            <div class="gt-year-cell"><span>&gt; 2020</span></div>
-            <div class="gt-year-cell"><span>&gt; 2021</span></div>
-            <div class="gt-year-cell"><span>&gt; 2022</span></div>
-            <div class="gt-year-cell"><span>&gt; 2023</span></div>
-            <div class="gt-year-cell"><span>&gt; 2024</span></div>
-            <div class="gt-year-cell"><span>&gt; 2025</span></div>
-            <div class="gt-year-cell active"><span>&gt; 2026 Nay</span></div>
+          <!-- 3. 2019 (Top) -->
+          <div class="gt-col-box top">
+            <div class="gt-card">
+              <span class="gt-tag">2019</span>
+              <div class="gt-thumb">
+                <img src="image/Cub Scout Pack Meeting – September 28, 2025/556101304_787662684013935_8013701245717384500_n.jpg" alt="4 Ngành sinh hoạt" loading="lazy">
+              </div>
+              <h4>Xây Dựng 4 Ngành</h4>
+              <p>Đầy đủ Hải Ly, Sói Con, Thiếu và Tráng.</p>
+            </div>
+            <div class="gt-pointer down"></div>
           </div>
 
+          <!-- 4. 2020 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
 
-          <!-- BOTTOM ROW: EVEN MILESTONES (160px per column) -->
-          <div class="gt-grid-row gt-btm-row">
-            <!-- 1. 2018 Xuân (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 2. 2018 Hạ (Bottom) -->
-            <div class="gt-col-box bottom">
-              <div class="gt-pointer up"></div>
-              <div class="gt-card">
-                <span class="gt-tag">HÈ 2018 · TRẠI ĐẦU TIÊN</span>
-                <div class="gt-thumb">
-                  <img src="image/Year-End Camp – A Warm Tet Together/485010645_635577869222418_4662864317085724833_n.jpg" alt="Trại Sơn Tinh" loading="lazy">
-                </div>
-                <h4>Đêm Lửa Sơn Tinh</h4>
-                <p>Kỳ trại hè đầu tiên: các con tự tay dựng lều chữ A, học nấu cơm củi khói bên bờ hồ.</p>
+          <!-- 5. 2021 (Top) -->
+          <div class="gt-col-box top">
+            <div class="gt-card">
+              <span class="gt-tag">24/01/2021</span>
+              <div class="gt-thumb">
+                <img src="image/Cub Scout Pack Meeting – September 28, 2025/557264503_787662724013931_3503980502097036579_n.jpg" alt="Lễ chuyển ngành" loading="lazy">
               </div>
+              <h4>Hải Ly Lên Sói</h4>
+              <p>Lễ trao khăn quàng Sói con ngành Ấu.</p>
             </div>
-
-            <!-- 3. 2019 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 4. 2020 (Bottom) -->
-            <div class="gt-col-box bottom">
-              <div class="gt-pointer up"></div>
-              <div class="gt-card">
-                <span class="gt-tag">2020 · THÍCH ỨNG</span>
-                <div class="gt-thumb">
-                  <img src="image/Cybersecurity – Standing Firm in the Digital Space/533462715_750725337707670_6320523264987660497_n.jpg" alt="Giữ lửa mùa dịch" loading="lazy">
-                </div>
-                <h4>Giữ Lửa Mùa Dịch</h4>
-                <p>Phố phường giãn cách nhưng sáng Chủ nhật vẫn trọn vẹn qua các bài tập rèn luyện tại gia.</p>
-              </div>
-            </div>
-
-            <!-- 5. 2021 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 6. 2022 (Bottom) -->
-            <div class="gt-col-box bottom">
-              <div class="gt-pointer up"></div>
-              <div class="gt-card">
-                <span class="gt-tag">2022 · BỨT PHÁ</span>
-                <div class="gt-thumb">
-                  <img src="image/kynang/1-dung-leu-dung-ky-thuat.jpg" alt="Tái thiết dã ngoại" loading="lazy">
-                </div>
-                <h4>Trở Lại Thiên Nhiên</h4>
-                <p>Khôi phục 100% các kỳ trại thám du ven sông Hồng, rèn luyện kỹ năng nghề rừng thực thụ.</p>
-              </div>
-            </div>
-
-            <!-- 7. 2023 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 8. 2024 (Bottom) -->
-            <div class="gt-col-box bottom">
-              <div class="gt-pointer up"></div>
-              <div class="gt-card">
-                <span class="gt-tag">10/11/2024 · PHỤNG SỰ</span>
-                <div class="gt-thumb">
-                  <img src="image/Spreading Love from the Long Bien Scouts Inter-group Units/502478820_690711557042382_3000212414862380124_n.jpg" alt="Tủ sách Đắk Lắk" loading="lazy">
-                </div>
-                <h4>Tủ Sách Trao Tay</h4>
-                <p>Gửi tặng hàng nghìn cuốn sách cho bạn nhỏ vùng cao Đắk Lắk &mdash; 'Mỗi ngày một việc tốt'.</p>
-              </div>
-            </div>
-
-            <!-- 9. 2025 (Spacer) -->
-            <div class="gt-col-box spacer"></div>
-
-            <!-- 10. 2026 (Bottom) -->
-            <div class="gt-col-box bottom">
-              <div class="gt-pointer up"></div>
-              <div class="gt-card highlight">
-                <span class="gt-tag highlight">2026 · 8 NĂM HÀNH TRÌNH</span>
-                <div class="gt-thumb">
-                  <img src="image/Year-End Camp – A Warm Tet Together/hero sector.jpg" alt="Kỷ niệm 8 năm" loading="lazy">
-                </div>
-                <h4>Vững Bước Tương Lai</h4>
-                <p>Kỷ niệm 8 năm bền bỉ, trao truyền giá trị sống trung thực, tự lập và tràn ngập tình yêu thương.</p>
-              </div>
-            </div>
+            <div class="gt-pointer down"></div>
           </div>
 
+          <!-- 6. 2022 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 7. 2023 (Top) -->
+          <div class="gt-col-box top">
+            <div class="gt-card">
+              <span class="gt-tag">2023</span>
+              <div class="gt-thumb">
+                <img src="image/kynang/6-chon-dat-trai-an-toan.jpg" alt="Trại gia đình" loading="lazy">
+              </div>
+              <h4>Trại Gia Đình</h4>
+              <p>Phụ huynh cắm trại, nấu nướng cùng con.</p>
+            </div>
+            <div class="gt-pointer down"></div>
+          </div>
+
+          <!-- 8. 2024 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 9. 2025 (Top) -->
+          <div class="gt-col-box top">
+            <div class="gt-card">
+              <span class="gt-tag">2025</span>
+              <div class="gt-thumb">
+                <img src="image/Hanoi in Autumn – The 36 Streets/595902511_844981744948695_6858917738647420863_n.jpg" alt="Trại 36 phố phường" loading="lazy">
+              </div>
+              <h4>36 Phố Phường</h4>
+              <p>Thám du lịch sử &amp; kỹ năng không gian số.</p>
+            </div>
+            <div class="gt-pointer down"></div>
+          </div>
+
+          <!-- 10. 2026 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
         </div>
+
+
+        <!-- ================= CENTRAL CHEVRON ARROW RIBBON STRIP ================= -->
+        <div class="gt-arrow-ribbon">
+          <div class="gt-year-cell"><span>&gt; 2018</span></div>
+          <div class="gt-year-cell"><span>&gt; 2018 Hạ</span></div>
+          <div class="gt-year-cell"><span>&gt; 2019</span></div>
+          <div class="gt-year-cell"><span>&gt; 2020</span></div>
+          <div class="gt-year-cell"><span>&gt; 2021</span></div>
+          <div class="gt-year-cell"><span>&gt; 2022</span></div>
+          <div class="gt-year-cell"><span>&gt; 2023</span></div>
+          <div class="gt-year-cell"><span>&gt; 2024</span></div>
+          <div class="gt-year-cell"><span>&gt; 2025</span></div>
+          <div class="gt-year-cell active"><span>&gt; 2026</span></div>
+        </div>
+
+
+        <!-- BOTTOM ROW: EVEN MILESTONES -->
+        <div class="gt-grid-row gt-btm-row">
+          <!-- 1. 2018 Xuân (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 2. 2018 Hạ (Bottom) -->
+          <div class="gt-col-box bottom">
+            <div class="gt-pointer up"></div>
+            <div class="gt-card">
+              <span class="gt-tag">HÈ 2018</span>
+              <div class="gt-thumb">
+                <img src="image/Year-End Camp – A Warm Tet Together/485010645_635577869222418_4662864317085724833_n.jpg" alt="Trại Sơn Tinh" loading="lazy">
+              </div>
+              <h4>Đêm Sơn Tinh</h4>
+              <p>Trại hè đầu tiên: dựng lều &amp; nấu cơm củi.</p>
+            </div>
+          </div>
+
+          <!-- 3. 2019 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 4. 2020 (Bottom) -->
+          <div class="gt-col-box bottom">
+            <div class="gt-pointer up"></div>
+            <div class="gt-card">
+              <span class="gt-tag">2020</span>
+              <div class="gt-thumb">
+                <img src="image/Cybersecurity – Standing Firm in the Digital Space/533462715_750725337707670_6320523264987660497_n.jpg" alt="Giữ lửa mùa dịch" loading="lazy">
+              </div>
+              <h4>Giữ Lửa Online</h4>
+              <p>Rèn luyện kỹ năng tại gia sáng Chủ nhật.</p>
+            </div>
+          </div>
+
+          <!-- 5. 2021 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 6. 2022 (Bottom) -->
+          <div class="gt-col-box bottom">
+            <div class="gt-pointer up"></div>
+            <div class="gt-card">
+              <span class="gt-tag">2022</span>
+              <div class="gt-thumb">
+                <img src="image/kynang/1-dung-leu-dung-ky-thuat.jpg" alt="Tái thiết dã ngoại" loading="lazy">
+              </div>
+              <h4>Trở Lại Rừng</h4>
+              <p>Trại thám du dã chiến ven sông Hồng.</p>
+            </div>
+          </div>
+
+          <!-- 7. 2023 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 8. 2024 (Bottom) -->
+          <div class="gt-col-box bottom">
+            <div class="gt-pointer up"></div>
+            <div class="gt-card">
+              <span class="gt-tag">10/11/2024</span>
+              <div class="gt-thumb">
+                <img src="image/Spreading Love from the Long Bien Scouts Inter-group Units/502478820_690711557042382_3000212414862380124_n.jpg" alt="Tủ sách Đắk Lắk" loading="lazy">
+              </div>
+              <h4>Tủ Sách Đắk Lắk</h4>
+              <p>Gửi sách tặng bạn nhỏ vùng cao.</p>
+            </div>
+          </div>
+
+          <!-- 9. 2025 (Spacer) -->
+          <div class="gt-col-box spacer"></div>
+
+          <!-- 10. 2026 (Bottom) -->
+          <div class="gt-col-box bottom">
+            <div class="gt-pointer up"></div>
+            <div class="gt-card highlight">
+              <span class="gt-tag highlight">2026 NAY</span>
+              <div class="gt-thumb">
+                <img src="image/Year-End Camp – A Warm Tet Together/hero sector.jpg" alt="Kỷ niệm 8 năm" loading="lazy">
+              </div>
+              <h4>8 Năm Vững Bước</h4>
+              <p>Kỷ niệm 8 năm hành trình nuôi dưỡng.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 

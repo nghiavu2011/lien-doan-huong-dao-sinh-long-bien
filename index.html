@@ -1118,6 +1118,141 @@
       }
     }
 
+  
+    /* ========================================================
+       DUAL SCOUT NEWS & MARQUEE ANIMATION (HDVN & WOSM)
+       ======================================================== */
+    @keyframes livePulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 10px rgba(230, 57, 70, 0.7); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .news-marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+    }
+    .news-marquee-wrap:hover .news-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 10px)); }
+    }
+
+    .news-card {
+      width: 270px;
+      flex-shrink: 0;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(17, 50, 55, 0.14);
+    }
+    .news-card.hdvn-theme:hover {
+      border-color: var(--forest);
+    }
+    .news-card.wosm-orange:hover {
+      border-color: #f77f00;
+    }
+    .news-card.wosm-cyan:hover {
+      border-color: #00b4d8;
+    }
+    .news-card.wosm-green:hover {
+      border-color: #52b788;
+    }
+
+    .news-card-img {
+      width: 100%;
+      height: 130px;
+      position: relative;
+      overflow: hidden;
+      background: #e9ecef;
+    }
+    .news-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .news-card:hover .news-card-img img {
+      transform: scale(1.08);
+    }
+
+    .news-tag {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: #ffffff;
+      backdrop-filter: blur(4px);
+    }
+    .news-tag.hdvn {
+      background: rgba(17, 50, 55, 0.88);
+    }
+    .news-tag.wosm {
+      background: rgba(82, 34, 130, 0.9);
+    }
+
+    .news-card-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .news-date {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .news-card-body h5 {
+      font-family: 'Roboto Slab', Georgia, serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--forest);
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .news-card-body p {
+      font-size: 11.5px;
+      color: var(--ink);
+      line-height: 1.45;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .scout-portals-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -1919,28 +2054,245 @@
       </div>
     </section>
 
-    <!-- =============== CỔNG THÔNG TIN CHÍNH THỨC & SỰ KIỆN HƯỚNG ĐẠO VIỆT NAM (HDVN.INFO) =============== -->
-    <section class="section" id="su-kien-hdvn" style="background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:50px 0;">
+        <!-- =============== KẾT NỐI PHONG TRÀO: HƯỚNG ĐẠO VIỆT NAM (HDVN.INFO) & HƯỚNG ĐẠO THẾ GIỚI (SCOUT.ORG) =============== -->
+    <section class="section" id="su-kien-hdvn" style="background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0 60px;overflow:hidden;">
       <div class="container">
-        <div style="background:linear-gradient(135deg, #0e292d 0%, #154249 60%, #1c5b65 100%);border-radius:20px;padding:36px 40px;color:#ffffff;box-shadow:0 12px 36px rgba(17,50,55,0.18);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;">
-          <div>
-            <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);padding:4px 14px;border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.1em;margin-bottom:12px;color:#ffd166;">
-              ⚜️ CỔNG THÔNG TIN CHÍNH THỨC · HƯỚNG ĐẠO VIỆT NAM
-            </div>
-            <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:26px;margin:0 0 10px;color:#ffffff;line-height:1.25;">
-              Tin Mới, Sự Kiện &amp; Phong Trào Hướng Đạo Toàn Quốc
-            </h2>
-            <p style="font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.6;max-width:680px;">
-              Theo dõi lịch Trại Họp Bạn toàn quốc, Khóa Huấn luyện Huynh trưởng Bằng Rừng (Wood Badge), Trại Họp Bạn Thế giới (World Scout Jamboree) và các thông báo chính thức từ Tổng hội Hướng đạo Việt Nam tại <strong>hdvn.info</strong>.
-            </p>
-          </div>
+        
+        <!-- Section Header -->
+        <div class="sec-head" style="text-align:center;max-width:860px;margin:0 auto 36px;">
+          <div class="eyebrow" data-vi="KẾT NỐI PHONG TRÀO TOÀN CẦU" data-en="GLOBAL SCOUTING NETWORK" style="color:var(--fire);font-weight:800;letter-spacing:.12em;">KẾT NỐI PHONG TRÀO TOÀN CẦU</div>
+          <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:30px;color:var(--forest);margin:6px 0 10px;" data-vi="Tin Mới Hướng Đạo Việt Nam &amp; Thế Giới." data-en="Vietnam &amp; World Scouting Live Updates.">Tin Mới Hướng Đạo Việt Nam &amp; Thế Giới.</h2>
+          <p class="lead" style="font-size:15px;color:var(--muted);line-height:1.6;" data-vi="Liên đoàn Long Biên tự hào là một phần của Phong trào Hướng đạo Việt Nam (HDVN) và Tổ chức Phong trào Hướng đạo Thế giới (WOSM) với hơn 57 triệu huynh đệ toàn cầu." data-en="Long Bien Scout Group is proudly connected with Vietnam Scouting (HDVN) and the World Organization of the Scout Movement (WOSM) with 57+ million scouts worldwide.">Liên đoàn Long Biên tự hào là một phần của Phong trào Hướng đạo Việt Nam (HDVN) và Tổ chức Phong trào Hướng đạo Thế giới (WOSM) với hơn 57 triệu huynh đệ toàn cầu.</p>
+        </div>
 
-          <div>
-            <a href="https://hdvn.info/" target="_blank" rel="noopener" class="btn" style="background:var(--fire);color:#ffffff;font-size:14px;font-weight:800;padding:14px 26px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(237,123,43,0.4);white-space:nowrap;transition:all .2s ease;">
-              🌐 Mở Cổng HDVN.INFO ↗
+        <!-- TWO OFFICIAL CHANNELS SHOWCASE -->
+        <div class="scout-portals-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;">
+          
+          <!-- PORTAL 1: HƯỚNG ĐẠO VIỆT NAM -->
+          <div class="scout-portal-box hdvn-box" style="background:linear-gradient(135deg, #0e292d 0%, #154249 60%, #1c5b65 100%);border-radius:20px;padding:26px 28px;color:#ffffff;box-shadow:0 10px 30px rgba(17,50,55,0.18);display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#ffd166;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;">
+                  🇻🇳 CỔNG THÔNG TIN QUỐC GIA
+                </span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:600;">hdvn.info</span>
+              </div>
+              <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:22px;color:#ffffff;margin:0 0 8px 0;line-height:1.3;">
+                Hướng Đạo Việt Nam (HDVN)
+              </h3>
+              <p style="font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.55;margin:0 0 18px 0;">
+                Kênh thông tin chính thức của Tổng hội Hướng đạo Việt Nam: tin tức các kỳ Trại Họp Bạn toàn quốc, Khóa huấn luyện Bằng Rừng Wood Badge, văn bản quy chế và thư luận lưu.
+              </p>
+            </div>
+            <a href="https://hdvn.info/" target="_blank" rel="noopener" class="btn" style="background:var(--fire);color:#ffffff;font-size:13px;font-weight:800;padding:10px 20px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(237,123,43,0.4);transition:all .2s;">
+              🌐 Khám Phá HDVN.INFO ↗
             </a>
           </div>
+
+          <!-- PORTAL 2: WORLD SCOUTING (WOSM) -->
+          <div class="scout-portal-box wosm-box" style="background:linear-gradient(135deg, #371457 0%, #522282 60%, #682c9e 100%);border-radius:20px;padding:26px 28px;color:#ffffff;box-shadow:0 10px 30px rgba(55,20,87,0.22);display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#c4a4ff;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;">
+                  🌍 PHONG TRÀO THẾ GIỚI
+                </span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:600;">scout.org</span>
+              </div>
+              <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:22px;color:#ffffff;margin:0 0 8px 0;line-height:1.3;">
+                World Organization of the Scout Movement
+              </h3>
+              <p style="font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.55;margin:0 0 18px 0;">
+                Tổ chức Phong trào Hướng đạo Thế giới (WOSM): kết nối các sự kiện Jamboree quốc tế, sáng kiến Sứ giả Hòa bình (MOP), bảo vệ môi trường Earth Tribe và trao quyền cho thanh thiếu niên.
+              </p>
+            </div>
+            <a href="https://www.scout.org/" target="_blank" rel="noopener" class="btn" style="background:#ffd166;color:#371457;font-size:13px;font-weight:800;padding:10px 20px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(255,209,102,0.35);transition:all .2s;">
+              ⚜️ Truy Cập SCOUT.ORG ↗
+            </a>
+          </div>
+
         </div>
+
+        <!-- ================= DYNAMIC CONTINUOUS MARQUEE: TIN MỚI & FEATURED STORIES ================= -->
+        <div style="background:#f7f9fa;border:1px solid var(--line);border-radius:20px;padding:26px 20px 28px;position:relative;">
+          
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding:0 8px;flex-wrap:wrap;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:#e63946;display:inline-block;animation:livePulse 1.5s infinite;"></span>
+              <h4 style="font-family:'Roboto Slab',Georgia,serif;font-size:18px;color:var(--forest);margin:0;">
+                Dòng Sự Kiện Trực Quan &amp; Featured Stories
+              </h4>
+            </div>
+            <div style="font-size:12px;color:var(--muted);font-weight:600;">
+              ✨ Rê chuột / chạm để dừng xem chi tiết
+            </div>
+          </div>
+
+          <!-- INFINITE ANIMATED MARQUEE TRACK -->
+          <div class="news-marquee-wrap" style="overflow:hidden;position:relative;width:100%;mask-image:linear-gradient(to right, transparent, black 4%, black 96%, transparent);-webkit-mask-image:linear-gradient(to right, transparent, black 4%, black 96%, transparent);">
+            <div class="news-marquee-track">
+              
+              <!-- CARD 1: HDVN Rạng Đông 6 -->
+              <a href="https://hdvn.info/" target="_blank" rel="noopener" class="news-card hdvn-theme">
+                <div class="news-card-img">
+                  <img src="image/Celebrating the 7th birthday/491923321_655918490521689_1881210032743427158_n.jpg" alt="Trại Rạng Đông 6" loading="lazy">
+                  <span class="news-tag hdvn">HDVN · TIN TRONG NƯỚC</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">Tháng 8/2026 · Trại Toàn Quốc</div>
+                  <h5>Trại Họp Bạn Kha Sinh VN &mdash; Rạng Đông 6</h5>
+                  <p>Hội ngộ hàng nghìn Kha sinh cả nước rèn luyện nghề rừng và tinh thần phụng sự.</p>
+                </div>
+              </a>
+
+              <!-- CARD 2: WOSM Indigenous Scouts -->
+              <a href="https://www.scout.org/" target="_blank" rel="noopener" class="news-card wosm-orange">
+                <div class="news-card-img">
+                  <img src="image/Spreading Love from the Long Bien Scouts Inter-group Units/502478820_690711557042382_3000212414862380124_n.jpg" alt="Argentina Indigenous Scout" loading="lazy">
+                  <span class="news-tag wosm">WOSM · FEATURED STORY</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">World Scouting · Community</div>
+                  <h5>First Indigenous Scout Group in Argentina</h5>
+                  <p>Hành trình tình nguyện viên kiến tạo Liên đoàn Hướng đạo bản địa đầu tiên.</p>
+                </div>
+              </a>
+
+              <!-- CARD 3: HDVN Hội Bầy Miền -->
+              <a href="https://hdvn.info/" target="_blank" rel="noopener" class="news-card hdvn-theme">
+                <div class="news-card-img">
+                  <img src="image/Cub Scout Pack Meeting – September 28, 2025/556101304_787662684013935_8013701245717384500_n.jpg" alt="Hội Bầy Sói Con" loading="lazy">
+                  <span class="news-tag hdvn">HDVN · NGÀNH ẤU</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">Tháng 6/2026 · Ngành Ấu</div>
+                  <h5>Hội Bầy Sói Con Toàn Miền 2026</h5>
+                  <p>Sân chơi dã ngoại Mowgli lớn nhất năm dành cho các Bầy Sói con tiểu học.</p>
+                </div>
+              </a>
+
+              <!-- CARD 4: WOSM Africa Scout Moot -->
+              <a href="https://www.scout.org/" target="_blank" rel="noopener" class="news-card wosm-cyan">
+                <div class="news-card-img">
+                  <img src="image/kynang/1-dung-leu-dung-ky-thuat.jpg" alt="Africa Scout Moot" loading="lazy">
+                  <span class="news-tag wosm">WOSM · ROVERS</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">South Africa · Youth Leadership</div>
+                  <h5>Rovers Gather for 2nd Africa Scout Moot</h5>
+                  <p>Tráng sinh khắp châu lục tề tựu bàn thảo giải pháp phát triển bền vững thanh niên.</p>
+                </div>
+              </a>
+
+              <!-- CARD 5: HDVN Đánh giá GSAT Quốc Tế -->
+              <a href="https://hdvn.info/" target="_blank" rel="noopener" class="news-card hdvn-theme">
+                <div class="news-card-img">
+                  <img src="image/Cybersecurity – Standing Firm in the Digital Space/533678253_750725344374336_7928713672140679638_n.jpg" alt="Đánh giá GSAT WOSM" loading="lazy">
+                  <span class="news-tag hdvn">HDVN · QUỐC TẾ</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">Tháng 6/2026 · GSAT WOSM</div>
+                  <h5>Đoàn Chuyên Gia WOSM Đánh Giá GSAT HDVN</h5>
+                  <p>Trưởng Prassana &amp; Trưởng Jason thẩm định tiêu chuẩn vận hành HĐVN đạt chuẩn thế giới.</p>
+                </div>
+              </a>
+
+              <!-- CARD 6: WOSM SDG Achievers Award -->
+              <a href="https://www.scout.org/" target="_blank" rel="noopener" class="news-card wosm-green">
+                <div class="news-card-img">
+                  <img src="image/Hanoi in Autumn – The 36 Streets/595902511_844981744948695_6858917738647420863_n.jpg" alt="WOSM SDG Award" loading="lazy">
+                  <span class="news-tag wosm">WOSM · UNITED NATIONS</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">United Nations · SDGs Summit</div>
+                  <h5>World Scouting Receives SDG Achievers Award</h5>
+                  <p>Tổ chức Hướng đạo Thế giới nhận vinh danh danh giá tại Hội nghị Thượng đỉnh SDGs.</p>
+                </div>
+              </a>
+
+              <!-- DUPLICATE SET FOR INFINITE SEAMLESS LOOP -->
+              <!-- CARD 1 DUP -->
+              <a href="https://hdvn.info/" target="_blank" rel="noopener" class="news-card hdvn-theme" aria-hidden="true">
+                <div class="news-card-img">
+                  <img src="image/Celebrating the 7th birthday/491923321_655918490521689_1881210032743427158_n.jpg" alt="" loading="lazy">
+                  <span class="news-tag hdvn">HDVN · TIN TRONG NƯỚC</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">Tháng 8/2026 · Trại Toàn Quốc</div>
+                  <h5>Trại Họp Bạn Kha Sinh VN &mdash; Rạng Đông 6</h5>
+                  <p>Hội ngộ hàng nghìn Kha sinh cả nước rèn luyện nghề rừng và tinh thần phụng sự.</p>
+                </div>
+              </a>
+
+              <!-- CARD 2 DUP -->
+              <a href="https://www.scout.org/" target="_blank" rel="noopener" class="news-card wosm-orange" aria-hidden="true">
+                <div class="news-card-img">
+                  <img src="image/Spreading Love from the Long Bien Scouts Inter-group Units/502478820_690711557042382_3000212414862380124_n.jpg" alt="" loading="lazy">
+                  <span class="news-tag wosm">WOSM · FEATURED STORY</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">World Scouting · Community</div>
+                  <h5>First Indigenous Scout Group in Argentina</h5>
+                  <p>Hành trình tình nguyện viên kiến tạo Liên đoàn Hướng đạo bản địa đầu tiên.</p>
+                </div>
+              </a>
+
+              <!-- CARD 3 DUP -->
+              <a href="https://hdvn.info/" target="_blank" rel="noopener" class="news-card hdvn-theme" aria-hidden="true">
+                <div class="news-card-img">
+                  <img src="image/Cub Scout Pack Meeting – September 28, 2025/556101304_787662684013935_8013701245717384500_n.jpg" alt="" loading="lazy">
+                  <span class="news-tag hdvn">HDVN · NGÀNH ẤU</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">Tháng 6/2026 · Ngành Ấu</div>
+                  <h5>Hội Bầy Sói Con Toàn Miền 2026</h5>
+                  <p>Sân chơi dã ngoại Mowgli lớn nhất năm dành cho các Bầy Sói con tiểu học.</p>
+                </div>
+              </a>
+
+              <!-- CARD 4 DUP -->
+              <a href="https://www.scout.org/" target="_blank" rel="noopener" class="news-card wosm-cyan" aria-hidden="true">
+                <div class="news-card-img">
+                  <img src="image/kynang/1-dung-leu-dung-ky-thuat.jpg" alt="" loading="lazy">
+                  <span class="news-tag wosm">WOSM · ROVERS</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">South Africa · Youth Leadership</div>
+                  <h5>Rovers Gather for 2nd Africa Scout Moot</h5>
+                  <p>Tráng sinh khắp châu lục tề tựu bàn thảo giải pháp phát triển bền vững thanh niên.</p>
+                </div>
+              </a>
+
+              <!-- CARD 5 DUP -->
+              <a href="https://hdvn.info/" target="_blank" rel="noopener" class="news-card hdvn-theme" aria-hidden="true">
+                <div class="news-card-img">
+                  <img src="image/Cybersecurity – Standing Firm in the Digital Space/533678253_750725344374336_7928713672140679638_n.jpg" alt="" loading="lazy">
+                  <span class="news-tag hdvn">HDVN · QUỐC TẾ</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">Tháng 6/2026 · GSAT WOSM</div>
+                  <h5>Đoàn Chuyên Gia WOSM Đánh Giá GSAT HDVN</h5>
+                  <p>Trưởng Prassana &amp; Trưởng Jason thẩm định tiêu chuẩn vận hành HĐVN đạt chuẩn thế giới.</p>
+                </div>
+              </a>
+
+              <!-- CARD 6 DUP -->
+              <a href="https://www.scout.org/" target="_blank" rel="noopener" class="news-card wosm-green" aria-hidden="true">
+                <div class="news-card-img">
+                  <img src="image/Hanoi in Autumn – The 36 Streets/595902511_844981744948695_6858917738647420863_n.jpg" alt="" loading="lazy">
+                  <span class="news-tag wosm">WOSM · UNITED NATIONS</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-date">United Nations · SDGs Summit</div>
+                  <h5>World Scouting Receives SDG Achievers Award</h5>
+                  <p>Tổ chức Hướng đạo Thế giới nhận vinh danh danh giá tại Hội nghị Thượng đỉnh SDGs.</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
@@ -2342,7 +2694,8 @@
           <p style="margin-bottom:4px;" data-channel="messenger"><a data-msg target="_blank" rel="noopener" href="https://m.me/longbienscoutshanoi" style="color:#fff;">Nhắn Messenger ↗</a></p>
           <p style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.2);">
             <strong style="color:#ffd166;font-size:12px;letter-spacing:.05em;display:block;margin-bottom:3px;">⚜️ CỔNG THÔNG TIN CHÍNH THỐNG:</strong>
-            <a href="https://hdvn.info/" target="_blank" rel="noopener" style="color:#ffffff;font-weight:700;text-decoration:underline;font-size:13px;">Hướng Đạo Việt Nam (HDVN.INFO) ↗</a>
+            <a href="https://hdvn.info/" target="_blank" rel="noopener" style="color:#ffffff;font-weight:700;text-decoration:underline;font-size:13px;display:block;margin-bottom:4px;">🇻🇳 Hướng Đạo Việt Nam (HDVN.INFO) ↗</a>
+            <a href="https://www.scout.org/" target="_blank" rel="noopener" style="color:#c4a4ff;font-weight:700;text-decoration:underline;font-size:13px;display:block;">🌍 Hướng Đạo Thế Giới (SCOUT.ORG) ↗</a>
           </p>
         </div>
         <p style="margin-top:14px;">

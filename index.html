@@ -1656,6 +1656,34 @@
       }
     }
 
+  
+    /* ========================================================
+       ONE-ROW COMPACT DISPLAY & EXPAND/COLLAPSE CONTROLLER
+       ======================================================== */
+    /* Library Cards: Default show first 3 cards */
+    .lib-card.extra-item {
+      display: none;
+    }
+    .lib-grid.expanded .lib-card.extra-item {
+      display: flex;
+    }
+
+    /* Highlight Activities: Default show first 3 items */
+    .hl-list .hl.extra-item {
+      display: none;
+    }
+    .hl-list.expanded .hl.extra-item {
+      display: grid;
+    }
+
+    /* Testimonials / Stories: Default show first 3 cards */
+    .review-grid .review-card.extra-item {
+      display: none;
+    }
+    .review-grid.expanded .review-card.extra-item {
+      display: flex;
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -1917,6 +1945,12 @@
               <div class="hl-tags"><span data-vi="Gây quỹ" data-en="Fundraising">Gây quỹ</span><span data-vi="Thiện nguyện" data-en="Community Service">Thiện nguyện</span></div>
             </div>
           </article>
+        </div>
+        <!-- Expand / Collapse Button -->
+        <div style="text-align:center;margin-top:28px;" id="hlExpandWrap">
+          <button type="button" id="hlToggleBtn" class="btn" onclick="toggleHlExpand()" style="background:#ffffff;border:1.5px solid var(--forest);color:var(--forest);font-weight:700;font-size:13.5px;padding:10px 28px;border-radius:999px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:all .2s;">
+            🏕️ Xem Thêm Các Hoạt Động &amp; Kỳ Trại ↓
+          </button>
         </div>
       </div>
     </section>
@@ -2454,6 +2488,13 @@
           </div>
 
         </div>
+      
+        <!-- Expand / Collapse Button -->
+        <div style="text-align:center;margin-top:28px;" id="libExpandWrap">
+          <button type="button" id="libToggleBtn" class="btn" onclick="toggleLibExpand()" style="background:#ffffff;border:1.5px solid var(--forest);color:var(--forest);font-weight:700;font-size:13.5px;padding:10px 28px;border-radius:999px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:all .2s;">
+            📖 Xem Thêm 8 Tài Liệu Còn Lại ↓
+          </button>
+        </div>
       </div>
     </section>
 
@@ -2900,6 +2941,13 @@
         <div class="stories-more-wrap" id="storiesMoreWrap">
           <button class="btn-load-more" id="btnStoriesMore" type="button" onclick="handleStoriesLoadMore()">
             <span>Xem thêm bài chia sẻ khác ▾</span>
+          </button>
+        </div>
+      
+        <!-- Expand / Collapse Button -->
+        <div style="text-align:center;margin-top:28px;" id="storyExpandWrap">
+          <button type="button" id="storyToggleBtn" class="btn" onclick="toggleStoryExpand()" style="background:#ffffff;border:1.5px solid var(--forest);color:var(--forest);font-weight:700;font-size:13.5px;padding:10px 28px;border-radius:999px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:all .2s;">
+            ❤️ Xem Thêm Chia Sẻ Từ Trái Tim ↓
           </button>
         </div>
       </div>
@@ -5544,6 +5592,74 @@ ${s.parentName} - ${s.parentPhone}`
         }
       });
     }
+  </script>
+
+
+  <script>
+    // 1. Library Expand/Collapse Controller
+    let isLibExpanded = false;
+    function initLibCompact() {
+      const cards = document.querySelectorAll('.lib-card');
+      cards.forEach((card, idx) => {
+        if (idx >= 3) card.classList.add('extra-item');
+      });
+    }
+    function toggleLibExpand() {
+      isLibExpanded = !isLibExpanded;
+      const grid = document.querySelector('.lib-grid');
+      const btn = document.getElementById('libToggleBtn');
+      if (grid) grid.classList.toggle('expanded', isLibExpanded);
+      if (btn) {
+        btn.textContent = isLibExpanded ? 'Thu Gọn Tài Liệu ↑' : '📖 Xem Thêm 8 Tài Liệu Còn Lại ↓';
+      }
+    }
+
+    // 2. Activity Highlights Expand/Collapse Controller
+    let isHlExpanded = false;
+    function initHlCompact() {
+      const items = document.querySelectorAll('.hl-list .hl');
+      items.forEach((item, idx) => {
+        if (idx >= 3) item.classList.add('extra-item');
+      });
+    }
+    function toggleHlExpand() {
+      isHlExpanded = !isHlExpanded;
+      const list = document.querySelector('.hl-list');
+      const btn = document.getElementById('hlToggleBtn');
+      if (list) list.classList.toggle('expanded', isHlExpanded);
+      if (btn) {
+        btn.textContent = isHlExpanded ? 'Thu Gọn Hoạt Động ↑' : '🏕️ Xem Thêm Các Hoạt Động & Kỳ Trại ↓';
+      }
+    }
+
+    // 3. Testimonials / Stories Expand/Collapse Controller
+    let isStoryGridExpanded = false;
+    function initStoryCompact() {
+      const cards = document.querySelectorAll('.review-grid .review-card');
+      cards.forEach((card, idx) => {
+        if (idx >= 3) card.classList.add('extra-item');
+      });
+    }
+    function toggleStoryExpand() {
+      isStoryGridExpanded = !isStoryGridExpanded;
+      const grid = document.querySelector('.review-grid');
+      const btn = document.getElementById('storyToggleBtn');
+      if (grid) grid.classList.toggle('expanded', isStoryGridExpanded);
+      if (btn) {
+        btn.textContent = isStoryGridExpanded ? 'Thu Gọn Chia Sẻ ↑' : '❤️ Xem Thêm Chia Sẻ Từ Trái Tim ↓';
+      }
+    }
+
+    // Init compact on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      initLibCompact();
+      initHlCompact();
+      initStoryCompact();
+    });
+    // Run immediately as well
+    initLibCompact();
+    initHlCompact();
+    initStoryCompact();
   </script>
 
 </body>

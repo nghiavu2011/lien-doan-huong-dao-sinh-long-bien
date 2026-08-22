@@ -1890,12 +1890,14 @@
         <div class="nav-item">
           <a href="#ky-nang"><span data-vi="Kỹ Năng" data-en="Skills">Kỹ Năng</span> <span class="dropdown-caret">▼</span></a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('leu-trai')" data-vi="🏕️ Lều Trại &amp; Sinh Tồn" data-en="🏕️ Campcraft &amp; Survival">🏕️ Lều Trại &amp; Sinh Tồn</a>
-            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('nut-day')" data-vi="🪢 Nút Dây &amp; Tiên Phong" data-en="🪢 Knots &amp; Pioneering">🪢 Nút Dây &amp; Tiên Phong</a>
-            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('tao-lua')" data-vi="🔥 Tạo Lửa &amp; Bếp Trại" data-en="🔥 Fire Craft &amp; Cooking">🔥 Tạo Lửa &amp; Bếp Trại</a>
-            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('so-cuu')" data-vi="🩹 Sơ Cấp Cứu &amp; An Toàn" data-en="🩹 First Aid &amp; Safety">🩹 Sơ Cấp Cứu &amp; An Toàn</a>
-            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('uoc-dac')" data-vi="🧭 Ước Đạc &amp; Bản Đồ" data-en="🧭 Navigation &amp; Map">🧭 Ước Đạc &amp; Bản Đồ</a>
-            <a class="dropdown-item" href="#ky-nang" onclick="openSkillModal('tham-du')" data-vi="🌲 Thám Du &amp; Mật Thư" data-en="🌲 Expeditions &amp; Ciphers">🌲 Thám Du &amp; Mật Thư</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-camping')" data-vi="🏕️ Dã Ngoại &amp; Lều Trại" data-en="🏕️ Campcraft &amp; Camping">🏕️ Dã Ngoại &amp; Lều Trại</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-scoutcraft')" data-vi="🪢 Scoutcraft &amp; Nút Dây" data-en="🪢 Knots &amp; Pioneering">🪢 Scoutcraft &amp; Nút Dây</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-firecraft')" data-vi="🔥 Lửa &amp; Bếp Dã Ngoại" data-en="🔥 Fire Craft &amp; Cooking">🔥 Lửa &amp; Bếp Dã Ngoại</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-navigation')" data-vi="🧭 Khám Phá &amp; Định Hướng" data-en="🧭 Navigation &amp; Map">🧭 Khám Phá &amp; Định Hướng</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-first-aid')" data-vi="🩹 Sơ Cấp Cứu &amp; An Toàn" data-en="🩹 First Aid &amp; Safety">🩹 Sơ Cấp Cứu &amp; An Toàn</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-nature')" data-vi="🌲 Thiên Nhiên &amp; Môi Trường" data-en="🌲 Nature &amp; Ecology">🌲 Thiên Nhiên &amp; Môi Trường</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-signaling')" data-vi="🚩 Truyền Tin &amp; Trò Chơi" data-en="🚩 Signaling &amp; Games">🚩 Truyền Tin &amp; Trò Chơi</a>
+            <a class="dropdown-item" href="#ky-nang" onclick="if(window.ScoutSkills)window.ScoutSkills.selectCategory('cat-badges')" data-vi="🏅 Chuyên Hiệu Hướng Đạo" data-en="🏅 Merit Badges">🏅 Chuyên Hiệu Hướng Đạo</a>
           </div>
         </div>
 
@@ -5137,8 +5139,6 @@
   <script src="data/scout-songs-data.js"></script>
   <script src="js/scout-songs.js"></script>
   <script src="js/scout-tools.js"></script>
-  <script src="data/skills-knowledge-data.js"></script>
-  <script src="js/scouting-skills.js"></script>
 
 
   <!-- ========================================================
@@ -5495,6 +5495,23 @@ function filterStories(category, btn) {
       }
     }
 </script>
+
+  <!-- Global Unified Modal & ESC Key Accessibility Controller -->
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        if (window.ScoutSkills && typeof window.ScoutSkills.closeModal === 'function') window.ScoutSkills.closeModal();
+        if (window.ScoutSongs && typeof window.ScoutSongs.closeModal === 'function') window.ScoutSongs.closeModal();
+        if (window.ScoutTools && typeof window.ScoutTools.closeToolsModal === 'function') window.ScoutTools.closeToolsModal();
+        if (typeof window.closeSurveyModal === 'function') window.closeSurveyModal();
+        if (typeof closeStoryModal === 'function') closeStoryModal();
+        if (typeof closeSkillModal === 'function') closeSkillModal();
+        if (typeof closeLb === 'function') closeLb();
+        if (typeof closeJoin === 'function') closeJoin();
+        if (typeof closeMobileNav === 'function') closeMobileNav();
+      }
+    }, { passive: true });
+  </script>
 </body>
 </html>`;
 
@@ -5574,23 +5591,7 @@ function filterStories(category, btn) {
   </script>
 
 
-  <script>
-    function filterLibrary(category, btnElement) {
-      const tabs = document.querySelectorAll('.lib-tab-btn');
-      tabs.forEach(t => t.classList.remove('active'));
-      if (btnElement) btnElement.classList.add('active');
 
-      const cards = document.querySelectorAll('.lib-card');
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-cat');
-        if (category === 'all' || cat === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
 
 
   <script>
@@ -5658,5 +5659,22 @@ function filterStories(category, btn) {
     }
   </script>
 
+
+  <!-- Global Unified Modal & ESC Key Accessibility Controller -->
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        if (window.ScoutSkills && typeof window.ScoutSkills.closeModal === 'function') window.ScoutSkills.closeModal();
+        if (window.ScoutSongs && typeof window.ScoutSongs.closeModal === 'function') window.ScoutSongs.closeModal();
+        if (window.ScoutTools && typeof window.ScoutTools.closeToolsModal === 'function') window.ScoutTools.closeToolsModal();
+        if (typeof window.closeSurveyModal === 'function') window.closeSurveyModal();
+        if (typeof closeStoryModal === 'function') closeStoryModal();
+        if (typeof closeSkillModal === 'function') closeSkillModal();
+        if (typeof closeLb === 'function') closeLb();
+        if (typeof closeJoin === 'function') closeJoin();
+        if (typeof closeMobileNav === 'function') closeMobileNav();
+      }
+    }, { passive: true });
+  </script>
 </body>
 </html>

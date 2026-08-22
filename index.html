@@ -1739,6 +1739,76 @@
       }
     }
 
+  
+    /* ========================================================
+       MASTER RESPONSIVE & TOUCH POLISH (SMARTPHONE & IPAD)
+       ======================================================== */
+    /* Smooth touch scrolling with momentum */
+    .gt-scroll-wrapper, .news-marquee-wrap, .gal-bar, .story-filter-bar, .lib-tabs-nav {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* iPad (768px - 1024px) Layout Enhancements */
+    @media (max-width: 1024px) {
+      .review-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+      #fiveStepGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+      }
+      .sunday-routine-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .recruit-inner {
+        grid-template-columns: 1fr !important;
+        padding: 24px !important;
+        gap: 24px !important;
+      }
+    }
+
+    /* Smartphone (<= 768px) Layout Enhancements */
+    @media (max-width: 768px) {
+      .review-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      .review-card {
+        padding: 18px 16px !important;
+      }
+      .review-quote {
+        font-size: 13px !important;
+        line-height: 1.55 !important;
+      }
+      #fiveStepGrid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .sunday-routine-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      .story-filter-bar {
+        display: flex !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding-bottom: 8px !important;
+        gap: 8px !important;
+        justify-content: flex-start !important;
+        scrollbar-width: none !important;
+      }
+      .story-filter-bar::-webkit-scrollbar {
+        display: none !important;
+      }
+      .story-filter-btn {
+        flex-shrink: 0 !important;
+        font-size: 12px !important;
+        padding: 7px 14px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -2996,11 +3066,6 @@
         </div>
 
         <!-- Load more button for 1-row default view -->
-        <div class="stories-more-wrap" id="storiesMoreWrap">
-          <button class="btn-load-more" id="btnStoriesMore" type="button" onclick="handleStoriesLoadMore()">
-            <span>Xem thêm bài chia sẻ khác ▾</span>
-          </button>
-        </div>
       
         <!-- Expand / Collapse Button -->
         <div style="text-align:center;margin-top:28px;" id="storyExpandWrap">
@@ -3427,9 +3492,7 @@
 
   const updateStoryDisplay = () => {
     const cards = Array.from(document.querySelectorAll('#storiesGrid .review-card'));
-    const moreWrap = document.getElementById('storiesMoreWrap');
-    const btnMore = document.getElementById('btnStoriesMore');
-    
+            
     // Filter matching cards
     const matchingCards = cards.filter(c => currentStoryFilter === 'all' || c.getAttribute('data-cat') === currentStoryFilter);
     
@@ -5402,6 +5465,36 @@ ${s.parentName} - ${s.parentPhone}`
   <div class="no-print" style="margin-top:40px;text-align:center;">
     <button onclick="window.print()" style="background:#113237;color:#fff;padding:10px 24px;border:none;border-radius:6px;font-size:14px;cursor:pointer;font-weight:bold;">🖨️ In Phiếu Hoặc Lưu File PDF</button>
   </div>
+<script>
+function filterStories(category, btn) {
+      document.querySelectorAll('.story-filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const grid = document.getElementById('storiesGrid') || document.querySelector('.review-grid');
+      const toggleWrap = document.getElementById('storyExpandWrap');
+      const cards = document.querySelectorAll('.review-card');
+      
+      if (category === 'all') {
+        if (toggleWrap) toggleWrap.style.display = 'block';
+        const isExp = grid ? grid.classList.contains('expanded') : false;
+        cards.forEach((card, idx) => {
+          if (idx < 3 || isExp) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      } else {
+        if (toggleWrap) toggleWrap.style.display = 'none';
+        cards.forEach(card => {
+          if (card.getAttribute('data-cat') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+</script>
 </body>
 </html>`;
 

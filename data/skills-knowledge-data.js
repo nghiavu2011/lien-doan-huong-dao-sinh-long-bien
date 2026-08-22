@@ -381,7 +381,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Nút dây", "Scoutcraft", "Sơ cứu", "Cơ bản"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nut-det-reef-knot.png", videoId: "" },
     purpose: "Nối 2 đầu dây có cùng tiết diện và chất liệu, dễ thắt, nằm phẳng và rất dễ tháo mở khi cần.",
     equipment: ["Dây thừng dã ngoại 1m - 2m", "Băng tam giác cứu thương"],
     levels: {
@@ -463,7 +463,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Nút dây", "Cứu hộ", "Bowline", "Scoutcraft"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nut-ghe-don-bowline.png", videoId: "" },
     purpose: "Tạo vòng dây không thít chặt quanh người bị nạn để kéo lên từ giếng sâu, vực dốc hoặc quăng dây cứu đuối nước.",
     equipment: ["Dây thừng cứu hộ 3m - 5m"],
     levels: {
@@ -505,7 +505,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Ráp cây", "Pioneering", "Scoutcraft", "Tiên phong"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/rap-vuong-ba-chan.png", videoId: "" },
     purpose: "Liên kết vững chắc hai thanh gỗ giao nhau góc 90 độ mà không cần dùng đến đinh ốc.",
     equipment: ["2 khúc gỗ/gậy tre", "Dây dù ráp cây 3m - 4m"],
     levels: {
@@ -548,7 +548,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Tripod", "Ráp cây", "Pioneering", "Bếp trại"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/rap-vuong-ba-chan.png", videoId: "" },
     purpose: "Dựng cấu trúc kiên cố nhất trong hình học không gian (hình chóp tam giác) làm giá treo nồi nấu ăn hoặc chân tháp.",
     equipment: ["3 cây gậy thiếu sinh / cây gỗ dài bằng nhau", "Dây dù 4m"],
     levels: {
@@ -593,7 +593,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "hard",
     tags: ["Cổng trại", "Pioneering", "Tiên phong", "Làm việc nhóm"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/cong-trai-tien-phong.png", videoId: "" },
     purpose: "Tạo biểu tượng danh dự, ranh giới và bản sắc riêng của phân đội/liên đoàn tại kỳ trại.",
     equipment: ["Gậy tre/gỗ các kích thước", "Dây thừng ráp nối", "Biển tên phân đội", "Dây neo cọc chống gió"],
     levels: {
@@ -683,7 +683,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Lửa trại", "Vật lý", "An toàn", "Sinh tồn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/tam-giac-tao-lua.png", videoId: "" },
     purpose: "Nắm vững nguyên lý khoa học để có thể nhóm lửa nhanh trong mọi điều kiện và dập tắt lửa tức thì khi khẩn cấp.",
     equipment: ["Sơ đồ tam giác lửa", "Mẫu vật liệu minh họa"],
     levels: {
@@ -726,7 +726,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Củi khô", "Bùi nhùi", "Lửa trại", "Sinh tồn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/tam-giac-tao-lua.png", videoId: "" },
     purpose: "Chuẩn bị đầy đủ 3 loại củi trước khi đánh tia lửa, đảm bảo tỷ lệ thành công 100% ngay từ lần quẹt đầu tiên.",
     equipment: ["Bùi nhùi khô (xơ dừa, vỏ cây bổi, bông gòn)", "Cành củi que tăm (Kindling)", "Củi chính (Fuel)"],
     levels: {
@@ -853,7 +853,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Bếp ga", "Nấu ăn", "Dã ngoại", "An toàn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nau-com-ngoai-troi.png", videoId: "" },
     purpose: "Nấu nướng nhanh chóng, tiện lợi, không để lại vết cháy đen trên mặt đất trong các khu vực cấm đốt lửa trại.",
     equipment: ["Bếp ga dã ngoại chân nhện hoặc bếp củi xếp gọn", "Bình ga du lịch chuẩn", "Tấm chắn gió nhôm"],
     levels: {
@@ -896,7 +896,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Nấu cơm", "Ẩm thực trại", "Teamwork", "Kỹ năng sống"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nau-com-ngoai-troi.png", videoId: "" },
     purpose: "Đảm bảo nguồn năng lượng chính cho toàn phân đội, rèn luyện tính kiên nhẫn và sự phối hợp nhịp nhàng.",
     equipment: ["Nồi nấu dã chiến có nắp kín", "Gạo ngon", "Nước sạch", "Đũa bếp", "Lá chuối hoặc bạt lót"],
     levels: {
@@ -982,7 +982,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "hard",
     tags: ["Bếp Hoàng Cầm", "Lịch sử", "Sáng tạo", "Dã chiến"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/bep-hoang-cam-da-chien.png", videoId: "" },
     purpose: "Kỹ thuật đào bếp quân sự huyền thoại của anh hùng Hoàng Cầm, cho phép nấu ăn cả ngày lẫn đêm mà không để lộ khói lửa cho máy bay trinh sát.",
     equipment: ["Xẻng/bay đào đất dã chiến", "Cành cây nhỏ & rơm rạ", "Đất ẩm & cỏ tươi làm mái tản khói"],
     levels: {
@@ -1240,7 +1240,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Bước chân đôi", "Ước đạc", "Toán học thực tế"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/uoc-luong-chieu-cao.png", videoId: "" },
     purpose: "Biết chính xác mình đã đi được bao nhiêu mét trong rừng mà không cần dây đo hay máy đếm bước chân điện tử.",
     equipment: ["Thước dây 50m chuẩn để hiệu chuẩn", "Chuỗi hạt đếm bước (Ranger beads) hoặc sổ ghi"],
     levels: {
@@ -1283,7 +1283,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Ước đạc", "Hình học", "Gậy thiếu sinh", "Scoutcraft"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/uoc-luong-chieu-cao.png", videoId: "" },
     purpose: "Xác định chiều cao của cây cổ thụ, cột cờ, vách núi để phục vụ thi công cầu tháp hoặc kiểm tra độ an toàn cây đổ.",
     equipment: ["Gậy thiếu sinh đã khắc vạch chia", "Thước đo que nhỏ"],
     levels: {
@@ -1371,7 +1371,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Túi sơ cứu", "Y tế", "Chuẩn bị", "An toàn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/tui-so-cuu-da-ngoai.png", videoId: "" },
     purpose: "Trang bị phương tiện y tế thiết yếu để xử lý ngay tức thì các vết thương và tình huống khẩn cấp tại hiện trường dã ngoại.",
     equipment: ["Túi sơ cứu chống nước", "Băng dán Urgo", "Gạc vô trùng", "Băng cuộn y tế", "Băng tam giác", "Nước muối sinh lý NaCl 0.9%", "Cồn đỏ Povidone Iodine", "Kéo cắt y tế", "Găng tay cao su", "Nhíp gắp"],
     levels: {
@@ -1413,7 +1413,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Sơ cứu", "Vết thương", "Vệ sinh", "An toàn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/so-cuu-bang-bo-nep-chan.png", videoId: "" },
     purpose: "Ngăn ngừa vi khuẩn xâm nhập gây uốn ván, nhiễm trùng sưng mủ khi va quẹt cây cỏ, sỏi đá trong lúc sinh hoạt dã ngoại.",
     equipment: ["Găng tay y tế", "Nước muối sinh lý NaCl 0.9%", "Dung dịch sát khuẩn Povidone Iodine", "Gạc vô trùng", "Băng dán cá nhân"],
     levels: {
@@ -1456,7 +1456,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Cầm máu", "Sơ cứu", "Khẩn cấp", "Băng ép"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/so-cuu-bang-bo-nep-chan.png", videoId: "" },
     purpose: "Ngăn chặn sự mất máu nhanh chóng, chống sốc trụy tim mạch và bảo toàn tính mạng cho nạn nhân.",
     equipment: ["Găng tay y tế", "Gạc vô trùng dày", "Cuộn băng thun băng ép", "Băng tam giác"],
     levels: {
@@ -1500,7 +1500,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Bong gân", "R.I.C.E", "Chấn thương", "Khớp"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/so-cuu-bang-bo-nep-chan.png", videoId: "" },
     purpose: "Giảm đau, hạn chế sưng nề tụ máu, bảo vệ dây chằng khớp và phục hồi vận động nhanh chóng sau chấn thương lật cổ chân.",
     equipment: ["Túi đá chườm lạnh hoặc khăn nhúng nước lạnh", "Cuộn băng thun co giãn (băng số 8)", "Gậy chống hoặc cáng chuyển thương"],
     levels: {
@@ -1765,7 +1765,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Quan sát chim", "Động vật", "Thiên nhiên", "Kiên nhẫn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/quan-sat-chim.png", videoId: "" },
     purpose: "Rèn luyện đức tính kiên nhẫn, sự tĩnh lặng, tinh thần quan sát tinh tế và tình yêu thương muôn loài.",
     equipment: ["Ống nhòm dã ngoại (Binoculars)", "Sổ tay nhận diện chim", "Bút chì màu"],
     levels: {
@@ -1892,7 +1892,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Nước sạch", "Sinh tồn", "Lọc nước", "Môi trường"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/loc-nuoc-sinh-ton.png", videoId: "" },
     purpose: "Duy trì sự sống (cơ thể chỉ nhịn uống được tối đa 3 ngày), phòng ngừa các bệnh tả, kiết lỵ do vi khuẩn nguồn nước gây ra.",
     equipment: ["Vải lọc / khăn bandana", "Than củi giã nhỏ", "Cát sạch", "Sỏi cuội", "Viên khử khuẩn nước Aquatabs hoặc ấm đun sôi"],
     levels: {
@@ -2023,7 +2023,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Nhật ký", "Ký họa", "Quan sát", "Nghệ thuật"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nhat-ky-thien-nhien.png", videoId: "" },
     purpose: "Phát triển năng lực biểu đạt cảm xúc, tư duy khoa học, khả năng ghi nhớ chi tiết và lưu giữ kỷ niệm tuổi thơ Hướng đạo.",
     equipment: ["Sổ tay bìa cứng giấy dày", "Bút chì, bút mực chống nước", "Hộp màu nước dã ngoại nhỏ", "Băng keo dán mẫu ép"],
     levels: {
@@ -2112,7 +2112,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Semaphore", "Cờ", "Truyền tin", "Thám du"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/danh-co-semaphore.png", videoId: "" },
     purpose: "Truyền tin thị giác cự ly xa qua thung lũng, hai bờ sông hoặc từ trên đỉnh đồi tháp canh dã ngoại.",
     equipment: ["2 lá cờ Semaphore vuông 40x40cm (chia 2 tam giác đỏ - vàng) có cán cầm 55cm"],
     levels: {
@@ -2503,7 +2503,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Hàng đội", "Teamwork", "Đoàn kết", "Patrol System"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/hop-doi-toa-dam.png", videoId: "" },
     purpose: "Trọng tâm của phương pháp giáo dục Hướng đạo: một nhóm nhỏ 6-8 em cùng tự quản, cùng học tập, cùng trưởng thành bên nhau.",
     equipment: ["Cờ hiệu phân đội", "Sổ nhật ký phân đội"],
     levels: {
@@ -2546,7 +2546,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Phân công", "Lãnh đạo", "Tổ chức", "Đội trưởng"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/hop-doi-toa-dam.png", videoId: "" },
     purpose: "Giúp công việc hoàn thành nhanh gấp nhiều lần, phát huy thế mạnh của từng cá nhân và rèn luyện kỹ năng lãnh đạo.",
     equipment: ["Bảng phân công nhiệm vụ (Duty Roster)"],
     levels: {
@@ -3155,7 +3155,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "hard",
     tags: ["Lửa trại", "Quản trò", "Huynh trưởng", "Lãnh đạo"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/dem-lua-trai-vong-tron.png", videoId: "" },
     purpose: "Tạo nên đêm kỷ niệm cảm xúc thiêng liêng nhất của đời Hướng đạo, gắn kết tình huynh đệ và khắc sâu lý tưởng sống đẹp.",
     equipment: ["Tro củi thiêng lửa trại", "Kịch bản đêm lửa", "Đuốc châm lửa danh dự", "Dụng cụ an toàn phòng hỏa"],
     levels: {

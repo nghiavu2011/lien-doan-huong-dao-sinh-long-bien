@@ -463,7 +463,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Nút dây", "Cứu hộ", "Bowline", "Scoutcraft"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-nut-ghe-don-bowline.png", videoId: "" },
     purpose: "Tạo vòng dây không thít chặt quanh người bị nạn để kéo lên từ giếng sâu, vực dốc hoặc quăng dây cứu đuối nước.",
     equipment: ["Dây thừng cứu hộ 3m - 5m"],
     levels: {
@@ -505,7 +505,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Ráp cây", "Pioneering", "Scoutcraft", "Tiên phong"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-rap-vuong.png", videoId: "" },
     purpose: "Liên kết vững chắc hai thanh gỗ giao nhau góc 90 độ mà không cần dùng đến đinh ốc.",
     equipment: ["2 khúc gỗ/gậy tre", "Dây dù ráp cây 3m - 4m"],
     levels: {
@@ -548,7 +548,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Tripod", "Ráp cây", "Pioneering", "Bếp trại"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-rap-ba-chan.png", videoId: "" },
     purpose: "Dựng cấu trúc kiên cố nhất trong hình học không gian (hình chóp tam giác) làm giá treo nồi nấu ăn hoặc chân tháp.",
     equipment: ["3 cây gậy thiếu sinh / cây gỗ dài bằng nhau", "Dây dù 4m"],
     levels: {
@@ -593,7 +593,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "hard",
     tags: ["Cổng trại", "Pioneering", "Tiên phong", "Làm việc nhóm"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-cong-trai-tien-phong.png", videoId: "" },
     purpose: "Tạo biểu tượng danh dự, ranh giới và bản sắc riêng của phân đội/liên đoàn tại kỳ trại.",
     equipment: ["Gậy tre/gỗ các kích thước", "Dây thừng ráp nối", "Biển tên phân đội", "Dây neo cọc chống gió"],
     levels: {
@@ -2807,7 +2807,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Nhiếp ảnh", "Nghệ thuật", "Chuyên hiệu", "Truyền thông"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-chuyen-hieu-nhiep-anh.png", videoId: "" },
     purpose: "Lưu giữ những khoảnh khắc đẹp nhất của tình anh em Hướng đạo và đóng góp tư liệu truyền thông cho liên đoàn.",
     equipment: ["Máy ảnh kỹ thuật số hoặc điện thoại thông minh có camera tốt", "Thẻ nhớ, pin dự phòng"],
     levels: {
@@ -2850,7 +2850,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Chuyên hiệu", "Nấu ăn", "Dã ngoại", "Hàng đội"],
-    media: { poster: "", videoId: "7CgtIgSyQ14" },
+    media: { poster: "image/kynang/kynang-chuyen-hieu-nau-an.png", videoId: "7CgtIgSyQ14" },
     purpose: "Rèn luyện khả năng tự lập, chăm sóc sức khỏe đồng đội và kỹ năng ẩm thực dã chiến trong điều kiện thiếu thốn.",
     equipment: ["Bộ nồi dã ngoại", "Bếp củi / bếp gas", "Dao thớt sạch", "Thùng giữ nhiệt thực phẩm"],
     levels: {
@@ -2936,7 +2936,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "hard",
     tags: ["Chuyên hiệu", "Sơ cứu", "Cứu thương", "CPR", "An toàn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-chuyen-hieu-cuu-thuong.png", videoId: "" },
     purpose: "Trang bị kỹ năng vàng cứu người trong gang tấc, bảo vệ an toàn tính mạng cho gia đình và cộng đồng.",
     equipment: ["Băng tam giác Hướng đạo", "Băng cuộn y tế", "Nẹp gỗ/nẹp cành cây", "Túi sơ cứu chuẩn"],
     levels: {
@@ -2979,7 +2979,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Chuyên hiệu", "Làm vườn", "Cây xanh", "Môi trường"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-chuyen-hieu-lam-vuon.png", videoId: "" },
     purpose: "Giáo dục tình yêu lao động, sự gắn kết với đất mẹ và bảo vệ hệ sinh thái bền vững.",
     equipment: ["Cuốc xẻng nhỏ", "Bình tưới cây", "Hạt giống rau/hoa", "Khay ươm đất mùn"],
     levels: {
@@ -3022,7 +3022,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Chuyên hiệu", "Xe đạp", "Thám du", "Thể thao"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-chuyen-hieu-xe-dap.png", videoId: "" },
     purpose: "Rèn luyện thể lực bền bỉ, tính cơ động và ý thức chấp hành an toàn giao thông đường bộ.",
     equipment: ["Xe đạp thể thao/địa hình", "Mũ bảo hiểm đạt chuẩn", "Bộ vá săm + bơm tay mini", "Đèn phản quang"],
     levels: {
@@ -3065,7 +3065,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "hard",
     tags: ["Chuyên hiệu", "Bơi lội", "Sinh tồn", "Cứu đuối", "An toàn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kynang-chuyen-hieu-boi-loi.png", videoId: "" },
     purpose: "Xóa nạn mù bơi, xây dựng bản lĩnh tự tin dưới nước và kỹ năng cứu người đuối nước an toàn.",
     equipment: ["Kính bơi", "Phao cứu sinh / sào tre cứu nạn", "Áo phao dã ngoại"],
     levels: {

@@ -1707,6 +1707,23 @@
       }
     }
 
+  
+    /* ========================================================
+       MASTER 1-ROW COMPACT DISPLAY (STRICT 3 CARDS BY DEFAULT)
+       ======================================================== */
+    .extra-item {
+      display: none !important;
+    }
+    .lib-grid.expanded .lib-card.extra-item {
+      display: flex !important;
+    }
+    .hl-list.expanded .hl.extra-item {
+      display: grid !important;
+    }
+    .review-grid.expanded .review-card.extra-item {
+      display: flex !important;
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -1912,7 +1929,7 @@
           <p class="lead" data-vi="Ngoài buổi sáng Chủ nhật hằng tuần, Liên đoàn tổ chức trại theo chuyên đề, thám du và các việc giúp ích. Dưới đây là những hoạt động gần nhất, xếp từ mới đến cũ." data-en="Besides weekly Sunday sessions, the troop organizes themed camps, expeditions, and community service. Below are recent activities in reverse chronological order.">Ngoài buổi sáng Chủ nhật hằng tuần, Liên đoàn tổ chức trại theo chuyên đề, thám du và các việc giúp ích. Dưới đây là những hoạt động gần nhất, xếp từ mới đến cũ.</p>
         </div>
         <div class="hl-list">
-          <article class="hl reveal">
+          <article class="hl extra-item reveal">
             <div class="hl-when"><strong>06–07/12/2025</strong><span data-vi="Kỳ trại" data-en="Camp Event">Kỳ trại</span></div>
             <div>
               <h3 data-vi="Hà Nội Mùa Thu – 36 Phố Phường" data-en="Autumn Hanoi – 36 Streets Expedition">Hà Nội Mùa Thu – 36 Phố Phường</h3>
@@ -1920,7 +1937,7 @@
               <div class="hl-tags"><span data-vi="Sinh hoạt trạm" data-en="Station Tasks">Sinh hoạt trạm</span><span data-vi="Quan sát" data-en="Observation">Quan sát</span><span data-vi="Mật thư" data-en="Ciphers">Mật thư</span><span data-vi="Dấu đường" data-en="Trail Signs">Dấu đường</span><span data-vi="Lịch sử Thăng Long" data-en="Hanoi History">Lịch sử Thăng Long</span></div>
             </div>
           </article>
-          <article class="hl reveal">
+          <article class="hl extra-item reveal">
             <div class="hl-when"><strong>15/10/2025</strong><span data-vi="An toàn cho con" data-en="Child Safety">An toàn cho con</span></div>
             <div>
               <h3 data-vi="“Không một mình” – phòng chống bắt cóc online" data-en="“Never Alone” – Online Safety & Anti-grooming">“Không một mình” – phòng chống bắt cóc online</h3>
@@ -1928,7 +1945,7 @@
               <div class="hl-tags"><span data-vi="Cẩm nang an toàn trực tuyến" data-en="Online Safety Guide">Cẩm nang an toàn trực tuyến</span><span data-vi="Cho cả phụ huynh" data-en="For Parents">Cho cả phụ huynh</span></div>
             </div>
           </article>
-          <article class="hl reveal">
+          <article class="hl extra-item reveal">
             <div class="hl-when"><strong>28/09/2025</strong><span data-vi="Sinh hoạt Ấu đoàn" data-en="Cub Scout Meeting">Sinh hoạt Ấu đoàn</span></div>
             <div>
               <h3 data-vi="Sói con vào bếp làm bánh nướng, bánh dẻo" data-en="Cub Scouts Baking Mid-Autumn Mooncakes">Sói con vào bếp làm bánh nướng, bánh dẻo</h3>
@@ -1936,7 +1953,7 @@
               <div class="hl-tags"><span data-vi="Khéo tay" data-en="Handicrafts">Khéo tay</span><span data-vi="Làm cùng nhau" data-en="Teamwork">Làm cùng nhau</span><span data-vi="Trung thu" data-en="Mid-Autumn">Trung thu</span></div>
             </div>
           </article>
-          <article class="hl reveal">
+          <article class="hl extra-item reveal">
             <div class="hl-when"><strong>25/08/2025</strong><span data-vi="Thám du" data-en="Expedition">Thám du</span></div>
             <div>
               <h3 data-vi="Chuyến tàu ngược dòng thời gian" data-en="A Journey Back in Time Expedition">Chuyến tàu ngược dòng thời gian</h3>
@@ -2379,7 +2396,7 @@
         <div class="lib-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:20px;">
           
           <!-- DOC 1: Nghi thức 2025 -->
-          <div class="lib-card" data-cat="standards">
+          <div class="lib-card extra-item" data-cat="standards">
             <div class="lib-badge standards">🏛️ NGHI THỨC · 12.4 MB</div>
             <h3>Nghi Thức Hướng Đạo Việt Nam 2025</h3>
             <div class="lib-author">Xưởng Nghi Thức HĐVN · Phiên bản 3.5</div>
@@ -2391,7 +2408,7 @@
           </div>
 
           <!-- DOC 2: Hướng Đạo Hạng Nhất -->
-          <div class="lib-card" data-cat="standards">
+          <div class="lib-card extra-item" data-cat="standards">
             <div class="lib-badge standards">🏛️ QUY CHUẨN · 17.2 MB</div>
             <h3>Hướng Đạo Hạng Nhất (First Class Scout)</h3>
             <div class="lib-author">Trưởng Trương Trọng Trác · 8 Chương Toàn Tập</div>
@@ -2403,7 +2420,7 @@
           </div>
 
           <!-- DOC 3: Quy chế ngành Ấu -->
-          <div class="lib-card" data-cat="standards">
+          <div class="lib-card extra-item" data-cat="standards">
             <div class="lib-badge standards">🏛️ NGÀNH ẤU · 2.8 MB</div>
             <h3>Quy Chế Ngành Ấu (Sói Con 7–11 Tuổi)</h3>
             <div class="lib-author">Ban Nghiên Huấn HĐVN · Tiêu Chuẩn Sao Rừng</div>
@@ -2415,7 +2432,7 @@
           </div>
 
           <!-- DOC 4: Kim Chỉ Nam Huynh Trưởng -->
-          <div class="lib-card" data-cat="leadership">
+          <div class="lib-card extra-item" data-cat="leadership">
             <div class="lib-badge leadership">🧭 HUYNH TRƯỞNG · 32.5 MB</div>
             <h3>Kim Chỉ Nam Huynh Trưởng Hướng Đạo</h3>
             <div class="lib-author">Tài Liệu Huấn Luyện Huynh Trưởng · Mã 2604</div>
@@ -2427,7 +2444,7 @@
           </div>
 
           <!-- DOC 5: Huấn Luyện Đội Trưởng -->
-          <div class="lib-card" data-cat="leadership">
+          <div class="lib-card extra-item" data-cat="leadership">
             <div class="lib-badge leadership">🧭 THỦ LĨNH · 4.2 MB</div>
             <h3>Huấn Luyện Đội Trưởng &amp; Hệ Thống Hàng Đội</h3>
             <div class="lib-author">Cẩm Nang Đội Trưởng HĐVN · Patrol System</div>
@@ -2439,7 +2456,7 @@
           </div>
 
           <!-- DOC 6: Sáng kiến GD WOSM -->
-          <div class="lib-card" data-cat="leadership">
+          <div class="lib-card extra-item" data-cat="leadership">
             <div class="lib-badge leadership">🧭 QUỐC TẾ · 36.9 MB</div>
             <h3>Các Sáng Kiến Giáo Dục Hướng Đạo Thế Giới</h3>
             <div class="lib-author">WOSM Official 2025 · Tổ Chức HĐ Thế Giới</div>
@@ -2451,7 +2468,7 @@
           </div>
 
           <!-- DOC 7: MOP Sứ Giả Hòa Bình -->
-          <div class="lib-card" data-cat="leadership">
+          <div class="lib-card extra-item" data-cat="leadership">
             <div class="lib-badge leadership">🧭 PHỤNG SỰ · 22.5 MB</div>
             <h3>Sổ Tay Sứ Giả Hòa Bình (MOP Guidebook 2026)</h3>
             <div class="lib-author">Messengers of Peace · Hướng Đạo Việt Nam</div>
@@ -2463,7 +2480,7 @@
           </div>
 
           <!-- DOC 8: Trái Tim Cha Mẹ -->
-          <div class="lib-card" data-cat="parenting">
+          <div class="lib-card extra-item" data-cat="parenting">
             <div class="lib-badge parenting">❤️ PHỤ HUYNH · 12.2 MB</div>
             <h3>Trái Tim Cha Mẹ &mdash; Thấu Hiểu Con Trẻ</h3>
             <div class="lib-author">Ebook Giáo Dục Gia Đình · Hướng Đạo Long Biên</div>
@@ -2834,7 +2851,7 @@
 
         <div class="review-grid" id="storiesGrid">
           <!-- 1. Mẹ Thùy Dung -->
-          <div class="review-card" data-cat="phuhuynh">
+          <div class="review-card extra-item" data-cat="phuhuynh">
             <div>
               <span class="review-badge phuhuynh">Phụ Huynh Đồng Hành</span>
               <div class="review-quote">
@@ -2852,7 +2869,7 @@
           </div>
 
           <!-- 2. Thiếu sinh Tiến Vinh -->
-          <div class="review-card" data-cat="thieu">
+          <div class="review-card extra-item" data-cat="thieu">
             <div>
               <span class="review-badge thieu">Thiếu Sinh · Đội Ong</span>
               <div class="review-quote">
@@ -2870,7 +2887,7 @@
           </div>
 
           <!-- 3. Thiếu sinh Thùy Trang (Jenny) -->
-          <div class="review-card" data-cat="thieu">
+          <div class="review-card extra-item" data-cat="thieu">
             <div>
               <span class="review-badge thieu">Thiếu Sinh · Đội Ong</span>
               <div class="review-quote">
@@ -2888,7 +2905,7 @@
           </div>
 
           <!-- 4. Đội trưởng Ngô Minh Đức -->
-          <div class="review-card" data-cat="thieu">
+          <div class="review-card extra-item" data-cat="thieu">
             <div>
               <span class="review-badge thieu">Đội Trưởng · Đội Đại Bàng</span>
               <div class="review-quote">
@@ -5405,6 +5422,72 @@ ${s.parentName} - ${s.parentPhone}`
           card.style.display = 'none';
         }
       });
+    }
+  </script>
+
+
+  <script>
+    /* ========================================================
+       MASTER TOGGLE CONTROLLERS FOR COMPACT 1-ROW SECTIONS
+       ======================================================== */
+    function toggleLibExpand() {
+      const grid = document.querySelector('.lib-grid');
+      const btn = document.getElementById('libToggleBtn');
+      if (!grid) return;
+      const isExp = grid.classList.toggle('expanded');
+      if (btn) {
+        btn.textContent = isExp ? 'Thu Gọn Tài Liệu ↑' : '📖 Xem Thêm 8 Tài Liệu Còn Lại ↓';
+      }
+    }
+
+    function toggleHlExpand() {
+      const list = document.querySelector('.hl-list');
+      const btn = document.getElementById('hlToggleBtn');
+      if (!list) return;
+      const isExp = list.classList.toggle('expanded');
+      if (btn) {
+        btn.textContent = isExp ? 'Thu Gọn Hoạt Động ↑' : '🏕️ Xem Thêm Các Hoạt Động & Kỳ Trại ↓';
+      }
+    }
+
+    function toggleStoryExpand() {
+      const grid = document.getElementById('storiesGrid') || document.querySelector('.review-grid');
+      const btn = document.getElementById('storyToggleBtn');
+      if (!grid) return;
+      const isExp = grid.classList.toggle('expanded');
+      if (btn) {
+        btn.textContent = isExp ? 'Thu Gọn Chia Sẻ ↑' : '❤️ Xem Thêm Chia Sẻ Từ Trái Tim ↓';
+      }
+    }
+
+    // Auto expand library when filtering categories
+    function filterLibrary(category, btn) {
+      document.querySelectorAll('.lib-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const grid = document.querySelector('.lib-grid');
+      const toggleWrap = document.getElementById('libExpandWrap');
+      
+      const cards = document.querySelectorAll('.lib-card');
+      if (category === 'all') {
+        if (toggleWrap) toggleWrap.style.display = 'block';
+        const isExp = grid ? grid.classList.contains('expanded') : false;
+        cards.forEach((card, idx) => {
+          if (idx < 3 || isExp) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      } else {
+        if (toggleWrap) toggleWrap.style.display = 'none';
+        cards.forEach(card => {
+          if (card.getAttribute('data-cat') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
     }
   </script>
 

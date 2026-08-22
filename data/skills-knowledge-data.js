@@ -381,7 +381,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Nút dây", "Scoutcraft", "Sơ cứu", "Cơ bản"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nut-det-chuan.png", videoId: "" },
     purpose: "Nối 2 đầu dây có cùng tiết diện và chất liệu, dễ thắt, nằm phẳng và rất dễ tháo mở khi cần.",
     equipment: ["Dây thừng dã ngoại 1m - 2m", "Băng tam giác cứu thương"],
     levels: {
@@ -811,7 +811,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Dập lửa", "An toàn", "Leave No Trace", "Cháy rừng"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/dap-lua-hoan-toan.png", videoId: "" },
     purpose: "Triệt tiêu 100% tàn than âm ỉ dưới lòng đất, phòng ngừa cháy rừng và trả lại sự an toàn cho thiên nhiên.",
     equipment: ["Xô nước", "Gậy khuấy than", "Xẻng xúc đất"],
     levels: {
@@ -939,7 +939,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Thực đơn", "Dinh dưỡng", "Kế hoạch", "Tài chính"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/lap-thuc-don-trai.png", videoId: "" },
     purpose: "Cung cấp đầy đủ năng lượng cho các hoạt động thể lực cường độ cao, đảm bảo vệ sinh và tối ưu hóa ngân sách của đội.",
     equipment: ["Bảng tính khẩu phần dinh dưỡng", "Bảng giá thị trường", "Sổ tay kế hoạch"],
     levels: {
@@ -1028,7 +1028,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Phương hướng", "Định hướng", "Mặt trời", "Thiên văn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/xac-dinh-phuong-huong.png", videoId: "" },
     purpose: "Giúp Hướng đạo sinh luôn làm chủ không gian, không bao giờ bị mất phương hướng khi ở giữa thiên nhiên hoang dã.",
     equipment: ["Gậy cắm cọc", "Sỏi đánh dấu bóng", "Đồng hồ kim"],
     levels: {
@@ -1112,7 +1112,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Bản đồ", "Địa hình", "Đường đồng mức", "Tỷ lệ"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/doc-ban-do-dia-hinh.png", videoId: "" },
     purpose: "Hình dung toàn bộ bức tranh địa hình 3D thực tế của khu vực rừng núi chỉ qua một tờ giấy bản đồ 2D phẳng.",
     equipment: ["Bản đồ địa hình tỷ lệ 1:25.000 hoặc 1:50.000", "Thước đo milimet", "Bảng chú giải ký hiệu"],
     levels: {
@@ -1154,7 +1154,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Bản đồ", "La bàn", "Định hướng", "Thực địa"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/dinh-huong-ban-do-la-ban.png", videoId: "" },
     purpose: "Giúp người đi rừng nhìn bản đồ thấy con đường bên phải trên giấy chính là con đường bên tay phải ngoài đời thực, không bị ngược hướng.",
     equipment: ["Bản đồ địa hình", "La bàn Silva"],
     levels: {
@@ -1197,7 +1197,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Phương vị", "Azimuth", "La bàn", "Trekking"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/di-theo-phuong-vi-azimuth.png", videoId: "" },
     purpose: "Giúp người thám du đi theo đường thẳng tắp đến đích dù không nhìn thấy đích do bị cây rừng che khuất hoặc đêm tối.",
     equipment: ["La bàn Silva", "Sổ ghi phương vị"],
     levels: {
@@ -1325,7 +1325,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "hard",
     tags: ["Route Card", "Kế hoạch", "Thám du", "Huynh trưởng"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/lap-hanh-trinh-route-card.png", videoId: "" },
     purpose: "Bản kế hoạch tác chiến chi tiết của chuyến thám du, giúp ban lãnh đạo theo dõi vị trí và xử lý cứu hộ kịp thời nếu có sự cố.",
     equipment: ["Bản đồ hành trình", "Biểu mẫu Route Card chuẩn", "Bút chì & Thước đo"],
     levels: {
@@ -1543,7 +1543,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Phồng rộp", "Chăm sóc chân", "Hiking", "Trekking"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/phong-rop-chan-blister.png", videoId: "" },
     purpose: "Bảo vệ đôi bàn chân - tài sản quý giá nhất của người đi bộ đường dài, giúp hoàn thành trọn vẹn hành trình thám du không đau đớn.",
     equipment: ["Băng keo cá nhân / Băng dính thể thao (Micropore/Zinc Oxide)", "Tất len/tất trekking chuyên dụng", "Kem chống ma sát (Vaseline)"],
     levels: {
@@ -1630,7 +1630,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Say nắng", "Sốc nhiệt", "Mùa hè", "Sơ cứu"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/kiet-suc-do-nong-say-nang.png", videoId: "" },
     purpose: "Ngăn chặn tiến triển nguy hiểm từ Say nóng (Heat Exhaustion) sang Sốc nhiệt (Heat Stroke - nguy cơ tử vong cao).",
     equipment: ["Khăn ướt / nước mát", "Dung dịch bù nước Oresol hoặc nước khoáng điện giải", "Quạt tay"],
     levels: {
@@ -1674,7 +1674,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Khẩn cấp", "115", "Giao tiếp", "Cứu hộ"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/goi-tro-giup-khan-cap.png", videoId: "" },
     purpose: "Truyền đạt thông tin khẩn cấp rõ ràng, ngắn gọn để lực lượng cứu hộ y tế tiếp cận hiện trường nhanh nhất.",
     equipment: ["Điện thoại di động", "Tọa độ GPS / Mốc địa danh", "Sổ ghi thông tin"],
     levels: {
@@ -1722,7 +1722,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Thực vật", "Cây xanh", "Thiên nhiên", "Bảo tồn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/nhan-biet-la-cay-rung.png", videoId: "" },
     purpose: "Hiểu biết về hệ thực vật bản địa, nhận diện cây gỗ tốt làm công trình trại, cây thuốc hữu ích và cây độc cần tránh.",
     equipment: ["Kính lúp nhỏ", "Sổ tay ký họa lá cây", "Thước đo"],
     levels: {
@@ -1851,7 +1851,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Mây trời", "Thời tiết", "Khí tượng", "Dã ngoại"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/quan-sat-hinh-thai-may.png", videoId: "" },
     purpose: "Chủ động nhận biết trước các cơn dông bão sấm sét hoặc đợt không khí lạnh để chuẩn bị bạt che lều trại kịp thời.",
     equipment: ["Bảng phân loại các tầng mây", "Sổ ghi chép thời tiết"],
     levels: {
@@ -1934,7 +1934,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Động vật", "Bảo tồn", "Leave No Trace", "Đạo đức"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/ton-trong-dong-vat-hoang-da.png", videoId: "" },
     purpose: "Bảo tồn tập tính hoang dã tự nhiên của các loài động vật, phòng ngừa nguy cơ bị thú cắn hoặc lây truyền bệnh dại.",
     equipment: ["Ống nhòm ngắm từ xa", "Quy tắc ngón tay cái (Rule of Thumb)"],
     levels: {
@@ -2069,7 +2069,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Morse", "Truyền tin", "Âm thanh", "Ánh sáng"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/ma-morse-co-ban.png", videoId: "" },
     purpose: "Phương thức liên lạc vô tuyến khẩn cấp toàn cầu qua âm thanh còi, ánh sáng đèn pin hoặc gõ nhịp khi mất sóng viễn thông.",
     equipment: ["Còi Morse", "Đèn pin phát tín hiệu", "Bảng mã Morse quốc tế", "Sổ ghi nhận tin"],
     levels: {
@@ -2155,7 +2155,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Còi lệnh", "Kỷ luật", "Tập hợp", "Hiệu lệnh"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/tin-hieu-coi-lenh.png", videoId: "" },
     purpose: "Kênh ra lệnh nhanh nhất, to nhất của Huynh trưởng điều khiển đội hình cả trăm đoàn sinh giữa không gian rộng lớn.",
     equipment: ["Còi kim loại Fox 40 hoặc còi nhựa âm lượng cao", "Dây đeo còi quanh cổ"],
     levels: {
@@ -2198,7 +2198,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "easy",
     tags: ["Dấu đường", "Trail Signs", "Trinh sát", "Dã ngoại"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/bo-dau-duong-huong-dao.png", videoId: "" },
     purpose: "Để lại dấu vết chỉ đường bí mật cho phân đội đi sau bám theo mà không gây chú ý cho người lạ.",
     equipment: ["Vật liệu tự nhiên: cành cây, sỏi đá, cỏ, phấn vẽ"],
     levels: {
@@ -2242,7 +2242,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Theo dấu", "Trinh sát", "Quan sát", "Thám du"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/theo-dau-vet-duong-mon.png", videoId: "" },
     purpose: "Rèn luyện thị giác tinh tường, khả năng phán đoán logic và tinh thần trinh sát viên Hướng đạo.",
     equipment: ["Kính lúp", "Sổ tay trinh sát"],
     levels: {
@@ -2285,7 +2285,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Mật thư", "Giải mã", "Mã hóa", "Tư duy logic"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/mat-thu-thay-the.png", videoId: "" },
     purpose: "Bảo mật thông tin chỉ dẫn trạm trong các trò chơi thám du, rèn luyện tư duy logic và khả năng phân tích mật mã.",
     equipment: ["Giấy bút giải mã", "Bảng chữ cái mã hóa"],
     levels: {
@@ -2328,7 +2328,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Mật thư", "Tọa độ", "Toán học", "Trò chơi lớn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/mat-thu-toa-do.png", videoId: "" },
     purpose: "Nâng cao năng lực giải mật mã logic đa chiều, ứng dụng tìm tọa độ kho báu trên bản đồ địa hình.",
     equipment: ["Bảng lưới tọa độ 5x5 hoặc 6x6", "Bút chì, thước kẻ"],
     levels: {
@@ -2371,7 +2371,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "hard",
     tags: ["Trò chơi lớn", "Wide Game", "Tổng hợp", "Teamwork"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/to-chuc-tro-choi-lon.png", videoId: "" },
     purpose: "Hoạt động cao trào hấp dẫn nhất của kỳ trại Hướng đạo, nơi các phân đội thể hiện tinh thần đoàn kết, trí tuệ và bản lĩnh sinh tồn.",
     equipment: ["Hành trang thám du cá nhân", "Bộ dụng cụ đội (la bàn, bản đồ, dây thừng, sơ cứu)", "Sổ lộ trình trạm"],
     levels: {
@@ -2417,7 +2417,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Tự lập", "Checklist", "Trách nhiệm", "Kỹ năng sống"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/tu-chuan-bi-hanh-trang.png", videoId: "" },
     purpose: "Rèn luyện tính tự lập, không ỷ lại vào bố mẹ, hình thành thói quen chu đáo và chuẩn bị sẵn sàng cho mọi hoàn cảnh.",
     equipment: ["Bảng checklist đồ dùng cá nhân", "Ba lô cá nhân"],
     levels: {
@@ -2460,7 +2460,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Thời gian", "Đúng giờ", "Kỷ luật", "Kế hoạch"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/quan-ly-thoi-gian-trai.png", videoId: "" },
     purpose: "Xây dựng phẩm chất người Hướng đạo sinh luôn đúng giờ, tôn trọng thời gian của người khác và làm việc hiệu quả.",
     equipment: ["Đồng hồ đeo tay", "Thời gian biểu hoạt động"],
     levels: {
@@ -2589,7 +2589,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "medium",
     tags: ["Tài chính", "Ngân sách", "Tiết kiệm", "Minh bạch"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/quan-ly-ngan-sach-doi.png", videoId: "" },
     purpose: "Rèn luyện đức tính tiết kiệm (Điều luật thứ 9: 'Người Hướng đạo cần kiệm'), trung thực và biết quý trọng giá trị sức lao động.",
     equipment: ["Sổ thu chi phân đội", "Túi đựng tiền quỹ an toàn"],
     levels: {
@@ -2632,7 +2632,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "indoor",
     difficulty: "easy",
     tags: ["An toàn số", "Internet", "Bảo mật", "Công dân số"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/an-toan-khong-gian-mang.png", videoId: "" },
     purpose: "Giúp đoàn sinh thế hệ số tự tin làm chủ công nghệ, không bị kẻ xấu lừa gạt, bắt nạt trực tuyến và sống lành mạnh.",
     equipment: ["Điện thoại / máy tính cá nhân", "Sổ tay bảo mật số"],
     levels: {
@@ -2675,7 +2675,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Bị lạc", "STOP", "Sinh tồn", "An toàn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/xu-ly-khi-bi-lac-stop.png", videoId: "" },
     purpose: "Giúp người bị lạc giữ vững tâm lý bình tĩnh, không hoảng loạn đi lung tung làm lạc sâu hơn và giúp đội tìm kiếm cứu hộ nhanh nhất.",
     equipment: ["Còi cứu sinh", "Áo khoác ấm", "Bình nước cá nhân", "Đèn pin"],
     levels: {
@@ -2718,7 +2718,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Việc thiện", "Giúp ích", "Cộng đồng", "Trách nhiệm"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/moi-ngay-mot-viec-tot.png", videoId: "" },
     purpose: "Hình thành tinh thần công dân tích cực, lòng nhân ái, sự sẻ chia và thực hiện trọn vẹn Lời Hứa Hướng đạo: 'Giúp ích mọi người bất cứ lúc nào'.",
     equipment: ["Dụng cụ lao động tình nguyện", "Kế hoạch hoạt động thiện nguyện"],
     levels: {

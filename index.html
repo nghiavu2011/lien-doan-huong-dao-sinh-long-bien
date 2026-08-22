@@ -1684,6 +1684,29 @@
       display: flex;
     }
 
+  
+    /* Mobile sticky bottom bar: ONLY on Mobile (< 768px), HIDDEN on Desktop */
+    #mobileBottomBar {
+      display: none !important;
+    }
+    @media (max-width: 768px) {
+      #mobileBottomBar {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: rgba(17, 50, 55, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 8px 12px;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -5225,8 +5248,7 @@ ${s.parentName} - ${s.parentPhone}`
         return;
       }
 
-      const htmlContent = `
-<!DOCTYPE html>
+      const htmlContent = `<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -5245,427 +5267,54 @@ ${s.parentName} - ${s.parentPhone}`
       body { padding: 0; }
       .no-print { display: none; }
     }
-  
-    /* ========================================================
-       GRAPHIC CHEVRON RIBBON TIMELINE (LEGEND STYLE)
-       ======================================================== */
-    .graphic-timeline-sec {
-      background: #fdfdfd;
-      position: relative;
-    }
-
-    .gt-ribbon-strip {
-      display: grid;
-      grid-template-columns: repeat(10, 132px);
-      gap: 12px;
-      background: linear-gradient(135deg, #0e292d 0%, #154249 50%, #1c5b65 100%);
-      padding: 12px 14px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(17, 50, 55, 0.2);
-      margin: 12px 0;
-      position: relative;
-    }
-    .gt-ribbon-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Roboto Slab', Georgia, serif;
-      font-size: 19px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -.02em;
-      white-space: nowrap;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-    .gt-ribbon-item.active {
-      color: #ffd166;
-    }
-
-    .gt-card-box {
-      display: flex;
-      flex-direction: column;
-      width: 132px;
-    }
-    .gt-card-box.top {
-      justify-content: flex-end;
-    }
-    .gt-card-box.bottom {
-      justify-content: flex-start;
-    }
-
-    .gt-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-    .gt-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(17, 50, 55, 0.1);
-      border-color: var(--forest);
-    }
-    .gt-card.highlight {
-      border: 1.5px solid var(--fire);
-      background: #fffcf8;
-    }
-
-    .gt-tag {
-      display: block;
-      font-size: 8.5px;
-      font-weight: 800;
-      color: var(--forest);
-      letter-spacing: .08em;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .gt-tag.highlight {
-      color: var(--fire);
-    }
-
-    .gt-thumb {
-      width: 100%;
-      height: 72px;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 6px;
-      background: #f0f0f0;
-    }
-    .gt-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .3s ease;
-    }
-    .gt-card:hover .gt-thumb img {
-      transform: scale(1.06);
-    }
-
-    .gt-card h4 {
-      font-family: 'Roboto Slab', Georgia, serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--forest);
-      margin: 0 0 4px 0;
-      line-height: 1.25;
-    }
-    .gt-card p {
-      font-size: 10px;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.35;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .gt-pointer {
-      width: 2px;
-      height: 12px;
-      background: var(--line);
-      margin: 0 auto;
-    }
-    .gt-pointer.down {
-      margin-bottom: 0;
-    }
-    .gt-pointer.up {
-      margin-top: 0;
-    }
-
-    /* Mobile Responsive for Graphic Timeline */
-    @media (max-width: 768px) {
-      .gt-header-grid {
-        grid-template-columns: 1fr !important;
-        gap: 14px !important;
-      }
-      .graphic-timeline-sec {
-        padding: 32px 0 40px !important;
-      }
-    }
-
-  
-    /* ========================================================
-       LIBRARY & LITERATURE STYLING
-       ======================================================== */
-    .lib-tab-btn {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      color: var(--forest);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 9px 18px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all .2s ease;
-    }
-    .lib-tab-btn:hover {
-      border-color: var(--forest);
-      background: #f0f4f3;
-    }
-    .lib-tab-btn.active {
-      background: var(--forest);
-      color: #ffffff;
-      border-color: var(--forest);
-      box-shadow: 0 4px 12px rgba(17, 50, 55, 0.2);
-    }
-
-    .lib-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .lib-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(17, 50, 55, 0.1);
-      border-color: var(--forest);
-    }
-
-    .lib-badge {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-    }
-    .lib-badge.standards {
-      background: rgba(17, 50, 55, 0.1);
-      color: var(--forest);
-    }
-    .lib-badge.leadership {
-      background: rgba(237, 123, 43, 0.12);
-      color: var(--fire);
-    }
-    .lib-badge.parenting {
-      background: rgba(183, 62, 0, 0.1);
-      color: var(--red);
-    }
-
-    .lib-card h3 {
-      font-family: 'Roboto Slab', Georgia, serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--forest);
-      margin: 0 0 6px 0;
-      line-height: 1.35;
-    }
-    .lib-author {
-      font-size: 11.5px;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .lib-card p {
-      font-size: 13px;
-      color: var(--ink);
-      line-height: 1.5;
-      margin: 0 0 18px 0;
-    }
-
-    .lib-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-    .lib-btn-read {
-      flex: 1.2;
-      background: var(--forest);
-      color: #ffffff;
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 9px 12px;
-      border-radius: 999px;
-      text-decoration: none;
-      text-align: center;
-      transition: background .2s ease;
-    }
-    .lib-btn-read:hover {
-      background: #194e56;
-    }
-    .lib-btn-dl {
-      flex: 0.8;
-      background: #f0f4f3;
-      color: var(--forest);
-      border: 1px solid var(--line);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px 10px;
-      border-radius: 999px;
-      text-decoration: none;
-      text-align: center;
-      transition: all .2s ease;
-    }
-    .lib-btn-dl:hover {
-      background: #e2ece9;
-    }
-
-    @media (max-width: 768px) {
-      .lib-grid {
-        grid-template-columns: 1fr !important;
-      }
-      #su-kien-hdvn > .container > div {
-        grid-template-columns: 1fr !important;
-        padding: 24px !important;
-      }
-    }
-
   </style>
 </head>
 <body>
   <div class="header">
-    <h3>LIÊN ĐOÀN HƯỚNG ĐẠO LONG BIÊN · HÀ NỘI</h3>
-    <h2>PHIẾU TÌM HIỂU GIA ĐÌNH &amp; ĐOÀN SINH MỚI</h2>
-    <p style="margin:4px 0 0;font-size:12px;font-style:italic;">(Biểu mẫu số 05 &mdash; Hồ sơ tiếp nhận đoàn sinh)</p>
+    <h3>TỔNG HỘI HƯỚNG ĐẠO VIỆT NAM · LIÊN ĐOÀN HƯỚNG ĐẠO LONG BIÊN</h3>
+    <h2>PHIẾU TÌM HIỂU ĐOÀN SINH MỚI &amp; GIA ĐÌNH</h2>
+    <p style="margin:4px 0 0;font-style:italic;font-size:12px;">(Biểu mẫu số 05 &mdash; Ban hành kèm theo Quy chế Quản lý Đoàn sinh)</p>
   </div>
 
   <div class="sec-title">I. THÔNG TIN ĐOÀN SINH</div>
   <table>
-    <tr><td class="label">Họ và tên của bé:</td><td><strong>${s.childName || '...................................................'}</strong></td></tr>
-    <tr><td class="label">Ngày sinh:</td><td>${s.childDob || '...................................................'}</td></tr>
-    <tr><td class="label">Trường &amp; Lớp:</td><td>${s.childSchool || '...................................................'}</td></tr>
-    <tr><td class="label">Ngành tham gia:</td><td><strong>${s.scoutBranch || 'Ấu đoàn (Sói con)'}</strong></td></tr>
-    <tr><td class="label">Sở thích &amp; Sức khỏe:</td><td>${s.childNotes || 'Bình thường, không dị ứng'}</td></tr>
+    <tr><td class="label">Họ và tên bé:</td><td><strong>${s.childName || '...................................................'}</strong></td></tr>
+    <tr><td class="label">Ngày sinh:</td><td>${s.childDob || '................................'}</td></tr>
+    <tr><td class="label">Trường / Lớp:</td><td>${s.childSchool || '................................'}</td></tr>
+    <tr><td class="label">Ngành đăng ký:</td><td><strong>${s.scoutBranch}</strong></td></tr>
+    <tr><td class="label">Sức khỏe &amp; Dị ứng:</td><td>${s.childNotes || 'Bình thường, không có tiền sử bệnh lý đặc biệt'}</td></tr>
   </table>
 
-  <div class="sec-title">II. THÔNG TIN PHỤ HUYNH</div>
+  <div class="sec-title">II. THÔNG TIN PHỤ HUYNH &amp; GIA ĐÌNH</div>
   <table>
-    <tr><td class="label">Họ tên Cha / Mẹ:</td><td><strong>${s.parentName || '...................................................'}</strong></td></tr>
-    <tr><td class="label">Số điện thoại (Zalo):</td><td><strong>${s.parentPhone || '...................................................'}</strong></td></tr>
-    <tr><td class="label">Email:</td><td>${s.parentEmail || '...................................................'}</td></tr>
-    <tr><td class="label">Địa chỉ cư trú:</td><td>${s.parentAddress || 'Quận Long Biên, Hà Nội'}</td></tr>
+    <tr><td class="label">Họ tên Phụ huynh:</td><td><strong>${s.parentName || '...................................................'}</strong></td></tr>
+    <tr><td class="label">Số điện thoại / Zalo:</td><td><strong>${s.parentPhone || '................................'}</strong></td></tr>
+    <tr><td class="label">Email:</td><td>${s.parentEmail || '................................'}</td></tr>
+    <tr><td class="label">Địa chỉ cư trú:</td><td>${s.parentAddress || '................................'}</td></tr>
+    <tr><td class="label">Sở thích gia đình:</td><td>${s.hobbies.join(', ') || 'Dã ngoại, rèn luyện kỹ năng sống'}</td></tr>
+    <tr><td class="label">Hỗ trợ Liên đoàn:</td><td>${s.supports.join(', ') || 'Đồng hành cùng các buổi sinh hoạt ngoài trời'}</td></tr>
   </table>
-
-  <div class="sec-title">III. SỞ THÍCH &amp; HOẠT ĐỘNG GIA ĐÌNH</div>
-  <p>${s.hobbies.length ? s.hobbies.join(', ') : 'Gia đình yêu thích các hoạt động dã ngoại ngoài trời và thể thao.'}</p>
-
-  <div class="sec-title">IV. KHẢ NĂNG ĐỒNG HÀNH &amp; HỖ TRỢ LIÊN ĐOÀN</div>
-  <p>${s.supports.length ? s.supports.join('; ') : 'Cam kết đưa đón con sinh hoạt đều đặn sáng Chủ nhật và hỗ trợ hậu cần khi có yêu cầu.'}</p>
 
   <div class="signature-grid">
     <div>
-      <p><em>Hà Nội, ngày......tháng......năm 202...</em></p>
-      <p><strong>XÁC NHẬN BAN HUYNH TRƯỞNG</strong></p>
-      <div style="height:60px;"></div>
-      <p><strong>Nguyễn Phương Thảo</strong><br><small>Liên đoàn trưởng</small></p>
+      <em>Hà Nội, ngày ..... tháng ..... năm 202...</em><br>
+      <strong>ĐẠI DIỆN LIÊN ĐOÀN</strong><br><br><br><br>
+      <strong>Nguyễn Phương Thảo</strong>
     </div>
     <div>
-      <p><em>Hà Nội, ngày......tháng......năm 202...</em></p>
-      <p><strong>NGƯỜI KHAI ĐƠN / PHỤ HUYNH</strong></p>
-      <div style="height:60px;"></div>
-      <p><strong>${s.parentName || 'Chữ ký Phụ huynh'}</strong></p>
+      <em>Hà Nội, ngày ..... tháng ..... năm 202...</em><br>
+      <strong>PHỤ HUYNH HỌC SINH</strong><br><br><br><br>
+      <strong>${s.parentName || '(Ký và ghi rõ họ tên)'}</strong>
     </div>
   </div>
 
-  <div class="no-print" style="margin-top:30px;text-align:center;">
-    <button onclick="window.print()" style="background:#ed7b2b;color:#fff;border:none;padding:10px 24px;border-radius:999px;font-weight:bold;cursor:pointer;font-size:15px;">🖨️ BẤM ĐỂ IN HOẶC LƯU FILE PDF</button>
+  <div class="no-print" style="margin-top:40px;text-align:center;">
+    <button onclick="window.print()" style="background:#113237;color:#fff;padding:10px 24px;border:none;border-radius:6px;font-size:14px;cursor:pointer;font-weight:bold;">🖨️ In Phiếu Hoặc Lưu File PDF</button>
   </div>
-
-  <script>
-    function filterLibrary(category, btnElement) {
-      const tabs = document.querySelectorAll('.lib-tab-btn');
-      tabs.forEach(t => t.classList.remove('active'));
-      if (btnElement) btnElement.classList.add('active');
-
-      const cards = document.querySelectorAll('.lib-card');
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-cat');
-        if (category === 'all' || cat === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
-
-
-  <script>
-    // 1. Library Expand/Collapse Controller
-    let isLibExpanded = false;
-    function initLibCompact() {
-      const cards = document.querySelectorAll('.lib-card');
-      cards.forEach((card, idx) => {
-        if (idx >= 3) card.classList.add('extra-item');
-      });
-    }
-    function toggleLibExpand() {
-      isLibExpanded = !isLibExpanded;
-      const grid = document.querySelector('.lib-grid');
-      const btn = document.getElementById('libToggleBtn');
-      if (grid) grid.classList.toggle('expanded', isLibExpanded);
-      if (btn) {
-        btn.textContent = isLibExpanded ? 'Thu Gọn Tài Liệu ↑' : '📖 Xem Thêm 8 Tài Liệu Còn Lại ↓';
-      }
-    }
-
-    // 2. Activity Highlights Expand/Collapse Controller
-    let isHlExpanded = false;
-    function initHlCompact() {
-      const items = document.querySelectorAll('.hl-list .hl');
-      items.forEach((item, idx) => {
-        if (idx >= 3) item.classList.add('extra-item');
-      });
-    }
-    function toggleHlExpand() {
-      isHlExpanded = !isHlExpanded;
-      const list = document.querySelector('.hl-list');
-      const btn = document.getElementById('hlToggleBtn');
-      if (list) list.classList.toggle('expanded', isHlExpanded);
-      if (btn) {
-        btn.textContent = isHlExpanded ? 'Thu Gọn Hoạt Động ↑' : '🏕️ Xem Thêm Các Hoạt Động & Kỳ Trại ↓';
-      }
-    }
-
-    // 3. Testimonials / Stories Expand/Collapse Controller
-    let isStoryGridExpanded = false;
-    function initStoryCompact() {
-      const cards = document.querySelectorAll('.review-grid .review-card');
-      cards.forEach((card, idx) => {
-        if (idx >= 3) card.classList.add('extra-item');
-      });
-    }
-    function toggleStoryExpand() {
-      isStoryGridExpanded = !isStoryGridExpanded;
-      const grid = document.querySelector('.review-grid');
-      const btn = document.getElementById('storyToggleBtn');
-      if (grid) grid.classList.toggle('expanded', isStoryGridExpanded);
-      if (btn) {
-        btn.textContent = isStoryGridExpanded ? 'Thu Gọn Chia Sẻ ↑' : '❤️ Xem Thêm Chia Sẻ Từ Trái Tim ↓';
-      }
-    }
-
-    // Init compact on DOM ready
-    document.addEventListener('DOMContentLoaded', () => {
-      initLibCompact();
-      initHlCompact();
-      initStoryCompact();
-    });
-    // Run immediately as well
-    initLibCompact();
-    initHlCompact();
-    initStoryCompact();
-  </script>
-
 </body>
-</html>
-      `;
+</html>`;
 
+      printWin.document.open();
       printWin.document.write(htmlContent);
       printWin.document.close();
     }

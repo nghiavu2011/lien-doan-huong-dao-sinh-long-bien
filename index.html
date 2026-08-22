@@ -1661,12 +1661,8 @@
        ONE-ROW COMPACT DISPLAY & EXPAND/COLLAPSE CONTROLLER
        ======================================================== */
     /* Library Cards: Default show first 3 cards */
-    .lib-card.extra-item {
-      display: none;
-    }
-    .lib-grid.expanded .lib-card.extra-item {
-      display: flex;
-    }
+    
+    .lib-grid.expanded 
 
     /* Highlight Activities: Default show first 3 items */
     .hl-list .hl.extra-item {
@@ -1677,12 +1673,8 @@
     }
 
     /* Testimonials / Stories: Default show first 3 cards */
-    .review-grid .review-card.extra-item {
-      display: none;
-    }
-    .review-grid.expanded .review-card.extra-item {
-      display: flex;
-    }
+    
+    
 
   
     /* Mobile sticky bottom bar: ONLY on Mobile (< 768px), HIDDEN on Desktop */
@@ -1709,19 +1701,20 @@
 
   
     /* ========================================================
-       MASTER 1-ROW COMPACT DISPLAY (STRICT 3 CARDS BY DEFAULT)
+       5 ONBOARDING STEPS & SUNDAY ROUTINE HOVER EFFECTS
        ======================================================== */
-    .extra-item {
-      display: none !important;
+    #fiveStepGrid .step-card,
+    .sunday-routine-grid > div {
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease !important;
+      cursor: pointer;
     }
-    .lib-grid.expanded .lib-card.extra-item {
-      display: flex !important;
-    }
-    .hl-list.expanded .hl.extra-item {
-      display: grid !important;
-    }
-    .review-grid.expanded .review-card.extra-item {
-      display: flex !important;
+    #fiveStepGrid .step-card:hover,
+    .sunday-routine-grid > div:hover {
+      transform: translateY(-8px) scale(1.015) !important;
+      box-shadow: 0 16px 32px rgba(17, 50, 55, 0.14), 0 6px 16px rgba(17, 50, 55, 0.08) !important;
+      border-color: var(--forest) !important;
+      z-index: 2;
+      position: relative;
     }
 
   
@@ -2488,7 +2481,7 @@
         <div class="lib-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:20px;">
           
           <!-- DOC 1: Nghi thức 2025 -->
-          <div class="lib-card extra-item" data-cat="standards">
+          <div class="lib-card" data-cat="standards">
             <div class="lib-badge standards">🏛️ NGHI THỨC · 12.4 MB</div>
             <h3>Nghi Thức Hướng Đạo Việt Nam 2025</h3>
             <div class="lib-author">Xưởng Nghi Thức HĐVN · Phiên bản 3.5</div>
@@ -2500,7 +2493,7 @@
           </div>
 
           <!-- DOC 2: Hướng Đạo Hạng Nhất -->
-          <div class="lib-card extra-item" data-cat="standards">
+          <div class="lib-card" data-cat="standards">
             <div class="lib-badge standards">🏛️ QUY CHUẨN · 17.2 MB</div>
             <h3>Hướng Đạo Hạng Nhất (First Class Scout)</h3>
             <div class="lib-author">Trưởng Trương Trọng Trác · 8 Chương Toàn Tập</div>
@@ -2512,7 +2505,7 @@
           </div>
 
           <!-- DOC 3: Quy chế ngành Ấu -->
-          <div class="lib-card extra-item" data-cat="standards">
+          <div class="lib-card" data-cat="standards">
             <div class="lib-badge standards">🏛️ NGÀNH ẤU · 2.8 MB</div>
             <h3>Quy Chế Ngành Ấu (Sói Con 7–11 Tuổi)</h3>
             <div class="lib-author">Ban Nghiên Huấn HĐVN · Tiêu Chuẩn Sao Rừng</div>
@@ -2524,7 +2517,7 @@
           </div>
 
           <!-- DOC 4: Kim Chỉ Nam Huynh Trưởng -->
-          <div class="lib-card extra-item" data-cat="leadership">
+          <div class="lib-card" data-cat="leadership">
             <div class="lib-badge leadership">🧭 HUYNH TRƯỞNG · 32.5 MB</div>
             <h3>Kim Chỉ Nam Huynh Trưởng Hướng Đạo</h3>
             <div class="lib-author">Tài Liệu Huấn Luyện Huynh Trưởng · Mã 2604</div>
@@ -2536,7 +2529,7 @@
           </div>
 
           <!-- DOC 5: Huấn Luyện Đội Trưởng -->
-          <div class="lib-card extra-item" data-cat="leadership">
+          <div class="lib-card" data-cat="leadership">
             <div class="lib-badge leadership">🧭 THỦ LĨNH · 4.2 MB</div>
             <h3>Huấn Luyện Đội Trưởng &amp; Hệ Thống Hàng Đội</h3>
             <div class="lib-author">Cẩm Nang Đội Trưởng HĐVN · Patrol System</div>
@@ -2548,7 +2541,7 @@
           </div>
 
           <!-- DOC 6: Sáng kiến GD WOSM -->
-          <div class="lib-card extra-item" data-cat="leadership">
+          <div class="lib-card" data-cat="leadership">
             <div class="lib-badge leadership">🧭 QUỐC TẾ · 36.9 MB</div>
             <h3>Các Sáng Kiến Giáo Dục Hướng Đạo Thế Giới</h3>
             <div class="lib-author">WOSM Official 2025 · Tổ Chức HĐ Thế Giới</div>
@@ -2560,7 +2553,7 @@
           </div>
 
           <!-- DOC 7: MOP Sứ Giả Hòa Bình -->
-          <div class="lib-card extra-item" data-cat="leadership">
+          <div class="lib-card" data-cat="leadership">
             <div class="lib-badge leadership">🧭 PHỤNG SỰ · 22.5 MB</div>
             <h3>Sổ Tay Sứ Giả Hòa Bình (MOP Guidebook 2026)</h3>
             <div class="lib-author">Messengers of Peace · Hướng Đạo Việt Nam</div>
@@ -2572,7 +2565,7 @@
           </div>
 
           <!-- DOC 8: Trái Tim Cha Mẹ -->
-          <div class="lib-card extra-item" data-cat="parenting">
+          <div class="lib-card" data-cat="parenting">
             <div class="lib-badge parenting">❤️ PHỤ HUYNH · 12.2 MB</div>
             <h3>Trái Tim Cha Mẹ &mdash; Thấu Hiểu Con Trẻ</h3>
             <div class="lib-author">Ebook Giáo Dục Gia Đình · Hướng Đạo Long Biên</div>
@@ -2939,136 +2932,171 @@
           </div>
         </div>
 
+        <!-- Testimonial Grid (10 Real Stories from Vuon Xa National Camp) -->
         <div class="review-grid" id="storiesGrid">
-          <!-- 1. Mẹ Thùy Dung -->
-          <div class="review-card extra-item" data-cat="phuhuynh">
-            <div>
-              <span class="review-badge phuhuynh">Phụ Huynh Đồng Hành</span>
-              <div class="review-quote">
-                “Lần đầu tiên con bay ngàn dặm vào đất trại Nam Bộ, ngủ lều đất đỏ bazan, dầm mưa dột và tự tay nhóm bếp nấu ăn... Đón con ở sân bay Nội Bài, nhìn làn da rám nắng, nụ cười tự tin và cách con chủ động xếp đồ, mẹ biết con đã thực sự lớn khôn!”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('phuhuynh-thuydung')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
-            <div class="review-author">
-              <div class="author-avatar" style="background:#059669;">D</div>
-              <div class="author-info">
-                <strong>Mẹ Thùy Dung</strong>
-                <small>Phụ huynh Thiếu sinh Liên đoàn Long Biên</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Thiếu sinh Tiến Vinh -->
-          <div class="review-card extra-item" data-cat="thieu">
-            <div>
-              <span class="review-badge thieu">Thiếu Sinh · Đội Ong</span>
-              <div class="review-quote">
-                “Ở Vươn Xa, chúng em ngủ trong lều dựng trên nền đất đỏ bazan... Đội chỉ có 9 cây gậy tưởng chừng thiếu thốn, nhưng khi mưa như trút nước đổ xuống, 4 cây gậy cùng chiếc bay nhỏ đã giúp chúng em đào rãnh thoát nước cứu cả khu trại. Trong thiên nhiên, chẳng có thứ gì là vô dụng cả...”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('thieu-tienvinh')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
-            <div class="review-author">
-              <div class="author-avatar" style="background:#2563eb;">V</div>
-              <div class="author-info">
-                <strong>Thiếu sinh Tiến Vinh</strong>
-                <small>Đội Ong · Thiếu đoàn Long Biên</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Thiếu sinh Thùy Trang (Jenny) -->
-          <div class="review-card extra-item" data-cat="thieu">
-            <div>
-              <span class="review-badge thieu">Thiếu Sinh · Đội Ong</span>
-              <div class="review-quote">
-                “23:27 đêm, 5 ngày sau chuyến bay QH268 từ Sài Gòn về Hà Nội, em vẫn nhớ như in tiếng chào mộc mạc 'bên Ong nấu gì thơm dợ', nhớ tiếng còi tập hợp hoà lẫn tiếng mưa rơi trên tấm bạt đang căng dở... Hướng đạo cho em những người bạn và trải nghiệm không trường lớp nào dạy được.”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('thieu-thuytrang')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
-            <div class="review-author">
-              <div class="author-avatar" style="background:#2563eb;">T</div>
-              <div class="author-info">
-                <strong>Thiếu sinh Thùy Trang (Jenny)</strong>
-                <small>Thiếu đoàn Long Biên</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Đội trưởng Ngô Minh Đức -->
-          <div class="review-card extra-item" data-cat="thieu">
-            <div>
-              <span class="review-badge thieu">Đội Trưởng · Đội Đại Bàng</span>
-              <div class="review-quote">
-                “Nằm trên chiếc giường êm ái ở nhà, em lại ước kỳ trại Vươn Xa có thể kéo dài hơn... Vết thương hay những đêm thiếu ngủ không cản được bước chân. Là đội trưởng của một bầy 'tấm chiếu mới', trong khó khăn em lại tìm thấy niềm vui, trách nhiệm và sự gắn kết diệu kỳ.”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('thieu-minhduc')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
-            <div class="review-author">
-              <div class="author-avatar" style="background:#1d4ed8;">Đ</div>
-              <div class="author-info">
-                <strong>Ngô Minh Đức</strong>
-                <small>Đội trưởng Đội Đại Bàng · Thiếu đoàn Long Biên</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. Thiếu sinh Trần Phan Đại Dương -->
-          <div class="review-card" data-cat="thieu">
-            <div>
-              <span class="review-badge thieu">Thiếu Sinh · Đội Đại Bàng</span>
-              <div class="review-quote">
-                “Đêm lửa trại rực sáng thiêu rụi mọi mệt mỏi ban ngày. Ngày cuối cùng, cả đội cùng gom góp sẻ chia phần đồ ăn còn lại cho đội bạn Sóc Tân Định... Chuyến đi tặng cho chúng em bài học vô giá về tình đồng đội và sự sẻ chia không bao giờ quên.”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('thieu-daiduong')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
-            <div class="review-author">
-              <div class="author-avatar" style="background:#2563eb;">D</div>
-              <div class="author-info">
-                <strong>Trần Phan Đại Dương</strong>
-                <small>Đội Đại Bàng · Thiếu đoàn Long Biên</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. Sói con Linh Ngân -->
-          <div class="review-card" data-cat="soi">
-            <div>
-              <span class="review-badge soi">Sói Con · Đàn Nâu</span>
-              <div class="review-quote">
-                “Trong kì trại Vươn Xa 2026 em rất thích vì đã được làm quen với 4 bạn ở bầy TÂN ĐỊNH và rất nhiều Sói già! Em đã biết tập hợp hàng ngũ, giải mật thư Semaphore và phụ bán hàng mưu sinh. Kết thúc kỳ trại này em đã sẵn sàng lên Thiếu rồi ạ! 😋🥳”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('soi-linhngan')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
-            <div class="review-author">
-              <div class="author-avatar" style="background:#d97706;">N</div>
-              <div class="author-info">
-                <strong>Sói con Linh Ngân</strong>
-                <small>Đàn Nâu · Ấu đoàn Long Biên</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- 7. Akela Bùi Minh Ngọc -->
+          
+          <!-- 1. Mẹ Thùy Dung (Phụ Huynh) -->
           <div class="review-card" data-cat="phuhuynh">
-            <div>
-              <span class="review-badge truong">Huynh Trưởng · Akela Bầy Ấu</span>
-              <div class="review-quote">
-                “Nhìn các con từ những bước chân bỡ ngỡ ban đầu, biết tự bảo bọc nhau dưới cơn mưa đất trại, tự giác dọn dẹp và nở nụ cười rạng rỡ khi kết nạp thêm bạn mới... Tinh thần 'Gắng Sức' và 'Sắp Sẵn' của các em chính là niềm tự hào lớn nhất của Huynh trưởng.”
-              </div>
-              <button class="review-readmore" onclick="openStoryModal('truong-akela')">Đọc trọn vẹn bài viết ↗</button>
-            </div>
+            <span class="review-badge" style="background:rgba(46,125,50,0.1);color:var(--forest);">Phụ Huynh Đồng Hành</span>
+            <blockquote>
+              “Lần đầu tiên con bay ngàn dặm vào đất trại Nam Bộ, ngủ lều đất đỏ bazan, dầm mưa dột và tự tay nhóm bếp nấu ăn... Đón con ở sân bay Nội Bài, nhìn làn da rám nắng, nụ cười tự tin và cách con chủ động xếp đồ, mẹ biết con đã thực sự lớn khôn!”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('phuhuynh-thuydung')">Đọc trọn vẹn bài viết ↗</button>
             <div class="review-author">
-              <div class="author-avatar" style="background:#7c3aed;">N</div>
-              <div class="author-info">
-                <strong>Akela Bùi Minh Ngọc</strong>
-                <small>Huynh trưởng Ngành Ấu · Liên đoàn Long Biên</small>
+              <div class="avatar" style="background:var(--forest);">D</div>
+              <div>
+                <strong>Mẹ Thùy Dung</strong>
+                <span>Phụ huynh Thiếu sinh Liên đoàn Long Biên</span>
               </div>
             </div>
           </div>
+
+          <!-- 2. Thiếu Trưởng Hoàng Mai (Huynh Trưởng) -->
+          <div class="review-card" data-cat="phuhuynh">
+            <span class="review-badge" style="background:rgba(237,123,43,0.1);color:var(--fire);">Huynh Trưởng Thiếu Đoàn</span>
+            <blockquote>
+              “Nhìn các em từ những bỡ ngỡ ban đầu, tự tay đào rãnh thoát nước cứu lều trong mưa dông, chia sẻ từng mẩu bánh mì và kiên cường vượt qua Trò Chơi Lớn... Mọi vất vả, thiếu ngủ của người làm Trưởng đều hóa thành niềm tự hào vô bờ.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieutruong-hoangmai')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:var(--fire);">M</div>
+              <div>
+                <strong>Trưởng Hoàng Mai</strong>
+                <span>Thiếu Trưởng · Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Akela Bùi Minh Ngọc (Huynh Trưởng Bầy Sói) -->
+          <div class="review-card" data-cat="phuhuynh">
+            <span class="review-badge" style="background:rgba(46,125,50,0.1);color:var(--forest);">Akela Bầy Sói Con</span>
+            <blockquote>
+              “Món quà đẹp nhất trên cả mọi thành tích là lần đầu tiên nghe con gái Linh Thu khoe với mọi người: 'Mẹ mình là Akela!'. Hướng đạo không chỉ dạy các em nhỏ, mà là cơ hội để người lớn chúng mình tiếp tục học cách trưởng thành.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('akela-buiminhngoc')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:#2e7d32;">N</div>
+              <div>
+                <strong>Akela Bùi Minh Ngọc</strong>
+                <span>Trưởng Ngành Ấu · Bầy Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Thiếu sinh Tiến Vinh (Đội Ong) -->
+          <div class="review-card" data-cat="thieu">
+            <span class="review-badge" style="background:rgba(17,50,55,0.08);color:var(--forest);">Thiếu Sinh · Đội Ong</span>
+            <blockquote>
+              “Ở Vươn Xa, chúng em ngủ trong lều dựng trên nền đất đỏ bazan... Đội chỉ có 9 cây gậy tưởng chừng thiếu thốn, nhưng khi mưa như trút nước đổ xuống, 4 cây gậy cùng chiếc bay nhỏ đã giúp chúng em đào rãnh thoát nước cứu cả khu trại. Trong thiên nhiên, chẳng có thứ gì là vô dụng cả...”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieu-tienvinh')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:var(--forest);">V</div>
+              <div>
+                <strong>Thiếu sinh Tiến Vinh</strong>
+                <span>Đội Ong · Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Thiếu sinh Thùy Trang (Jenny - Đội Ong) -->
+          <div class="review-card" data-cat="thieu">
+            <span class="review-badge" style="background:rgba(17,50,55,0.08);color:var(--forest);">Thiếu Sinh · Đội Ong</span>
+            <blockquote>
+              “23:27 đêm, 5 ngày sau chuyến bay QH268 từ Sài Gòn về Hà Nội, em vẫn nhớ như in tiếng chào mộc mạc 'bên Ong nấu gì thơm dợ', nhớ tiếng còi tập hợp hoà lẫn tiếng mưa rơi trên tấm bạt đang căng dở... Hướng đạo cho em những người bạn và trải nghiệm không trường lớp nào dạy được.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieu-thuytrang')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:#0284c7;">T</div>
+              <div>
+                <strong>Thiếu sinh Thùy Trang (Jenny)</strong>
+                <span>Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Đội trưởng Minh Đức (Đội Đại Bàng) -->
+          <div class="review-card" data-cat="thieu">
+            <span class="review-badge" style="background:rgba(237,123,43,0.1);color:var(--fire);">Đội Trưởng · Đội Đại Bàng</span>
+            <blockquote>
+              “Nằm trên chiếc giường êm ái ở nhà, em lại ước kỳ trại Vươn Xa có thể kéo dài hơn... Vết thương hay những đêm thiếu ngủ không cản được bước chân. Là đội trưởng của một bầy 'tấm chiếu mới', trong khó khăn em lại tìm thấy niềm vui, trách nhiệm và sự gắn kết diệu kỳ.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieu-minhduc')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:var(--fire);">Đ</div>
+              <div>
+                <strong>Ngô Minh Đức</strong>
+                <span>Đội trưởng Đội Đại Bàng · Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Đội trưởng Minh Hạnh (Đội Bồ Câu) -->
+          <div class="review-card" data-cat="thieu">
+            <span class="review-badge" style="background:rgba(17,50,55,0.08);color:var(--forest);">Đội Trưởng · Đội Bồ Câu</span>
+            <blockquote>
+              “Với vai trò là một Đội trưởng, từ những lo lắng bất an ban đầu, em đã học cách bao bọc và dìu dắt các em nhỏ trong đội. Khi cơn mưa dông đổ xuống, cả đội Bồ Câu đã cùng chia sẻ từng chiếc áo khô và động viên nhau vượt qua thử thách.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieu-minhhanh')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:#7c3aed;">H</div>
+              <div>
+                <strong>Thiếu sinh Minh Hạnh</strong>
+                <span>Đội trưởng Đội Bồ Câu · Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Thiếu sinh Trần Phan Đại Dương (Đội Đại Bàng) -->
+          <div class="review-card" data-cat="thieu">
+            <span class="review-badge" style="background:rgba(17,50,55,0.08);color:var(--forest);">Thiếu Sinh · Đội Đại Bàng</span>
+            <blockquote>
+              “Bước chân đầu tiên đến đất trại, ngọn lửa trại bùng cháy kiêu hãnh và những phần thức ăn chia sẻ cho đội bạn Tân Định, Hội An... Kỳ trại để lại nhiều vết xước nhưng tặng cho chúng em bài học vô giá về sự sẻ chia và tình đồng đội.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieu-daiduong')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:#059669;">D</div>
+              <div>
+                <strong>Trần Phan Đại Dương</strong>
+                <span>Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Thiếu sinh Nam Khánh (Thiếu đoàn) -->
+          <div class="review-card" data-cat="thieu">
+            <span class="review-badge" style="background:rgba(17,50,55,0.08);color:var(--forest);">Thiếu Sinh · Thiếu Đoàn</span>
+            <blockquote>
+              “Go Beyond – Vươn Xa để trưởng thành! Những trải nghiệm dựng lều giữa đất đỏ, cùng đội giải mật thư Trò Chơi Lớn và đêm lửa trại ấm cúng đã giúp em tự lập và thấu hiểu giá trị của sự đoàn kết hàng đội.”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('thieu-namkhanh')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:#ea580c;">K</div>
+              <div>
+                <strong>Thiếu sinh Nam Khánh</strong>
+                <span>Thiếu đoàn Long Biên</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Sói con Linh Ngân (Đàn Nâu) -->
+          <div class="review-card" data-cat="soi">
+            <span class="review-badge" style="background:rgba(237,123,43,0.1);color:var(--fire);">Sói Con · Đàn Nâu</span>
+            <blockquote>
+              “Em đã quen 4 bạn mới ở bầy Tân Định và rất nhiều Sói Già! Em biết tập hợp hàng ngũ nhanh, tự giải mật thư Semaphore và giúp gian hàng mưu sinh bán được nhiều hàng. Em đã sẵn sàng để lên Thiếu rồi ạ hehe!”
+            </blockquote>
+            <button type="button" class="btn-read-more" onclick="openStoryModal('soi-linhngan')">Đọc trọn vẹn bài viết ↗</button>
+            <div class="review-author">
+              <div class="avatar" style="background:var(--fire);">L</div>
+              <div>
+                <strong>Sói con Linh Ngân</strong>
+                <span>Đàn Nâu · Bầy Long Biên</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Load more button for 1-row default view -->
-      
         <!-- Expand / Collapse Button -->
         <div style="text-align:center;margin-top:28px;" id="storyExpandWrap">
           <button type="button" id="storyToggleBtn" class="btn" onclick="toggleStoryExpand()" style="background:#ffffff;border:1.5px solid var(--forest);color:var(--forest);font-weight:700;font-size:13.5px;padding:10px 28px;border-radius:999px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:all .2s;">
@@ -3537,7 +3565,7 @@
     isStoryExpanded = !isStoryExpanded;
     updateStoryDisplay();
   };
-  const STORY_FULL_TEXTS = {
+    const STORY_FULL_TEXTS = {
     'phuhuynh-thuydung': {
       title: '💌 Gửi Con Gái Của Mẹ – Trưởng Thành Sau Chuyến Bay Ngàn Dặm',
       author: 'Phụ huynh Thùy Dung · Liên đoàn Long Biên',
@@ -3546,6 +3574,26 @@
         <p>Lần đầu tiên con xa gia đình để tham gia một kỳ trại lớn hàng nghìn cây số tại miền Nam. Khi tiễn con ở sân bay, lòng mẹ ngổn ngang bao nỗi lo âu: một cô bé quen được bố mẹ chở che, liệu có thích nghi được với thời tiết nắng mưa thất thường, với việc ngủ lều trên nền đất đỏ bazan và tự chuẩn bị từng bữa ăn dã chiến?</p>
         <p>Nhưng từng ngày trôi qua, nhận những tấm ảnh các Trưởng gửi về: thấy con lấm lem bùn đất mà miệng cười tươi rói, thấy con cùng các bạn đào rãnh thoát nước, căng bạt lều và tự tin tham gia trò chơi lớn, mẹ vừa xúc động vừa tự hào.</p>
         <p>Ngày đón con trở về tại sân bay Nội Bài trên chuyến bay QH268, nhìn làn da rám nắng khỏe khoắn, ánh mắt sáng ngời và cách con chủ động sắp xếp ba lô, chào hỏi các Trưởng lễ phép, mẹ biết con đã thực sự lớn khôn. Cảm ơn phong trào Hướng đạo và Liên đoàn Long Biên đã trao cho con bài học trưởng thành quý giá nhất tuổi thơ!</p>
+      `
+    },
+    'thieutruong-hoangmai': {
+      title: '⚜️ Nhìn Các Em Lớn Khôn Giữa Bão Giông Đất Trại',
+      author: 'Thiếu Trưởng Hoàng Mai · Liên đoàn Long Biên',
+      badge: 'Huynh Trưởng Chia Sẻ',
+      content: `
+        <p>Kỳ trại Vươn Xa – Go Beyond 2026 khép lại với biết bao cung bậc cảm xúc. Đưa một đoàn sinh đi trại xa hàng ngàn cây số là một trách nhiệm vô cùng to lớn đối với Ban Huynh Trưởng.</p>
+        <p>Thế nhưng, khi chứng kiến các em từ những bỡ ngỡ ban đầu, biết chủ động kết bạn với các đội bạn miền Nam (Tân Định, Hội An...), biết tự mình phân công nấu nướng trong cơn mưa dông, đào rãnh cứu lều và kiên cường vượt qua từng trạm Trò Chơi Lớn, tôi hiểu rằng phương pháp giáo dục Hướng đạo đã thực sự ngấm vào từng suy nghĩ và hành động của các em.</p>
+        <p>Những giọt mồ hôi, những vết trầy xước nhỏ không làm tắt đi nụ cười. Nhìn ánh mắt sáng ngời của các em lúc chia tay đất trại, mọi sự vất vả, thiếu ngủ của người làm Trưởng đều hóa thành niềm hạnh phúc vô bờ!</p>
+      `
+    },
+    'akela-buiminhngoc': {
+      title: '🐺 Hành Trình Của Một Akela & Tiếng Khoe Hồn Nhiên Của Con',
+      author: 'Akela Bùi Minh Ngọc · Trưởng Ngành Ấu, Liên đoàn Long Biên',
+      badge: 'Huynh Trưởng Bầy Sói',
+      content: `
+        <p>Lần đầu tham gia một kỳ trại toàn quốc lớn, mình học được bài học sâu sắc về tinh thần hàng đội và nghệ thuật giao tiếp không mệnh lệnh của các Sói Già. Không quát tháo, không áp đặt, chỉ có sự lắng nghe, hướng dẫn và truyền cảm hứng.</p>
+        <p>Và món quà đẹp nhất mà chuyến đi trại lần này mang lại cho mình — trên cả mọi tấm giấy khen hay thành tích — là lần đầu tiên, mình được nghe con gái Linh Thu hồn nhiên khoe ảnh mẹ với tất cả mọi người: <em>"Mẹ mình là Akela!"</em></p>
+        <p>Chỉ một câu nói đơn giản thôi nhưng là niềm tự hào thiêng liêng mà không phải người mẹ nào cũng có được. Mọi đêm thức trắng, mọi mệt mỏi hay những giọt nước mắt giữa cơn mưa đất trại... bỗng chốc trở nên thật xứng đáng!</p>
       `
     },
     'thieu-tienvinh': {
@@ -3579,6 +3627,16 @@
         <p>Giờ đây, nằm trên chiếc giường êm ái ở nhà, em lại ước kỳ trại Vươn Xa có thể kéo dài hơn nữa. Em cảm ơn các Trưởng, các anh chị Tráng, các bác phụ huynh và toàn thể các bạn đội viên đã cùng nhau tạo nên một kỳ trại tuyệt vời!</p>
       `
     },
+    'thieu-minhhanh': {
+      title: '🕊️ Vượt Qua Nỗi Lo Lắng & Dìu Dắt Đội Bồ Câu',
+      author: 'Thiếu sinh Minh Hạnh · Đội trưởng Đội Bồ Câu, Thiếu đoàn Long Biên',
+      badge: 'Bài Thu Hoạch Thiếu Sinh',
+      content: `
+        <p>Trước khi bước vào kỳ trại hè Vươn Xa, em vô cùng hào hứng nhưng đan xen là những lo lắng và bất an vì sợ mình chưa đủ kinh nghiệm để gánh vác trách nhiệm Đội trưởng.</p>
+        <p>Những ngày ở đất trại là khoảng thời gian em học được bài học lớn nhất về sự bình tĩnh và bao bọc đồng đội. Khi trời đổ mưa lớn, khi đồ đạc bị ướt, cả đội Bồ Câu đã cùng nhau che chắn, chia sẻ từng chiếc áo khô và động viên nhau vượt qua từng thử thách.</p>
+        <p>Em cảm ơn các Trưởng, cảm ơn Liên đoàn Long Biên và mẹ đã luôn ủng hộ, đồng hành cùng em trong chuyến đi thanh xuân tuyệt đẹp này!</p>
+      `
+    },
     'thieu-daiduong': {
       title: '🔥 Đêm Lửa Trại Bùng Cháy & Tinh Thần San Sẻ',
       author: 'Trần Phan Đại Dương · Đội Đại Bàng, Thiếu đoàn Long Biên',
@@ -3589,6 +3647,15 @@
         <p>Trưa ngày cuối cùng, chúng em gom góp phần đồ ăn còn lại chia sẻ cho đội bạn Sóc Tân Định và Voi Hội An. Chuyến đi tuy để lại nhiều vết xước trên da thịt, nhưng tặng cho chúng em bài học vô giá về tình đồng đội và sự gắn kết Bắc – Nam bền chặt.</p>
       `
     },
+    'thieu-namkhanh': {
+      title: '🌄 Go Beyond – Vươn Xa Để Trưởng Thành',
+      author: 'Thiếu sinh Nam Khánh · Thiếu đoàn Long Biên',
+      badge: 'Bài Thu Hoạch Thiếu Sinh',
+      content: `
+        <p>Trước khi đi trại, em từng hỏi anh trai: "Đi trại có khó khăn, có sợ không anh?". Sự chuẩn bị kỹ càng và những lời dặn dò của các Trưởng đã giúp em vững tin hơn.</p>
+        <p>Tại Vươn Xa, những trải nghiệm dựng lều trên nền đất đỏ, cùng đội vượt qua Trò Chơi Lớn và đêm lửa trại rực rỡ đã cho em những kỷ niệm không bao giờ phai. Em đã học được cách tự lập, tự chăm sóc bản thân và trên hết là thấu hiểu giá trị của sự đoàn kết hàng đội.</p>
+      `
+    },
     'soi-linhngan': {
       title: '🐺 Kỷ Niệm Đàn Nâu & Bầy Tân Định',
       author: 'Sói con Linh Ngân · Đàn Nâu, Ấu đoàn Long Biên',
@@ -3597,15 +3664,6 @@
         <p>Trong kì trại Vươn Xa 2026 em cảm thấy rất thích trại vì em đã được quen biết với 4 người bạn đều ở bầy TÂN ĐỊNH và rất nhiều Sói già! 😋🥳</p>
         <p>Trong kì trại này em đã biết cách tập hợp hàng ngũ nhanh chóng trước các Sói già và tự tay giải mật thư Semaphore. Em rất tự hào vì trong thời gian đi tham quan gian hàng mưu sinh, em đã giúp chị gái bán được rất nhiều hàng.</p>
         <p>Kết thúc kỳ trại lần này em đã sẵn sàng để lên Ngành Thiếu rồi ạ! Hehe.</p>
-      `
-    },
-    'truong-akela': {
-      title: '⚜️ Nhìn Các Con Lớn Khôn Dưới Tán Cây Đất Trại',
-      author: 'Akela Bùi Minh Ngọc · Trưởng Ngành Ấu, Liên đoàn Long Biên',
-      badge: 'Huynh Trưởng Chia Sẻ',
-      content: `
-        <p>Chứng kiến các em nhỏ từ những ngày đầu còn rụt rè, bỡ ngỡ khi lần đầu bước chân vào đất trại, cho đến khi thấy các em tự biết chia nhau từng ngụm nước, tự giác phụ giúp dọn lều và hỗ trợ bạn bè vượt qua các trạm thử thách, trong lòng người Huynh trưởng dâng lên một niềm xúc động khó tả.</p>
-        <p>Phương pháp Hướng đạo thế giới không dạy các em bằng lý thuyết sách vở khô khan, mà để các em tự tay trải nghiệm, tự vấp ngã và tự đứng dậy trong tình thương yêu, đùm bọc của tập thể. Mỗi kỳ trại trôi qua là một cột mốc đánh dấu sự trưởng thành vượt bậc về nhân cách, thể lực và lòng trắc ẩn của các con.</p>
       `
     }
   };

@@ -292,7 +292,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Đất trại", "Kỷ luật", "Vệ sinh", "Sinh hoạt"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/9-sinh-hoat-trai-bo-tri-khu-trai.jpg", videoId: "" },
     purpose: "Xây dựng nếp sống tự lập, kỷ luật tự giác, giữ gìn vệ sinh chung và đảm bảo cuộc sống tiện nghi, văn minh giữa thiên nhiên.",
     equipment: ["Thùng chứa nước sạch", "Xô rác phân loại", "Dụng cụ dọn vệ sinh", "Nội quy đất trại"],
     levels: {
@@ -381,7 +381,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Nút dây", "Scoutcraft", "Sơ cứu", "Cơ bản"],
-    media: { poster: "image/kynang/nut-det-reef-knot.png", videoId: "" },
+    media: { poster: "", videoId: "" },
     purpose: "Nối 2 đầu dây có cùng tiết diện và chất liệu, dễ thắt, nằm phẳng và rất dễ tháo mở khi cần.",
     equipment: ["Dây thừng dã ngoại 1m - 2m", "Băng tam giác cứu thương"],
     levels: {
@@ -1808,7 +1808,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "outdoor",
     difficulty: "medium",
     tags: ["Theo dấu", "Tracking", "Động vật", "Trinh sát"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/8-theo-dau-dong-vat.jpg", videoId: "" },
     purpose: "Kỹ năng trinh sát kinh điển của người thám hiểm, giúp hiểu được đời sống hoang dã mà không làm kinh động các loài vật.",
     equipment: ["Thước đo milimet", "Kính lúp", "Bột thạch cao đúc khuôn dấu chân (Plaster of Paris)"],
     levels: {
@@ -1977,7 +1977,7 @@ const SCOUT_SKILLS_DATA = [
     environment: "both",
     difficulty: "easy",
     tags: ["Leave No Trace", "Môi trường", "Đạo đức", "Bảo tồn"],
-    media: { poster: "", videoId: "" },
+    media: { poster: "image/kynang/10-thu-trai-leave-no-trace.jpg", videoId: "" },
     purpose: "Bộ quy chuẩn đạo đức dã ngoại toàn cầu của Phong trào Hướng đạo, giúp giữ gìn vẻ đẹp hoang sơ của thiên nhiên cho các thế hệ mai sau.",
     equipment: ["Túi đựng rác tái sử dụng", "Sổ tay 7 nguyên tắc LNT"],
     levels: {

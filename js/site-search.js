@@ -209,12 +209,21 @@
       }
     },
 
-    closeModal: function() {
+        closeModal: function(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
       const modal = document.getElementById('siteSearchModal');
       if (modal) {
         modal.classList.remove('open');
         modal.style.display = 'none';
-        document.body.style.overflow = '';
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      document.body.style.overflow = '';
+      const input = document.getElementById('siteSearchInput');
+      if (input) {
+        input.value = '';
       }
     },
 
@@ -309,22 +318,46 @@
     }
   };
 
-  // Expose global openSearchModal alias
-  window.openSearchModal = function() {
-    window.ScoutSearch.openModal();
-  };
+  window.openSearchModal = function() { window.ScoutSearch.openModal(); };
 
-  // Global Delegated click handler for any element with .nav-search-btn or data-search
+  // Capture-phase Global Delegated Close & Open Handler
   document.addEventListener('click', function(e) {
+    // 1. Close button clicked
+    const closeBtn = e.target.closest('#searchCloseBtn, .search-close-btn, [data-search-close]');
+    if (closeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.ScoutSearch.closeModal(e);
+      return;
+    }
+
+    // 2. Clicked on modal dark backdrop directly
+    if (e.target && e.target.id === 'siteSearchModal') {
+      e.preventDefault();
+      e.stopPropagation();
+      window.ScoutSearch.closeModal(e);
+      return;
+    }
+
+    // 3. Open search button clicked
     const searchBtn = e.target.closest('.nav-search-btn, [data-search], [onclick*="ScoutSearch.openModal"]');
     if (searchBtn && !searchBtn.closest('#siteSearchModal')) {
       e.preventDefault();
+      e.stopPropagation();
       window.ScoutSearch.openModal();
     }
-  });
+  }, true);
 
-  // Global Keyboard shortcut listener (Ctrl + K / Cmd + K / Slash)
+  // Capture-phase Escape key handler
   window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+      const modal = document.getElementById('siteSearchModal');
+      if (modal && (modal.classList.contains('open') || modal.style.display === 'flex')) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.ScoutSearch.closeModal(e);
+      }
+    }
     if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
       e.preventDefault();
       window.ScoutSearch.openModal();
@@ -333,5 +366,6 @@
       e.preventDefault();
       window.ScoutSearch.openModal();
     }
-  });
+  }, true);
+
 })();

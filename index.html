@@ -2374,6 +2374,27 @@
       -webkit-overflow-scrolling: touch !important;
     }
 
+  
+    /* Mobile Header Action Bar & Search Visibility Control */
+    .mobile-header-actions {
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+    @media (max-width: 992px) {
+      .mobile-header-actions {
+        display: flex !important;
+      }
+      .nav-links .nav-search-btn {
+        display: none !important;
+      }
+    }
+    @media (min-width: 993px) {
+      .mobile-header-actions {
+        display: none !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -2897,8 +2918,8 @@
         <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="javascript:void(0)" onclick="openSurveyModal()" data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</a>
         <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()" aria-label="Switch Language"><b>VN</b> | EN</button>
       </nav>
-      <div style="display:flex;align-items:center;gap:6px;">
-        <button type="button" class="nav-search-btn" onclick="window.ScoutSearch.openModal()" aria-label="Tìm kiếm" style="padding:6px 10px;">
+      <div class="mobile-header-actions">
+        <button type="button" class="nav-search-btn mobile-header-search" onclick="window.ScoutSearch.openModal()" aria-label="Tìm kiếm">
           <span>🔍</span>
         </button>
         <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>

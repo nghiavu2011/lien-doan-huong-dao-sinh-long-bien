@@ -2466,6 +2466,97 @@
       }
     }
 
+  
+    /* === PASS 3: Homepage Density Reduction — Collapsible Sections === */
+    .hp-collapsible {
+      position: relative;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .hp-collapsible.collapsed {
+      max-height: var(--collapsed-h, 400px);
+    }
+    .hp-collapsible.collapsed::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--fade-bg, #ffffff));
+      pointer-events: none;
+    }
+    .hp-expand-btn {
+      display: none;
+      margin: 18px auto 0;
+      padding: 10px 28px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-height: 44px;
+    }
+    .hp-expand-btn:hover {
+      background: var(--forest);
+      color: #ffffff;
+    }
+    @media (max-width: 992px) {
+      .hp-expand-btn { display: block; }
+      .hp-collapsible.collapsed + .hp-expand-btn { display: block; }
+      .hp-collapsible:not(.collapsed) + .hp-expand-btn span.show-text { display: none; }
+      .hp-collapsible:not(.collapsed) + .hp-expand-btn span.hide-text { display: inline; }
+      .hp-collapsible.collapsed + .hp-expand-btn span.show-text { display: inline; }
+      .hp-collapsible.collapsed + .hp-expand-btn span.hide-text { display: none; }
+    }
+    @media (min-width: 993px) {
+      .hp-collapsible.collapsed { max-height: none; }
+      .hp-collapsible.collapsed::after { display: none; }
+      .hp-expand-btn { display: none !important; }
+    }
+
+    /* Mobile compact for Evergreen Facts Bar */
+    @media (max-width: 640px) {
+      .evergreen-facts-bar {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+      .evergreen-facts-bar .fact-item {
+        padding: 10px 12px !important;
+        font-size: 12px !important;
+      }
+      .quick-nav-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+      }
+      .quick-nav-card {
+        padding: 14px 12px !important;
+      }
+      .quick-nav-card .quick-nav-icon {
+        font-size: 24px !important;
+      }
+      .quick-nav-card .quick-nav-title {
+        font-size: 12.5px !important;
+      }
+      .quick-nav-card .quick-nav-desc {
+        display: none !important;
+      }
+    }
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -2582,9 +2673,9 @@
     {
       title: "Chính Sách An Toàn Trẻ Em (Safe From Harm)",
       category: "Cam Kết Giáo Dục",
-      badge: "🛡️ An Toàn Tuyệt Đối",
+      badge: "🛡️ An Toàn Trẻ Em",
       keywords: ["an toàn", "bảo vệ trẻ em", "safe from harm", "đánh mắng", "bạo lực", "nguyên tắc 2 người", "quy tắc ứng xử"],
-      desc: "Tuân thủ nghiêm ngặt chuẩn quốc tế WOSM: Tuyệt đối không bạo lực thân thể hay tinh thần, luôn có tối thiểu 2 Trưởng/phụ huynh giám sát.",
+      desc: "Tham chiếu nguyên tắc Safe from Harm của WOSM: Không bạo lực thân thể hay tinh thần, luôn có tối thiểu 2 Trưởng/phụ huynh giám sát.",
       url: "#quy-trinh",
       action: "Xem cam kết 3 bên"
     },
@@ -2702,7 +2793,7 @@
       action: "Đọc cẩm nang phụ huynh"
     },
     {
-      title: "Góc Phụ Huynh: Giúp Con Cai Nghiện Màn Hình (Digital Detox)",
+      title: "Góc Phụ Huynh: Giúp Con Cân Bằng Thời Gian Màn Hình",
       category: "Góc Phụ Huynh",
       badge: "🌿 Về Với Thiên Nhiên",
       keywords: ["màn hình", "điện thoại", "ipad", "game", "nghiện game", "nghiện điện thoại", "digital detox", "thiên nhiên", "ngoài trời"],
@@ -3169,7 +3260,7 @@
             <span class="ef-icon">👦</span>
             <div class="ef-text">
               <strong data-vi="Độ Tuổi Tham Gia" data-en="Target Ages">Độ Tuổi Tham Gia</strong>
-              <span data-vi="Từ 7 đến 15+ tuổi (Ấu &amp; Thiếu)" data-en="From 7 to 15+ yo (Cubs &amp; Scouts)">Từ 7 đến 15+ tuổi (Ấu &amp; Thiếu)</span>
+              <span data-vi="Ấu 7–11 · Thiếu 11–15 · Tráng 18+" data-en="Cubs 7–11 · Scouts 11–15 · Rovers 18+">Ấu 7–11 · Thiếu 11–15 · Tráng 18+</span>
             </div>
           </div>
           <div class="ef-item">
@@ -3222,7 +3313,7 @@
           <h2 data-vi="Những nụ cười lấm lem và ngày tháng lớn lên cùng bè bạn." data-en="Muddy smiles and the joyful journey of growing up together.">Những nụ cười lấm lem và ngày tháng lớn lên cùng bè bạn.</h2>
           <p class="lead" data-vi="Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên." data-en="No staged poses—just hands getting familiar with the earth, eager eyes lighting their first campfire, and cheerful laughter along the Red River. Each photo captures a rustic memory of Sunday mornings lived fully in the open air.">Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên.</p>
         </div>
-        <div class="gal-warn" id="galWarn" hidden><strong data-vi="Chưa tải được ảnh" data-en="Unable to load photos">Chưa tải được ảnh</strong><p data-vi="Trang đang không tìm thấy thư mục assets/gallery/. Hãy mở index.html cùng với cả thư mục assets." data-en="Cannot locate gallery folder. Please open index.html alongside its folders.">Trang đang không tìm thấy thư mục <code>assets/gallery/</code>.</p></div>
+        <div class="gal-warn" id="galWarn" hidden><strong data-vi="Hình ảnh hoạt động đang được cập nhật" data-en="Activity photos are being updated">Hình ảnh hoạt động đang được cập nhật</strong><p data-vi="Trang đang không tìm thấy thư mục assets/gallery/. Hãy mở index.html cùng với cả thư mục assets." data-en="Cannot locate gallery folder. Please open index.html alongside its folders.">Trang đang không tìm thấy thư mục <code>assets/gallery/</code>.</p></div>
                         <!-- Featured Hero Showcase Slider -->
         <div class="gal-slider-box reveal" id="gallerySlider" onclick="handleSliderClick()">
           <div id="sliderSlides"></div>
@@ -3666,7 +3757,7 @@
           <p class="lead" data-vi="Nền tảng giáo dục nhân cách, danh dự và tinh thần phụng sự cộng đồng của phong trào Hướng đạo thế giới từ năm 1907." data-en="The timeless foundation of character, honor, and community service since 1907.">Nền tảng giáo dục nhân cách, danh dự và tinh thần phụng sự cộng đồng của phong trào Hướng đạo thế giới từ năm 1907.</p>
         </div>
 
-        <div class="law-grid">
+        <div class="law-grid hp-collapsible collapsed" style="--collapsed-h:280px;--fade-bg:#ffffff;">
           <!-- 3 Lời Hứa Hướng Đạo -->
           <div class="law-box">
             <h3 data-vi="⚜️ Ba Lời Hứa Hướng Đạo" data-en="⚜️ Three Scout Promises">⚜️ Ba Lời Hứa Hướng Đạo</h3>
@@ -3701,6 +3792,10 @@
             </ul>
           </div>
         </div>
+        <button type="button" class="hp-expand-btn" onclick="toggleHpSection(this)" data-vi="Xem đầy đủ Lời Hứa &amp; 10 Điều Luật" data-en="View full Promise &amp; 10 Laws" aria-expanded="false">
+          <span class="show-text" data-vi="⚜️ Tìm hiểu Lời Hứa &amp; 10 Điều Luật →" data-en="⚜️ Explore the Scout Promise &amp; 10 Laws →">⚜️ Tìm hiểu Lời Hứa &amp; 10 Điều Luật →</span>
+          <span class="hide-text" style="display:none;" data-vi="Thu gọn ↑" data-en="Collapse ↑">Thu gọn ↑</span>
+        </button>
       </div>
     </section>
 
@@ -3723,7 +3818,7 @@
         </div>
 
         <!-- Library Cards Grid -->
-        <div class="lib-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:20px;">
+        <div class="lib-grid hp-collapsible collapsed" style="--collapsed-h:360px;--fade-bg:#f9fbfb;" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:20px;">
           
           <!-- DOC 1: Nghi thức 2025 -->
           <div class="lib-card" data-cat="standards">
@@ -4463,7 +4558,7 @@
         <div class="sec-head">
           <div class="eyebrow" data-vi="QUY TRÌNH 5 BƯỚC GIA NHẬP &amp; HỎI ĐÁP" data-en="5-STEP ONBOARDING &amp; PARENT GUIDE">QUY TRÌNH 5 BƯỚC GIA NHẬP &amp; HỎI ĐÁP</div>
           <h2 data-vi="Đồng hành cùng con trở thành Hướng đạo sinh Long Biên." data-en="Accompanying Your Child on the Scouting Journey.">Đồng hành cùng con trở thành Hướng đạo sinh Long Biên.</h2>
-          <p class="lead" data-vi="Quy trình 5 bước tiếp nhận minh bạch, có chọn lọc và gắn kết chặt chẽ giữa Gia đình &mdash; Đoàn sinh &mdash; Ban Huynh trưởng nhằm đảm bảo môi trường giáo dục an toàn và chất lượng cao nhất cho từng đứa trẻ." data-en="A transparent 5-step onboarding process fostering close partnership among Family, Scout, and Leaders to ensure the safest and highest quality scouting environment.">Quy trình 5 bước tiếp nhận minh bạch, có chọn lọc và gắn kết chặt chẽ giữa Gia đình &mdash; Đoàn sinh &mdash; Ban Huynh trưởng nhằm đảm bảo môi trường giáo dục an toàn và chất lượng cao nhất cho từng đứa trẻ.</p>
+          <p class="lead" data-vi="Quy trình 5 bước tiếp nhận minh bạch, có chọn lọc và gắn kết chặt chẽ giữa Gia đình &mdash; Đoàn sinh &mdash; Ban Huynh trưởng nhằm duy trì môi trường giáo dục an toàn, phù hợp và có trách nhiệm cho từng đứa trẻ." data-en="A transparent 5-step onboarding process fostering close partnership among Family, Scout, and Leaders to maintain a safe, supportive and responsible scouting environment.">Quy trình 5 bước tiếp nhận minh bạch, có chọn lọc và gắn kết chặt chẽ giữa Gia đình &mdash; Đoàn sinh &mdash; Ban Huynh trưởng nhằm duy trì môi trường giáo dục an toàn, phù hợp và có trách nhiệm cho từng đứa trẻ.</p>
         </div>
 
         <!-- 1. QUY TRÌNH 5 BƯỚC THỰC TẾ CỦA LIÊN ĐOÀN LONG BIÊN -->
@@ -4483,7 +4578,7 @@
           <div class="step-card" style="padding:20px 16px;">
             <span class="step-no" style="font-size:32px;">03</span>
             <h3 style="font-size:15px;margin-bottom:8px;" data-vi="Quyết Định Tiếp Nhận Theo Ngành" data-en="Section Leader Review">Quyết Định Tiếp Nhận Theo Ngành</h3>
-            <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0;" data-vi="Thiếu trưởng hoặc Akela dựa trên sĩ số và năng lực đáp ứng thực tế của Huynh trưởng để quyết định tiếp nhận (đảm bảo an toàn tuyệt đối)." data-en="Scoutmaster or Cubmaster evaluates current troop capacity and safety ratio to confirm admission capability.">Thiếu trưởng hoặc Akela dựa trên sĩ số và năng lực đáp ứng thực tế của Huynh trưởng để quyết định tiếp nhận (đảm bảo an toàn tuyệt đối).</p>
+            <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0;" data-vi="Thiếu trưởng hoặc Akela dựa trên sĩ số và năng lực đáp ứng thực tế của Huynh trưởng để quyết định tiếp nhận (phù hợp với năng lực giám sát hiện có)." data-en="Scoutmaster or Cubmaster evaluates current troop capacity and safety ratio to confirm admission capability.">Thiếu trưởng hoặc Akela dựa trên sĩ số và năng lực đáp ứng thực tế của Huynh trưởng để quyết định tiếp nhận (phù hợp với năng lực giám sát hiện có).</p>
           </div>
 
           <div class="step-card" style="padding:20px 16px;">
@@ -6818,6 +6913,14 @@ ${s.parentName} - ${s.parentPhone}`
     });
   </script>
 
+<script>
+    // Homepage section expand/collapse toggle
+    function toggleHpSection(btn) {
+      var wrap = btn.previousElementSibling;
+      if (!wrap) return;
+      wrap.classList.toggle('collapsed');
+    }
+</script>
 </body>
 </html>`;
 
@@ -7013,5 +7116,13 @@ ${s.parentName} - ${s.parentPhone}`
       }
     }, { passive: true });
   </script>
+<script>
+    // Homepage section expand/collapse toggle
+    function toggleHpSection(btn) {
+      var wrap = btn.previousElementSibling;
+      if (!wrap) return;
+      wrap.classList.toggle('collapsed');
+    }
+</script>
 </body>
 </html>

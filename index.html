@@ -1963,10 +1963,388 @@
       }
     }
 
+      /* ========================================================
+       LONG BIEN SCOUTS VNEXT — SEARCH & QUICK NAV STYLES
+       ======================================================== */
+    /* Header Search Button */
+    .nav-search-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(17, 50, 55, 0.06);
+      border: 1px solid var(--line);
+      color: var(--forest);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .nav-search-btn:hover {
+      background: var(--forest);
+      color: #ffffff;
+      border-color: var(--forest);
+    }
+    .search-kbd {
+      font-size: 10.5px;
+      background: rgba(0, 0, 0, 0.08);
+      color: inherit;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: inherit;
+      font-weight: 600;
+    }
+
+    /* "BẠN ĐANG TÌM GÌ?" QUICK ACTION NAVIGATOR */
+    .quick-nav-section {
+      background: #ffffff;
+      padding: 44px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .quick-nav-card {
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .quick-nav-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--forest);
+      background: #ffffff;
+      box-shadow: 0 12px 24px rgba(17, 50, 55, 0.09);
+    }
+    .quick-nav-icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+      transition: transform 0.2s ease;
+    }
+    .quick-nav-card:hover .quick-nav-icon {
+      transform: scale(1.15);
+    }
+    .quick-nav-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--forest);
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+    .quick-nav-desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* EVERGREEN QUICK FACTS BAR */
+    .evergreen-facts-bar {
+      background: #f1f7f5;
+      border: 1.5px solid rgba(46, 125, 50, 0.25);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+    .ef-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ef-item + .ef-item {
+      border-left: 1px solid rgba(46, 125, 50, 0.15);
+      padding-left: 14px;
+    }
+    .ef-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .ef-text strong {
+      display: block;
+      font-size: 12.5px;
+      color: var(--forest);
+      line-height: 1.2;
+    }
+    .ef-text span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+
+    /* SEARCH MODAL DIALOG */
+    .site-search-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(17, 50, 55, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 60px 16px 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .site-search-modal.open {
+      display: flex;
+      opacity: 1;
+    }
+    .search-box-container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 680px;
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      border: 1.5px solid var(--line);
+      animation: searchModalSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes searchModalSlideIn {
+      from { transform: translateY(-20px) scale(0.98); }
+      to { transform: translateY(0) scale(1); }
+    }
+    .search-input-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      gap: 12px;
+      background: #fbfdfc;
+    }
+    .search-input-field {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      color: var(--ink);
+      outline: none;
+      font-family: inherit;
+    }
+    .search-close-btn {
+      background: rgba(0, 0, 0, 0.06);
+      border: none;
+      color: var(--forest);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .search-close-btn:hover {
+      background: var(--fire);
+      color: #ffffff;
+    }
+    .search-results-area {
+      max-height: 480px;
+      overflow-y: auto;
+      padding: 16px 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .search-suggestions-wrap {
+      padding: 10px 0;
+    }
+    .search-sugg-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .search-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .search-pill {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--forest);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .search-pill:hover {
+      background: var(--forest);
+      color: #ffffff;
+      border-color: var(--forest);
+    }
+    .search-results-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .search-result-item {
+      display: block;
+      padding: 14px 16px;
+      background: #fbfdfc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+    .search-result-item:hover {
+      background: #ffffff;
+      border-color: var(--forest);
+      box-shadow: 0 4px 14px rgba(17, 50, 55, 0.08);
+      transform: translateY(-2px);
+    }
+    .search-item-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .search-item-badge {
+      font-size: 11px;
+      font-weight: 800;
+      background: rgba(237, 123, 43, 0.12);
+      color: var(--fire);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .search-item-cat {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .search-item-title {
+      display: block;
+      font-size: 14.5px;
+      color: var(--forest);
+      margin-bottom: 4px;
+    }
+    .search-item-desc {
+      font-size: 12.5px;
+      color: #475569;
+      line-height: 1.45;
+      margin: 0 0 6px;
+    }
+    .search-item-action {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--fire);
+      display: inline-block;
+    }
+    .search-empty-state {
+      text-align: center;
+      padding: 36px 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .quick-nav-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      .evergreen-facts-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .ef-item + .ef-item {
+        border-left: none !important;
+        padding-left: 0 !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .quick-nav-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+      .evergreen-facts-bar {
+        grid-template-columns: 1fr !important;
+        padding: 14px 16px !important;
+      }
+      .site-search-modal {
+        padding: 20px 10px 10px !important;
+      }
+      .search-kbd {
+        display: none !important;
+      }
+    }
+
+      @media (max-width: 992px) {
+      .parent-pillars-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .parent-pillars-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
   <link rel="stylesheet" href="css/scout-tools.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Sinh hoạt Hướng đạo Long Biên vào lúc nào, ở đâu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sáng Chủ nhật hằng tuần từ 09h00 đến 11h00 tại Vườn hoa Bắc Biên, phường Ngọc Thụy, quận Long Biên, Hà Nội."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Con tôi bao nhiêu tuổi thì tham gia được Hướng đạo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Học sinh Tiểu học từ 7–11 tuổi vào Ấu đoàn (Sói con, khẩu hiệu GẮNG SỨC). Học sinh THCS từ 11–15 tuổi vào Thiếu đoàn (Thiếu sinh, khẩu hiệu SẮP SẴN). Từ 18 tuổi trở lên vào Tráng đoàn (khẩu hiệu PHỤNG SỰ)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Tham gia Hướng đạo Long Biên có phải đóng học phí không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Liên đoàn Hướng đạo Long Biên hoạt động hoàn toàn phi lợi nhuận do các Huynh trưởng tình nguyện dẫn dắt, hoàn toàn KHÔNG thu học phí hằng tháng. Chi phí các kỳ trại dã ngoại thực tế (ăn ở, xe cộ) được tính toán minh bạch và thống nhất cùng phụ huynh."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bé mới có được học thử, dự thính trước khi đăng ký chính thức không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. Gia đình hoàn toàn có thể đưa bé đến Vườn hoa Bắc Biên dự thính và hòa nhập vui chơi cùng Đội/Bầy 2 buổi sáng Chủ nhật thực tế để trải nghiệm không khí trước khi làm lễ kết nạp chính thức."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -2060,10 +2438,20 @@
           <a href="#lien-he"><span data-vi="Liên Hệ" data-en="Contact">Liên Hệ</span></a>
         </div>
 
+        <button type="button" class="nav-search-btn" onclick="window.ScoutSearch.openModal()" aria-label="Tìm kiếm trang web">
+          <span>🔍</span>
+          <span class="search-btn-label" data-vi="Tìm kiếm" data-en="Search">Tìm kiếm</span>
+          <kbd class="search-kbd">⌘K</kbd>
+        </button>
         <a class="btn btn-primary" data-form target="_blank" rel="noopener" href="javascript:void(0)" onclick="openSurveyModal()" data-vi="Đăng ký cho con" data-en="Register Child">Đăng ký cho con</a>
         <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()" aria-label="Switch Language"><b>VN</b> | EN</button>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <button type="button" class="nav-search-btn" onclick="window.ScoutSearch.openModal()" aria-label="Tìm kiếm" style="padding:6px 10px;">
+          <span>🔍</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>
+      </div>
     </div>
   </header>
     <nav class="mobile-nav" id="mobileNav" aria-label="Điều hướng di động">
@@ -2118,6 +2506,101 @@
           <span data-vi="⌖ Vườn hoa Bắc Biên · Long Biên · Hà Nội" data-en="⌖ Bac Bien Garden · Long Bien · Hanoi">⌖ Vườn hoa Bắc Biên · Long Biên · Hà Nội</span>
           <span data-vi="⚜ Ấu đoàn · Thiếu đoàn · Tráng đoàn" data-en="⚜ Cub Scouts · Scouts · Rover Scouts">⚜ Ấu đoàn · Thiếu đoàn · Tráng đoàn</span>
         </div>
+      </div>
+    </section>
+    <!-- =============== BẠN ĐANG TÌM GÌ? (QUICK ACTION NAVIGATOR) =============== -->
+    <section class="quick-nav-section" id="dieu-huong-nhanh" aria-label="Lối tắt định hướng nhanh">
+      <div class="container">
+        <div style="text-align:center;max-width:760px;margin:0 auto 16px;">
+          <div class="eyebrow" data-vi="ĐỊNH HƯỚNG NHANH THEO NHU CẦU" data-en="QUICK EXPLORER">ĐỊNH HƯỚNG NHANH THEO NHU CẦU</div>
+          <h2 style="font-family:'Roboto Slab',Georgia,serif;font-size:24px;color:var(--forest);margin:4px 0 6px;" data-vi="Bạn đang tìm kiếm thông tin gì?" data-en="What are you looking for today?">Bạn đang tìm kiếm thông tin gì?</h2>
+          <p style="font-size:13.5px;color:var(--muted);margin:0;" data-vi="Chọn ngay mục đích của bạn để truy cập đúng nội dung cần thiết trong 1 giây." data-en="Select your goal to reach the right resource in one second.">Chọn ngay mục đích của bạn để truy cập đúng nội dung cần thiết trong 1 giây.</p>
+        </div>
+
+        <!-- 6 Quick Navigation Cards -->
+        <div class="quick-nav-grid">
+          <!-- 1. Cho con tham gia -->
+          <a class="quick-nav-card" href="#quy-trinh">
+            <span class="quick-nav-icon">📝</span>
+            <strong class="quick-nav-title" data-vi="Cho Con Tham Gia" data-en="Join Scouts">Cho Con Tham Gia</strong>
+            <p class="quick-nav-desc" data-vi="5 bước tiếp nhận, 2 buổi dự thính &amp; đơn đăng ký" data-en="5-step onboarding, 2-session trial &amp; online form">5 bước tiếp nhận, 2 buổi dự thính &amp; đơn đăng ký</p>
+          </a>
+
+          <!-- 2. Lịch & Địa điểm -->
+          <a class="quick-nav-card" href="#journeyTitle">
+            <span class="quick-nav-icon">📅</span>
+            <strong class="quick-nav-title" data-vi="Lịch &amp; Địa Điểm" data-en="Schedule &amp; Map">Lịch &amp; Địa Điểm</strong>
+            <p class="quick-nav-desc" data-vi="Sáng CN 9h&ndash;11h tại Vườn hoa Bắc Biên" data-en="Every Sunday 9&ndash;11 AM at Bac Bien Garden">Sáng CN 9h&ndash;11h tại Vườn hoa Bắc Biên</p>
+          </a>
+
+          <!-- 3. Các ngành sinh hoạt -->
+          <a class="quick-nav-card" href="#cac-nganh">
+            <span class="quick-nav-icon">🐺</span>
+            <strong class="quick-nav-title" data-vi="Các Ngành Sinh Hoạt" data-en="Scout Sections">Các Ngành Sinh Hoạt</strong>
+            <p class="quick-nav-desc" data-vi="Ấu (7&ndash;11t) &middot; Thiếu (11&ndash;15t) &middot; Tráng (18+t)" data-en="Cubs (7&ndash;11) &middot; Scouts (11&ndash;15) &middot; Rovers (18+)">Ấu (7&ndash;11t) &middot; Thiếu (11&ndash;15t) &middot; Tráng (18+t)</p>
+          </a>
+
+          <!-- 4. Kỹ năng Hướng đạo -->
+          <a class="quick-nav-card" href="#ky-nang">
+            <span class="quick-nav-icon">🏕️</span>
+            <strong class="quick-nav-title" data-vi="Kỹ Năng Hướng Đạo" data-en="Scout Skills">Kỹ Năng Hướng Đạo</strong>
+            <p class="quick-nav-desc" data-vi="Kho tàng 10 chuyên đề 71 kỹ năng thực hành" data-en="10 modules &amp; 71 verified practical skills">Kho tàng 10 chuyên đề 71 kỹ năng thực hành</p>
+          </a>
+
+          <!-- 5. Góc Phụ huynh -->
+          <a class="quick-nav-card" href="#goc-phu-huynh">
+            <span class="quick-nav-icon">❤️</span>
+            <strong class="quick-nav-title" data-vi="Góc Phụ Huynh" data-en="Parents Corner">Góc Phụ Huynh</strong>
+            <p class="quick-nav-desc" data-vi="Tự lập, cai nghiện màn hình &amp; 10 chia sẻ thật" data-en="Independence, digital detox &amp; real camp stories">Tự lập, cai nghiện màn hình &amp; 10 chia sẻ thật</p>
+          </a>
+
+          <!-- 6. Tài liệu & Công cụ -->
+          <a class="quick-nav-card" href="#thu-vien-tai-lieu">
+            <span class="quick-nav-icon">📚</span>
+            <strong class="quick-nav-title" data-vi="Tài Liệu &amp; Tiện Ích" data-en="Library &amp; Tools">Tài Liệu &amp; Tiện Ích</strong>
+            <p class="quick-nav-desc" data-vi="11 sách HĐVN, bài hát &amp; bộ giải mã Morse" data-en="11 official handbooks, songs &amp; Morse tools">11 sách HĐVN, bài hát &amp; bộ giải mã Morse</p>
+          </a>
+        </div>
+
+        <!-- Evergreen Quick Facts Bar (5 Pillars) -->
+        <div class="evergreen-facts-bar">
+          <div class="ef-item">
+            <span class="ef-icon">👦</span>
+            <div class="ef-text">
+              <strong data-vi="Độ Tuổi Tham Gia" data-en="Target Ages">Độ Tuổi Tham Gia</strong>
+              <span data-vi="Từ 7 đến 15+ tuổi (Ấu &amp; Thiếu)" data-en="From 7 to 15+ yo (Cubs &amp; Scouts)">Từ 7 đến 15+ tuổi (Ấu &amp; Thiếu)</span>
+            </div>
+          </div>
+          <div class="ef-item">
+            <span class="ef-icon">⏰</span>
+            <div class="ef-text">
+              <strong data-vi="Thời Gian Cố Định" data-en="Fixed Schedule">Thời Gian Cố Định</strong>
+              <span data-vi="09h00 &mdash; 11h00 sáng Chủ nhật" data-en="Every Sunday 09:00 &mdash; 11:00 AM">09h00 &mdash; 11h00 sáng Chủ nhật</span>
+            </div>
+          </div>
+          <div class="ef-item">
+            <span class="ef-icon">📍</span>
+            <div class="ef-text">
+              <strong data-vi="Địa Điểm Sinh Hoạt" data-en="Meeting Location">Địa Điểm Sinh Hoạt</strong>
+              <span data-vi="Vườn hoa Bắc Biên (Long Biên, HN)" data-en="Bac Bien Garden (Long Bien, HN)">Vườn hoa Bắc Biên (Long Biên, HN)</span>
+            </div>
+          </div>
+          <div class="ef-item">
+            <span class="ef-icon">💰</span>
+            <div class="ef-text">
+              <strong data-vi="Học Phí Hằng Tháng" data-en="Monthly Fee">Học Phí Hằng Tháng</strong>
+              <span data-vi="Phi lợi nhuận &middot; 0đ Học phí" data-en="Non-profit &middot; 0 VND Tuition">Phi lợi nhuận &middot; 0đ Học phí</span>
+            </div>
+          </div>
+          <div class="ef-item">
+            <span class="ef-icon">🛡️</span>
+            <div class="ef-text">
+              <strong data-vi="Cam Kết An Toàn" data-en="Safe from Harm">Cam Kết An Toàn</strong>
+              <span data-vi="Dự thính 2 buổi &middot; Chuẩn WOSM" data-en="2-Session trial &middot; WOSM standard">Dự thính 2 buổi &middot; Chuẩn WOSM</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -3082,6 +3565,52 @@
           <h2 data-vi="Những chuyến đi làm nên sự trưởng thành." data-en="Journeys That Shape Character &amp; Resilience.">Những chuyến đi làm nên sự trưởng thành.</h2>
           <p class="lead" data-vi="Những trang nhật ký chân thật đầy cảm xúc sau kỳ trại Trại Vươn Xa – Go Beyond 2026 từ phụ huynh, các bạn Thiếu sinh, Sói con và Huynh trưởng Liên đoàn Long Biên." data-en="Heartfelt reflections from parents, scouts, cubs, and leaders after the memorable Go Beyond 2026 National Camp.">Những trang nhật ký chân thật đầy cảm xúc sau kỳ trại Trại Vươn Xa – Go Beyond 2026 từ phụ huynh, các bạn Thiếu sinh, Sói con và Huynh trưởng Liên đoàn Long Biên.</p>
         </div>
+
+        <!-- 4 Educational Pillars: Parent Guidance & Character Building -->
+        <div style="background:#ffffff;border:1.5px solid var(--forest);border-radius:20px;padding:28px 24px;margin-bottom:32px;box-shadow:0 8px 28px rgba(17,50,55,0.06);">
+          <div style="text-align:center;max-width:760px;margin:0 auto 20px;">
+            <div class="eyebrow" data-vi="CẨM NANG ĐỒNG HÀNH CÙNG CON" data-en="PARENTING PILLARS">CẨM NANG ĐỒNG HÀNH CÙNG CON</div>
+            <h3 style="font-family:'Roboto Slab',Georgia,serif;font-size:22px;color:var(--forest);margin:4px 0 6px;" data-vi="Giải Tỏa Những Nỗi Băn Khoăn Lớn Nhất Của Cha Mẹ" data-en="Addressing Core Parenting Challenges Through Scouting">Giải Tỏa Những Nỗi Băn Khoăn Lớn Nhất Của Cha Mẹ</h3>
+            <p style="font-size:13px;color:var(--muted);margin:0;" data-vi="Phương pháp giáo dục thực nghiệm Hướng đạo giúp con tự lập, tự tin và trưởng thành tự nhiên." data-en="Scout experimental education nurtures independence, resilience, and positive character naturally.">Phương pháp giáo dục thực nghiệm Hướng đạo giúp con tự lập, tự tin và trưởng thành tự nhiên.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="parent-pillars-grid">
+            
+            <!-- Pillar 1: Tính Tự Lập -->
+            <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;">
+              <span style="font-size:28px;margin-bottom:8px;">🎒</span>
+              <strong style="font-size:14.5px;color:var(--forest);margin-bottom:6px;line-height:1.3;" data-vi="Rèn Tính Tự Lập Tự Giác" data-en="Nurturing Independence">Rèn Tính Tự Lập Tự Giác</strong>
+              <p style="font-size:12px;color:var(--ink);line-height:1.55;margin:0 0 10px;" data-vi="Không làm thay, không thúc ép. Con tự sắp xếp ba lô, tự dựng lều và tự phục vụ bản thân." data-en="No hovering, no spoon-feeding. Scouts pack their own gear, pitch tents and care for themselves.">Không làm thay, không thúc ép. Con tự sắp xếp ba lô, tự dựng lều và tự phục vụ bản thân.</p>
+              <span style="font-size:11px;font-weight:700;color:var(--fire);margin-top:auto;">Học qua trải nghiệm ↗</span>
+            </div>
+
+            <!-- Pillar 2: Cai Nghiện Màn Hình -->
+            <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;">
+              <span style="font-size:28px;margin-bottom:8px;">🌿</span>
+              <strong style="font-size:14.5px;color:var(--forest);margin-bottom:6px;line-height:1.3;" data-vi="Cai Nghiện Thiết Bị Số" data-en="Digital Detox">Cai Nghiện Thiết Bị Số</strong>
+              <p style="font-size:12px;color:var(--ink);line-height:1.55;margin:0 0 10px;" data-vi="Kéo con ra khỏi thế giới ảo bằng nắng gió, cỏ cây, trò chơi tập thể và những người bạn thật." data-en="Replacing screen addiction with sunshine, fresh air, wide games and real friendships.">Kéo con ra khỏi thế giới ảo bằng nắng gió, cỏ cây, trò chơi tập thể và những người bạn thật.</p>
+              <span style="font-size:11px;font-weight:700;color:var(--forest);margin-top:auto;">Trải nghiệm thiên nhiên ↗</span>
+            </div>
+
+            <!-- Pillar 3: Tự Tin & Hòa Đồng -->
+            <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;">
+              <span style="font-size:28px;margin-bottom:8px;">🤝</span>
+              <strong style="font-size:14.5px;color:var(--forest);margin-bottom:6px;line-height:1.3;" data-vi="Tự Tin &amp; Làm Việc Nhóm" data-en="Confidence &amp; Teamwork">Tự Tin &amp; Làm Việc Nhóm</strong>
+              <p style="font-size:12px;color:var(--ink);line-height:1.55;margin:0 0 10px;" data-vi="Hệ thống Hàng Đội trao quyền cho từng đứa trẻ, giúp con nhút nhát dám lên tiếng và chia sẻ." data-en="The Patrol System empowers every child, helping shy children find their voice and leadership.">Hệ thống Hàng Đội trao quyền cho từng đứa trẻ, giúp con nhút nhát dám lên tiếng và chia sẻ.</p>
+              <span style="font-size:11px;font-weight:700;color:var(--fire);margin-top:auto;">Hệ thống Hàng Đội ↗</span>
+            </div>
+
+            <!-- Pillar 4: Kỷ Luật Tích Cực -->
+            <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;">
+              <span style="font-size:28px;margin-bottom:8px;">⚖️</span>
+              <strong style="font-size:14.5px;color:var(--forest);margin-bottom:6px;line-height:1.3;" data-vi="Kỷ Luật Tích Cực" data-en="Positive Discipline">Kỷ Luật Tích Cực</strong>
+              <p style="font-size:12px;color:var(--ink);line-height:1.55;margin:0 0 10px;" data-vi="Không quát mắng, không áp đặt. Rèn luyện ý thức dựa trên Lời Hứa và 10 Điều Luật Hướng Đạo." data-en="No scolding, no harsh punishments. Fostering self-discipline guided by Scout Law &amp; Promise.">Không quát mắng, không áp đặt. Rèn luyện ý thức dựa trên Lời Hứa và 10 Điều Luật Hướng Đạo.</p>
+              <span style="font-size:11px;font-weight:700;color:var(--forest);margin-top:auto;">10 Điều Luật HĐ ↗</span>
+            </div>
+
+          </div>
+        </div>
+
 
         <!-- Filter tabs aligned with scout theme -->
         <div style="text-align:center;">
@@ -5656,6 +6185,23 @@ ${s.parentName} - ${s.parentPhone}`
   <div class="no-print" style="margin-top:40px;text-align:center;">
     <button onclick="window.print()" style="background:#113237;color:#fff;padding:10px 24px;border:none;border-radius:6px;font-size:14px;cursor:pointer;font-weight:bold;">🖨️ In Phiếu Hoặc Lưu File PDF</button>
   </div>
+  <!-- ========================================================
+       INSTANT SITE SEARCH MODAL (CLIENT-SIDE IN-MEMORY ENGINE)
+       ======================================================== -->
+  <div class="site-search-modal" id="siteSearchModal" role="dialog" aria-modal="true" aria-label="Tìm kiếm toàn trang" onclick="if(event.target===this)window.ScoutSearch.closeModal();">
+    <div class="search-box-container">
+      <div class="search-input-header">
+        <span style="font-size:18px;">🔍</span>
+        <input type="search" id="siteSearchInput" class="search-input-field" placeholder="Tìm kỹ năng, độ tuổi, học phí, lịch sinh hoạt, nút dây..." autocomplete="off" oninput="window.ScoutSearch.performSearch(this.value)" />
+        <button type="button" class="search-close-btn" onclick="window.ScoutSearch.closeModal()" aria-label="Đóng tìm kiếm">✕</button>
+      </div>
+      <div class="search-results-area" id="siteSearchResults">
+        <!-- Results or Quick suggestions rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/site-search.js"></script>
 </body>
 </html>`;
 
@@ -5838,6 +6384,7 @@ ${s.parentName} - ${s.parentPhone}`
   <script>
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' || e.keyCode === 27) {
+        if (window.ScoutSearch && typeof window.ScoutSearch.closeModal === 'function') window.ScoutSearch.closeModal();
         if (window.ScoutSkills && typeof window.ScoutSkills.closeModal === 'function') window.ScoutSkills.closeModal();
         if (window.ScoutSongs && typeof window.ScoutSongs.closeModal === 'function') window.ScoutSongs.closeModal();
         if (window.ScoutTools && typeof window.ScoutTools.closeToolsModal === 'function') window.ScoutTools.closeToolsModal();

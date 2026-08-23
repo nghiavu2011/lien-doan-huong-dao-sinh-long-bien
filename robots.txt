@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lien-doan-huong-dao-long-bien.vercel.app/sitemap.xml

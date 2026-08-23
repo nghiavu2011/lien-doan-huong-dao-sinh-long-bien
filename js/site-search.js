@@ -135,6 +135,46 @@
       action: "Mở bài học & Infographic"
     },
 
+        // --- 5. EXTENDED PRACTICAL SCOUTCRAFT & ESSENTIALS ---
+    {
+      title: "Kỹ Năng Sinh Tồn & Mưu Sinh Thoát Hiểm Dã Ngoại",
+      category: "Kỹ Năng Hướng Đạo",
+      badge: "🏕️ Sinh Tồn",
+      keywords: ["sinh tồn", "sinh ton", "mưu sinh", "muu sinh", "thoát hiểm", "thoat hiem", "rừng rậm", "kỹ năng sống", "tồn tại", "nguy hiểm", "dã ngoại"],
+      desc: "Nguyên tắc sinh tồn STOP, cách lọc nước dã chiến, tìm nơi trú ẩn khẩn cấp và bảo vệ thân nhiệt giữa thiên nhiên hoang dã.",
+      url: "#ky-nang",
+      skillId: "nguyen-tac-sinh-ton-stop",
+      action: "Mở bài học & Infographic"
+    },
+    {
+      title: "Địa Điểm Sinh Hoạt & Hướng Dẫn Chỉ Đường (Vườn Hoa Bắc Biên)",
+      category: "Thông Tin Cần Biết",
+      badge: "📍 Địa Điểm",
+      keywords: ["địa chỉ", "dia chi", "ở đâu", "o dau", "bắc biên", "bac bien", "chỉ đường", "chi duong", "vườn hoa", "vuon hoa", "ngọc thụy", "ngoc thuy", "bản đồ", "ban do"],
+      desc: "Vườn hoa Bắc Biên (chân cầu Long Biên, lối rẽ đê Ngọc Thụy, quận Long Biên, Hà Nội). Không gian xanh mát ven bãi sông Hồng.",
+      url: "#journeyTitle",
+      action: "Xem bản đồ & chỉ đường"
+    },
+    {
+      title: "Sơ Cấp Cứu & Xử Lý Chấn Thương Ngoài Trời",
+      category: "Kỹ Năng Hướng Đạo",
+      badge: "🩹 Sơ Cứu",
+      keywords: ["sơ cứu", "so cuu", "băng bó", "bang bo", "vết thương", "vet thuong", "cứu thương", "cuu thuong", "say nắng", "chảy máu", "túi y tế"],
+      desc: "Quy trình sơ cấp cứu ban đầu (DRABC), rửa sát khuẩn vết thương hở, xử trí bỏng nhiệt và kỹ thuật quấn băng tam giác chuẩn.",
+      url: "#ky-nang",
+      skillId: "xu-ly-vet-cat-tray-xuoc",
+      action: "Mở bài học & Infographic"
+    },
+    {
+      title: "Ngành Thiếu (Thiếu Sinh 11–15 Tuổi)",
+      category: "Các Ngành Sinh Hoạt",
+      badge: "⚜️ Thiếu Đoàn",
+      keywords: ["11 tuổi", "12 tuổi", "12 tuoi", "13 tuổi", "13 tuoi", "14 tuổi", "14 tuoi", "15 tuổi", "15 tuoi", "thcs", "cấp 2", "thiếu sinh", "thiếu đoàn", "sắp sẵn"],
+      desc: "Học sinh THCS từ 11–15 tuổi: rèn kỹ năng tự lập, tự quản hàng đội, thám du rừng sâu, dựng trại và lửa bếp dã chiến.",
+      url: "#cac-nganh",
+      action: "Xem chi tiết Ngành Thiếu"
+    },
+
     // --- 4. PARENTING & STORIES ---
     {
       title: "Góc Phụ Huynh: Rèn Luyện Tính Tự Lập Cho Con",

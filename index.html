@@ -3313,7 +3313,7 @@
           <h2 data-vi="Những nụ cười lấm lem và ngày tháng lớn lên cùng bè bạn." data-en="Muddy smiles and the joyful journey of growing up together.">Những nụ cười lấm lem và ngày tháng lớn lên cùng bè bạn.</h2>
           <p class="lead" data-vi="Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên." data-en="No staged poses—just hands getting familiar with the earth, eager eyes lighting their first campfire, and cheerful laughter along the Red River. Each photo captures a rustic memory of Sunday mornings lived fully in the open air.">Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên.</p>
         </div>
-        <div class="gal-warn" id="galWarn" hidden><strong data-vi="Hình ảnh hoạt động đang được cập nhật" data-en="Activity photos are being updated">Hình ảnh hoạt động đang được cập nhật</strong><p data-vi="Trang đang không tìm thấy thư mục assets/gallery/. Hãy mở index.html cùng với cả thư mục assets." data-en="Cannot locate gallery folder. Please open index.html alongside its folders.">Trang đang không tìm thấy thư mục <code>assets/gallery/</code>.</p></div>
+        <div class="gal-warn" id="galWarn" hidden><strong data-vi="Hình ảnh hoạt động đang được cập nhật" data-en="Activity photos are being updated">Hình ảnh hoạt động đang được cập nhật</strong><p data-vi="Thư viện ảnh dã ngoại đang được đồng bộ những khoảnh khắc mới nhất." data-en="Scout photo library is currently syncing with the latest moments.">Thư viện ảnh dã ngoại đang được đồng bộ những khoảnh khắc mới nhất.</p></div>
                         <!-- Featured Hero Showcase Slider -->
         <div class="gal-slider-box reveal" id="gallerySlider" onclick="handleSliderClick()">
           <div id="sliderSlides"></div>
@@ -5757,8 +5757,8 @@
   if(joinModal) joinModal.addEventListener('click',e=>{if(e.target===joinModal)closeJoin()});
 
   /* ---------- gallery ---------- */
-  const getPhotoSrc = id => (id.includes('/') || id.endsWith('.jpg') || id.endsWith('.png') || id.endsWith('.webp')) ? id : `assets/gallery/${id}.webp`;
-  const getThumbSrc = id => (id.includes('/') || id.endsWith('.jpg') || id.endsWith('.png') || id.endsWith('.webp')) ? id : `assets/gallery/${id}-t.webp`;
+  const getPhotoSrc = id => (id.includes('/') || id.endsWith('.jpg') || id.endsWith('.png') || id.endsWith('.webp')) ? id : `image/${id}.jpg`;
+  const getThumbSrc = id => (id.includes('/') || id.endsWith('.jpg') || id.endsWith('.png') || id.endsWith('.webp')) ? id : `image/${id}.jpg`;
 
   let PHOTOS=[];
   const buildPhotos=()=>{

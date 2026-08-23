@@ -4,25 +4,25 @@
    ======================================================== */
 
 (function() {
-  // Master Search Index Repository
-  const SEARCH_INDEX = [
+  // Static Core Knowledge & FAQ Index
+  const BASE_SEARCH_INDEX = [
     // --- 1. AGE & SECTIONS ---
     {
       title: "Ngành Ấu (Sói Con 7–11 Tuổi)",
       category: "Các Ngành Sinh Hoạt",
       badge: "🐺 Ấu Đoàn",
-      keywords: ["7 tuổi", "8 tuổi", "9 tuổi", "10 tuổi", "11 tuổi", "tiểu học", "sói con", "ấu đoàn", "ngành ấu", "gắng sức", "akela", "bầy"],
+      keywords: ["7 tuổi", "8 tuổi", "9 tuổi", "10 tuổi", "11 tuổi", "tiểu học", "sói con", "ấu đoàn", "ngành ấu", "gắng sức", "akela", "bầy", "lớp 1", "lớp 2", "lớp 3", "lớp 4", "lớp 5"],
       desc: "Chương trình giáo dục qua truyện kể rừng già Mowgli và trò chơi vận động, rèn tính tự lập, tự phục vụ và tinh thần làm việc nhóm.",
-      url: "#nganh-au",
+      url: "#cac-nganh",
       action: "Xem chi tiết Ngành Ấu"
     },
     {
       title: "Ngành Thiếu (Thiếu Sinh 11–15 Tuổi)",
       category: "Các Ngành Sinh Hoạt",
       badge: "⚜️ Thiếu Đoàn",
-      keywords: ["11 tuổi", "12 tuổi", "13 tuổi", "14 tuổi", "15 tuổi", "thcs", "cấp 2", "thiếu sinh", "thiếu đoàn", "ngành thiếu", "sắp sẵn", "hàng đội", "đội trưởng"],
+      keywords: ["11 tuổi", "12 tuổi", "13 tuổi", "14 tuổi", "15 tuổi", "thcs", "cấp 2", "thiếu sinh", "thiếu đoàn", "ngành thiếu", "sắp sẵn", "hàng đội", "đội trưởng", "lớp 6", "lớp 7", "lớp 8", "lớp 9"],
       desc: "Phương pháp Hàng Đội tự quản: tự phân công, tự xoay xở, rèn kỹ năng sinh tồn, dã ngoại, dựng lều, thám du và lãnh đạo.",
-      url: "#nganh-thieu",
+      url: "#cac-nganh",
       action: "Xem chi tiết Ngành Thiếu"
     },
     {
@@ -31,7 +31,7 @@
       badge: "🏕️ Tráng Đoàn",
       keywords: ["18 tuổi", "đại học", "thanh niên", "tráng sinh", "tráng đoàn", "ngành tráng", "phụng sự", "tình nguyện", "giúp ích"],
       desc: "Ngành lớn nhất: chuyển từ người tham gia sang người dẫn dắt, tổ chức chương trình và thực hiện các dự án phụng sự cộng đồng.",
-      url: "#nganh-trang",
+      url: "#cac-nganh",
       action: "Xem chi tiết Ngành Tráng"
     },
 
@@ -40,7 +40,7 @@
       title: "Học Phí & Chi Phí Tham Gia",
       category: "Hỏi Đáp Phụ Huynh",
       badge: "💰 Chi Phí 0đ",
-      keywords: ["học phí", "chi phí", "bao nhiêu tiền", "đóng tiền", "phi lợi nhuận", "học phí không", "kinh phí", "miễn phí"],
+      keywords: ["học phí", "chi phí", "bao nhiêu tiền", "đóng tiền", "phi lợi nhuận", "học phí không", "kinh phí", "miễn phí", "tiền"],
       desc: "Liên đoàn hoạt động phi lợi nhuận, hoàn toàn KHÔNG thu học phí. Các kỳ trại thực tế được tính toán minh bạch chi phí ăn ở, xe cộ.",
       url: "#hoi-dap",
       action: "Xem chi tiết câu trả lời"
@@ -49,7 +49,7 @@
       title: "Quy Trình 2 Buổi Dự Thính Trải Nghiệm Thực Tế",
       category: "Gia Nhập & Đăng Ký",
       badge: "🌱 Dự Thính",
-      keywords: ["dự thính", "học thử", "trải nghiệm thử", "tham gia thử", "buổi đầu", "quy trình", "đăng ký", "thủ tục", "xin vào"],
+      keywords: ["dự thính", "học thử", "trải nghiệm thử", "tham gia thử", "buổi đầu", "quy trình", "đăng ký", "thủ tục", "xin vào", "nhập đoàn"],
       desc: "Phụ huynh đưa con đến trải nghiệm thực tế 2 buổi sáng Chủ nhật tại Vườn hoa Bắc Biên trước khi gia đình và Liên đoàn quyết định kết nạp.",
       url: "#quy-trinh",
       action: "Xem quy trình 5 bước"
@@ -58,9 +58,9 @@
       title: "Lịch Sinh Hoạt & Địa Điểm (Sáng Chủ Nhật)",
       category: "Thông Tin Cần Biết",
       badge: "📅 Lịch Định Kỳ",
-      keywords: ["chủ nhật", "thời gian", "mấy giờ", "ở đâu", "địa điểm", "bắc biên", "vườn hoa bắc biên", "ngọc thụy", "long biên", "lịch sinh hoạt"],
+      keywords: ["chủ nhật", "thời gian", "mấy giờ", "ở đâu", "địa điểm", "bắc biên", "vườn hoa bắc biên", "ngọc thụy", "long biên", "lịch sinh hoạt", "giờ"],
       desc: "Sinh hoạt đều đặn từ 09h00 đến 11h00 sáng Chủ nhật hằng tuần tại Vườn hoa Bắc Biên (chân cầu Long Biên, Ngọc Thụy, Hà Nội).",
-      url: "#dong-thoi-gian",
+      url: "#journeyTitle",
       action: "Xem địa điểm & chỉ đường"
     },
     {
@@ -166,16 +166,44 @@
     }
   ];
 
-  // Search Engine Controller
+  // Helper to compile dynamic index combining Base + window.SCOUT_SKILLS_DATA
+  function getFullSearchIndex() {
+    let index = [...BASE_SEARCH_INDEX];
+    if (window.SCOUT_SKILLS_DATA && Array.isArray(window.SCOUT_SKILLS_DATA)) {
+      window.SCOUT_SKILLS_DATA.forEach(s => {
+        // avoid duplicating items already in BASE_SEARCH_INDEX
+        if (!index.some(item => item.skillId === s.id)) {
+          index.push({
+            title: s.title,
+            category: "Kho Kỹ Năng Hướng Đạo",
+            badge: "⚜️ Kỹ Năng",
+            keywords: [s.title, s.subcategory || '', s.category || '', ...(s.tags || [])],
+            desc: s.shortDescription || s.purpose || "Kỹ năng thực hành Hướng đạo chính thức.",
+            url: "#ky-nang",
+            skillId: s.id,
+            action: "Mở bài học & Infographic"
+          });
+        }
+      });
+    }
+    return index;
+  }
+
+  // Global ScoutSearch API
   window.ScoutSearch = {
     openModal: function() {
+      if (typeof closeMobileNav === 'function') closeMobileNav();
       const modal = document.getElementById('siteSearchModal');
       const input = document.getElementById('siteSearchInput');
       if (modal) {
         modal.classList.add('open');
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         if (input) {
-          setTimeout(() => input.focus(), 80);
+          setTimeout(() => {
+            input.focus();
+            input.select();
+          }, 80);
           if (!input.value) this.renderQuickSuggestions();
         }
       }
@@ -185,6 +213,7 @@
       const modal = document.getElementById('siteSearchModal');
       if (modal) {
         modal.classList.remove('open');
+        modal.style.display = 'none';
         document.body.style.overflow = '';
       }
     },
@@ -206,12 +235,12 @@
         return;
       }
 
-      // Filter index
-      const matches = SEARCH_INDEX.filter(item => {
+      const allItems = getFullSearchIndex();
+      const matches = allItems.filter(item => {
         const titleNorm = this.normalize(item.title);
         const descNorm = this.normalize(item.desc);
         const catNorm = this.normalize(item.category);
-        const kwNorm = item.keywords.map(k => this.normalize(k)).join(' ');
+        const kwNorm = (item.keywords || []).map(k => this.normalize(k)).join(' ');
 
         return titleNorm.includes(q) || descNorm.includes(q) || catNorm.includes(q) || kwNorm.includes(q);
       });
@@ -228,7 +257,7 @@
       }
 
       let html = `<div class="search-results-list">`;
-      matches.forEach(item => {
+      matches.slice(0, 20).forEach(item => {
         const clickHandler = item.skillId 
           ? `onclick="ScoutSearch.closeModal(); if(window.ScoutSkills) window.ScoutSkills.openModal('${item.skillId}');"`
           : (item.storyId 
@@ -280,9 +309,23 @@
     }
   };
 
+  // Expose global openSearchModal alias
+  window.openSearchModal = function() {
+    window.ScoutSearch.openModal();
+  };
+
+  // Global Delegated click handler for any element with .nav-search-btn or data-search
+  document.addEventListener('click', function(e) {
+    const searchBtn = e.target.closest('.nav-search-btn, [data-search], [onclick*="ScoutSearch.openModal"]');
+    if (searchBtn && !searchBtn.closest('#siteSearchModal')) {
+      e.preventDefault();
+      window.ScoutSearch.openModal();
+    }
+  });
+
   // Global Keyboard shortcut listener (Ctrl + K / Cmd + K / Slash)
   window.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
       e.preventDefault();
       window.ScoutSearch.openModal();
     }

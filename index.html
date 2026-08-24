@@ -2582,6 +2582,51 @@
       }
     }
 
+  
+    /* === RESPONSIVE FIX FOR ONBOARDING, COMMITMENTS & SUNDAY ROUTINE === */
+    .commitments-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 768px) {
+      .commitments-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      #fiveStepGrid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .sunday-routine-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .recruit-inner {
+        grid-template-columns: 1fr !important;
+        padding: 20px 16px !important;
+        gap: 20px !important;
+      }
+      .criteria {
+        padding: 20px 16px !important;
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .commitments-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+      }
+      #fiveStepGrid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+      }
+      .sunday-routine-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+      }
+    }
+
   </style>
   <link rel="stylesheet" href="css/scouting-skills.css" />
   <link rel="stylesheet" href="css/scout-songs.css" />
@@ -4678,7 +4723,7 @@
         </div>
 
         <!-- 2. CAM KẾT ĐỒNG HÀNH & CHÍNH SÁCH AN TOÀN TRẺ EM (SAFE FROM HARM) -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;">
+        <div class="commitments-grid">
           <!-- Card 1: Cam kết đồng hành 3 bên -->
           <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">

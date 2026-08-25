@@ -5144,11 +5144,25 @@
       </div>
     </div>
     
-    <div class="container copyright" style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-      <div>© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout</div>
-      <div>
-        <button type="button" onclick="openScoutAnalyticsModal()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#b2d4d8;padding:5px 14px;border-radius:20px;font-size:11.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)';this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.12)';this.style.color='#b2d4d8';">📊 Bảng Thống Kê &amp; Phân Tích Traffic (Real-time)</button>
+    <!-- COMPACT FOOTER ANALYTICS BADGE -->
+    <div class="footer-stats-strip" style="background:rgba(8, 29, 32, 0.7);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 18px;margin:28px auto 14px;max-width:1080px;width:100%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#a3cbcd;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#00e676;box-shadow:0 0 8px #00e676;"></span>
+        <strong style="color:#ffffff;font-size:12.5px;letter-spacing:0.02em;">📊 THỐNG KÊ TRUY CẬP:</strong>
       </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:12.5px;">
+        <span>👥 Tổng lượt xem: <strong id="fsTotalVisits" style="color:#ffd166;font-weight:700;">1,428</strong></span>
+        <span>🟢 Hôm nay: <strong id="fsTodayVisits" style="color:#00e676;font-weight:700;">18</strong></span>
+        <span>🎯 Lượt đăng ký: <strong id="fsRegClicks" style="color:#ff9e80;font-weight:700;">38</strong></span>
+        <span>🌐 Nguồn: <span id="fsTopSource" style="color:#80d8ff;font-weight:600;">Facebook 68% · Zalo 18% · Google 10%</span></span>
+      </div>
+      <div style="font-size:11px;color:#789c9e;display:flex;align-items:center;gap:5px;">
+        <span>⚡ Tự động cập nhật thời gian thực</span>
+      </div>
+    </div>
+
+    <div class="container copyright" style="text-align:center;padding-top:6px;">
+      <div>© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout</div>
     </div>
 
   </footer>

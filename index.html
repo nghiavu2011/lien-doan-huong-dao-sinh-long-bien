@@ -3211,6 +3211,77 @@
 
   </script>
 
+
+  <!-- Vercel Web Analytics & Performance Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  
+  <!-- Integrated Scout Analytics Engine -->
+  <script defer src="js/analytics-tracker.js"></script>
+
+  <!-- Google Analytics 4 (GA4) Bridge -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LONG_BIEN_SCOUTS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    if (window.GA_MEASUREMENT_ID) {
+      gtag('config', window.GA_MEASUREMENT_ID);
+    }
+  </script>
+
+
+  <!-- Schema.org WebSite & Breadcrumbs for Rich Google Search Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://lien-doan-huong-dao-long-bien.vercel.app/#website",
+        "url": "https://lien-doan-huong-dao-long-bien.vercel.app/",
+        "name": "Liên đoàn Hướng đạo Long Biên",
+        "description": "Trang thông tin, lịch sử và đăng ký sinh hoạt Hướng đạo sinh Long Biên, Hà Nội.",
+        "inLanguage": "vi-VN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://lien-doan-huong-dao-long-bien.vercel.app/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://lien-doan-huong-dao-long-bien.vercel.app/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang chủ",
+            "item": "https://lien-doan-huong-dao-long-bien.vercel.app/#top"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Lịch Sử Hướng Đạo",
+            "item": "https://lien-doan-huong-dao-long-bien.vercel.app/#lich-su-huong-dao"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kho Tàng Kỹ Năng",
+            "item": "https://lien-doan-huong-dao-long-bien.vercel.app/#ky-nang"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Góc Phụ Huynh & Tuyển Sinh",
+            "item": "https://lien-doan-huong-dao-long-bien.vercel.app/#quy-trinh"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 

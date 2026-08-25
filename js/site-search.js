@@ -6,6 +6,16 @@
 (function() {
   // Static Core Knowledge & FAQ Index
   const BASE_SEARCH_INDEX = [
+    {
+      title: "Lịch Sử & Phát Triển của Hướng Đạo (Infographics)",
+      category: "Thông Tin Cần Biết",
+      badge: "📜 Tư Liệu Trực Quan",
+      keywords: ["lịch sử", "lich su", "phát triển", "phat trien", "nguồn gốc", "nguon goc", "baden powell", "wosm", "lịch sử hình thành", "brownsea", "trần văn khắc", "lịch sử hướng đạo việt nam", "lịch sử phát triển"],
+      desc: "Tư liệu infographic trực quan: Khởi nguồn phong trào Hướng đạo từ năm 1907, lịch sử Hướng đạo Việt Nam và sự hình thành các ngành sinh hoạt.",
+      url: "#lich-su-huong-dao",
+      action: "Xem tư liệu Infographic"
+    },
+
     // --- 1. AGE & SECTIONS ---
     {
       title: "Ngành Ấu (Sói Con 7–11 Tuổi)",

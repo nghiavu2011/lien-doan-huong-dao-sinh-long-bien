@@ -3282,6 +3282,7 @@
   }
   </script>
 
+  <script defer src="js/scout-telemetry.js"></script>
 </head>
 <body>
 
@@ -5142,7 +5143,14 @@
         </p>
       </div>
     </div>
-    <div class="container copyright" data-vi="© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout" data-en="© Long Bien Scout Inter-group · Founded March 11, 2018 · Non-profit · #LongBienScout">© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout</div>
+    
+    <div class="container copyright" style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div>© Liên đoàn Hướng đạo Long Biên · Thành lập 11.03.2018 · Phi lợi nhuận · #LongBienScout</div>
+      <div>
+        <button type="button" onclick="openScoutAnalyticsModal()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#b2d4d8;padding:5px 14px;border-radius:20px;font-size:11.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)';this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.12)';this.style.color='#b2d4d8';">📊 Bảng Thống Kê &amp; Phân Tích Traffic (Real-time)</button>
+      </div>
+    </div>
+
   </footer>
 
     <!-- Floating Contact Bubbles (Zalo & Messenger) -->

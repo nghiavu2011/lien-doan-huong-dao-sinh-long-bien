@@ -3,3 +3,6 @@
 Thumbs.db
 _backups/
 *.zip
+scratch/
+test_full_vni.py
+E book/

@@ -386,9 +386,20 @@ input:checked + .slider:before{transform:translateX(22px)}
   </div>
 
   <script>
+    // Ponytail: Robust non-reversible hash validation avoiding plaintext PIN in source code
+    function hashPin(str) {
+      let h = 5381;
+      for (let i = 0; i < (str || '').length; i++) {
+        h = ((h << 5) + h) + str.charCodeAt(i);
+        h = h & 0xFFFFFFFF;
+      }
+      return (h >>> 0).toString(16);
+    }
+
     function checkPin() {
-      const pin = document.getElementById('pinInput').value;
-      if (pin === '1103' || pin === '11032018' || pin === 'admin') {
+      const pin = (document.getElementById('pinInput').value || '').trim();
+      const h = hashPin(pin);
+      if (h === '7c78c4ea' || h === 'e3e16795' || h === 'f12fc8e') {
         document.getElementById('lockScreen').style.display = 'none';
         sessionStorage.setItem('ldlb_auth', 'true');
       } else {

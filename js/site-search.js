@@ -4,6 +4,17 @@
    ======================================================== */
 
 (function() {
+
+  window.escapeHtml = function(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  };
+
   // Static Core Knowledge & FAQ Index
   const BASE_SEARCH_INDEX = [
     {
@@ -308,7 +319,7 @@
         resBox.innerHTML = `
           <div class="search-empty-state">
             <span style="font-size:36px;display:block;margin-bottom:8px;">🔍</span>
-            <strong style="color:var(--forest);font-size:15px;display:block;margin-bottom:4px;">Không tìm thấy kết quả phù hợp cho "${rawQuery}"</strong>
+            <strong style="color:var(--forest);font-size:15px;display:block;margin-bottom:4px;">Không tìm thấy kết quả phù hợp cho "${escapeHtml(rawQuery)}"</strong>
             <p style="color:var(--muted);font-size:13px;margin:0;">Thử tìm kiếm với các từ khóa phổ biến: <em>"9 tuổi", "học phí", "nút ghế", "chủ nhật", "dự thính"</em></p>
           </div>
         `;

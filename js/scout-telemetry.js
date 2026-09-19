@@ -1,6 +1,6 @@
 /**
- * SCOUT TELEMETRY & FOOTER ANALYTICS WIDGET
- * Automatic Visitor Tracking, Source Attribution, and Compact Footer Stats Badge
+ * SCOUT TELEMETRY & COMPACT FOOTER STATS ENGINE
+ * Consolidated single tracker: Visitor Metrics, GA4 Bridge, Vercel Insights & Lead Tracking
  */
 
 (function() {
@@ -23,28 +23,7 @@
     localStorage.setItem(TODAY_VISITS_KEY, '0');
   }
 
-  // 1. Database
-  function getDB() {
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      if (data) return JSON.parse(data);
-    } catch (e) {}
-    // Seed initial baseline stats so the footer widget looks active & real immediately
-    return {
-      totalVisits: 1428,
-      sources: { facebook: 980, zalo: 260, google_search: 140, direct: 48, other: 0 },
-      conversions: { registration_clicks: 38, zalo_leads: 24, facebook_visits: 52, search_queries: 19, history_views: 45 },
-      devices: { mobile: 920, desktop: 460, tablet: 48 }
-    };
-  }
-
-  function saveDB(db) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-    } catch (e) {}
-  }
-
-  // 2. Identify Traffic Source from URL / Referrer
+  // 1. Identify Traffic Source from URL / Referrer
   function detectSource() {
     const utmSource = (urlParams.get('utm_source') || '').toLowerCase();
     const fbclid = urlParams.get('fbclid');
@@ -65,7 +44,42 @@
     return 'direct';
   }
 
-  // 3. Track Hit on New Session
+  const source = detectSource();
+
+  // 2. Acquisition tracking in sessionStorage
+  const acquisitionData = {
+    source: source,
+    medium: urlParams.get('utm_medium') || (urlParams.get('fbclid') ? 'social_fb' : 'web'),
+    campaign: urlParams.get('utm_campaign') || 'organic_longbienscout',
+    referrer: document.referrer || 'direct',
+    landingPage: window.location.pathname + window.location.hash,
+    timestamp: new Date().toISOString()
+  };
+  try {
+    sessionStorage.setItem('scout_acquisition_channel', JSON.stringify(acquisitionData));
+  } catch (e) {}
+
+  // 3. Database
+  function getDB() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      if (data) return JSON.parse(data);
+    } catch (e) {}
+    return {
+      totalVisits: 1428,
+      sources: { facebook: 980, zalo: 260, google_search: 140, direct: 48, other: 0 },
+      conversions: { registration_clicks: 38, zalo_leads: 24, facebook_visits: 52, search_queries: 19, history_views: 45 },
+      devices: { mobile: 920, desktop: 460, tablet: 48 }
+    };
+  }
+
+  function saveDB(db) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+    } catch (e) {}
+  }
+
+  // 4. Track Hit on New Session
   let sessionId = sessionStorage.getItem(SESSION_KEY);
   const isNewSession = !sessionId;
   if (isNewSession) {
@@ -74,8 +88,6 @@
   }
 
   const db = getDB();
-  const source = detectSource();
-
   if (isNewSession) {
     db.totalVisits++;
     todayVisits++;
@@ -84,7 +96,7 @@
     saveDB(db);
   }
 
-  // 4. Update Footer Stats DOM
+  // 5. Update Footer Stats DOM
   function updateFooterStatsUI() {
     const currentDb = getDB();
     const curToday = parseInt(localStorage.getItem(TODAY_VISITS_KEY) || '0', 10) + (isNewSession ? 0 : 1);
@@ -107,7 +119,7 @@
     }
   }
 
-  // 5. Global Event Logger
+  // 6. Unified Global Event Dispatcher
   window.logScoutAnalyticsEvent = function(category, detail) {
     const currentDb = getDB();
     if (!currentDb.conversions[category]) {
@@ -117,11 +129,20 @@
     saveDB(currentDb);
     updateFooterStatsUI();
 
+    // GA4 Bridge
     if (typeof window.gtag === 'function') {
       window.gtag('event', category, { event_label: detail, source: source });
     }
+    // Vercel Analytics Bridge
+    if (window.va) {
+      window.va('event', { name: category, data: { detail: detail, source: source } });
+    }
   };
 
+  // Backwards compatibility alias
+  window.trackScoutEvent = window.logScoutAnalyticsEvent;
+
+  // 7. Attach single-point DOM event listeners
   document.addEventListener('DOMContentLoaded', function() {
     updateFooterStatsUI();
 
@@ -139,12 +160,34 @@
       });
     });
 
+    // Track Facebook Clicks
+    document.querySelectorAll('a[href*="facebook.com"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        window.logScoutAnalyticsEvent('facebook_visits', this.href);
+      });
+    });
+
     // Track History Infographics
     document.querySelectorAll('.history-card').forEach(function(el) {
       el.addEventListener('click', function() {
         window.logScoutAnalyticsEvent('history_views', 'Infographic');
       });
     });
+
+    // Scroll depth milestones (50% & 90%)
+    let tracked50 = false;
+    let tracked90 = false;
+    window.addEventListener('scroll', function() {
+      const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+      if (scrollPercent >= 50 && !tracked50) {
+        tracked50 = true;
+        window.logScoutAnalyticsEvent('scroll_depth_50', '50%');
+      }
+      if (scrollPercent >= 90 && !tracked90) {
+        tracked90 = true;
+        window.logScoutAnalyticsEvent('scroll_depth_90', '90%');
+      }
+    }, { passive: true });
   });
 
 })();

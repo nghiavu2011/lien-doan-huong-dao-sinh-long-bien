@@ -2860,6 +2860,9 @@
   <script defer src="js/scout-telemetry.js"></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v20.0"></script>
+
 
   <script>
     // Global Registration & Survey Modal Controller
@@ -3156,30 +3159,151 @@
           <h2 data-vi="Những nụ cười lấm lem và ngày tháng lớn lên cùng bè bạn." data-en="Muddy smiles and the joyful journey of growing up together.">Những nụ cười lấm lem và ngày tháng lớn lên cùng bè bạn.</h2>
           <p class="lead" data-vi="Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên." data-en="No staged poses—just hands getting familiar with the earth, eager eyes lighting their first campfire, and cheerful laughter along the Red River. Each photo captures a rustic memory of Sunday mornings lived fully in the open air.">Không có những kiểu tạo dáng gượng gạo, chỉ có đôi bàn tay tập quen với bùn đất, ánh mắt say mê khi nhóm lên ngọn lửa đầu tiên và tiếng cười giòn tan ven bãi sông Hồng. Từng bức ảnh là một mẩu ký ức mộc mạc về những buổi sớm Chủ nhật được sống hết mình giữa thiên nhiên.</p>
         </div>
-        <div class="gal-warn" id="galWarn" hidden><strong data-vi="Hình ảnh hoạt động đang được cập nhật" data-en="Activity photos are being updated">Hình ảnh hoạt động đang được cập nhật</strong><p data-vi="Thư viện ảnh dã ngoại đang được đồng bộ những khoảnh khắc mới nhất." data-en="Scout photo library is currently syncing with the latest moments.">Thư viện ảnh dã ngoại đang được đồng bộ những khoảnh khắc mới nhất.</p></div>
-                        <!-- Featured Hero Showcase Slider -->
-        <div class="gal-slider-box reveal" id="gallerySlider" onclick="handleSliderClick()">
-          <div id="sliderSlides"></div>
-          <button class="slider-nav-btn slider-prev" type="button" onclick="event.stopPropagation();stepSlider(-1)" aria-label="Slide trước">‹</button>
-          <button class="slider-nav-btn slider-next" type="button" onclick="event.stopPropagation();stepSlider(1)" aria-label="Slide sau">›</button>
-          <div class="slider-dots" id="sliderDots"></div>
+        <!-- Dual-Mode Gallery View Switcher -->
+        <div class="gallery-view-tabs reveal">
+          <button type="button" class="gallery-tab-btn active" id="tabGalleryCurated" onclick="switchGalleryView('curated')">
+            <span class="tab-icon">🌟</span>
+            <span data-vi="Thư Viện Album Chọn Lọc" data-en="Curated Photo Albums">Thư Viện Album Chọn Lọc</span>
+          </button>
+          <button type="button" class="gallery-tab-btn" id="tabGalleryLive" onclick="switchGalleryView('live')">
+            <span class="live-dot-pulse"></span>
+            <span data-vi="Dòng Tin Fanpage Trực Tiếp" data-en="Live Fanpage Stream">Dòng Tin Fanpage Trực Tiếp</span>
+            <span class="live-tag">TỰ ĐỘNG 100%</span>
+          </button>
         </div>
 
-        <div class="gal-bar reveal" id="galBar" role="group" aria-label="Lọc theo album"></div>
-        <!-- Album Story & Topic Sharing Box -->
-        <div class="album-story-card reveal" id="albumStory" style="display:none;" aria-live="polite">
-          <div class="story-header">
-            <h3 class="story-title" id="storyTitle">📖 Trại Cuối Năm – Tết Ấm Áp</h3>
-            <span class="story-meta" id="storyMeta">📅 11–12/01/2025 · ⚜ Toàn Liên đoàn</span>
+        <div class="gal-warn" id="galWarn" hidden><strong data-vi="Hình ảnh hoạt động đang được cập nhật" data-en="Activity photos are being updated">Hình ảnh hoạt động đang được cập nhật</strong><p data-vi="Thư viện ảnh dã ngoại đang được đồng bộ những khoảnh khắc mới nhất." data-en="Scout photo library is currently syncing with the latest moments.">Thư viện ảnh dã ngoại đang được đồng bộ những khoảnh khắc mới nhất.</p></div>
+
+        <!-- ================= MODE 1: CURATED PHOTO ALBUMS ================= -->
+        <div id="curatedGalleryBox">
+          <!-- Featured Hero Showcase Slider -->
+          <div class="gal-slider-box reveal" id="gallerySlider" onclick="handleSliderClick()">
+            <div id="sliderSlides"></div>
+            <button class="slider-nav-btn slider-prev" type="button" onclick="event.stopPropagation();stepSlider(-1)" aria-label="Slide trước">‹</button>
+            <button class="slider-nav-btn slider-next" type="button" onclick="event.stopPropagation();stepSlider(1)" aria-label="Slide sau">›</button>
+            <div class="slider-dots" id="sliderDots"></div>
           </div>
-          <p class="story-desc" id="storyDesc">Liên đoàn Long Biên - Long Biên Scout vừa có một kỳ trại Tất Niên - Tết Ấm Bên Nhau trong hai ngày 11 và 12/1/2025! Kỳ trại đã diễn ra thật đầm ấm trong không khí vui tươi, quây quần bên nhau những ngày cuối năm Giáp Thìn! Chúng ta cùng nhìn lại một số hình ảnh trong kỳ trại Tết Ấm Bên Nhau nhé!</p>
-          <div class="story-tags" id="storyTags"></div>
+
+          <div class="gal-bar reveal" id="galBar" role="group" aria-label="Lọc theo album"></div>
+          <!-- Album Story & Topic Sharing Box -->
+          <div class="album-story-card reveal" id="albumStory" style="display:none;" aria-live="polite">
+            <div class="story-header">
+              <h3 class="story-title" id="storyTitle">📖 Trại Cuối Năm – Tết Ấm Áp</h3>
+              <span class="story-meta" id="storyMeta">📅 11–12/01/2025 · ⚜ Toàn Liên đoàn</span>
+            </div>
+            <p class="story-desc" id="storyDesc">Liên đoàn Long Biên - Long Biên Scout vừa có một kỳ trại Tất Niên - Tết Ấm Bên Nhau trong hai ngày 11 và 12/1/2025! Kỳ trại đã diễn ra thật đầm ấm trong không khí vui tươi, quây quần bên nhau những ngày cuối năm Giáp Thìn! Chúng ta cùng nhìn lại một số hình ảnh trong kỳ trại Tết Ấm Bên Nhau nhé!</p>
+            <div class="story-tags" id="storyTags"></div>
+          </div>
+          <div class="gal-grid reveal" id="galGrid"></div>
+          <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+            <button class="btn-load-more" id="btnLoadMore" type="button" onclick="handleLoadMore()">
+              <span data-vi="Xem thêm khoảnh khắc khác ▾" data-en="Load More Moments ▾">Xem thêm khoảnh khắc khác ▾</span>
+            </button>
+          </div>
         </div>
-                <div class="gal-grid reveal" id="galGrid"></div>
-        <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
-          <button class="btn-load-more" id="btnLoadMore" type="button" onclick="handleLoadMore()">
-            <span data-vi="Xem thêm khoảnh khắc khác ▾" data-en="Load More Moments ▾">Xem thêm khoảnh khắc khác ▾</span>
-          </button>
+
+        <!-- ================= MODE 2: LIVE FACEBOOK REAL-TIME FEED ================= -->
+        <div id="facebookLiveStreamView" class="fb-stream-container" style="display:none;">
+          <div class="fb-stream-header">
+            <div class="fb-header-left">
+              <span class="logo-mark fb-stream-avatar" role="img" aria-label="Logo Long Biên Scouts"></span>
+              <div>
+                <div class="fb-stream-title">
+                  <strong>Hướng Đạo Sinh Long Biên - Hà Nội</strong>
+                  <span class="fb-verified" title="Trang Fanpage Chính Thức">✓</span>
+                </div>
+                <div class="fb-stream-sub">
+                  <span class="live-dot-pulse" style="margin-right:4px;"></span>
+                  ⚡ Tự động cập nhật thời gian thực từ <strong>facebook.com/longbienscoutshanoi</strong>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.facebook.com/longbienscoutshanoi" target="_blank" rel="noopener noreferrer" class="btn-fb-follow">
+              <span>💙 Xem &amp; Theo Dõi Fanpage ↗</span>
+            </a>
+          </div>
+
+          <div class="fb-stream-body">
+            <!-- Left: Meta Official Live Page Plugin -->
+            <div class="fb-embed-box">
+              <div class="fb-page" 
+                   data-href="https://www.facebook.com/longbienscoutshanoi" 
+                   data-tabs="timeline,events" 
+                   data-width="460" 
+                   data-height="680" 
+                   data-small-header="false" 
+                   data-adapt-container-width="true" 
+                   data-hide-cover="false" 
+                   data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/longbienscoutshanoi" class="fb-xfbml-parse-ignore">
+                  <a href="https://www.facebook.com/longbienscoutshanoi">Đang kết nối luồng trực tiếp Hướng Đạo Sinh Long Biên...</a>
+                </blockquote>
+              </div>
+            </div>
+
+            <!-- Right: Live Activity Stream Cards (Instant Fallback + Real-Time Sync) -->
+            <div class="fb-recent-cards-list">
+              <div style="font-size:13.5px;font-weight:800;color:var(--forest);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;display:flex;align-items:center;gap:6px;">
+                <span>🔥 HOẠT ĐỘNG MỚI NHẤT TRÊN FANPAGE</span>
+              </div>
+
+              <!-- Post 1: Đi săn có 1-0-2 -->
+              <article class="fb-live-card">
+                <div class="fb-live-card-meta">
+                  <span class="fb-live-card-badge">🐺 Ấu Đoàn (Bầy Long Biên)</span>
+                  <span>📅 Tháng 9/2026</span>
+                </div>
+                <h4 class="fb-live-card-title">TRẢI NGHIỆM “ĐI SĂN CÓ 1-0-2” CỦA BẦY LONG BIÊN</h4>
+                <p class="fb-live-card-desc">Bố mẹ háo hức chờ đợi những lá thư viết tay chan chứa tình cảm của các em Sói con gửi về gia đình. Chuyến đi săn đầy ắp trải nghiệm tự lập, sẻ chia và nụ cười ấm áp của các em.</p>
+                <div class="fb-live-card-footer">
+                  <span style="color:#64748b;">📷 +11 hình ảnh &amp; thư tay</span>
+                  <a href="https://www.facebook.com/longbienscoutshanoi" target="_blank" rel="noopener noreferrer" class="fb-card-link">Xem chi tiết trên FB &rarr;</a>
+                </div>
+              </article>
+
+              <!-- Post 2: Thám du Sài Gòn -->
+              <article class="fb-live-card">
+                <div class="fb-live-card-meta">
+                  <span class="fb-live-card-badge">🧭 Thiếu Đoàn &amp; Toàn Đơn Vị</span>
+                  <span>📅 07/09/2026</span>
+                </div>
+                <h4 class="fb-live-card-title">THÁM DU – CUỘC ĐUA KỲ THÚ GIỮA LÒNG SÀI GÒN</h4>
+                <p class="fb-live-card-desc">Hành trình khám phá TP. Hồ Chí Minh qua phương pháp Hàng Đội: tự đọc bản đồ, tìm kiếm mật thư, ghé thăm Bưu điện trung tâm Sài Gòn và Nhà thờ Đức Bà. Rèn luyện bản lĩnh tự xoay xở.</p>
+                <div class="fb-live-card-footer">
+                  <span style="color:#64748b;">📷 +49 hình ảnh hoạt động</span>
+                  <a href="https://www.facebook.com/longbienscoutshanoi" target="_blank" rel="noopener noreferrer" class="fb-card-link">Xem chi tiết trên FB &rarr;</a>
+                </div>
+              </article>
+
+              <!-- Post 3: Trại hè Vươn Xa -->
+              <article class="fb-live-card">
+                <div class="fb-live-card-meta">
+                  <span class="fb-live-card-badge">🏕️ Kỳ Trại Giao Lưu Lớn</span>
+                  <span>📅 04/09/2026</span>
+                </div>
+                <h4 class="fb-live-card-title">TRẠI HÈ GIAO LƯU HƯỚNG ĐẠO VƯƠN XA - GO BEYOND 2026</h4>
+                <p class="fb-live-card-desc">Hai từ “Vươn xa” mang lại giá trị vô cùng to lớn: giao lưu cùng các Liên đoàn bạn, dựng lều trại, đêm lửa trại thiêng liêng và bài học trưởng thành sâu sắc sau kỳ trại.</p>
+                <div class="fb-live-card-footer">
+                  <span style="color:#64748b;">📷 +33 hình ảnh trại hè</span>
+                  <a href="https://www.facebook.com/longbienscoutshanoi" target="_blank" rel="noopener noreferrer" class="fb-card-link">Xem chi tiết trên FB &rarr;</a>
+                </div>
+              </article>
+
+              <!-- Post 4: Quốc Khánh 2/9 -->
+              <article class="fb-live-card">
+                <div class="fb-live-card-meta">
+                  <span class="fb-live-card-badge">🇻🇳 Tình Yêu Quê Hương</span>
+                  <span>📅 02/09/2026</span>
+                </div>
+                <h4 class="fb-live-card-title">CÙNG BẦY LONG BIÊN GIEO MẦM TÌNH YÊU QUÊ HƯƠNG ĐẤT NƯỚC</h4>
+                <p class="fb-live-card-desc">Học lịch sử qua trò chơi dã ngoại: tìm hiểu cờ đỏ sao vàng, ý nghĩa độc lập tự do và rèn luyện lời hứa Hướng đạo giúp ích cho Tổ quốc.</p>
+                <div class="fb-live-card-footer">
+                  <span style="color:#64748b;">📷 +11 hình ảnh buổi sinh hoạt</span>
+                  <a href="https://www.facebook.com/longbienscoutshanoi" target="_blank" rel="noopener noreferrer" class="fb-card-link">Xem chi tiết trên FB &rarr;</a>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
         <p class="gal-caption" data-vi="Bấm vào ảnh để xem cỡ lớn. Dùng ← → để chuyển ảnh, Esc để đóng." data-en="Click photo to view full size. Use ← → arrows to navigate, Esc to close.">Bấm vào ảnh để xem cỡ lớn. Dùng ← → để chuyển ảnh, Esc để đóng.</p>
       </div>
@@ -5700,6 +5824,33 @@
   if(joinModal) joinModal.addEventListener('click',e=>{if(e.target===joinModal)closeJoin()});
 
   /* ---------- gallery ---------- */
+
+  window.switchGalleryView = function(mode) {
+    const tabCurated = document.getElementById('tabGalleryCurated');
+    const tabLive = document.getElementById('tabGalleryLive');
+    const curatedBox = document.getElementById('curatedGalleryBox');
+    const liveBox = document.getElementById('facebookLiveStreamView');
+
+    if (!tabCurated || !tabLive) return;
+
+    if (mode === 'live') {
+      tabCurated.classList.remove('active');
+      tabLive.classList.add('active');
+      if (curatedBox) curatedBox.style.display = 'none';
+      if (liveBox) {
+        liveBox.style.display = 'block';
+        if (window.FB && window.FB.XFBML && typeof window.FB.XFBML.parse === 'function') {
+          window.FB.XFBML.parse(liveBox);
+        }
+      }
+    } else {
+      tabLive.classList.remove('active');
+      tabCurated.classList.add('active');
+      if (curatedBox) curatedBox.style.display = 'block';
+      if (liveBox) liveBox.style.display = 'none';
+    }
+  };
+
   const getPhotoSrc = id => (id.includes('/') || id.endsWith('.jpg') || id.endsWith('.png') || id.endsWith('.webp')) ? id : `image/${id}.jpg`;
   const getThumbSrc = id => (id.includes('/') || id.endsWith('.jpg') || id.endsWith('.png') || id.endsWith('.webp')) ? id : `image/${id}.jpg`;
 
@@ -7229,7 +7380,236 @@ ${s.parentName} - ${s.parentPhone}`
         display: none;
       }
     }
-  </style>
+  
+    /* ========================================================
+       GALLERY TABS & FACEBOOK REAL-TIME LIVE STREAM STYLES
+       ======================================================== */
+    .gallery-view-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 32px;
+      flex-wrap: wrap;
+    }
+    .gallery-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: #ffffff;
+      color: var(--forest);
+      font-family: inherit;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s ease;
+      box-shadow: 0 3px 10px rgba(17,50,55,.05);
+    }
+    .gallery-tab-btn:hover {
+      border-color: var(--forest);
+      background: var(--paper);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(17,50,55,.1);
+    }
+    .gallery-tab-btn.active {
+      background: var(--forest);
+      color: #ffffff;
+      border-color: var(--forest);
+      box-shadow: 0 8px 22px rgba(17,50,55,.2);
+    }
+    .live-dot-pulse {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulseGreen 1.8s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .live-tag {
+      font-size: 10.5px;
+      background: #ef4444;
+      color: #fff;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      margin-left: 2px;
+    }
+    .fb-stream-container {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 36px rgba(17,50,55,.07);
+      overflow: hidden;
+      padding: 24px;
+    }
+    .fb-stream-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .fb-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .fb-stream-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: contain;
+      background: #ffffff;
+      padding: 2px;
+    }
+    .fb-stream-title strong {
+      font-size: 16px;
+      color: var(--forest);
+      font-weight: 800;
+    }
+    .fb-verified {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      background: #1877f2;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    .fb-stream-sub {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .btn-fb-follow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #1877f2;
+      color: #ffffff !important;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s ease;
+      box-shadow: 0 4px 12px rgba(24,119,242,.25);
+    }
+    .btn-fb-follow:hover {
+      background: #166fe5;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(24,119,242,.35);
+    }
+    .fb-stream-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    @media(max-width: 820px) {
+      .fb-stream-body {
+        grid-template-columns: 1fr;
+      }
+    }
+    .fb-embed-box {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      min-height: 600px;
+    }
+    .fb-recent-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .fb-live-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      transition: all .2s ease;
+    }
+    .fb-live-card:hover {
+      border-color: var(--forest);
+      background: #ffffff;
+      box-shadow: 0 6px 20px rgba(17,50,55,.08);
+      transform: translateY(-2px);
+    }
+    .fb-live-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .fb-live-card-badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .fb-live-card-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--forest);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .fb-live-card-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .fb-live-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      border-top: 1px solid #edf2f7;
+      padding-top: 10px;
+    }
+    .fb-card-link {
+      color: #1877f2;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .fb-card-link:hover {
+      text-decoration: underline;
+    }
+</style>
 
   <script>
     // Advanced History Lightbox Controller
